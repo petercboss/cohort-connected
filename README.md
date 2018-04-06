@@ -1,2 +1,2 @@
-# cohort-connected
-Mission: Connect bootcamp cohorts post graduation to ensure career success and complete transition into the technology sector. 
+# Cohort*Connected*
+Connecting bootcamp cohorts post graduation to assist in their transition to the technology sector and ensure career success.
