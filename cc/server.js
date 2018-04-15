@@ -1,6 +1,6 @@
 const express = require('express')
     , passport = require('passport')
-    , LinkedinStrategy = require('../lib').Strategy;
+    , LinkedinStrategy = require('./lib').Strategy;
 
 // API Access link for creating client ID and secret:
 const LINKEDIN_CLIENT_ID = "78xlkz34c94sm1";
@@ -51,8 +51,8 @@ const app = express();
 
 // configure Express
 app.configure(function () {
-   // app.set('views', __dirname + '/views');
-   // app.set('view engine', 'ejs');
+   app.set('views', __dirname + '/views');
+   app.set('view engine', 'ejs');
     app.use(express.logger());
     app.use(express.cookieParser());
     app.use(express.urlencoded());
