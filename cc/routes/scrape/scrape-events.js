@@ -7,7 +7,7 @@
     module.exports = app => {
 
         // Meetup scraping route
-        app.get("/api/events/scrape/meetup", (req, res) => {
+        app.get("/scrape/events/meetup", (req, res) => {
             request("", (error, response, html) => {
                 const $ = cheerio.load(html);
                 const result = {};

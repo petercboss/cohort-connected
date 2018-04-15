@@ -7,7 +7,7 @@
     module.exports = app => {
 
         // TechCrunch scraping route
-        app.get("/api/news/scrape/techcrunch", (req, res) => {
+        app.get("/scrape/news/techcrunch", (req, res) => {
             request("https://techcrunch.com/", (error, response, html) => {
                 const $ = cheerio.load(html);
                 const result = {};
@@ -24,7 +24,7 @@
         });
 
         // Reuters scraping route
-        app.get("/api/news/scrape/reuters", (req, res) => {
+        app.get("/scrape/news/reuters", (req, res) => {
             request("https://www.reuters.com/news/archive/technologyNews/", (error, response, html) => {
                 const $ = cheerio.load(html);
                 const result = {};
