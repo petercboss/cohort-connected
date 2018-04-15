@@ -15,8 +15,37 @@ import Events from "../events";
 
 class Main extends Component {
     state = {
-        currentPage: "News"
+        currentPage: "News",
+        news:[],
+        jobs:[],
+        events:[]
       };
+      loadNews = () => {
+        API.getNews()
+          .then(res =>
+            this.setState({ news: res.data})
+          )
+          .catch(err => console.log(err));
+      };
+      loadJobs = () => {
+        API.getJobs()
+          .then(res =>
+            this.setState({ jobs: res.data})
+          )
+          .catch(err => console.log(err));
+      };
+      loadEvents = () => {
+        API.getEvents()
+          .then(res =>
+            this.setState({ events: res.data})
+          )
+          .catch(err => console.log(err));
+      };
+    //   componentDidMount() {
+    //     this.loadNews();
+    //     this.loadJobs();
+    //     this.loadEvents();
+    //   }
     
       handlePageChange = page => {
         this.setState({ currentPage: page });
@@ -24,11 +53,11 @@ class Main extends Component {
     
       renderPage = () => {
         if (this.state.currentPage === "News") {
-          return <News />;
+          return <News news={this.state.news}/>;
         } else if (this.state.currentPage === "Jobs") {
-          return <Jobs />;
+          return <Jobs jobs={this.state.jobs}/>;
         } else {
-          return <Events />;
+          return <Events events={this.state.events}/>;
         } 
       };
 
