@@ -1,13 +1,13 @@
 (() => {
     // LOGIC FOR GATHERING TECH NEWS ARTICLES
-    const db = require("../models");
+    const db = require("../../models");
     const request = require("request");
     const cheerio = require("cheerio");
 
     module.exports = app => {
 
         // TechCrunch scraping route
-        app.get("/scrape/news/techcrunch", (req, res) => {
+        app.get("/techcrunch", (req, res) => {
             request("https://techcrunch.com/", (error, response, html) => {
                 const $ = cheerio.load(html);
                 const result = {};
@@ -24,7 +24,7 @@
         });
 
         // Reuters scraping route
-        app.get("/scrape/news/reuters", (req, res) => {
+        app.get("/reuters", (req, res) => {
             request("https://www.reuters.com/news/archive/technologyNews/", (error, response, html) => {
                 const $ = cheerio.load(html);
                 const result = {};

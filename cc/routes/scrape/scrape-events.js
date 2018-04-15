@@ -1,13 +1,13 @@
 (() => {
     // LOGIC FOR GATHERING TECH EVENTS & MEETUPS
-    const db = require("../models");
+    const db = require("../../models");
     const request = require("request");
     const cheerio = require("cheerio");
 
     module.exports = app => {
 
         // Meetup scraping route
-        app.get("/scrape/events/meetup", (req, res) => {
+        app.get("/meetup", (req, res) => {
             request("", (error, response, html) => {
                 const $ = cheerio.load(html);
                 const result = {};
