@@ -36,6 +36,7 @@ class Main extends Component {
         return(
             <Container fluid >
                 <Row>
+                    <Col size="md-3" />
                     <Col size="md-6">
                         <NavPills 
                         currentPage = {this.state.currentPage}
@@ -43,10 +44,11 @@ class Main extends Component {
                         />
                         {this.renderPage()}
                     </Col>
+                    <Col size="md-3" />
                 </Row>
             </Container>
         )
-    }
-}
+    };
+};
 
 export default Main;
