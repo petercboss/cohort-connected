@@ -2,20 +2,45 @@
   "name": "cc",
   "version": "1.0.0",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
-  "main": "server.js",
+  "main": "./lib",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "devDependencies": {
+    "mocha": "*",
+    "should": "~1.2.1",
+    "passport": "~0.1.17",
+    "express": "~3.4.4",
+    "ejs": "~0.8.4"
+  },
+  "keywords": [
+    "passport",
+    "linkedin",
+    "auth0"
+  ],
+  "author": "Auth0",
+  "contributors": [
+    {
+      "name": "Eugenio Pace",
+      "email": "eugenio.pace@qraftlabs.com"
+    },
+    {
+      "name": "Joshua Schell",
+      "email": "jschell12@gmail.com"
+    },
+    {
+      "name": "Jose Romaniello",
+      "email": "jfromaniello@gmail.com"
+    },
+    {
+      "name": "Tom Spencer",
+      "email": "fiznool@gmail.com"
+    }
+  ],
+  "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "cheerio": "^1.0.0-rc.2",
-    "express": "^4.16.3",
-    "mongoose": "^5.0.14",
-    "nodemon": "^1.17.3",
-    "request": "^2.85.0"
+    "passport-oauth2": "1.x.x",
+    "underscore": "^1.7.0"
   }
 }
