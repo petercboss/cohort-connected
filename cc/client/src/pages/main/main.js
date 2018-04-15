@@ -2,10 +2,10 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 
-
 //components
 import { Col, Row, Container } from "../../components/Grid";
 import NavPills from "../../components/NavPills"
+import API from "../../utils/API";
 
 //pages
 import News from "../news";
@@ -41,6 +41,7 @@ class Main extends Component {
           )
           .catch(err => console.log(err));
       };
+
     //   componentDidMount() {
     //     this.loadNews();
     //     this.loadJobs();
