@@ -1,19 +1,23 @@
+//Libraries
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+//Components
+import Main from "./pages/main"
+
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to <span className="purple">CohortConnected</span></h1>
-        </header>
-        <p className="App-intro">
-          This website is currently under construction. Please hold.
-        </p>
+      <Router>
+      <div>
+        <Route exact path="/main" component={Main} />
+        {/* <Route exact path="/help" component={Help} />
+        <Route exact path="/messages" component={Messages} />
+        <Route path="/resouces" component={Resources} /> */}
       </div>
+    </Router>
     );
   }
 }
