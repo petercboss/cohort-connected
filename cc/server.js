@@ -51,8 +51,6 @@ passport.use(new LinkedinStrategy({
 ));
 
 // configure Express
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.urlencoded({ extended: true }));
