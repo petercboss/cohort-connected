@@ -1,7 +1,7 @@
 (() => {
     // LOGIC FOR GATHERING TECH EVENTS & MEETUPS
     const router = require("express").Router();    
-    const db = require("../../models");
+    const db = require("../../models").default;
     const request = require("request");
     const cheerio = require("cheerio");
 
