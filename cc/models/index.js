@@ -1,9 +1,9 @@
-import User from "./user";
-import Chat from "./chat";
-import Job from "./job";
-import News from "./news";
-import Event from "./event";
-import Forum from "./forum";
-import Comment from "./comment";
-
-export default models;
+module.exports = {
+    User: require("./user"),
+    Chat: require("./chat"),
+    Job: require("./job"),
+    News: require("./news"),
+    Event: require("./event"),
+    Forum: require("./forum"),
+    Comment: require("./comment"),
+  };
