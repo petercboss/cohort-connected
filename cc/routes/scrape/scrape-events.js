@@ -1,13 +1,14 @@
 (() => {
     // LOGIC FOR GATHERING TECH EVENTS & MEETUPS
+    const router = require("express").Router();    
     const db = require("../../models");
     const request = require("request");
     const cheerio = require("cheerio");
 
-    module.exports = app => {
+
 
         // Meetup scraping route
-        app.get("/meetup", (req, res) => {
+        router.get("/meetup", (req, res) => {
             request("", (error, response, html) => {
                 const $ = cheerio.load(html);
                 const result = {};
@@ -25,6 +26,5 @@
             });
         });
 
-    } // end of module.exports
-
+    module.exports = router
 })();
