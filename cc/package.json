@@ -44,6 +44,7 @@
     "cheerio": "^1.0.0-rc.2",
     "mongoose": "^5.0.14",
     "passport-oauth2": "1.x.x",
+    "path": "^0.12.7",
     "request": "^2.85.0",
     "send": "^0.16.2",
     "underscore": "^1.7.0"

@@ -1,9 +1,10 @@
 const router = require("express").Router();
 const passport = require("passport");
 
-router.get('/', function (req, res) {
-    res.render('index', { user: req.user });
-});
+// router.get('/', function (req, res) {
+//     res.render('index', { user: req.user });
+// });
+
 
 router.get('/account', ensureAuthenticated, function (req, res) {
     res.render('account', { user: req.user });
