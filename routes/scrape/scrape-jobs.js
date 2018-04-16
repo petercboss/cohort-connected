@@ -1,0 +1,3 @@
+(()=>{
+    // magical code here
+})();
