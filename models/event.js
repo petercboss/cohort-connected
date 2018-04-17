@@ -3,12 +3,11 @@
     const Schema = mongoose.Schema;
 
     const eventSchema = new Schema({
-        title: { type: String, required: true },
+        title: { type: String, required: true, unique: true },
         date: { type: Date, required: true },
-        time: { type: Date, required: true },
-        summary: { type: String, required: true },
-        location: String,
-        attending: { type: Number, default: 0 },
+        time: { type: String, required: true },
+        organizer: String,
+        categories: { type: Array },
         comment: [{
             type: Schema.Types.ObjectId,
             ref: 'Comment'
