@@ -1,21 +1,27 @@
 //libraries 
-import React, { Component } from "react";
-// import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+// import { Link } from 'react-router-dom';
 
+//style
+import './main.css';
 //components
-import { Col, Row, Container } from "../../components/Grid";
-import NavPills from "../../components/NavPills"
-import API from "../../utils/API";
+import { Col, Row, Container } from '../../components/Grid';
+import NavPills from '../../components/NavPills';
+import API from '../../utils/API';
+import LSideBar from '../../components/LSideBar';
+import RSideBar from '../../components/RSideBar';
+
 
 //pages
-import News from "../news";
-import Jobs from "../jobs";
-import Events from "../events";
+import News from '../news';
+import Jobs from '../jobs';
+import Events from '../events';
+import { TLSSocket } from 'tls';
 
 
 class Main extends Component {
     state = {
-        currentPage: "News",
+        currentPage: 'News',
         news:[],
         jobs:[],
         events:[]
@@ -53,9 +59,9 @@ class Main extends Component {
       };
     
       renderPage = () => {
-        if (this.state.currentPage === "News") {
+        if (this.state.currentPage === 'News') {
           return <News news={this.state.news}/>;
-        } else if (this.state.currentPage === "Jobs") {
+        } else if (this.state.currentPage === 'Jobs') {
           return <Jobs jobs={this.state.jobs}/>;
         } else {
           return <Events events={this.state.events}/>;
@@ -64,17 +70,17 @@ class Main extends Component {
 
     render() {
         return(
-            <Container fluid >
+            <Container>
                 <Row>
-                    <Col size="md-3" />
-                    <Col size="md-6">
+                    <LSideBar />
+                    <Col size='md-6' className='mainContent'>
                         <NavPills 
                         currentPage = {this.state.currentPage}
                         handlePageChange = {this.handlePageChange}
                         />
                         {this.renderPage()}
                     </Col>
-                    <Col size="md-3" />
+                    <RSideBar />
                 </Row>
             </Container>
         )
