@@ -21,7 +21,7 @@ class App extends Component {
         <Route exact path="/messages" component={Messages} />
         <Route path="/resouces" component={Resources} /> */}
       </div>
-      //</Router>
+    //</Router>
     );
   }
 }
