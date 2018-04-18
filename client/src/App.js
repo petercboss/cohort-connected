@@ -1,23 +1,27 @@
 //Libraries
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+//import { BrowserRouter as Router, Route } from "react-router-dom";
 
 //Components
-import Main from "./pages/main"
+//import Main from "./pages/main"
+import Login from './pages/login';
 
 
 
 class App extends Component {
   render() {
     return (
-      <Router>
+      //<Router>
       <div>
-        <Route exact path="/main" component={Main} />
+        <h1>app</h1>
+        <Login />
+        {/* <Route exact path='./login' component={Login}/> */}
+        {/* <Route exact path="/main" component={Main} /> */}
         {/* <Route exact path="/help" component={Help} />
         <Route exact path="/messages" component={Messages} />
         <Route path="/resouces" component={Resources} /> */}
       </div>
-    </Router>
+    //</Router>
     );
   }
 }
