@@ -1,32 +1,34 @@
 {
-  "name": "cohort-connected",
-  "version": "1.0.0",
-  "description": "Connecting bootcamp cohorts post graduation to assist in their transition to the technology sector and ensure career success.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rbrown511/cohort-connected.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rbrown511/cohort-connected/issues"
-  },
-  "homepage": "https://github.com/rbrown511/cohort-connected#readme",
-  "dependencies": {
-    "axios": "^0.18.0",
-    "body-parser": "^1.18.2",
-    "cheerio": "^1.0.0-rc.2",
-    "express": "^4.16.3",
-    "mongoose": "^5.0.14",
-    "nodemon": "^1.17.3",
-    "passport": "^0.4.0",
-    "passport-oauth2": "^1.4.0",
-    "path": "^0.12.7",
-    "underscore": "^1.8.3"
-  }
+    "name": "cohort-connected",
+    "version": "1.0.0",
+    "description": "Connecting bootcamp cohorts post graduation to assist in their transition to the technology sector and ensure career success.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rbrown511/cohort-connected.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/rbrown511/cohort-connected/issues"
+    },
+    "homepage": "https://github.com/rbrown511/cohort-connected#readme",
+    "dependencies": {
+        "axios": "^0.18.0",
+        "body-parser": "^1.18.2",
+        "cheerio": "^1.0.0-rc.2",
+        "cookie-session": "^2.0.0-beta.3",
+        "express": "^4.16.3",
+        "mongoose": "^5.0.14",
+        "nodemon": "^1.17.3",
+        "passport": "^0.4.0",
+        "passport-linkedin-oauth2": "^1.5.0",
+        "passport-oauth2": "^1.4.0",
+        "path": "^0.12.7",
+        "underscore": "^1.8.3"
+    }
 }
