@@ -10,12 +10,10 @@ import NavPills from '../../components/NavPills';
 import API from '../../utils/API';
 import LSideBar from '../../components/LSideBar';
 import RSideBar from '../../components/RSideBar';
-
-
-//pages
 import {NewsList, NewsItem} from '../../components/news';
+import {EventsList, EventItem} from '../../components/events';
 import Jobs from '../../components/jobs';
-import Events from '../../components/events';
+//pages
 // import { TLSSocket } from 'tls';
 
 
@@ -23,7 +21,6 @@ class Main extends Component {
     state = {
         currentPage: 'News',
         news:[],
-        title:"",
         jobs:[],
         events:[]
       };
@@ -53,7 +50,7 @@ class Main extends Component {
       componentDidMount() {
         this.loadNews();
         // this.loadJobs();
-        // this.loadEvents();
+        this.loadEvents();
       }
     
       handlePageChange = page => {
@@ -72,7 +69,12 @@ class Main extends Component {
         } else if (this.state.currentPage === 'Jobs') {
           return <Jobs jobs={this.state.jobs}/>;
         } else {
-          return <Events events={this.state.events}/>;
+          return (
+          <EventsList>
+           {this.state.events.map(event => (
+             <EventItem key={event._id} id={event._id} title={event.title} date={event.date} time={event.time} organizer={event.organizer}/>
+           ))}
+          </EventsList>);
         } 
       };
 

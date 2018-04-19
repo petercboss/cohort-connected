@@ -1,1 +1,2 @@
-export { default } from "./events.js"
+export * from "./eventItem"
+export * from "./eventsList"
