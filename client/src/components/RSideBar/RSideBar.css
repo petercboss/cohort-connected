@@ -1,4 +1,47 @@
 .RSideBar {
     height: 500px;
-    border: 2px solid black;
+    padding-left: 30px;
+    margin-top: 50px;
+}
+
+/* Calendar Styling */
+.react-calendar {
+    border: 1px solid #360051;
+
+}
+.react-calendar__navigation {
+    background: #360051;
+}
+.react-calendar__navigation button {
+    color: #fff;
+}
+.react-calendar__tile--active,
+button.react-calendar__tile--active:enabled:hover,
+button.react-calendar__tile--active:enabled:focus {
+    background: #5b078e;
+    color: #fff;
+}
+.react-calendar__month-view__days__day--weekend {
+    color: #d1b2e0;
+}
+
+/* Info Box Styling */
+.infoBox {
+    margin-top: 15px;
+    background: #f5f4f5;
+    border: 1px solid #360051;
+    width: 100%;
+    padding: 0px 35px;
+    padding-top: 15px;
+    text-align: center;
+}
+.links {
+}
+.copyright {
+    margin-top: 10px;
+    font-size: 12px;
+}
+.purple {
+    font-size: 16px;
+    color: #5b078e;
 }

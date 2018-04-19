@@ -1,4 +1,5 @@
 import React from "react";
+import './NavPills.css';
 
 const NavPills = props => (
   <ul className="nav nav-tabs">

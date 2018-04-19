@@ -1,4 +1,6 @@
 .LSideBar {
     height: 500px;
-    border: 2px solid black;
+    border: 1px solid black;
+    background: #fff;
+    margin-top: 50px;
 }
