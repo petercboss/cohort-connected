@@ -2,13 +2,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-//Components
+
+//pages
 import Main from "./pages/main"
 // import Login from './pages/login';
-
-
-//Components
-import Main from "./pages/main";
 //import Login from './pages/login';
 
 

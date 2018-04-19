@@ -12,6 +12,11 @@
     router.get("/main/news", (req,res) => {
         db.News.find({}).then((data)=> res.json(data))
     });
+
+    router.get("/main/events", (req,res) => {
+        console.log('route hit')
+        db.Events.find({}).then((data)=> res.json(data))
+    });
     
     router.get('/account', ensureAuthenticated, function (req, res) {
         res.render('account', { user: req.user });
