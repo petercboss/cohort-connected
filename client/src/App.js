@@ -7,6 +7,10 @@ import Main from "./pages/main"
 // import Login from './pages/login';
 
 
+//Components
+import Main from "./pages/main";
+//import Login from './pages/login';
+
 
 class App extends Component {
   render() {
@@ -22,7 +26,7 @@ class App extends Component {
       </div>
     </Router>
     );
-  }
-}
+  };
+};
 
 export default App;
