@@ -13,16 +13,17 @@ import RSideBar from '../../components/RSideBar';
 
 
 //pages
-import News from '../news';
-import Jobs from '../jobs';
-import Events from '../events';
-import { TLSSocket } from 'tls';
+import {NewsList, NewsItem} from '../../components/news';
+import Jobs from '../../components/jobs';
+import Events from '../../components/events';
+// import { TLSSocket } from 'tls';
 
 
 class Main extends Component {
     state = {
         currentPage: 'News',
         news:[],
+        title:"",
         jobs:[],
         events:[]
       };
@@ -35,24 +36,25 @@ class Main extends Component {
       };
       loadJobs = () => {
         API.getJobs()
-          .then(res =>
+          .then(res => {
             this.setState({ jobs: res.data})
-          )
+            console.log(res);
+          })
           .catch(err => console.log(err));
       };
       loadEvents = () => {
         API.getEvents()
-          .then(res =>
+          .then(res => 
             this.setState({ events: res.data})
           )
           .catch(err => console.log(err));
       };
 
-    //   componentDidMount() {
-    //     this.loadNews();
-    //     this.loadJobs();
-    //     this.loadEvents();
-    //   }
+      componentDidMount() {
+        this.loadNews();
+        // this.loadJobs();
+        // this.loadEvents();
+      }
     
       handlePageChange = page => {
         this.setState({ currentPage: page });
@@ -60,7 +62,13 @@ class Main extends Component {
     
       renderPage = () => {
         if (this.state.currentPage === 'News') {
-          return <News news={this.state.news}/>;
+        return (
+          <NewsList>
+            {this.state.news.map(newsStory => (
+              <NewsItem key={newsStory._id} id={newsStory._id} title={newsStory.title} author={newsStory.author} summary={newsStory.summary} link={newsStory.link} photo={newsStory.photo}/>
+            ))}
+            </NewsList>
+            );
         } else if (this.state.currentPage === 'Jobs') {
           return <Jobs jobs={this.state.jobs}/>;
         } else {
@@ -88,3 +96,4 @@ class Main extends Component {
 };
 
 export default Main;
+

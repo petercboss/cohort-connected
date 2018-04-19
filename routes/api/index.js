@@ -1,12 +1,18 @@
 (()=>{
-    const router = require("express").Router();
-    const passport = require("passport");
-
+    const router = require('express').Router();
+    const passport = require('passport');
+    var mongoose = require('mongoose');
+    // Require all models
+    var db = require('../../models');
     // router.get('/', function (req, res) {
     //     res.render('index', { user: req.user });
     // });
 
-
+    //send News
+    router.get("/main/news", (req,res) => {
+        db.News.find({}).then((data)=> res.json(data))
+    });
+    
     router.get('/account', ensureAuthenticated, function (req, res) {
         res.render('account', { user: req.user });
     });
@@ -48,6 +54,8 @@
         if (req.isAuthenticated()) { return next(); }
         res.redirect('/login');
     }
+
+    //get news data 
 
     module.exports = router;
 })();

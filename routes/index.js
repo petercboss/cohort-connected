@@ -6,11 +6,17 @@
     const passport = require('passport');
     
 
+    var mongoose = require('mongoose');
+    // Require all models
+    var db = require('../models');
 
+
+    // router.get('/api/main/news'), (req,res) => {
+    //     console.log('news api hit')
+    //     db.News.find({}).then((newsStroy)=>{res.json(newsStroy)}).catch((err) => console.log(`THE IS ERROR IS THE FOLLOWING: ${err}`));
+    // }
     router.use('/api', apiRoutes);
     router.use('/scrape', scrapeRoutes);
-
-   
 
     router.get('/auth/linkedin',
         passport.authenticate('linkedin'),
