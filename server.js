@@ -8,6 +8,7 @@
         , passportSetup = require('./config/passport-setup')
         , keys = require('./config/keys')
         , PORT = process.env.PORT || 3001
+        , path = require('path')
 
 
     // Set mongoose to leverage built in JavaScript ES6 Promises
@@ -27,7 +28,7 @@
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
     // Serve up static assets
-    app.use(express.static("client/build"));
+    app.use(express.static(path.join(__dirname, 'client','build')));
     // Add routes, both API and view
 
     app.use(function(req, res, next) {
@@ -38,11 +39,15 @@
 
     app.use(routes);
 
-    //
+    
 
 
     // Connect to the Mongo DB
     mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/cohortconnected");
+
+    app.get("*", (req, res) => {  
+        res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+    });
 
     // Start the API server
     app.listen(PORT, function() {
