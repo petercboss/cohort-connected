@@ -93,35 +93,35 @@ export default class Demo extends Component {
       // Amazon only supports HTTPS
       if (window.location.protocol === 'https:') {
         children.push(
-          <SocialButton
-            provider='amazon'
-            appId='amzn1.application-oa2-client.26aaf63624854cbcaa084735a0fc47ed'
-            onLoginSuccess={this.onLoginSuccess}
-            onLoginFailure={this.onLoginFailure}
-            onLogoutSuccess={this.onLogoutSuccess}
-            getInstance={this.setNodeRef.bind(this, 'amazon')}
-            key={'amazon'}
-          >
-            Login with Amazon
-          </SocialButton>
+          // <SocialButton
+          //   provider='amazon'
+          //   appId='amzn1.application-oa2-client.26aaf63624854cbcaa084735a0fc47ed'
+          //   onLoginSuccess={this.onLoginSuccess}
+          //   onLoginFailure={this.onLoginFailure}
+          //   onLogoutSuccess={this.onLogoutSuccess}
+          //   getInstance={this.setNodeRef.bind(this, 'amazon')}
+          //   key={'amazon'}
+          // >
+          //   Login with Amazon
+          // </SocialButton>
         )
       } else {
         // We don’t use HTTPS because of Gatekeeper, but it can be enabled if Gatekeeper is served over HTTPS
         children.push(
-          <SocialButton
-            autoCleanUri
-            provider='github'
-            gatekeeper='http://localhost:9999'
-            appId='6e0ec5803311db3df112'
-            redirect='http://localhost:8080'
-            onLoginSuccess={this.onLoginSuccess}
-            onLoginFailure={this.onLoginFailure}
-            onLogoutSuccess={this.onLogoutSuccess}
-            getInstance={this.setNodeRef.bind(this, 'github')}
-            key={'github'}
-          >
-            Login with GitHub OAuth
-          </SocialButton>
+          // <SocialButton
+          //   autoCleanUri
+          //   provider='github'
+          //   gatekeeper='http://localhost:9999'
+          //   appId='6e0ec5803311db3df112'
+          //   redirect='http://localhost:8080'
+          //   onLoginSuccess={this.onLoginSuccess}
+          //   onLoginFailure={this.onLoginFailure}
+          //   onLogoutSuccess={this.onLogoutSuccess}
+          //   getInstance={this.setNodeRef.bind(this, 'github')}
+          //   key={'github'}
+          // >
+          //   Login with GitHub OAuth
+          // </SocialButton>
         )
       }
     }
