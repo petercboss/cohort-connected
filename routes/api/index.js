@@ -20,6 +20,10 @@
     
 
     //get news data 
-
+    router.post('/user', (req,res)=> {
+        console.log('scott smells');
+        console.log(req.body);
+        db.User.create(req.body).then(user => res.json(user)).catch(err => res.json(err));
+    })
     module.exports = router;
 })();
