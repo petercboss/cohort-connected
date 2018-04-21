@@ -1,21 +1,23 @@
-//libraries 
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 
-//style
-import './main.css';
-//components
-import { Col, Row, Container } from '../../components/Grid';
-import NavPills from '../../components/NavPills';
+// API routes
 import API from '../../utils/API';
+
+// external stylesheet and bootstrap style components
+import './main.css';
+import { Col, Row, Container } from '../../components/Grid';
+
+// app components
+import NavPills from '../../components/NavPills';
 import LSideBar from '../../components/LSideBar';
 import RSideBar from '../../components/RSideBar';
 import {NewsList, NewsItem} from '../../components/news';
 import {EventsList, EventItem} from '../../components/events';
 import Jobs from '../../components/jobs';
-//pages
-// import { TLSSocket } from 'tls';
 
+// pages
+// import { TLSSocket } from 'tls';
 
 class Main extends Component {
     state = {
@@ -80,19 +82,19 @@ class Main extends Component {
 
     render() {
         return(
-            <Container>
-                <Row>
-                    <LSideBar />
-                    <Col size='md-6' className='mainContent'>
-                        <NavPills 
-                        currentPage = {this.state.currentPage}
-                        handlePageChange = {this.handlePageChange}
-                        />
-                        {this.renderPage()}
-                    </Col>
-                    <RSideBar />
-                </Row>
-            </Container>
+          <Container>
+            <Row>
+                <LSideBar />
+                <Col size='md-6' className='mainContent'>
+                    <NavPills 
+                    currentPage = {this.state.currentPage}
+                    handlePageChange = {this.handlePageChange}
+                    />
+                    {this.renderPage()}
+                </Col>
+                <RSideBar />
+            </Row>
+          </Container>
         )
     };
 };

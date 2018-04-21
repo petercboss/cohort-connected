@@ -1,29 +1,36 @@
-//Libraries
 import React, { Component } from 'react';
-//import { BrowserRouter as Router, Route } from "react-router-dom";
-//import Nav from './components/mainNav';
-import Demo from './containers/demo';
+// import Demo from './containers/demo';
 
+// navbar component & routing
+import Nav from './components/mainNav';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-//pages
-//import Main from "./pages/main"
+// footer component
+import Footer from './components/footer';
+
+// pages
+import Main from "./pages/main"
 // import Login from './pages/login';
-//import Login from './pages/login';
-
+import Forum from './pages/forum';
+import Messages from './pages/messages';
+import Favorites from './pages/favorites';
 
 class App extends Component {
   render() {
     return (
-     // <Router>
-        <div>
-          {/* <Nav /> */}
-          <Demo />
-          {/* <Route exact path="/" component={Main} /> */}
-          {/* <Route exact path="/help" component={Help} />
-          <Route exact path="/messages" component={Messages} />
-          <Route path="/resouces" component={Resources} /> */}
-        </div>
-     // </Router>
+      <div>
+        <Router>
+          <div>
+            <Nav />
+            {/* <Demo /> */}
+            <Route exact path="/" component={Main} />
+            <Route exact path="/forum" component={Forum} />
+            <Route exact path="/messages" component={Messages} />
+            <Route path="/favorites" component={Favorites} />
+          </div>
+        </Router>
+        <Footer/>
+      </div>
     );
   };
 };

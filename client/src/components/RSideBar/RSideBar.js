@@ -25,21 +25,9 @@ class RSideBar extends Component {
           />
         </Row>
         <Row>
-          <div  className='infoBox'>
+          <div  className='eventsBox'>
             <Row>
-              <Col size='sm-4' className='links'><a>About</a></Col>
-              <Col size='sm-4' className='links'><a>FAQ</a></Col>
-              <Col size='sm-4' className='links'><a>Contact</a></Col>
-            </Row>
-            <Row>
-              <Col size='md-12' className='links'>
-                <a>Terms &amp; Conditions</a>
-              </Col>
-            </Row>
-            <Row>
-              <Col size='md-12' className='links'>
-                <p className='copyright'><span className='purple'>Cohort<b>Connected</b></span><br/>&copy; Copyright 2018</p>
-              </Col>
+              <p>This area will be updated with events happening on the highlighted calendar day above. Default will be set to today's date. If we suspect the date might be too far out, we will display a message asking the user to check back for events closer to that date.</p>
             </Row>
           </div>
         </Row>
