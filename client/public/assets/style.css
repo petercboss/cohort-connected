@@ -1,0 +1,5 @@
+body, html {
+    padding-top: 25px;
+    font-family: 'Quicksand', sans-serif;
+    background-image: url('images/background.png');
+}

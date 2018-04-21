@@ -7,7 +7,6 @@
 /* Calendar Styling */
 .react-calendar {
     border: 1px solid #360051;
-
 }
 .react-calendar__navigation {
     background: #360051;
@@ -15,14 +14,27 @@
 .react-calendar__navigation button {
     color: #fff;
 }
-.react-calendar__tile--active,
-button.react-calendar__tile--active:enabled:hover,
-button.react-calendar__tile--active:enabled:focus {
-    background: #5b078e;
-    color: #fff;
+.react-calendar__navigation button:enabled:hover,
+.react-calendar__navigation button:enabled:focus {
+    background: #360051;
+}
+.react-calendar__tile--hasActive,
+button.react-calendar__tile--hasActive:enabled:hover,
+button.react-calendar__tile--hasActive:enabled:focus {
+    background: #d1b2e0;
 }
 .react-calendar__month-view__days__day--weekend {
     color: #d1b2e0;
+}
+.react-calendar__month-view__days__day--weekend:hover,
+.react-calendar__month-view__days__day--weekend:active,
+.react-calendar__month-view__days__day--weekend:focus {
+    color: #fff;
+}
+.react-calendar__tile--active,
+button.react-calendar__tile--active:enabled:hover,
+button.react-calendar__tile--active:enabled:focus {
+    background: #660099;
 }
 
 /* Info Box Styling */
