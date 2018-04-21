@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
 import SocialButton from '../components/socialButton/socialButton'
-import UserCard from '../components/userCard/userCard'
+//import UserCard from '../components/userCard/userCard'
+import Main from '../pages/main' 
 
 export default class Demo extends Component {
   constructor (props) {
@@ -71,7 +72,8 @@ export default class Demo extends Component {
     let children
 
     if (this.state.logged) {
-      children = <UserCard user={this.state.user} logout={this.logout} />
+      // children = <UserCard user={this.state.user} logout={this.logout} />
+      children = <Main user={this.state.user} logout={this.logout} />
     } else {
       children = [
        
