@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import './socialButton.css';
 
 import SocialLogin from '../../index2'
 
@@ -12,7 +13,7 @@ class Button extends Component {
   render () {
     const { children, triggerLogin, triggerLogout, ...props } = this.props
     const style = {
-      background: '#eee',
+      background: '#0073b2',
       border: '1px solid black',
       borderRadius: '3px',
       display: 'inline-block',
@@ -21,7 +22,7 @@ class Button extends Component {
     }
 
     return (
-      <div onClick={triggerLogin} style={style} {...props}>
+      <div className='linkedIn' onClick={triggerLogin} style={style} {...props}>
         { children }
       </div>
     )
