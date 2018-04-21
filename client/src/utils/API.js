@@ -13,4 +13,12 @@ export default {
     getEvents: function() {
       return axios.get("/api/main/events");
     },
+  // Gets all events
+    getUser: function () {
+      return axios.get("/api/User");
+    },
+    createUser: function (user) {
+      return axios.post("/api/User", {user: user})
+      
+    }
   };
