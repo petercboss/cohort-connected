@@ -7,6 +7,7 @@
 /* Calendar Styling */
 .react-calendar {
     border: 1px solid #360051;
+    font-family: 'Catamaran', sans-serif;
 }
 .react-calendar__navigation {
     background: #360051;
@@ -38,7 +39,7 @@ button.react-calendar__tile--active:enabled:focus {
 }
 
 /* Info Box Styling */
-.infoBox {
+.eventsBox {
     margin-top: 15px;
     background: #f5f4f5;
     border: 1px solid #360051;
@@ -46,14 +47,4 @@ button.react-calendar__tile--active:enabled:focus {
     padding: 0px 35px;
     padding-top: 15px;
     text-align: center;
-}
-.links {
-}
-.copyright {
-    margin-top: 10px;
-    font-size: 12px;
-}
-.purple {
-    font-size: 16px;
-    color: #5b078e;
 }

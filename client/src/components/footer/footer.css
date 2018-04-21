@@ -1,0 +1,78 @@
+#footer {
+	background-color: #202020;
+	color: #636363;
+    font-size: 14px;
+}
+#footer li {
+    line-height: 36px;
+    list-style: none;
+}
+#footer a {
+	color: #636363;
+	font-weight:500;
+}
+#footer a:hover {
+    color: #660099;
+    text-decoration: none;
+}
+#footer p {
+	line-height: 24px;
+}
+#footer .footer-top {
+	padding-top: 50px;
+}
+#footer .footer-top .columns:first-child {
+	border: none;
+}
+#footer .footer-bottom {
+	margin-top: 20px;
+}
+#footer .block {
+	margin-bottom: 20px;
+}
+#footer .text-primary {
+    color: #660099 !important;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+#footer .block .block-title {
+	color: #d1b2e0;
+	font-size: 12px;
+	letter-spacing: 1.5px;
+	margin-top: 0;
+	margin-bottom: 25px;
+	padding-bottom: 10px;
+	position: relative;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+#footer .block .block-title:not(.no-underline):before {
+	background: #660099;
+	bottom: 0;
+	content: "";
+	height: 3px;
+	position: absolute;
+	width: 20px;
+}
+#footer .footer-logo {
+    margin-top: 30px;
+    max-height: 100px;
+    width: 200px;
+    float: right;
+}
+#footer .copyright {
+	text-transform: uppercase;
+}
+#footer .copyright p {
+	font-size: 11px;
+	letter-spacing: 1px;
+}
+ul, menu, dir {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 00px;
+}

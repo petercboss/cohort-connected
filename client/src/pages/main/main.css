@@ -1,9 +1,8 @@
 .mainContent {
     color:black;
-    height: 500px;
+    min-height: 800px;
     border: 1px solid black;
-    border-left: none;
-    margin-top: 50px;
+    margin: 50px auto;
     background: #fff;
     padding: 0px;
 }

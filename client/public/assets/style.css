@@ -1,5 +1,11 @@
 body, html {
     padding-top: 25px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Catamaran', sans-serif;
     background-image: url('images/background.png');
+}
+.placeholder {
+    margin: 80px auto;
+    font-weight: 800;
+    text-align: center;
+    min-height: 200px;
 }
