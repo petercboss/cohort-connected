@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import './socialButton.css';
 
 import SocialLogin from '../../index2'
 
