@@ -1,7 +1,7 @@
 import React from "react";
 
 // external stylesheet and bootstrap style components
-import './jobs.css';
+import './Jobs.css';
 // import { Col, Row, Container } from '../../components/Grid';
 
 const Jobs = () => (

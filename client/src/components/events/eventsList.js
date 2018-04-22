@@ -1,7 +1,7 @@
 import React from 'react';
 
 //style
-import './eventsList.css'
+import './EventsList.css'
 
 
 
