@@ -1,6 +1,4 @@
 import React from "react";
-
-// external stylesheet and bootstrap style components
 import './Jobs.css';
 // import { Col, Row, Container } from '../../components/Grid';
 

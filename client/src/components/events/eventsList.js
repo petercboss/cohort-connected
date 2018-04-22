@@ -1,6 +1,4 @@
 import React from 'react';
-
-//style
 import './EventsList.css'
 
 export const EventsList = ({ children }) => {
