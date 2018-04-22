@@ -5,7 +5,7 @@ import Demo from './containers/demo';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // footer component
-import Nav from './components/MainNav';
+import Nav from './components/mainNav';
 import Footer from './components/footer';
 
 // pages

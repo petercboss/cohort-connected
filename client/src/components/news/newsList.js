@@ -1,7 +1,7 @@
 import React from 'react';
 
 //style
-import './NewsList.css'
+import './newsList.css'
 
 export const NewsList = ({ children }) => {
   return (

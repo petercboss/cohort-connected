@@ -1,3 +1,2 @@
-
-export * from "./EventItem"
-export * from "./EventsList"
+export * from "./eventItem"
+export * from "./eventsList"

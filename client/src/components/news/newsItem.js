@@ -1,7 +1,7 @@
 import React from "react";
 
 // external stylesheet
-import './NewsList.css'
+import './newsList.css'
 
 export const NewsItem = props => (
 <li className="list-group-item" id={props.id}>

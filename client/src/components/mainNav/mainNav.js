@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // external stylesheet
-import './MainNav.css';
+import './mainNav.css';
 
 const mainNav = props => (
 <div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // external stylesheet
-import './EventsList.css'
+import './eventsList.css'
 
 export const EventsList = ({ children }) => {
   return (
