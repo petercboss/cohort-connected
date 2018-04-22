@@ -73,8 +73,8 @@ class Main extends Component {
         } else {
           return (
           <EventsList>
-           {this.state.events.map(event => (
-             <EventItem key={event._id} id={event._id} title={event.title} date={event.date} time={event.time} organizer={event.organizer}/>
+           {this.state.events.map((event, i) => (
+             <EventItem key={event._id} id={event._id} title={event.title} link={event.link} date={event.date} organizer={event.organizer} categories={event.categories} bk={i}/>
            ))}
           </EventsList>);
         } 
