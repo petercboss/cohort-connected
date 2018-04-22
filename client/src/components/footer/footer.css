@@ -31,11 +31,11 @@
 	margin-bottom: 20px;
 }
 #footer .text-primary {
-    color: #9200db !important;
+    color: #8d33b9 !important;
     font-weight: 800;
 	letter-spacing: 2px;
 	-webkit-text-stroke-width: 0.5px;
-	-webkit-text-stroke-color: #9200db; 
+	-webkit-text-stroke-color: #8d33b9; 
 }
 #footer .block .block-title {
 	color: #b9b8b9;

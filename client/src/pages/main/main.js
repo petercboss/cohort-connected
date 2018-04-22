@@ -64,7 +64,7 @@ class Main extends Component {
         return (
           <NewsList>
             {this.state.news.map(newsStory => (
-              <NewsItem key={newsStory._id} id={newsStory._id} title={newsStory.title} author={newsStory.author} summary={newsStory.summary} link={newsStory.link} photo={newsStory.photo}/>
+              <NewsItem key={newsStory._id} id={newsStory._id} title={newsStory.title} date={newsStory.date} author={newsStory.author} summary={newsStory.summary} link={newsStory.link} photo={newsStory.photo}/>
             ))}
             </NewsList>
             );

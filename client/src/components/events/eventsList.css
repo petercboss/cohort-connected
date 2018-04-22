@@ -4,6 +4,21 @@
   border-radius: 0px;
   overflow-y: scroll;
 }
+.list-overflow-container ul {
+  margin: 0;
+}
+.list-overflow-container li {
+  border-radius: 0px;
+  border-left: none;
+  border-right: none;
+}
+.list-overflow-container li:first-child {
+  padding-top: 25px;
+  border-top: none;
+}
+.list-overflow-container li:last-child {
+  border-bottom: none;
+}
 li.list-group-item {
   padding-top: 15px;
   margin-right: 0px;

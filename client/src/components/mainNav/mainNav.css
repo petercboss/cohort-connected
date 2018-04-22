@@ -1,9 +1,10 @@
 .customMainNav {
     background-color: #360051;
-    padding-left: 40px;
+    padding-left: 50px;
     padding-right: 30px;
     padding-bottom: 25px;
     height: 60px;
+    font-size: 18px;
 }
 img.mainNavLogo {
     padding-top: 15px;
@@ -27,14 +28,14 @@ img.mainNavLogo {
     padding:6px 15px 6px 30px;
     margin:3px;  
 }
-li  {
-    margin-right: 5px;
+a.page-navs {
+    margin-right: 20px;
 }
 .customNavDropdown:link {
     color: black;
 }
 .navbar-dark .navbar-nav .nav-link {
-    color: #fff;
+    color: #f5f4f5;
 }
 
 @media only screen and (max-width: 600px) {

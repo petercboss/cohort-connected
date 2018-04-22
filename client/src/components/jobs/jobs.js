@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 // external stylesheet & bootstrap components
 import './jobs.css';
@@ -7,7 +7,7 @@ import './jobs.css';
 const Jobs = () => (
     <div className='center'>
       <h1>Not Steve, more like Rihanna</h1><br/>
-      <img alt='work' src='http://throwbackmag.com/site/wp-content/uploads/2016/08/Rihanna-work-765x510.jpg'/>
+      <img className='riri' alt='work' src='http://throwbackmag.com/site/wp-content/uploads/2016/08/Rihanna-work-765x510.jpg'/>
     </div>
   );
   
