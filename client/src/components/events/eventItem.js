@@ -1,9 +1,11 @@
 import React from 'react';
+
+// moment date formatting
 import Moment from 'react-moment';
 import 'moment-timezone';
-import './EventsList.css'
 
-//const today = Date.now();
+// external stylesheet
+import './EventsList.css'
 
 export const EventItem = props => (
     <li className={props.bk % 2 === 0 ? 'list-group-item bk-dark' : 'list-group-item bk-light'} id={props.id}>

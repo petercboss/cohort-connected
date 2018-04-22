@@ -1,4 +1,6 @@
 import React from 'react';
+
+// external stylesheet
 import './EventsList.css'
 
 export const EventsList = ({ children }) => {

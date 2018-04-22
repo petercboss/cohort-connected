@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
+// external stylesheet
 import './MainNav.css';
 
 const mainNav = props => (
