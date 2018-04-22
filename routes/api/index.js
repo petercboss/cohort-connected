@@ -18,11 +18,15 @@
         db.Events.find({}).then((data)=> res.json(data))
     });
     
+    //Find user by LinkedInId
+    router.get("/api/user/:id", (req, res) =>{
+         db.User.findOne({
+        _id: req.params.id
+    }).then(data => res.json(data)).catch(err => res.json(err))});
 
     //get news data 
     router.post('/user', (req,res)=> {
-        console.log('scott smells');
-        console.log(req.body);
+        console.log('post route req.body=' + req.body);
         db.User.create(req.body).then(user => res.json(user)).catch(err => res.json(err));
     })
     module.exports = router;

@@ -9,6 +9,7 @@
         headline: String,
         location: String,
         profilePicURL: String,
+        verified: Boolean,
         faveJobs: [{
             type: Schema.Types.ObjectId,
             ref: 'Comment'
