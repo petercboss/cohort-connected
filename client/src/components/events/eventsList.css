@@ -1,43 +1,76 @@
+/* General List Styling */
 .list-overflow-container {
-    max-height: 756px;
-    border: 1px #DDDDDD solid;
-    border-radius: 4px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-  
-  .list-overflow-container ul {
-    margin: 0;
-  }
-  
-  .list-overflow-container li {
-    border-radius: 0px;
-    border-left: none;
-    border-right: none;
-  }
-  
-  .list-overflow-container li * {
-    cursor: pointer;
-  }
-  
-  .list-overflow-container li a {
-    color: #2A878C;
-  }
-  
-  .list-overflow-container li:first-child {
-    border-top: none;
-  }
-  
-  .list-overflow-container li:last-child {
-    border-bottom: none;
-  }
+  max-height: 756px;
+  border: 1px #DDDDDD solid;
+  border-radius: 4px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.list-overflow-container ul {
+  margin: 0;
+}
+.list-overflow-container li {
+  border-radius: 0px;
+  border-left: none;
+  border-right: none;
+}
+.list-overflow-container li * {
+  cursor: pointer;
+}
+.list-overflow-container li:first-child {
+  border-top: none;
+}
+.list-overflow-container li:last-child {
+  border-bottom: none;
+}
+a:hover {
+  text-decoration: none;
+}
+.list-group-item {
+  border-top: 1px dashed #360051;
+}
 
-  img {
-      width: 300px;
-  }
-  .imgCenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
+/* Event Details */
+a .event-title {
+  margin-bottom: 5px;
+  color: black;
+}
+.event-title:hover {
+  color: #7701b3;
+}
+.fa-calendar {
+  font-size: 18px;
+}
+.hosted-by {
+  font-style: italic;
+}
+.bk-light {
+  background: #f8f8f8;
+}
+.bk-dark {
+  background: #bcbcca;
+  color: #ffffff;
+}
+.bk-dark a .event-title {
+  color: #ffffff;
+}
+.bk-dark a .event-title:hover {
+  color: #f4e1ff;
+}
+
+/* Category Buttons */
+.category-btn {
+  float: right;
+  padding: 5px;
+  margin-left: 5px;
+  background: #f5f4f5;
+  /* border: 0.5px solid #636363; */
+  font-size: 12px;
+}
+.category-btn:hover,
+.category-btn:active {
+  color: #660099;
+}
+.clearfix {
+  clear: both;
+}

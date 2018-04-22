@@ -3,8 +3,6 @@ import React from 'react';
 //style
 import './EventsList.css'
 
-
-
 export const EventsList = ({ children }) => {
   return (
     <div className='list-overflow-container'>
