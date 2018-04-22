@@ -89,7 +89,8 @@ class Main extends Component {
         } else {
           return (
           <EventsList>
-           {this.state.events.filter(event => new Date(event.date) >= new Date()).map((event, i) => (
+           {this.state.events.filter(event => new Date(event.date) >= new Date())
+           .sort((a,b) => new Date(a.date) - new Date(b.date)).map((event, i) => (
              <EventItem key={event._id} 
                         id={event._id}
                         title={event.title}
