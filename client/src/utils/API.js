@@ -14,11 +14,11 @@ export default {
       return axios.get("/api/main/events");
     },
   // Gets all events
-    getUser: function () {
+    findUser: function () {
       return axios.get("/api/User");
     },
     createUser: function (user) {
-      console.log(user)
+      console.log('this is api' + user)
       return axios.post("http://localhost:3001/api/User", {
         linkedInId: user.linkedInId,
         firstName: user.firstName,
