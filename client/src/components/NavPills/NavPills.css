@@ -1,0 +1,29 @@
+ul.nav.nav-pills.nav-fill {
+    background: #360051;
+    color: #b9b8b9;
+    margin: 0px;
+    height: 45px;
+    cursor: pointer;
+}
+a.nav-link {
+    background: #360051;
+    color: #b9b8b9;
+    margin: 0px auto;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    border-radius: 0%;
+    background-color: #360051;
+    color: #fff;
+}
+a.nav-link:hover {
+    color: #fff;
+}
+.nav-item {
+    margin: 0px;
+    padding-top: 3px; 
+}
+.left-border {
+    border-left: 1px solid #b9b8b9;
+
+}

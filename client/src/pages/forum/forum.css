@@ -1,18 +1,18 @@
 .forum-index {
-    border: 2px solid black;
-    height: 500px;
+    margin: 50px auto;
+    padding: 15px 35px;
+    border: 1px solid #360051;
+    min-height: 500px;
 }
 .forum-sidebar {
-    height: 500px;
-    padding-left: 30px;
     margin-top: 50px;
+    padding-left: 30px;
+    min-height: 500px;
 }
 .forum-myQs {
-    margin-top: 15px;
     background: #f5f4f5;
     border: 1px solid #360051;
     width: 100%;
-    padding: 0px 35px;
-    padding-top: 15px;
+    padding: 15px 35px;
     text-align: center;
 }

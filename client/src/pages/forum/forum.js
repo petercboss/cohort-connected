@@ -25,7 +25,7 @@ class Forum extends Component {
           <Col size='md-3 lg-3' className='forum-sidebar'>
             <Row>
               <div  className='forum-myQs'>
-                  <p>This area will be updated with events happening on the highlighted calendar day above. Default will be set to today's date. If we suspect the date might be too far out, we will display a message asking the user to check back for events closer to that date.</p>
+                  <p>This area is reserved for the current user's questions as a quick reference so they can see what solutions have been provided by their peers.</p>
               </div>
             </Row>
         </Col>

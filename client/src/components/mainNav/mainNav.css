@@ -2,7 +2,11 @@
     background-color: #360051;
     padding-left: 40px;
     padding-right: 30px;
+    padding-bottom: 25px;
     height: 60px;
+}
+img.mainNavLogo {
+    padding-top: 15px;
 }
 .navbar .navbar-collapse {
     text-align: center;
@@ -33,14 +37,11 @@ li  {
     color: #fff;
 }
 
-
-
 @media only screen and (max-width: 600px) {
     .customMainNav {
         padding-left: 20px;
         padding-right: 20px;
     }
-
     .mainNavSearch {
         padding-left: 5px;
     }
