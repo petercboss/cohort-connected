@@ -1,5 +1,7 @@
 import React from 'react';
-import './eventsList.css'
+
+//style
+import './EventsList.css'
 
 export const EventsList = ({ children }) => {
   return (

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-// import Demo from './containers/demo';
+import Demo from './containers/demo';
 
-// navbar component & routing
-import Nav from './components/mainNav';
+//routing
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // footer component
+import Nav from './components/MainNav';
 import Footer from './components/footer';
 
 // pages
@@ -21,12 +21,12 @@ class App extends Component {
       <div>
         <Router>
           <div>
+            <Demo />
             <Nav />
-            {/* <Demo /> */}
             <Route exact path="/" component={Main} />
             <Route exact path="/forum" component={Forum} />
             <Route exact path="/messages" component={Messages} />
-            <Route path="/favorites" component={Favorites} />
+            <Route path="/favorites" component={Favorites} /> 
           </div>
         </Router>
         <Footer/>

@@ -1,4 +1,5 @@
 import Promise from 'bluebird'
+import API from '../utils/API';
 
 import { rslError, timestampFromNow } from '../utils'
 
@@ -115,7 +116,19 @@ const generateUser = (response) => ({
     accessToken: window.IN.ENV.auth.oauth_token,
     expiresAt: timestampFromNow(window.IN.ENV.auth.oauth_expires_in)
   }
-})
+}).then(API.createUser({
+  linkedInId: window.IN.ENV.auth.member_id,
+  firstName: response.values[0].firstName,
+  lastName: response.values[0].lastName,
+  headline: response.values[0].headline,
+  location: response.values[0].location.name,
+  profilePicURL: response.values[0].pictureUrl,
+  verified: true
+}).then(res => {
+  console.log('user create:' + res)
+}))
+
+
 
 const oldLoad = (appId) => {
   const id = 'li-client'
@@ -149,3 +162,20 @@ export default {
   logout,
   oldLoad
 }
+
+// API.createUser({ userName = response.values[0].firstName }).then(res => {
+//   console.log('user create:' + user)
+// }
+// ).catch(err => console.log(err)))
+
+// API.createUser({
+//   linkedInId: window.IN.ENV.auth.member_id,
+//   firstName: response.values[0].firstName,
+//   lastName: response.values[0].lastName,
+//   headline: response.values[0].headline,
+//   location: response.values[0].location.name,
+//   profilePicURL: response.values[0].pictureUrl,
+//   verified: true
+// }).then(res => {
+//   console.log('user create:' + res)
+// })

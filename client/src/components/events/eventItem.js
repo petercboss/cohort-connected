@@ -5,7 +5,8 @@ import Moment from 'react-moment';
 import 'moment-timezone';
 
 // styling
-import './eventsList.css'
+import './EventsList.css'
+
 
 //const today = Date.now();
 

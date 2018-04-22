@@ -3,10 +3,12 @@
     const Schema = mongoose.Schema;
 
     const userSchema = new Schema({
+        linkedInId: {type: String,required: true},
         firstName: { type: String, required: true },
         lastName: { type: String, required: true },
         headline: String,
-        image: { type: String, required: true },
+        location: String,
+        profilePicURL: String,
         faveJobs: [{
             type: Schema.Types.ObjectId,
             ref: 'Comment'

@@ -1,0 +1,14 @@
+.placeholder {
+    border: 2px solid black;
+    height: 500px;
+}
+
+.eventsBox {
+    margin-top: 15px;
+    background: #f5f4f5;
+    border: 1px solid #360051;
+    width: 100%;
+    padding: 0px 35px;
+    padding-top: 15px;
+    text-align: center;
+}

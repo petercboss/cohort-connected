@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
-import COLORS from '../../utils/colors'
-import { card as cardStyle } from '../../utils/styles'
+import COLORS from './colors'
+import { card as cardStyle } from './styles'
 
 const Detail = ({ label, data }) => (
   <div style={{ fontSize: '.8rem' }}>
