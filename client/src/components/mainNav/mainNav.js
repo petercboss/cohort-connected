@@ -17,21 +17,18 @@ const mainNav = props => (
                 <ul className='navbar-nav ml-auto'>
                     
                     <li className='nav-item'>
-                        <Link className='nav-link' to='/favorites'>Favorites</Link>
+                        <Link className='nav-link page-navs' to='/forum'>Forum</Link>
                     </li>
                     <li className='nav-item'>
-                        <Link className='nav-link' to='/forum'>Forum</Link>
-                    </li>
-                    <li className='nav-item'>
-                        <Link className='nav-link' to='/messages'>Messages</Link>
+                        <Link className='nav-link page-navs' to='/messages'>Messages</Link>
                     </li>
 
                     <li className='nav-item dropdown'>
                         <Link className='nav-link dropdown-toggle' to='#' id='navbarDropdown' role='button' data-toggle='dropdown'>
-                            You
+                            User Name
                         </Link>
                         <div className='dropdown-menu'>
-                            <Link className='dropdown-item custonNavDropdown' to='/faq'>FAQ</Link>
+                            <Link className='dropdown-item custonNavDropdown' to='/favorites'>Favorites</Link>
                                 <div className='dropdown-divider'></div>
                             <Link className='dropdown-item customNavDropdown' to='/signout'>Sign Out</Link>
                         </div>
