@@ -1,9 +1,13 @@
-.placeholder {
+.forum-index {
     border: 2px solid black;
     height: 500px;
 }
-
-.eventsBox {
+.forum-sidebar {
+    height: 500px;
+    padding-left: 30px;
+    margin-top: 50px;
+}
+.forum-myQs {
     margin-top: 15px;
     background: #f5f4f5;
     border: 1px solid #360051;
