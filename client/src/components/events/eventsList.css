@@ -48,10 +48,10 @@ a .event-title {
   background: #f8f8f8;
 }
 .bk-dark {
-  background: #bcbcca;
+  background: #bcbcca52;
 }
 .bk-dark a .event-title {
-  border-bottom: 1px solid #f8f8f8;
+  border-bottom: 1px solid #fff;
 }
 
 /* Category Buttons */

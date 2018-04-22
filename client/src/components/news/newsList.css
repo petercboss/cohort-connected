@@ -85,8 +85,11 @@ a.news-link:hover {
   border-top: 1px solid #e0e0e0;
   font-size: 16px;
 }
-.action-item {
-  margin-top: 15px;
+button.action-item {
+  cursor: pointer;
+  margin-top: 13px;
+  background: none;
+  border: none;
 }
 .comment {
   float: left;
@@ -94,5 +97,5 @@ a.news-link:hover {
 .thumbs {
   float: right;
   margin-right: 5px;
-  margin-left: 15px;
+  margin-left: 7px;
 }
