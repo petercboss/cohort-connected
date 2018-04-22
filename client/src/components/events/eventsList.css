@@ -1,10 +1,8 @@
 /* General List Styling */
 .list-overflow-container {
   max-height: 756px;
-  border: 1px #DDDDDD solid;
-  border-radius: 4px;
+  border-radius: 0px;
   overflow-y: scroll;
-  overflow-x: hidden;
 }
 .list-overflow-container ul {
   margin: 0;
@@ -14,29 +12,31 @@
   border-left: none;
   border-right: none;
 }
-.list-overflow-container li * {
-  cursor: pointer;
-}
 .list-overflow-container li:first-child {
+  padding-top: 25px;
   border-top: none;
 }
 .list-overflow-container li:last-child {
   border-bottom: none;
 }
+li.list-group-item {
+  padding-top: 15px;
+  margin-right: 0px;
+  border-radius: 0%;
+}
 a:hover {
   text-decoration: none;
-}
-.list-group-item {
-  border-top: 1px dashed #360051;
 }
 
 /* Event Details */
 a .event-title {
-  margin-bottom: 5px;
+  padding-bottom: 3px;
+  font-weight: 700;
   color: black;
+  border-bottom: 1px solid #b9b8b9;
 }
 .event-title:hover {
-  color: #7701b3;
+  color: #660099;
 }
 .fa-calendar {
   font-size: 18px;
@@ -48,14 +48,10 @@ a .event-title {
   background: #f8f8f8;
 }
 .bk-dark {
-  background: #bcbcca;
-  color: #ffffff;
+  background: #bcbcca52;
 }
 .bk-dark a .event-title {
-  color: #ffffff;
-}
-.bk-dark a .event-title:hover {
-  color: #f4e1ff;
+  border-bottom: 1px solid #fff;
 }
 
 /* Category Buttons */

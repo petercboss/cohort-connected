@@ -19,13 +19,13 @@ class Forum extends Component {
           <Row>
 
             <Col size='md-9'>
-              <h1 className='placeholder'>This is the Forum/Help Page</h1>
+              <h1 className='forum-index'>This is the Forum/Help Page</h1>
             </Col>
 
-          <Col size='md-3 lg-3' className='RSideBar'>
+          <Col size='md-3 lg-3' className='forum-sidebar'>
             <Row>
-              <div  className='eventsBox'>
-                  <p>This area will be updated with events happening on the highlighted calendar day above. Default will be set to today's date. If we suspect the date might be too far out, we will display a message asking the user to check back for events closer to that date.</p>
+              <div  className='forum-myQs'>
+                  <p>This area is reserved for the current user's questions as a quick reference so they can see what solutions have been provided by their peers.</p>
               </div>
             </Row>
         </Col>

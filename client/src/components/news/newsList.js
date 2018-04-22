@@ -1,6 +1,6 @@
 import React from 'react';
 
-//style
+// external stylesheet
 import './newsList.css'
 
 export const NewsList = ({ children }) => {

@@ -1,2 +1,1 @@
-export * from "./newsItem"
-export * from "./newsList"
+export * from './newsList'

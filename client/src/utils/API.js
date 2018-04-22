@@ -1,25 +1,26 @@
-import axios from "axios";
+import axios from 'axios';
 
 export default {
     // Gets all news
     getNews: function() {
-      return axios.get("/api/main/news");
+      return axios.get('/api/main/news');
     },
     // Gets all jobs
     getJobs: function() {
-      return axios.get("/api/main/jobs");
+      return axios.get('/api/main/jobs');
     },
     // Gets all events
     getEvents: function() {
-      return axios.get("/api/main/events");
+      return axios.get('/api/main/events');
     },
-  // Gets all events
-    findUser: function () {
-      return axios.get("/api/User");
+    // Gets all users
+    getUser: function () {
+      return axios.get('/api/User');
     },
+    // Create new user
     createUser: function (user) {
-      console.log('this is api' + user)
-      return axios.post("http://localhost:3001/api/User", {
+      console.log(user)
+      return axios.post('http://localhost:3001/api/User', {
         linkedInId: user.linkedInId,
         firstName: user.firstName,
         lastName: user.lastName,

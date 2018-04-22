@@ -1,1 +1,1 @@
-export { default } from "./NavPills.js";
+export { default } from './NavPills.js';
