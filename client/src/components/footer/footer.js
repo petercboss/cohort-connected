@@ -19,7 +19,7 @@ const Footer = props => (
                         <li><a href='#.'>FAQs</a></li>
                         <li><a href='#.'>Contact</a></li>
                         <li><a href='#.'>Terms &amp; Conditions</a></li>
-                        <li><a href='https://github.com/rbrown511/cohort-connected'><i class='fa fa-code-fork' aria-hidden='true'></i> Fork Us on GitHub</a></li>
+                        <li><a href='https://github.com/rbrown511/cohort-connected'><i className='fa fa-code-fork' aria-hidden='true'></i> Fork Us on GitHub</a></li>
                       </ul>
                     </div>
                   </div>

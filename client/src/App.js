@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Demo from './containers/demo';
 
-// navbar component & routing
-import Nav from './components/mainNav';
+//routing
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // footer component
+import Nav from './components/MainNav';
 import Footer from './components/footer';
 
 // pages

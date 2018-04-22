@@ -12,9 +12,9 @@ import { Col, Row, Container } from '../../components/Grid';
 import NavPills from '../../components/NavPills';
 import LSideBar from '../../components/LSideBar';
 import RSideBar from '../../components/RSideBar';
-import {NewsList, NewsItem} from '../../components/news';
-import {EventsList, EventItem} from '../../components/events';
-import Jobs from '../../components/jobs';
+import {NewsList, NewsItem} from '../../components/News';
+import {EventsList, EventItem} from '../../components/Events';
+import Jobs from '../../components/Jobs';
 
 // pages
 // import { TLSSocket } from 'tls';
