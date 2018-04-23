@@ -35,7 +35,9 @@ class RSideBar extends Component {
                     value={this.state.date} />
         </Row>
         <Row>
-          <CalEventsList>{this.props.events.sort((a,b) => new Date(b.date) -  new Date(a.date))
+          <CalEventsList>{this.props.events.sort((a, b) => parseInt(a.date.split('T')[1].split('.')[0].split(':')[0]+a.date.split('T')[1].split('.')[0].split(':')[1], 10)
+           - parseInt(b.date.split('T')[1].split('.')[0].split(':')[0]+b.date.split('T')[1].split('.')[0].split(':')[1]), 10)
+          .sort((a, b) => a.title.toLowerCase() > b.title.toLowerCase())
           .filter(event => event.date.split('T')[0] === this.state.formattedDate)
           .map((event, i) => (
             <CalEventItem key={event._id}
@@ -44,7 +46,7 @@ class RSideBar extends Component {
                           title={event.title}
                           link={event.link}
                           date={event.date}
-                          selectedDate={this.state.formattedDate}/>
+                          selectedDate={this.state.formattedDate} />
             ))}
           </CalEventsList>
         </Row>

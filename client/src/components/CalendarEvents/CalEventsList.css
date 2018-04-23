@@ -17,9 +17,10 @@ a.eventsToday {
 }
 a.eventsToday:hover {
     font-style: italic;
+    cursor: pointer;
 }
 .calEventTitle {
-    color: #11054F;
+    color:  #92969e;
     padding: 10px;
     margin-bottom: 0px;
 }
@@ -33,5 +34,5 @@ a.eventsToday:hover {
 .calEventBorder {
     font-size: 16px;
     font-weight: 700;
-    color: #8263C2;
+    color: #360051;
 }

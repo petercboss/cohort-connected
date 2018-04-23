@@ -79,9 +79,7 @@ a.news-link {
   color: rgb(146, 114, 50); 
 }
 a.news-link:hover {
-  font-weight: 700;
   text-decoration: underline;
-  color: #C2A263;
 }
 .news-activity {
   color: #636363;
