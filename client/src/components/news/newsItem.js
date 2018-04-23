@@ -14,7 +14,8 @@ class NewsItem extends Component {
           id: this.props.id,
           thumbsUp: this.props.thumbsUp,
           thumbsDown: this.props.thumbsDown,
-          disabled: false
+          disabled: false,
+          action: ''
         };
     }
     
@@ -22,7 +23,8 @@ class NewsItem extends Component {
     UpVote = () => {
         this.setState({ 
             thumbsUp: this.state.thumbsUp + 1,
-            disabled: true
+            disabled: true,
+            action: 'liked'
         });
     }
 
@@ -30,7 +32,8 @@ class NewsItem extends Component {
     DownVote = () => {
         this.setState({ 
             thumbsDown: this.state.thumbsDown + 1,
-            disabled: true
+            disabled: true,
+            action: 'disliked'
         });
     }
 
@@ -51,8 +54,12 @@ class NewsItem extends Component {
             <div className='row'>
                 <div className='col-md-12 news-activity'>
                     <button className='action-item comment'><i className='fa fa-comments'></i> Add/View Comments</button>
-                    <button onClick={this.DownVote} className='action-item thumbs' disabled={this.state.disabled === true ? 'true' : ''}><i className='fa fa-thumbs-down'></i> {this.state.thumbsDown}</button>
-                    <button onClick={this.UpVote} className='action-item thumbs' disabled={this.state.disabled === true ? 'true' : ''}><i className='fa fa-thumbs-up'></i> {this.state.thumbsUp}</button>
+                    <button onClick={this.DownVote} className={this.state.action === 'disliked' ? 'action-item thumbs thumbs-down disliked' : 'action-item thumbs thumbs-down'}
+                        disabled={this.state.disabled === true ? 'true' : ''}>
+                        <i className='fa fa-thumbs-down'></i> {this.state.thumbsDown}</button>
+                    <button onClick={this.UpVote} className={this.state.action === 'liked' ? 'action-item thumbs thumbs-up liked' : 'action-item thumbs thumbs-up'}
+                        disabled={this.state.disabled === true ? 'true' : ''}>
+                        <i className='fa fa-thumbs-up'></i> {this.state.thumbsUp}</button>
                 </div>
                 <div className='clearfix'/>
             </div>

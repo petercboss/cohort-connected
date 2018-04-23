@@ -13,7 +13,7 @@ export const EventItem = props => (
         <h5><i className='fa fa-calendar' aria-hidden='true'></i> <Moment format='dddd, MMMM Do YYYY, h:mm a'>{props.date}</Moment></h5>
         <p className='hosted-by'>Hosted By {props.organizer}</p>
         <p>{props.categories.map((cat, i) => {
-            return <button key={i} data-cat={cat} className='category-btn'><i className='fa fa-tag' aria-hidden='true'></i> {cat}</button>
+            return <button key={i} onClick={() => props.showFilteredEvents(cat)} className='category-btn'><i className='fa fa-tag' aria-hidden='true'></i> {cat}</button>
         })}</p>
         <div className='clearfix'/>
     </li>
