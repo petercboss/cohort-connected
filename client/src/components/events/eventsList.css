@@ -13,7 +13,7 @@
   border-right: none;
 }
 .list-overflow-container li:first-child {
-  padding-top: 25px;
+  padding-top: 20px;
   border-top: none;
 }
 .list-overflow-container li:last-child {
@@ -30,13 +30,15 @@ a:hover {
 
 /* Event Details */
 a .event-title {
-  padding-bottom: 3px;
+  font-family: 'Lato', sans-serif;
+  padding-top: 5px;
+  padding-bottom: 7px;
   font-weight: 700;
   color: black;
   border-bottom: 1px solid #b9b8b9;
 }
 .event-title:hover {
-  color: #660099;
+  color: #389C9C;
 }
 .fa-calendar {
   font-size: 18px;
@@ -64,6 +66,8 @@ a .event-title {
 }
 .category-btn:hover,
 .category-btn:active {
+  transform: scale(1.1);
+  font-weight: 700;
   color: #660099;
 }
 .clearfix {
