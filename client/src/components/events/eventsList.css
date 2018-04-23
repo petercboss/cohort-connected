@@ -68,7 +68,6 @@ a .event-title {
 .category-btn:active {
   transform: scale(1.1);
   font-weight: 700;
-  color: #660099;
 }
 .clearfix {
   clear: both;
