@@ -1,0 +1,42 @@
+.ChatUserBar {
+    background: rgb(68,71,83);
+    border: 1px solid black;
+    height: 700px;
+    margin-top: 50px;
+    width: 100%;
+}
+.chatBarUL {
+    list-style-type: none;
+    height: 100%
+}
+
+
+
+/* Chat User */
+.paddingFix {
+    padding: 0;
+}
+.chatRow {
+    margin: 0;
+}
+.ChatUser {
+    height: 100px;
+    width: 100%;
+    display: inherit;
+    padding-left: 30px;
+}
+.chatImage {
+    border-radius: 20px;
+    /* float: left; */
+}
+.userInfo {
+    /* float: left; */
+    padding-left: 8px;
+    margin-top: 8px;
+}
+.chatName {
+    color: white
+}
+.chatDate {
+    color: white;
+}

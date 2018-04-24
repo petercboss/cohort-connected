@@ -18,12 +18,6 @@
         db.Events.find({}).then((data)=> res.json(data))
     });
 
-    //get user data and set user data
-    // router.post('/user', (req,res)=> {
-    //     console.log('post route req.body=' + req.body.firstName);
-    //     db.User.create(req.body).then(user => res.json(user)).catch(err => res.json(err));
-    // })
-
     router.post('/user', (req, res) => {
         var linkedInId = req.body.linkedInId;
         var body = req.body;
@@ -44,6 +38,15 @@
         ).then(user => res.json(user)).catch(err => res.json(err));
     })
 
+
+
+
+    const cohortController = require('../../controllers/cohortController')
+    
+    router.get('/news', cohortController.findNews);
+    router.get('/events', cohortController.findEvents);
+    router.get('/user/:id', cohortController.findUser);
+    router.post('/user', cohortController.createUser);
 
 
     module.exports = router;

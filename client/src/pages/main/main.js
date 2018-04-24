@@ -25,7 +25,8 @@ class Main extends Component {
         currentPage: 'News',
         news:[],
         jobs:[],
-        events:[]
+        events:[],
+        filterEventsBy: ''
       };
 
       // API calls to database
@@ -63,6 +64,11 @@ class Main extends Component {
       handlePageChange = page => {
         this.setState({ currentPage: page });
       };
+
+      // filtering events
+      showFilteredEvents = category => {
+        this.setState({ filterEventsBy: category })
+      };
     
       // populating feeds with news, events, job postings data
       renderPage = () => {
@@ -89,7 +95,7 @@ class Main extends Component {
         } else {
           return (
           <EventsList>
-           {this.state.events.filter(event => new Date(event.date) >= new Date())
+           {this.state.filterEventsBy === '' ? this.state.events.filter(event => new Date(event.date) >= new Date())
            .sort((a,b) => new Date(a.date) - new Date(b.date)).map((event, i) => (
              <EventItem key={event._id} 
                         id={event._id}
@@ -101,7 +107,23 @@ class Main extends Component {
                         bk={i}
                         thumbsUp={event.thumbsUp}
                         thumbsDown={event.thumbsDown}
-                        comments={event.comments}/>
+                        comments={event.comments}
+                        showFilteredEvents={this.showFilteredEvents} />
+           )) : this.state.events.filter(event => new Date(event.date) >= new Date())
+           .filter(event => event.categories.includes(this.state.filterEventsBy) === true)
+           .sort((a,b) => new Date(a.date) - new Date(b.date)).map((event, i) => (
+             <EventItem key={event._id} 
+                        id={event._id}
+                        title={event.title}
+                        link={event.link}
+                        date={event.date}
+                        organizer={event.organizer}
+                        categories={event.categories}
+                        bk={i}
+                        thumbsUp={event.thumbsUp}
+                        thumbsDown={event.thumbsDown}
+                        comments={event.comments}
+                        showFilteredEvents={this.showFilteredEvents} />
            ))}
           </EventsList>);
         } 
@@ -113,13 +135,11 @@ class Main extends Component {
             <Row>
                 <LSideBar />
                 <Col size='md-6' className='mainContent'>
-                    <NavPills 
-                    currentPage = {this.state.currentPage}
-                    handlePageChange = {this.handlePageChange}
-                    />
+                    <NavPills currentPage={this.state.currentPage}
+                              handlePageChange={this.handlePageChange} />
                     {this.renderPage()}
                 </Col>
-                <RSideBar />
+                <RSideBar events={this.state.events} />
             </Row>
           </Container>
         )

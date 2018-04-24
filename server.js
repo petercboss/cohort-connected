@@ -10,7 +10,6 @@
         , PORT = process.env.PORT || 3001
         , path = require('path')
 
-
     // Set mongoose to leverage built in JavaScript ES6 Promises
     mongoose.Promise = Promise;
     const cookieSession = require('cookie-session');
@@ -20,8 +19,6 @@
         keys: [keys.session.cookieKey]
     }));
 
-
-    
     // configure Express
     app.use(passport.initialize());
     app.use(passport.session());
@@ -38,9 +35,6 @@
       });
 
     app.use(routes);
-
-    
-
 
     // Connect to the Mongo DB
     mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/cohortconnected");
