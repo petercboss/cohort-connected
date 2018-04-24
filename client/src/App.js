@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Nav from './components/mainNav';
 import Footer from './components/footer';
 
-// pages
+// // pages
 import Main from "./pages/main"
 // import Login from './pages/login';
 import Forum from './pages/forum';
@@ -21,7 +21,6 @@ class App extends Component {
       <div>
         <Router>
           <div>
-            <Demo />
             <Nav />
             <Route exact path="/" component={Main} />
             <Route exact path="/forum" component={Forum} />
@@ -30,6 +29,7 @@ class App extends Component {
           </div>
         </Router>
         <Footer/>
+        <Demo />
       </div>
     );
   };
