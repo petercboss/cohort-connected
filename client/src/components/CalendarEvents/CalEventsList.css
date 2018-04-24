@@ -16,8 +16,10 @@ a.eventsToday {
     color: black;
 }
 a.eventsToday:hover {
-    font-style: italic;
     cursor: pointer;
+}
+a.eventsToday:hover .eventLink {
+    color: #5174ba;
 }
 .calEventTitle {
     color:  #92969e;

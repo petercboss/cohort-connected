@@ -21,10 +21,12 @@
                         result.link = 'https://www.builtinchicago.org' + $(element).children('.container').children('.center').children('.title').children('a').attr('href');
                         result.categories = $(element).children('.container').children('.right').children('.category').text().split(',');
 
-                        // formatting the date and start time to GMT before adding to database
+                        // formatting the date and time before adding to database
                         date = $(element).children('.container').children('.left').children('.date').html().toString().split('<br>')[1].split('<')[0] + ' ' + new Date().getFullYear();
                         time = $(element).children('.container').children('.right').children('.time').text().split('-')[0];
-                        result.date = moment(`${date} ${time}-05:00`);
+                        result.date = moment(`${date} ${time}-05:00`); //GMT
+                        result.day = moment(result.date).format('YYYY-MM-DD'); //sortable date
+                        result.time = moment(result.date).format('H:mm'); //sortable time
 
                         // adding new event to database
                         db.Events.create(result).then(dbEvents => res.json(dbEvents)).catch(err => res.json(err));
