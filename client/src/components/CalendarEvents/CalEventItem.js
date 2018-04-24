@@ -10,9 +10,10 @@ import './CalEventsList.css'
 export const CalEventItem = props => (
     <li className={props.bk % 2 === 0 ? '' : 'alternate'} id={props.id}>
         <a href={props.link} className='eventsToday'>
-            <h6 className='calEventTitle'>{props.title}
-                <span className='calEventBorder'> | </span>
+            <h6 className='calEventTitle'>
                 <Moment format='h:mm a'>{props.date}</Moment>
+                <span className='calEventBorder'> | </span>
+                <span className='eventLink'>{props.title}</span>
             </h6>
         </a>
     </li>
