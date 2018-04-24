@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 import SocialButton from '../components/socialButton/socialButton'
 //import UserCard from '../components/userCard/userCard'
-import Main from '../pages/main' 
+// import Main from '../pages/main' 
+import App from '../App.js'
 
 export default class Demo extends Component {
   constructor (props) {
@@ -73,7 +74,7 @@ export default class Demo extends Component {
 
     if (this.state.logged) {
       // children = <UserCard user={this.state.user} logout={this.logout} />
-      children = <Main user={this.state.user} logout={this.logout} />
+      children = <App user={this.state.user} logout={this.logout} />
     } else {
       children = [
        
@@ -93,35 +94,12 @@ export default class Demo extends Component {
       // Amazon only supports HTTPS
       if (window.location.protocol === 'https:') {
         children.push(
-          // <SocialButton
-          //   provider='amazon'
-          //   appId='amzn1.application-oa2-client.26aaf63624854cbcaa084735a0fc47ed'
-          //   onLoginSuccess={this.onLoginSuccess}
-          //   onLoginFailure={this.onLoginFailure}
-          //   onLogoutSuccess={this.onLogoutSuccess}
-          //   getInstance={this.setNodeRef.bind(this, 'amazon')}
-          //   key={'amazon'}
-          // >
-          //   Login with Amazon
-          // </SocialButton>
+         
         )
       } else {
         // We don’t use HTTPS because of Gatekeeper, but it can be enabled if Gatekeeper is served over HTTPS
         children.push(
-          // <SocialButton
-          //   autoCleanUri
-          //   provider='github'
-          //   gatekeeper='http://localhost:9999'
-          //   appId='6e0ec5803311db3df112'
-          //   redirect='http://localhost:8080'
-          //   onLoginSuccess={this.onLoginSuccess}
-          //   onLoginFailure={this.onLoginFailure}
-          //   onLogoutSuccess={this.onLogoutSuccess}
-          //   getInstance={this.setNodeRef.bind(this, 'github')}
-          //   key={'github'}
-          // >
-          //   Login with GitHub OAuth
-          // </SocialButton>
+         
         )
       }
     }

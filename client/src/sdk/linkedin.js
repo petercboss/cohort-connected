@@ -163,19 +163,3 @@ export default {
   oldLoad
 }
 
-// API.createUser({ userName = response.values[0].firstName }).then(res => {
-//   console.log('user create:' + user)
-// }
-// ).catch(err => console.log(err)))
-
-// API.createUser({
-//   linkedInId: window.IN.ENV.auth.member_id,
-//   firstName: response.values[0].firstName,
-//   lastName: response.values[0].lastName,
-//   headline: response.values[0].headline,
-//   location: response.values[0].location.name,
-//   profilePicURL: response.values[0].pictureUrl,
-//   verified: true
-// }).then(res => {
-//   console.log('user create:' + res)
-// })
