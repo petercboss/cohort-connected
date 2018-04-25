@@ -9,10 +9,21 @@
               .catch(err => res.status(422).json(err));
         },
         createUser: (req, res) => {
-            db.User
-              .create(req.body)
-              .then(dbUser => res.json(dbUser))
-              .catch(err => res.status(422).json(err));
+            console.log('unique linkedIn id' + req.body.linkedInId);
+            db.User.update(
+                //find by
+                {'linkedInId': req.body.linkedInId},
+                //update or create
+                { $set: {
+                    'firstName': req.body.firstName,
+                    'lastName': req.body.lastName,
+                    'headline': req.body.headline,
+                    'location': req.body.location,
+                    'profilePicURL': req.body.location,
+                }},
+                {'upsert':true})
+                .then(dbUser => res.json(dbUser))
+                .catch(err => res.status(422).json(err));
         },
         findNews: (req, res) => {
             db.News
