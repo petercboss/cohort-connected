@@ -8,6 +8,12 @@
                 .then(dbUser => res.json(dbUser))
                 .catch(err => res.status(422).json(err));
         },
+        findUserbyLinkedIn: (req, res) => {
+            db.User
+                .findOne({ linkedInId: req.params.id })
+                .then(dbUser => res.json(dbUser))
+                .catch(err => res.status(422).json(err));
+        },
         createUser: (req, res) => {
             console.log('unique linkedIn id' + req.body.linkedInId);
             db.User.update(
@@ -15,11 +21,12 @@
                 {'linkedInId': req.body.linkedInId},
                 //update or create
                 { $set: {
+                    'linkedInId':req.body.linkedInId,
                     'firstName': req.body.firstName,
                     'lastName': req.body.lastName,
                     'headline': req.body.headline,
                     'location': req.body.location,
-                    'profilePicURL': req.body.location,
+                    'profilePicURL': req.body.profilePicURL,
                 }},
                 {'upsert':true})
 

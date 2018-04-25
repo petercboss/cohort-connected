@@ -1,4 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
+// API routes
+import API from '../utils/API';
+
+
 
 import SocialButton from '../components/socialButton/socialButton'
 // import UserCard from '../components/userCard/userCard'
@@ -67,11 +72,26 @@ export default class Demo extends Component {
       this.nodes[currentProvider].props.triggerLogout()
     }
   }
-
+  createUser(user) {
+    API.createUser(user).then(res => {
+      console.log(res);
+      console.log('function ran22')
+    })
+      .catch (err => console.log(err));
+  }
+  userCheck(userLinkedId) {
+    API.getUser(userLinkedId)
+      .then(res => {
+        console.log(res);
+        console.log('function ran')
+      })
+      .catch(err => console.log(err));
+  }
   render() {
     let children
     let user =this.state.user.profile;
     let user2 ={...user};
+    console.log(user2);
     console.log(user2.id);
     console.log(user2.firstName);
     console.log(user2.lastName);
@@ -79,8 +99,22 @@ export default class Demo extends Component {
     console.log(user2.location);
     console.log(user2.profilePicURL);
     console.log(this.state.logged);
+  
+
 
     if (this.state.logged) {
+      //create user object
+      const user = {
+        linkedInId: user2.id,
+        firstName: user2.firstName,
+        lastName: user2.lastName,
+        headline: user2.headline,
+        location: user2.location,
+        profilePicURL: user2.profilePicURL,
+        verified: true
+      }
+      this.createUser(user2)
+      this.userCheck(user2.id)
       children = <App user={this.state.user} logout={this.logout} />
     } else {
       children = [
