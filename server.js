@@ -5,7 +5,6 @@
         , mongoose = require('mongoose')
         , routes = require('./routes')
         , app = express()
-        , passportSetup = require('./config/passport-setup')
         , keys = require('./config/keys')
         , PORT = process.env.PORT || 3001
         , path = require('path')

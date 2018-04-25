@@ -3,16 +3,17 @@ import React, { Component } from 'react'
 
 import SocialLogin from '../../index2'
 
+
 class Button extends Component {
   static propTypes = {
     triggerLogin: PropTypes.func.isRequired,
     triggerLogout: PropTypes.func.isRequired
   }
 
-  render () {
+  render() {
     const { children, triggerLogin, triggerLogout, ...props } = this.props
     const style = {
-      background: '#0073b2',
+      background: '#eee',
       border: '1px solid black',
       borderRadius: '3px',
       display: 'inline-block',
@@ -21,8 +22,8 @@ class Button extends Component {
     }
 
     return (
-      <div className='linkedIn' onClick={triggerLogin} style={style} {...props}>
-        { children }
+      <div onClick={triggerLogin} style={style} {...props}>
+        {children}
       </div>
     )
   }

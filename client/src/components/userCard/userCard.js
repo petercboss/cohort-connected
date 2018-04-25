@@ -42,6 +42,7 @@ export default class UserCard extends Component {
   render () {
     const { user: { _profile, _token }, logout } = this.props
     let expiration = 'unknown'
+    console.log(_profile);
 
     if (_token.expiresAt === Infinity) {
       expiration = 'never/unknown (see provider doc)'

@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import Demo from './containers/demo'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// import { card as cardStyle, hr as hrStyle } from './components/userCard/styles';
+
+ReactDOM.render(
+    <div>
+        <Demo />
+    </div>,
+    document.getElementById('root')
+) 
 registerServiceWorker();
