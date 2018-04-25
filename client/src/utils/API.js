@@ -14,14 +14,18 @@ export default {
       return axios.get('/api/events');
     },
     // Gets all users
-    getUser: function () {
+    getUsers: function () {
       return axios.get('/api/User');
+    },
+    getUser: function (userLinkedId) {
+      return axios.get(`/api/user/${userLinkedId}`)
+      
     },
     // Create new user
     createUser: function (user) {
       // console.log(user)
       return axios.post('http://localhost:3001/api/User', {
-        linkedInId: user.linkedInId,
+        linkedInId: user.id,
         firstName: user.firstName,
         lastName: user.lastName,
         headline: user.headline,
