@@ -1,6 +1,7 @@
 body, html {
     font-family: 'Catamaran', sans-serif;
     background-image: url('images/background.png');
+    padding-top: 30px;
 }
 .placeholder {
     margin: 80px auto;
