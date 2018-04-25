@@ -36,11 +36,7 @@ class RSideBar extends Component {
         </Row>
         <Row>
           <CalEventsList>
-          {this.props.events
-            .sort((a, b) => parseInt(a.time.replace(/:/, ''), 10) - parseInt(b.time.replace(/:/, ''), 10),)
-            // .sort((a, b) => a.title.toLowerCase() > b.title.toLowerCase())
-            .filter(event => event.day === this.state.formattedDate)
-            .map((event, i) => (
+          {this.props.events.sort((a, b) => parseInt(a.time.replace(/:/, ''), 10) - parseInt(b.time.replace(/:/, ''), 10)).filter(event => event.day === this.state.formattedDate).map((event, i) => (
             <CalEventItem key={event._id}
                           id={event._id}
                           bk={i}
