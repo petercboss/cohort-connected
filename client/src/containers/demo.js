@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 
 import SocialButton from '../components/socialButton/socialButton'
-//import UserCard from '../components/userCard/userCard'
-// import Main from '../pages/main' 
-import App from '../App.js'
+// import UserCard from '../components/userCard/userCard'
+import App from '../App'
 
 export default class Demo extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -23,13 +22,13 @@ export default class Demo extends Component {
     this.logout = this.logout.bind(this)
   }
 
-  setNodeRef (provider, node) {
+  setNodeRef(provider, node) {
     if (node) {
-      this.nodes[ provider ] = node
+      this.nodes[provider] = node
     }
   }
 
-  onLoginSuccess (user) {
+  onLoginSuccess(user) {
     console.log(user)
 
     this.setState({
@@ -39,7 +38,7 @@ export default class Demo extends Component {
     })
   }
 
-  onLoginFailure (err) {
+  onLoginFailure(err) {
     console.error(err)
 
     this.setState({
@@ -49,7 +48,7 @@ export default class Demo extends Component {
     })
   }
 
-  onLogoutSuccess () {
+  onLogoutSuccess() {
     this.setState({
       logged: false,
       currentProvider: '',
@@ -57,11 +56,11 @@ export default class Demo extends Component {
     })
   }
 
-  onLogoutFailure (err) {
+  onLogoutFailure(err) {
     console.error(err)
   }
 
-  logout () {
+  logout() {
     const { logged, currentProvider } = this.state
 
     if (logged && currentProvider) {
@@ -69,15 +68,22 @@ export default class Demo extends Component {
     }
   }
 
-  render () {
+  render() {
     let children
+    let user =this.state.user.profile;
+    let user2 ={...user};
+    console.log(user2.id);
+    console.log(user2.firstName);
+    console.log(user2.lastName);
+    console.log(user2.headline);
+    console.log(user2.location);
+    console.log(user2.profilePicURL);
+    console.log(this.state.logged);
 
     if (this.state.logged) {
-      // children = <UserCard user={this.state.user} logout={this.logout} />
       children = <App user={this.state.user} logout={this.logout} />
     } else {
       children = [
-       
         <SocialButton
           provider='linkedin'
           appId='78xlkz34c94sm1'
@@ -87,21 +93,10 @@ export default class Demo extends Component {
           getInstance={this.setNodeRef.bind(this, 'linkedin')}
           key={'linkedin'}
         >
-          Login with LinkedIn
+          Login with LinkedIn 
         </SocialButton>
+        // 
       ]
-
-      // Amazon only supports HTTPS
-      if (window.location.protocol === 'https:') {
-        children.push(
-         
-        )
-      } else {
-        // We don’t use HTTPS because of Gatekeeper, but it can be enabled if Gatekeeper is served over HTTPS
-        children.push(
-         
-        )
-      }
     }
 
     return children

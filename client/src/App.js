@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Demo from './containers/demo';
 
 //routing
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -10,10 +9,12 @@ import Footer from './components/footer';
 
 // // pages
 import Main from "./pages/main"
-// import Login from './pages/login';
-import Forum from './pages/forum';
-import Messages from './pages/messages';
-import Favorites from './pages/favorites';
+import Forum from './pages/forum'
+import Messages from './pages/messages'
+import Favorites from './pages/favorites'
+
+//import test login
+// import Demo from './containers/demo';
 
 class App extends Component {
   render() {
@@ -25,11 +26,10 @@ class App extends Component {
             <Route exact path="/" component={Main} />
             <Route exact path="/forum" component={Forum} />
             <Route exact path="/messages" component={Messages} />
-            <Route path="/favorites" component={Favorites} /> 
+            <Route path="/favorites" component={Favorites} />
           </div>
         </Router>
-        <Footer/>
-        <Demo />
+        <Footer />
       </div>
     );
   };

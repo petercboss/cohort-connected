@@ -1,5 +1,4 @@
 import React from 'react';
-
 // external stylesheet and bootstrap style components
 import './LSideBar.css';
 import {Col} from '../../components/Grid';

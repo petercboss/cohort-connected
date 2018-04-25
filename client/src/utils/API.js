@@ -19,7 +19,7 @@ export default {
     },
     // Create new user
     createUser: function (user) {
-      console.log(user)
+      // console.log(user)
       return axios.post('http://localhost:3001/api/User', {
         linkedInId: user.linkedInId,
         firstName: user.firstName,
