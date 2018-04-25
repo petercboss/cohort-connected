@@ -8,8 +8,8 @@ import 'moment-timezone';
 import './CalEventsList.css'
 
 export const CalEventItem = props => (
-    <li className={props.bk % 2 === 0 ? '' : 'alternate'} id={props.id}>
-        <a href={props.link} className='eventsToday'>
+    <li className={props.bk % 2 === 0 ? '' : 'alternate'} id={props.id} data-time={props.test}>
+        <a href={props.link} target='_blank' className='eventsToday'>
             <h6 className='calEventTitle'>
                 <Moment format='h:mm a'>{props.date}</Moment>
                 <span className='calEventBorder'> | </span>
