@@ -24,7 +24,7 @@ export default {
     // Create new user
     createUser: function (user) {
       // console.log(user)
-      return axios.post('/api/User', {
+      return axios.post('/api/user', {
         linkedInId: user.id,
         firstName: user.firstName,
         lastName: user.lastName,
