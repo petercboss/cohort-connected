@@ -35,17 +35,17 @@ class RSideBar extends Component {
                     value={this.state.date} />
         </Row>
         <Row>
-          <CalEventsList>{this.props.events.sort((a, b) => parseInt(a.date.split('T')[1].split('.')[0].split(':')[0]+a.date.split('T')[1].split('.')[0].split(':')[1], 10)
-           - parseInt(b.date.split('T')[1].split('.')[0].split(':')[0]+b.date.split('T')[1].split('.')[0].split(':')[1]), 10)
-          .sort((a, b) => a.title.toLowerCase() > b.title.toLowerCase())
-          .filter(event => event.date.split('T')[0] === this.state.formattedDate)
-          .map((event, i) => (
+          <CalEventsList>
+          {this.props.events.sort((a, b) => parseInt(a.time.replace(/:/, ''), 10) - parseInt(b.time.replace(/:/, ''), 10)).filter(event => event.day === this.state.formattedDate).map((event, i) => (
             <CalEventItem key={event._id}
                           id={event._id}
                           bk={i}
                           title={event.title}
                           link={event.link}
                           date={event.date}
+                          day={event.day}
+                          time={event.time}
+                          test={parseInt(event.time.replace(/:/, ''), 10)}
                           selectedDate={this.state.formattedDate} />
             ))}
           </CalEventsList>
@@ -56,8 +56,3 @@ class RSideBar extends Component {
 }
 
 export default RSideBar;
-
-
-            // console.log(this.state.formattedDate + this.state.date + event.date.split('T')[0]);
-            // .filter(event => event.date.split('T')[0] === )
-            // .sort((a,b) => new Date(a.date) - new Date(b.date))

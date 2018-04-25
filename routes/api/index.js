@@ -9,9 +9,9 @@
     router.post('/user', cohortController.createUser);
 
     router.route('user/:id/:favorite')
-        .get(cohortController.findFavorites)
-        .post(cohortController.createFavorite)
-        .delete(cohortController.removeFavorite);
+      .get(cohortController.findFavorites)
+      .post(cohortController.createFavorite)
+      .delete(cohortController.removeFavorite);
 
     module.exports = router;
 })();
