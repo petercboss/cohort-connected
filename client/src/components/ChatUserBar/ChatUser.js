@@ -9,11 +9,11 @@ export const ChatUser = props => (
             <Row className='chatRow'>
                 <div className='ChatUser'>
                     <Col size="md-4" className="paddingFix">
-                    <img src='http://via.placeholder.com/75x75'  alt="title" className="chatImage" />
+                    <img src={props.user.profilePicURL}  alt="title" className="chatImage" />
                     </Col>
                     <Col size="md-8">
                     <div className='userInfo'>
-                        <div className="chatName">Name Here </div>
+                        <div className="chatName">{props.user.firstName} {props.user.lastName} </div>
                         <div className="chatDate">last messaged</div>
                     </div>
                     </Col>

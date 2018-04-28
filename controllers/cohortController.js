@@ -8,6 +8,12 @@
                 .then(dbUser => res.json(dbUser))
                 .catch(err => res.status(422).json(err));
         },
+        findUsers: (req,res) => {
+            db.User
+                .find({})
+                .then(dbUsers => res.json(dbUsers))
+                .catch(err => res.status(422).json(err));
+        },
         findUserbyLinkedIn: (req, res) => {
             db.User
                 .findOne({ linkedInId: req.params.id })

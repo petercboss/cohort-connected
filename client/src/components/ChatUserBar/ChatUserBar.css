@@ -1,7 +1,7 @@
 .ChatUserBar {
     background: rgb(68,71,83);
     border: 1px solid black;
-    height: 700px;
+    height: 600px;
     margin-top: 50px;
     width: 100%;
 }
@@ -20,17 +20,22 @@
     margin: 0;
 }
 .ChatUser {
-    height: 100px;
+    height: 90px;
     width: 100%;
     display: inherit;
-    padding-left: 30px;
+    margin-left: 16px;
+    margin-bottom: 5px;
+    padding-top: 8px;
+}
+.ChatUser:hover {
+    background: lightblue;
 }
 .chatImage {
     border-radius: 20px;
-    /* float: left; */
+    width: 75px;
+    margin-left: 10px;
 }
 .userInfo {
-    /* float: left; */
     padding-left: 8px;
     margin-top: 8px;
 }
