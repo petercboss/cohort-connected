@@ -33,17 +33,20 @@ class Messages extends Component {
   componentDidMount() {
     this.loadUsers();
   }
+  currentUser = (currentUser) => {
+    this.setState({selectedUser: currentUser});
+  }
     render() {
         return(
           <Container>
             <Row>
               <Col size="md-3 lg-3" className='paddingFix'>
               <ChatUserBar >
-                {this.state.users.map( (user) => (<ChatUser user={user} key={user._id} />))}
+                {this.state.users.map( (user) => (<ChatUser user={user} key={user._id} currentUser={this.currentUser} />))}
               </ChatUserBar>
               </Col>
               <Col size="md-9" className='paddingFix'>
-                <CurrentChatHeader />
+                <CurrentChatHeader currentUser = {this.state.selectedUser}/>
                 <ChatMessageArea>
                   <ChatMessage />
                 </ChatMessageArea>

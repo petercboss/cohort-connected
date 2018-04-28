@@ -4,8 +4,12 @@ import React from 'react';
 import './ChatMessageArea.css';
 
 export const CurrentChatHeader = props => (
-    <div className='CurrentChatHeader'>
-        <img src='http://via.placeholder.com/75x75' alt="title" className='chatImage' />
-        <h1 className='currentName'>CURRENT NAME</h1>
+        <div className='CurrentChatHeader'>
+        {(props.currentUser.firstName) ? (
+        <div>
+        <img src={props.currentUser.profilePicURL} alt="title" className='chatImage' />
+        <h1 className='currentName'>{props.currentUser.firstName} {props.currentUser.lastName}</h1>
+        </div>) : (<h1 className='noSelectedUser'>Click Another User To Start Chatting!</h1>)
+        }
         </div>
 );

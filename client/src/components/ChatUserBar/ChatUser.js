@@ -7,7 +7,7 @@ import { Col, Row} from '../../components/Grid';
 export const ChatUser = props => (
         <li>
             <Row className='chatRow'>
-                <div className='ChatUser'>
+                <div className='ChatUser' onClick={()=> props.currentUser(props.user)}>
                     <Col size="md-4" className="paddingFix">
                     <img src={props.user.profilePicURL}  alt="title" className="chatImage" />
                     </Col>
