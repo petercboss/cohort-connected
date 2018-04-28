@@ -12,6 +12,7 @@ import Main from "./pages/main"
 import Forum from './pages/forum'
 import Messages from './pages/messages'
 import Favorites from './pages/favorites'
+import Team from './pages/team'
 
 //import test login
 // import Demo from './containers/demo';
@@ -27,6 +28,7 @@ class App extends Component {
             <Route exact path="/forum" component={Forum} />
             <Route exact path="/messages" component={Messages} />
             <Route path="/favorites" component={Favorites} />
+            <Route path="/team" component={Team} />
           </div>
         </Router>
         <Footer />
