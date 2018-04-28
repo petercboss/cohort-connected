@@ -1,7 +1,7 @@
 .ChatMessageArea {
     margin-bottom: 50px;
     border: 1px solid black;
-    height: 430px;
+    height: 400px;
     background: rgb(242,245,248);
     border-top: 0;
     margin-bottom: 0;
@@ -34,6 +34,8 @@
 }
 .CurrentChatHeader img {
     margin-right: 10px;
+    margin-bottom: 5px;
+    width: 85px;
 }
 .currentName {
     display: inline;
@@ -92,16 +94,20 @@
     margin-bottom:80px; 
     border: 1px solid black;
     border-top: none;
-    height: 170px;
+    height: 100px;
 }
 .messageToSend {
-    width: 100%;
+    width: 90%;
     border: none;
-    padding: 20px 20px;
+    padding: 4px 4px;
     font: 14px/22px "Lato", Arial, sans-serif;
     margin-bottom: 10px;
     border-radius: 5px;
 }
 .chatSendBtn {
     float: right;
+    width: 9%;
+    height: 88%;
+    background: rgb(54,0,81);
+    color: white;
 }

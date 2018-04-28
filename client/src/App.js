@@ -15,23 +15,28 @@ import Favorites from './pages/favorites'
 
 //import test login
 // import Demo from './containers/demo';
+// import USERProvider from './components/context/USERProvider';
+
+
 
 class App extends Component {
   render() {
-    return (
+  const { user: user} = this.props
+  return (
+    <div>
+    <Router>
       <div>
-        <Router>
-          <div>
-            <Nav />
-            <Route exact path="/" component={Main} />
-            <Route exact path="/forum" component={Forum} />
-            <Route exact path="/messages" component={Messages} />
-            <Route path="/favorites" component={Favorites} />
-          </div>
-        </Router>
-        <Footer />
+        <Nav />
+        <Route exact path="/" render={(props) => <Main {...props} user={user}/>} />
+        <Route exact path="/forum"  render={(props) => <Forum {...props} user={user}/>} />
+        <Route exact path="/messages"  render={(props) => <Messages {...props} user={user}/>} />
+        <Route path="/favorites"  render={(props) => <Favorites {...props} user={user}/>} />
       </div>
-    );
+    </Router>
+    <Footer />
+    {/* <USERProvider user={this.props.user} /> */}
+  </div>
+    )
   };
 };
 

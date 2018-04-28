@@ -19,6 +19,9 @@ import Jobs from '../../components/jobs';
 
 // pages
 // import { TLSSocket } from 'tls';
+//import context 
+// import USERContext from '../../components/context/USERContext';
+// import USERProvider from '../../components/context/USERProvider';
 
 class Main extends Component {
     state = {
@@ -133,14 +136,14 @@ class Main extends Component {
         return(
           <Container>
             <Row>
-                <LSideBar />
-                <Col size='md-6' className='mainContent'>
-                    <NavPills currentPage={this.state.currentPage}
-                              handlePageChange={this.handlePageChange} />
-                    {this.renderPage()}
-                </Col>
-                <RSideBar events={this.state.events} />
-            </Row>
+              <LSideBar user={this.props.user} />
+              <Col size='md-6' className='mainContent'>
+                  <NavPills currentPage={this.state.currentPage}
+                            handlePageChange={this.handlePageChange} />
+                  {this.renderPage()}
+              </Col>
+              <RSideBar events={this.state.events} />
+          </Row>
           </Container>
         )
     };
