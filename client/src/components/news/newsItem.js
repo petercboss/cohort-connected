@@ -40,28 +40,35 @@ class NewsItem extends Component {
     render() {
         return (
         <li className='list-group-item news' id={this.props.id}>
-            <a href={this.props.link} target='_blank'><h4 className='news-title'>{this.props.title}</h4></a>
-            <h5 className='byline'><span className='news-author'>By: {this.props.author}</span><span className='news-date'><Moment tz='America/Chicago' fromNow>{this.props.date}</Moment></span></h5>
-            <div className='clearfix'/>
-            <div className='row news-bulk'> 
-                <div className='col-md-6'>
-                    <p className='news-brief'>"{this.props.summary}..." <a href={this.props.link} target='_blank' className='news-link'>Read the Full Story</a></p>
-                </div>
-                <div className='col-md-6'>
-                    <img src={this.props.photo} alt={this.props.title} className='news-img' />
-                </div>
-            </div>
-            <div className='row'>
-                <div className='col-md-12 news-activity'>
-                    <button className='action-item comment'><i className='fa fa-comments'></i> Add/View Comments</button>
-                    <button onClick={this.DownVote} className={this.state.action === 'disliked' ? 'action-item thumbs thumbs-down disliked' : 'action-item thumbs thumbs-down'}
-                        disabled={this.state.disabled === true ? 'true' : ''}>
-                        <i className='fa fa-thumbs-down'></i> {this.state.thumbsDown}</button>
-                    <button onClick={this.UpVote} className={this.state.action === 'liked' ? 'action-item thumbs thumbs-up liked' : 'action-item thumbs thumbs-up'}
-                        disabled={this.state.disabled === true ? 'true' : ''}>
-                        <i className='fa fa-thumbs-up'></i> {this.state.thumbsUp}</button>
-                </div>
+            <div className='.news-container'>
+                <a href={this.props.link} target='_blank'><h4 className='news-title'>{this.props.title}</h4></a>
+                <h5 className='byline'><span className='news-author'>By: {this.props.author}</span><span className='news-date'><Moment tz='America/Chicago' fromNow>{this.props.date}</Moment></span></h5>
                 <div className='clearfix'/>
+                <div className='row news-bulk'> 
+                    <div className='col-md-6'>
+                        <p className='news-brief'>"{this.props.summary}..." <a href={this.props.link} target='_blank' className='news-link'>Read the Full Story</a></p>
+                    </div>
+                    <div className='col-md-6'>
+                        <img src={this.props.photo} alt={this.props.title} className='news-img' />
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-md-12 news-activity'>
+                        <button className='action-item comment'><i className='fa fa-comments'></i> Add/View Comments</button>
+                        <button onClick={this.DownVote} className={this.state.action === 'disliked' ? 'action-item thumbs thumbs-down disliked' : 'action-item thumbs thumbs-down'}
+                            disabled={this.state.disabled === true ? 'true' : ''}>
+                            <i className='fa fa-thumbs-down'></i> {this.state.thumbsDown}</button>
+                        <button onClick={this.UpVote} className={this.state.action === 'liked' ? 'action-item thumbs thumbs-up liked' : 'action-item thumbs thumbs-up'}
+                            disabled={this.state.disabled === true ? 'true' : ''}>
+                            <i className='fa fa-thumbs-up'></i> {this.state.thumbsUp}</button>
+                    </div>
+                    <div className='clearfix'/>
+                    <div className={this.props.isFavorite === true ? 'favorite' : 'non-favorite'}></div>
+                    <button onClick={()=>console.log('you like this news story')}
+                        className={this.props.isFavorite === true ? 'tabbed' : 'open'}>
+                        <i className='fa fa-star-o' aria-hidden='true'></i>
+                    </button>
+                </div>
             </div>
         </li>
         )
