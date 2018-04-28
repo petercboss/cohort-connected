@@ -32,6 +32,9 @@
     border-bottom: 5px solid white;
     text-align: center;
 }
+.noSelectedUser {
+    line-height: 100px;
+}
 .CurrentChatHeader img {
     margin-right: 10px;
     margin-bottom: 5px;
