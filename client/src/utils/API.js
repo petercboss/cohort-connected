@@ -15,7 +15,7 @@ export default {
     },
     // Gets all users
     getUsers: function () {
-      return axios.get('/api/User');
+      return axios.get('/api/users');
     },
     getUser: function (userLinkedId) {
       return axios.get(`/api/user/${userLinkedId}`)

@@ -20,21 +20,26 @@ class Messages extends Component {
   state = {
     users: [],
     messages:[],
+    selectedUser:[]
   };
   loadUsers = () => {
     API.getUsers()
       .then(res =>
-        this.setState({ users: res.data})
+        {this.setState({ users: res.data})
+      console.log(res)}
       )
       .catch(err => console.log(err));
   };
+  componentDidMount() {
+    this.loadUsers();
+  }
     render() {
         return(
           <Container>
             <Row>
               <Col size="md-3 lg-3" className='paddingFix'>
               <ChatUserBar >
-                <ChatUser />
+                {this.state.users.map( (user) => (<ChatUser user={user} key={user._id} />))}
               </ChatUserBar>
               </Col>
               <Col size="md-9" className='paddingFix'>

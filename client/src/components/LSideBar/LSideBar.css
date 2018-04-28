@@ -13,3 +13,8 @@
     text-align: center;
     min-height: 400px;
 }
+.profileImg {
+    width: 80%;
+    border-radius: 29%;
+    border: 1px solid rgb(54,0,81);
+}

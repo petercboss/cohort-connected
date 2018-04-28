@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 // API routes
 import API from '../utils/API';
 
-
-
 import SocialButton from '../components/socialButton/socialButton'
 // import UserCard from '../components/userCard/userCard'
 import App from '../App'
@@ -115,7 +113,8 @@ export default class Demo extends Component {
       }
       this.createUser(user2)
       this.userCheck(user2.id)
-      children = <App user={this.state.user} logout={this.logout} />
+    children = <App user={user}  logout={this.logout} />
+
     } else {
       children = [
         <SocialButton
