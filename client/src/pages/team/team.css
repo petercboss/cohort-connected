@@ -1,0 +1,25 @@
+.Rachel{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin:20px auto;
+}
+.Troy{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin:20px auto;
+}
+
+.teamWork{
+    font-size: 70px;
+}
+
+.teamRow{
+    margin-top:30px;
+    border-top:1px solid grey;
+}
+
+.teamIndv{
+    margin-top:20px;
+}

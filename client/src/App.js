@@ -12,6 +12,7 @@ import Main from "./pages/main"
 import Forum from './pages/forum'
 import Messages from './pages/messages'
 import Favorites from './pages/favorites'
+import Team from './pages/team'
 
 //import test login
 // import Demo from './containers/demo';
@@ -26,11 +27,14 @@ class App extends Component {
     <div>
     <Router>
       <div>
+
         <Nav />
         <Route exact path="/" render={(props) => <Main {...props} user={user}/>} />
         <Route exact path="/forum"  render={(props) => <Forum {...props} user={user}/>} />
         <Route exact path="/messages"  render={(props) => <Messages {...props} user={user}/>} />
         <Route path="/favorites"  render={(props) => <Favorites {...props} user={user}/>} />
+        <Route path="/team" component={Team} />
+
       </div>
     </Router>
     <Footer />

@@ -15,7 +15,7 @@ const Footer = props => (
                     <h3 className='block-title'><span>About Us</span></h3>
                     <div className='block-content'>
                       <ul>
-                        <li><a href='#.'>Our Team</a></li>
+                        <li><a href='/team'>Our Team</a></li>
                         <li><a href='#.'>FAQs</a></li>
                         <li><a href='#.'>Contact</a></li>
                         <li><a href='#.'>Terms &amp; Conditions</a></li>
