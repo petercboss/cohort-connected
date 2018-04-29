@@ -21,8 +21,6 @@ import Team from './pages/team'
 // API routes
 import API from './utils/API';
 
-
-
 class App extends Component {
   
   state = {
