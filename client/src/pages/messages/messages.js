@@ -20,7 +20,7 @@ class Messages extends Component {
   state = {
     user: this.props.user,
     users: [],
-    messages:0,
+    messages:[0],
     chatMessage:[],
     selectedUser:[],
     currentChatId:''
@@ -31,28 +31,38 @@ class Messages extends Component {
         {this.setState({ 
           users: res.data
           // selectedUser:res.data[0]
-        })
-      console.log(res)}
-      )
+        })})
+      // console.log(res)}
       .catch(err => console.log(err));
   };
   componentWillMount() {
     this.setState({user: this.props.user});
+
+  }
+  componentDidMount() {
     this.loadUsers();
   }
+
   currentUser = (currentUser) => {
-    this.setState({ selectedUser: currentUser }, this.loadChat1());
+    this.setState({ selectedUser: currentUser }, this.loadChat1(currentUser));
+
   }
 
-  loadChat1 = () => {
-    const chatid1 = this.state.user._id + this.state.selectedUser._id
+  loadChat1 = (currentUser) => {
+    console.log('load chat one fired');
+    const chatid1 = this.state.user._id + currentUser._id
+    console.log('clicked on ' + currentUser.firstName)
+    if(chatid1.includes('undefined') === true ){
+      return
+    }
     API.getMessages(chatid1)
     .then(res =>{
       if (res.data === null) {
-        this.loadChat2()
+        this.loadChat2(currentUser)
+        console.log('chatid1 does not exist')
       } else {
        this.setState({
-         messages: res.data,
+         messages: res.data.messages,
          currentChatId: chatid1
       }); 
       }
@@ -60,9 +70,9 @@ class Messages extends Component {
     )
     .catch(err => console.log(err));
   }
-  loadChat2 = () => {
-    let chatid2 = this.state.selectedUser._id + this.state.user._id;
-    let chatid1 = this.state.user._id + this.state.selectedUser._id;
+  loadChat2 = (currentUser) => {
+    let chatid2 = currentUser._id + this.state.user._id;
+    let chatid1 = this.state.user._id + currentUser._id;
 
     API.getMessages(chatid2)
     .then(res =>
@@ -71,7 +81,7 @@ class Messages extends Component {
         this.createChat(chatid1);
       } else {
         this.setState({
-          messages: res.data,
+          messages: res.data.messages,
         currentChatId:chatid2
         })
       };
@@ -84,7 +94,7 @@ class Messages extends Component {
     .then(res =>
       {
         this.setState({
-          messages: res.data,
+          messages: res.data.messages,
         currentChatId:chatid
         })
     console.log(res.data)}
@@ -103,17 +113,30 @@ class Messages extends Component {
     API.addMessage(chatMessage)
     .then(res => {
     console.log(res.data)
-    this.loadChat1(this.state.selectedUser._id)
+    this.refreshMessage(this.state.currentChatId)
     })
     .catch(err => console.log(err))
   }
+
+  refreshMessage = (chatId) => {
+    API.getMessages(chatId)
+    .then(res =>
+      {
+        this.setState({messages: res.data.messages})
+    console.log(res.data)}
+    )
+    .catch(err => console.log(err));
+  }
+  
+
+
   handleChange = (event) => {
     this.setState({chatMessage: event.target.value});
-    console.log(this.state.chatMessage)
   }
 
 
     render() {
+
         return(
           <Container>
             <Row>
@@ -124,14 +147,13 @@ class Messages extends Component {
               </Col>
               <Col size="md-9" className='paddingFix'>
                 <CurrentChatHeader currentUser = {this.state.selectedUser}/>
-                <ChatMessageArea messages={this.state.messages}>
-                  <ChatMessage />
+                <ChatMessageArea>
+                {this.state.messages.map((message) => (<ChatMessage  id={message.senderId} name={message.senderName} chatMessage={message.chatMessage} date={message.sent}/>))}
                 </ChatMessageArea>
                 <div className='ChatMessageFooter'>
                 <textarea className='messageToSend' value={this.state.chatMessage} onChange={this.handleChange}></textarea>
                 <button className='chatSendBtn' onClick={this.updateChat}>SEND</button>
                 </div>
-                {/* <ChatMessageFooter updateChat={this.updateChat}/> */}
               </Col>
             </Row>
           </Container>
@@ -141,3 +163,12 @@ class Messages extends Component {
 
 export default Messages;
 
+
+
+
+
+
+// {<ChatMessage key={key} id={message.senderId} name={message.senderName} chatMessage={message.chatMessage} date={message.sent}/>}))}
+
+// {(this.state.message === [0]) ? (<h1>Hello</h1>) : (this.state.messages.map((message) => {<ChatMessage  id={message.senderId} name={message.senderName} chatMessage={message.chatMessage} date={message.sent}/>}))}
+// {(this.state.message === [0]) ? (<h1>Hello</h1>) : (Object.keys(this.state.messages).map((key) => {<ChatMessage  key={key} name={this.state.messages[key].senderName} chatMessage={this.state.messages[key].chatMessage}/>}))}

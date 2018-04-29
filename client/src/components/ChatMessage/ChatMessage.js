@@ -6,12 +6,12 @@ import {Row} from '../../components/Grid';
   
 export const ChatMessage = props => (
     <div>
-    <li >
+    <li>
         <Row className='chatRow'>
             <div className='senderUser'>
-                <h3 className='senderChatName'>SenderName - TimeSent </h3>         
+                <h3 className='senderChatName'>{props.name}</h3>         
                 <div className='chatBubble'>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
+                    <p>{props.chatMessage}</p>
                 </div>
             </div>
         </Row>
