@@ -18,12 +18,11 @@ export default {
       return axios.get('/api/users');
     },
     getUser: function (userLinkedId) {
+      console.log(userLinkedId)
       return axios.get(`/api/user/${userLinkedId}`)
       
     },
-    // Create new user
     createUser: function (user) {
-      // console.log(user)
       return axios.post('/api/user', {
         linkedInId: user.id,
         firstName: user.firstName,
@@ -33,5 +32,15 @@ export default {
         profilePicURL: user.profilePicURL,
         verified: true
       })
+    },
+    getMessages: function(messageId) {
+      console.log(messageId);
+      return axios.get(`/api/messages/${messageId}`)
+    },
+    createMessage: function(messageId) {
+      return axios.post(`/api/messages/${messageId}`)
+    },
+    addMessage: function(messageId) {
+      return axios.put(`/api/messages/${messageId}`)
     }
   };

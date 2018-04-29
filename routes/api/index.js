@@ -8,6 +8,8 @@
     router.get('/users/:id', cohortController.findUser);
     router.post('/user', cohortController.createUser);
     router.get('/users', cohortController.findUsers);
+    router.get('/messages/:id', cohortController.findChat);
+    router.post('/messages/:id', cohortController.createChat);
 
     router.route('/user/:id/:favorite')
       .get(cohortController.findFavorites)

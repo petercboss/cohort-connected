@@ -73,6 +73,16 @@
             db.User.findOneAndUpdate({ _id: req.params.id }, { $pull: { [req.params.favorite]: result._id }})
               .then(dbFavorite => res.json(dbFavorite))
               .catch(err => res.status(422).json(err));
+        },
+        findChat: (req,res) => {
+            db.Chat.findOne({chatId : req.params.id})
+            .then(dbChat => res.json(dbChat))
+            .catch(err => res.status(422).json(err));
+        },
+        createChat: (req,res) => {
+            db.Chat.create({chatId : req.params.id})
+            .then(dbChat => { console.log(dbChat); res.json(dbChat)})
+            .catch(err => res.status(422).json(err));
         }
     };
 })();
