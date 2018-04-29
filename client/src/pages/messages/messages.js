@@ -18,9 +18,11 @@ import {ChatMessageArea, CurrentChatHeader, ChatMessage, ChatMessageFooter}from 
 
 class Messages extends Component {
   state = {
+    user: this.props.user,
     users: [],
-    messages:[],
-    selectedUser:[]
+    messages:0,
+    selectedUser:[],
+    messageId1:'',
   };
   loadUsers = () => {
     API.getUsers()
@@ -34,7 +36,50 @@ class Messages extends Component {
     this.loadUsers();
   }
   currentUser = (currentUser) => {
-    this.setState({selectedUser: currentUser});
+    this.setState({ selectedUser: currentUser });
+    console.log(currentUser);
+    this.loadChat1(currentUser)
+  }
+
+  loadChat1 = (currentUser) => {
+    let chatid1 = this.state.user._id + currentUser._id
+
+    API.getMessages(chatid1)
+    .then(res =>
+      {
+      if (res.data === null) {
+        this.loadChat2(currentUser)
+      } else {
+       this.setState({messages: res.data}) 
+      }
+    console.log(res.data)}
+    )
+    .catch(err => console.log(err));
+  }
+  loadChat2 = (currentUser) => {
+    let chatid2 = currentUser._id + this.state.user._id
+    let chatid1 = this.state.user._id + currentUser._id
+
+    API.getMessages(chatid2)
+    .then(res =>
+      {
+      if (res.data === null) {
+        this.createChat(chatid1);
+      } else {
+        this.setState({messages: res.data})
+      }
+    console.log(res.data)}
+    )
+    .catch(err => console.log(err));
+  }
+  createChat = (chatid) => {
+    API.createMessage(chatid)
+    .then(res =>
+      {
+        this.setState({messages: res.data})
+    console.log(res.data)}
+    )
+    .catch(err => console.log(err));
   }
     render() {
         return(
@@ -47,7 +92,7 @@ class Messages extends Component {
               </Col>
               <Col size="md-9" className='paddingFix'>
                 <CurrentChatHeader currentUser = {this.state.selectedUser}/>
-                <ChatMessageArea>
+                <ChatMessageArea messages={this.state.messages}>
                   <ChatMessage />
                 </ChatMessageArea>
                 <ChatMessageFooter />
