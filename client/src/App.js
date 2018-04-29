@@ -28,7 +28,7 @@ class App extends Component {
     updatedUser:{}
   }
 
-  componentdidMount() {
+  componentwillMount() {
     this.getUserData()
   }
   getUserData() {
