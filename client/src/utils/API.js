@@ -40,7 +40,13 @@ export default {
     createMessage: function(messageId) {
       return axios.post(`/api/messages/${messageId}`)
     },
-    addMessage: function(messageId) {
-      return axios.put(`/api/messages/${messageId}`)
+    addMessage: function(message) {
+      console.log(message);
+      return axios.put(`/api/messages/${message.chatId}`, {
+          senderId: message.senderId,
+          senderName: message.senderName,
+          sent: message.sent,
+          chatMessage: message.chatMessage
+        })
     }
   };

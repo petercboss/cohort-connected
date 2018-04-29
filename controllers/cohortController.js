@@ -83,6 +83,11 @@
             db.Chat.create({chatId : req.params.id})
             .then(dbChat => { console.log(dbChat); res.json(dbChat)})
             .catch(err => res.status(422).json(err));
+        },
+        updateChat: (req,res) => {
+            db.Chat.findOneAndUpdate({ chatId: req.params.id }, { $push: {messages: req.body}}, { new: true })
+            .then(dbChat => res.json(dbChat))
+              .catch(err => res.status(422).json(err));
         }
     };
 })();
