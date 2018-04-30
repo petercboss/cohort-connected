@@ -23,7 +23,7 @@ export default {
     },
     getUser: function (userLinkedId) {
       console.log(userLinkedId)
-      return axios.get(`/api/user/${userLinkedId}`)
+      return axios.get(`/api/userLinkedIn/${userLinkedId}`)
       
     },
     createUser: function (user) {
