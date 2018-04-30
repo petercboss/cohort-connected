@@ -41,6 +41,7 @@ class Messages extends Component {
   }
   componentDidMount() {
     this.loadUsers();
+       
   }
 
   currentUser = (currentUser) => {
@@ -119,6 +120,7 @@ class Messages extends Component {
   }
 
   refreshMessage = (chatId) => {
+    console.log('messageRefresh');
     API.getMessages(chatId)
     .then(res =>
       {
@@ -128,6 +130,15 @@ class Messages extends Component {
     .catch(err => console.log(err));
   }
   
+  startMessageRefreshInterval() {
+    if(this.state.currentChatId === ''){
+        
+    } else {
+      console.log('message refresh');
+      this.refreshMessage(this.state.currentChatId);
+    }
+  }
+  // setInterval(this.refreshMessage(this.state.currentChatId),500)
 
 
   handleChange = (event) => {
@@ -136,7 +147,7 @@ class Messages extends Component {
 
 
     render() {
-
+      setInterval(this.startMessageRefreshInterval(),1000);  
         return(
           <Container>
             <Row>
