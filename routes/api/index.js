@@ -3,14 +3,19 @@
     const passport = require('passport');
     const cohortController = require('../../controllers/cohortController')
 
-    router.get('/news', cohortController.findNews);
-    router.get('/events', cohortController.findEvents);
     router.get('/users/:id', cohortController.findUser);
     router.post('/user', cohortController.createUser);
     router.get('/users', cohortController.findUsers);
-    router.get('/messages/:id', cohortController.findChat);
-    router.post('/messages/:id', cohortController.createChat);
-    router.put('/messages/:id', cohortController.updateChat);
+
+    router.route('/messages/:id')
+      .get(cohortController.findChat)
+      .post(cohortController.createChat)
+      .put(cohortController.updateChat);
+
+    router.get('/:collection', cohortController.findCollection);
+    router.route('/:collection/:id')
+      .get(cohortController.find)
+      .put(cohortController.thumb);
 
     router.route('/user/:id/:favorite')
       .get(cohortController.findFavorites)
@@ -18,5 +23,6 @@
       .delete(cohortController.removeFavorite);
 
     router.get('/user/:id', cohortController.findUserbyLinkedIn);
+
     module.exports = router;
 })();
