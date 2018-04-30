@@ -1,2 +1,2 @@
-export * from './ForumItem'
-export * from './ForumList'
+export {default} from './forumItem'
+export * from './forumList'
