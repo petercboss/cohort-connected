@@ -13,6 +13,10 @@ export default {
     getEvents: function() {
       return axios.get('/api/events');
     },
+    // Loads forum
+    getForum: function() {
+      return axios.get('/api/forum');
+    },
     // Gets all users
     getUsers: function () {
       return axios.get('/api/users');
