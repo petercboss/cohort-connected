@@ -3,6 +3,8 @@
     const passport = require('passport');
     const cohortController = require('../../controllers/cohortController')
 
+    router.get('/userLinkedIn/:id', cohortController.findUserbyLinkedIn);
+
     router.get('/users/:id', cohortController.findUser);
     router.post('/user', cohortController.createUser);
     router.get('/users', cohortController.findUsers);
@@ -22,7 +24,7 @@
       .post(cohortController.createFavorite)
       .delete(cohortController.removeFavorite);
 
-    router.get('/user/:id', cohortController.findUserbyLinkedIn);
+    
 
     module.exports = router;
 })();

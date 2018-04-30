@@ -73,7 +73,7 @@ export default class Demo extends Component {
   }
   createUser(user) {
     API.createUser(user).then(res => {
-      console.log(res);
+      console.log(res.data);
       console.log('function ran22')
     })
       .catch (err => console.log(err));
@@ -81,7 +81,7 @@ export default class Demo extends Component {
   userCheck(userLinkedId) {
     API.getUser(userLinkedId)
       .then(res => {
-        console.log(res);
+        console.log(res.data);
         console.log('function ran')
         // this.setState({updatedUser:res})
       })
