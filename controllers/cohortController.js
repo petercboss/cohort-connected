@@ -90,6 +90,7 @@
               .find({})
               .then(dbJobs => res.json(dbJobs))
               .catch(err => res.status(422).json(err));
+        },
 
         thumb: (req, res) => {
             collectionControl = new Promise((resolve, reject) => {
