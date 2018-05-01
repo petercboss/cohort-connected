@@ -13,7 +13,9 @@ const FaqShell = (props) => (
 
                     <div id="collapseOne" className="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div className="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        Cohort Connected is the leading platform for bootcampers post graduation! Stay connected while you begin your transition
+                        into the tech industry. Stay up-to-date on news, events, job posting, and your peers. We know learning doesn't stop
+                        at the end of your program, neither should your network.
                     </div>
                     </div>
                 </div>
@@ -25,7 +27,7 @@ const FaqShell = (props) => (
 
                     <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div className="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        Interested in having your bootcamp sign-up? <a href='/contact'>Contact us</a> to learn more!
                     </div>
                     </div>
                 </div>
@@ -37,7 +39,9 @@ const FaqShell = (props) => (
 
                     <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                     <div className="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        Here at Cohort Connected we value networking and bootcampers! We would love to post your job opening as long as it meets 
+                        our requirenments. <a href='/contact'>Contact us</a> with your job opening and we would be happy to spread the word
+                        here on the platform!
                     </div>
                     </div>
                 </div>
@@ -49,7 +53,7 @@ const FaqShell = (props) => (
 
                     <div id="collapseFour" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                     <div className="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        We would love to connect with you! <a href='/team'>Learn more</a> about our hardworking team!
                     </div>
                     </div>
                 </div>
@@ -61,7 +65,9 @@ const FaqShell = (props) => (
             
                     <div id="collapseFive" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                     <div className="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        Be sure to checkout your local area for upcoming boot camps. If you're in the Chicagoland area we highly
+                        recommend Northwestern's Full Stack Program! Offered in both full-time and part-time programs in both downtown
+                        Chicago and Evanston, Illinois! 
                     </div>
                     </div>
                 </div>
