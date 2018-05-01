@@ -6,10 +6,8 @@
         title: { type: String, required: true },
         summary: { type: String, required: true },
         postingDate: { type: Date, default: Date.now },
-        author: [{
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        }],
+        author: { _id: { type: String, required: true },
+                  author: { type: String, required: true }},
         comment: [{
             type: Schema.Types.ObjectId,
             ref: 'Comment'

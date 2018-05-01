@@ -40,20 +40,17 @@ class ForumItem extends Component {
         return (
         <li className='list-group-item forum' id={this.props.id}>
             <div className='.forum-container'>
-                <a href={this.props.link} target='_blank'><h4 className='forum-title'>{this.props.title}</h4></a>
+                <a><h4 className='forum-title'>{this.props.title}</h4></a>
                 <h5 className='byline'><span className='forum-author'>By: {this.props.author}</span><span className='forum-date'><Moment tz='America/Chicago' fromNow>{this.props.date}</Moment></span></h5>
                 <div className='clearfix'/>
                 <div className='row forum-bulk'> 
                     <div className='col-md-6'>
-                        <p className='forum-brief'>"{this.props.summary}..." <a href={this.props.link} target='_blank' className='forum-link'>Read the Full Story</a></p>
-                    </div>
-                    <div className='col-md-6'>
-                        <img src={this.props.photo} alt={this.props.title} className='forum-img' />
+                        <p className='forum-brief'><a className='forum-link'>{this.props.summary}</a></p>
                     </div>
                 </div>
                 <div className='row'>
                     <div className='col-md-12 forum-activity'>
-                        <button className='action-item comment'><i className='fa fa-comments'></i> Add/View Comments</button>
+                        <button className='action-item comment'><i className='fa fa-comments'></i>View Discussion</button>
                         <button onClick={this.DownVote} className={this.state.action === 'disliked' ? 'action-item thumbs thumbs-down disliked' : 'action-item thumbs thumbs-down'}
                             disabled={this.state.disabled === true ? 'true' : ''}>
                             <i className='fa fa-thumbs-down'></i> {this.state.thumbsDown}</button>

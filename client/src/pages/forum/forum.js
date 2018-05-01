@@ -6,21 +6,56 @@ import API from '../../utils/API';
 import './forum.css';
 import { Col, Row, Container } from '../../components/Grid';
 import ForumItem from '../../components/forum/forumItem';
-import {ForumList} from '../../components/forum';
+import ForumSideBar from '../../components/forum/forumSideBar';
+import { ForumList } from '../../components/forum';
 
 class Forum extends Component {
   state = {
+    user: this.props.user,
     currentPage: 'Home',
     forum:[],
     question:[],
+    yourQuestions: [],
+    title: '',
+    summary: '',
     open: false
+  };
+
+  componentWillMount() {
+    this.setState({ user: this.props.user });
   };
 
   loadForum = () => {
     API.getForum()
-      .then(res =>
-        this.setState({ forum: res.data}))
+      .then(res => {
+        this.setState({ forum: res.data });
+        let questionArray = [];
+        res.data.forEach(i => {
+          if (i.author._id === this.state.user._id) {
+            questionArray.push(i);
+          };
+        });
+        this.setState({ yourQuestions: questionArray });
+      })
       .catch(err => console.log(err));
+  };
+
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const forum = {
+      _id: this.state.user._id,
+      author: `${this.state.user.firstName} ${this.state.user.lastName}`,
+      title: this.state.title,
+      summary: this.state.summary
+    };
+    API.createForum(forum)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+    this.onCloseModal();
   };
 
   componentDidMount() {
@@ -39,24 +74,52 @@ class Forum extends Component {
     this.setState({ currentPage: page });
   };
 
-  renderPage = () => {
+  renderMainPage = () => {
     if (this.state.currentPage === 'Home') {
       return (
         <ForumList>
           {this.state.forum.sort((a,b) => new Date(b.date) - new Date(a.date)).map(forumQuestion => (
-            <ForumItem key={forumQuestion._id} />
+            <ForumItem key={forumQuestion._id}
+                       id={forumQuestion._id} 
+                       title={forumQuestion.title} 
+                       date={forumQuestion.date} 
+                       author={forumQuestion.author.author} 
+                       summary={forumQuestion.summary}
+                       thumbsUp={forumQuestion.thumbsUp}
+                       thumbsDown={forumQuestion.thumbsDown} />
           ))}
         </ForumList>
       );
     } else {
-      return (
-        <ForumList>
-          {this.state.question.map(forumQuestion => {
-            <ForumItem key={forumQuestion._id} />
-          })}
-        </ForumList>
+        return (
+          <ForumList>
+            {this.state.question.map(forumQuestion => {
+              <ForumItem key={forumQuestion._id}
+                         id={forumQuestion._id} 
+                         title={forumQuestion.title} 
+                         date={forumQuestion.date} 
+                         author={forumQuestion.author} 
+                         summary={forumQuestion.summary}
+                         thumbsUp={forumQuestion.thumbsUp}
+                         thumbsDown={forumQuestion.thumbsDown}
+                         comments={forumQuestion.comments} />
+            })}
+          </ForumList>
       );
     };
+  };
+
+  renderSideBar = () => {
+    return (
+      <ForumList>
+        {this.state.yourQuestions.sort((a,b) => new Date(b.date) - new Date(a.date)).map(forumQuestion => (
+          <ForumSideBar key={forumQuestion._id}
+                        id={forumQuestion._id} 
+                        title={forumQuestion.title} 
+                        date={forumQuestion.date} />
+        ))}
+      </ForumList>
+    );
   };
 
   render() {
@@ -72,26 +135,26 @@ class Forum extends Component {
                   <h2>Ask A Question:</h2>
                   <form>
                     <div className='form-group'>
-                      <label for='subject'>Subject</label>
-                      <input type='text' className='form-control' id='subject' placeholder='Subject'/>
+                      <label>Subject</label>
+                      <input type='text' className='form-control' name='title' onChange={this.handleChange} placeholder='Subject'/>
                     </div>
                     <div className='form-group'>
-                      <label for='question'>Question</label>
-                      <textarea type='text' className='form-control' id='question' placeholder='Enter your question' rows='5'></textarea>
+                      <label>Question</label>
+                      <textarea type='text' className='form-control' name='summary' onChange={this.handleChange} placeholder='Enter your question' rows='5'></textarea>
                     </div>
-                    <button type='submit' className='btn btn-primary'>Submit</button>
+                    <button onClick={this.handleSubmit} type='submit' className='btn btn-primary'>Submit</button>
                   </form>
                 </Modal>
               </Col>
             </Row>
             <Row>
-              <div>
-                <h2>Personal questions</h2>
-              </div>
+              <Col size='md-12 lg-12'>
+                {this.renderSideBar()}
+              </Col>
             </Row>
           </Col>
           <Col size='md-9'>
-            {this.renderPage()}
+            {this.renderMainPage()}
           </Col>
         </Row>
       </Container>

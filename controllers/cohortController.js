@@ -52,6 +52,9 @@
                     case 'jobs':
                         collection = 'Job';
                         break;
+                    case 'forum':
+                        collection = 'Forum';
+                        break;
                 };
                 resolve(collection);
             })
@@ -62,7 +65,32 @@
                   .then(dbCollection => res.json(dbCollection))
                   .catch(err => res.status(422).json(err));});
         },
-        find: (req, res) => {
+        createCollection: (req, res) => {
+            collectionControl = new Promise((resolve, reject) => {
+                let collection;
+                switch (req.params.collection) {
+                    case 'jobs':
+                        collection = 'Job';
+                        break;
+                    case 'forum':
+                        collection = 'Forum';
+                        break;
+                };
+                resolve(collection);
+            })
+            .then(collection => {  
+                console.log(collection);     
+                db[collection]
+                  .create({
+                      'title': req.body.title,
+                      'summary': req.body.summary,
+                      'author': { '_id': req.body._id,
+                                  'author': req.body.author }
+                  })
+                  .then(dbCollection => res.json(dbCollection))
+                  .catch(err => res.status(422).json(err));});
+        },
+        findOne: (req, res) => {
             collectionControl = new Promise((resolve, reject) => {
                 let collection;
                 switch (req.params.collection) {
@@ -74,6 +102,9 @@
                         break;
                     case 'jobs':
                         collection = 'Job';
+                        break;
+                    case 'forum':
+                        collection = 'Forum';
                         break;
                 };
                 resolve(collection);

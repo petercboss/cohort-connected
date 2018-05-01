@@ -27,14 +27,19 @@ export default {
     getForum: function() {
       return axios.get('/api/forum');
     },
+    createForum: function(forum) {
+      return axios.post('/api/forum/', {
+        title: forum.title,
+        summary: forum.summary,
+        _id: forum._id,
+        author: forum.author });
+    },
     // Gets all users
     getUsers: function () {
       return axios.get('/api/users');
     },
     getUser: function (userLinkedId) {
-      console.log(userLinkedId)
       return axios.get(`/api/userLinkedIn/${userLinkedId}`)
-      
     },
     createUser: function (user) {
       return axios.post('/api/user', {

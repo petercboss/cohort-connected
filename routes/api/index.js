@@ -16,9 +16,11 @@
       .post(cohortController.createChat)
       .put(cohortController.updateChat);
 
-    router.get('/:collection', cohortController.findCollection);
+    router.route('/:collection')
+      .get(cohortController.findCollection)
+      .post(cohortController.createCollection);
     router.route('/:collection/:id')
-      .get(cohortController.find)
+      .get(cohortController.findOne)
       .put(cohortController.thumb);
 
     router.route('/user/:id/:favorite')
