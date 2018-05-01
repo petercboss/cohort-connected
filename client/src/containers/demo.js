@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './demo.css';
 
 // API routes
 import API from '../utils/API';
@@ -121,17 +122,36 @@ export default class Demo extends Component {
 
     } else {
       children = [
-        <SocialButton
-          provider='linkedin'
-          appId='78xlkz34c94sm1'
-          onLoginSuccess={this.onLoginSuccess}
-          onLoginFailure={this.onLoginFailure}
-          onLogoutSuccess={this.onLogoutSuccess}
-          getInstance={this.setNodeRef.bind(this, 'linkedin')}
-          key={'linkedin'}
-        >
-          Login with LinkedIn 
-        </SocialButton>
+        <div className='landing-login'>
+        <div className='login-box'>
+          <h1 className='login-greeting'>
+            <span className='light'>Cohort</span><span className='heavy'>Connected</span>
+          </h1> 
+          <div className='login-info'>
+            <p className='login-info-title'>Stay connected to your bootcamp family post-graduation</p>
+            <ul className='list-perks'>
+              <li className='list-perks-item'><i className='login-icon fa fa-calendar' aria-hidden='true'></i>Filter local tech events by date and interest area</li>
+              <li className='list-perks-item'><i className='login-icon fa fa-code' aria-hidden='true'></i>Ask and answer questions in the help forum</li>
+              <li className='list-perks-item'><i className='login-icon fa fa-comments-o' aria-hidden='true'></i>Keep in touch using our built-in messaging app</li>
+              <li className='list-perks-item'><i className='login-icon fa fa-newspaper-o' aria-hidden='true'></i>Browse and rank the latest news in tech</li>
+              <li className='list-perks-item'><i className='login-icon fa fa-share-square-o' aria-hidden='true'></i>Post and share job opportunities</li>
+              <li className='list-perks-item'><i className='login-icon fa fa-star-o' aria-hidden='true'></i>Save your favorite resources for easy access</li>
+            </ul>
+            <div className='login-button'>
+              <SocialButton
+                provider='linkedin'
+                appId='78xlkz34c94sm1'
+                onLoginSuccess={this.onLoginSuccess}
+                onLoginFailure={this.onLoginFailure}
+                onLogoutSuccess={this.onLogoutSuccess}
+                getInstance={this.setNodeRef.bind(this, 'linkedin')}
+                key={'linkedin'}
+              >Login with LinkedIn 
+              </SocialButton>
+            </div>
+          </div>
+        </div> 
+      </div>
         // 
       ]
     }
