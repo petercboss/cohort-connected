@@ -16,8 +16,8 @@ const Footer = props => (
                     <div className='block-content'>
                       <ul>
                         <li><a href='/team'>Our Team</a></li>
-                        <li><a href='#.'>FAQs</a></li>
-                        <li><a href='#.'>Contact</a></li>
+                        <li><a href='/faq'>FAQs</a></li>
+                        <li><a href='/contact'>Contact</a></li>
                         <li><a href='#.'>Terms &amp; Conditions</a></li>
                         <li><a href='https://github.com/rbrown511/cohort-connected'><i className='fa fa-code-fork' aria-hidden='true'></i> Fork Us on GitHub</a></li>
                       </ul>
