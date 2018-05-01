@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import './component.css';
 
 import sdk from './sdk'
 import SocialUser from './SocialUser'
@@ -184,25 +183,7 @@ export default class SocialLogin extends Component {
 
   render () {
     return (
-      <div className='landing-login'>
-        <div className='login-box'>
-          <h1 className='login-greeting'>
-            <span className='light'>Cohort</span><span className='heavy'>Connected</span>
-          </h1> 
-          <div className='login-info'>
-            <p className='login-info-title'>Stay connected to your bootcamp family post-graduation</p>
-            <ul className='list-perks'>
-              <li className='list-perks-item'><i className='login-icon fa fa-calendar' aria-hidden='true'></i>Filter local tech events by date and interest area</li>
-              <li className='list-perks-item'><i className='login-icon fa fa-code' aria-hidden='true'></i>Ask and answer questions in the help forum</li>
-              <li className='list-perks-item'><i className='login-icon fa fa-comments-o' aria-hidden='true'></i>Keep in touch using our built-in messaging app</li>
-              <li className='list-perks-item'><i className='login-icon fa fa-newspaper-o' aria-hidden='true'></i>Browse and rank the latest news in tech</li>
-              <li className='list-perks-item'><i className='login-icon fa fa-share-square-o' aria-hidden='true'></i>Post and share job opportunities</li>
-              <li className='list-perks-item'><i className='login-icon fa fa-star-o' aria-hidden='true'></i>Save your favorite resources for easy access</li>
-            </ul>
-          </div>
-          <div classNaem='login-button' id={this.id} onClick={this.handleLogin}>{this.props.children}</div>
-        </div> 
-      </div>
+      <div id={this.id} onClick={this.handleLogin}>{this.props.children}</div>
     )
   }
 }
