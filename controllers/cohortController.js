@@ -39,23 +39,74 @@
                 .then(dbUser => res.json(dbUser))
                 .catch(err => res.status(422).json(err));
         },
-        findNews: (req, res) => {
-            db.News
-                .find({})
-                .then(dbNews => res.json(dbNews))
-                .catch(err => res.status(422).json(err));
+        findCollection: (req, res) => {
+            collectionControl = new Promise((resolve, reject) => {
+                let collection;
+                switch (req.params.collection) {
+                    case 'events':
+                        collection = 'Events';
+                        break;
+                    case 'news':
+                        collection = 'News';
+                        break;
+                    case 'jobs':
+                        collection = 'Job';
+                        break;
+                };
+                resolve(collection);
+            })
+            .then(collection => {  
+                console.log(collection);     
+                db[collection]
+                  .find({})
+                  .then(dbCollection => res.json(dbCollection))
+                  .catch(err => res.status(422).json(err));});
         },
-        findEvents: (req, res) => {
-            db.Events
-                .find({})
-                .then(dbEvents => res.json(dbEvents))
-                .catch(err => res.status(422).json(err));
+        find: (req, res) => {
+            collectionControl = new Promise((resolve, reject) => {
+                let collection;
+                switch (req.params.collection) {
+                    case 'events':
+                        collection = 'Events';
+                        break;
+                    case 'news':
+                        collection = 'News';
+                        break;
+                    case 'jobs':
+                        collection = 'Job';
+                        break;
+                };
+                resolve(collection);
+            })
+            .then(collection => {   
+                db[collection]
+                  .findOne({ _id: req.params.id })
+                  .then(dbCollection => res.json(dbCollection))
+                  .catch(err => res.status(422).json(err));});
         },
+
         findJobs: (req, res) => {
             db.Job
               .find({})
               .then(dbJobs => res.json(dbJobs))
               .catch(err => res.status(422).json(err));
+
+        thumb: (req, res) => {
+            collectionControl = new Promise((resolve, reject) => {
+                let collection;
+                switch (req.params.collection) {
+                    case 'news':
+                        collection = 'News';
+                        break;
+                };
+                resolve(collection);
+            })
+            .then(collection => {     
+                db[collection]
+                  .findOneAndUpdate({ _id: req.params.id }, { $inc: { thumbsUp: 1 }})
+                  .then(dbCollection => res.json(dbCollection))
+                  .catch(err => res.status(422).json(err));});
+
         },
         createJobs: (req, res) => {
             console.log(res.data);
@@ -80,6 +131,21 @@
         removeFavorite: (req, res) => {
             db.User.findOneAndUpdate({ _id: req.params.id }, { $pull: { [req.params.favorite]: result._id }})
               .then(dbFavorite => res.json(dbFavorite))
+              .catch(err => res.status(422).json(err));
+        },
+        findChat: (req,res) => {
+            db.Chat.findOne({chatId : req.params.id})
+            .then(dbChat => res.json(dbChat))
+            .catch(err => res.status(422).json(err));
+        },
+        createChat: (req,res) => {
+            db.Chat.create({chatId : req.params.id})
+            .then(dbChat => { console.log(dbChat); res.json(dbChat)})
+            .catch(err => res.status(422).json(err));
+        },
+        updateChat: (req,res) => {
+            db.Chat.findOneAndUpdate({ chatId: req.params.id }, { $push: {messages: req.body}}, { new: true })
+            .then(dbChat => res.json(dbChat))
               .catch(err => res.status(422).json(err));
         }
     };

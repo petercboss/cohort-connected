@@ -14,7 +14,8 @@ export default class Demo extends Component {
     this.state = {
       logged: false,
       user: {},
-      currentProvider: ''
+      currentProvider: '',
+      updatedUser:{},
     }
     this.nodes = {}
 
@@ -72,7 +73,7 @@ export default class Demo extends Component {
   }
   createUser(user) {
     API.createUser(user).then(res => {
-      console.log(res);
+      console.log(res.data);
       console.log('function ran22')
     })
       .catch (err => console.log(err));
@@ -80,8 +81,9 @@ export default class Demo extends Component {
   userCheck(userLinkedId) {
     API.getUser(userLinkedId)
       .then(res => {
-        console.log(res);
+        console.log(res.data);
         console.log('function ran')
+        // this.setState({updatedUser:res})
       })
       .catch(err => console.log(err));
   }
@@ -89,6 +91,7 @@ export default class Demo extends Component {
     let children
     let user =this.state.user.profile;
     let user2 ={...user};
+    this.userCheck(user2.id)
     console.log(user2);
     console.log(user2.id);
     console.log(user2.firstName);
@@ -112,7 +115,8 @@ export default class Demo extends Component {
         verified: true
       }
       this.createUser(user2)
-      this.userCheck(user2.id)
+      // this.userCheck(user2.id)
+      let updatedUser = this.state.updatedUser
     children = <App user={user}  logout={this.logout} />
 
     } else {

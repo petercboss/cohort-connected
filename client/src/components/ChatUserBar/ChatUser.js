@@ -14,7 +14,7 @@ export const ChatUser = props => (
                     <Col size="md-8">
                     <div className='userInfo'>
                         <div className="chatName">{props.user.firstName} {props.user.lastName} </div>
-                        <div className="chatDate">last messaged</div>
+                        <div className="chatDate">last messaged - {props.user._id}</div>
                     </div>
                     </Col>
                 </div>

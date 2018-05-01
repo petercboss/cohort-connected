@@ -2,7 +2,7 @@
     "name": "cohort-connected",
     "version": "1.0.0",
     "description": "Connecting bootcamp cohorts post graduation to assist in their transition to the technology sector and ensure career success.",
-    "main": "index.js",
+    "main": "server.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js",
@@ -31,6 +31,7 @@
         "moment": "^2.22.1",
         "mongoose": "^5.0.14",
         "nodemon": "^1.17.3",
+        "npm": "^6.0.0",
         "passport": "^0.4.0",
         "passport-linkedin-oauth2": "^1.5.0",
         "passport-oauth2": "^1.4.0",

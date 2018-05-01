@@ -23,17 +23,20 @@ export default {
     getEvents: function() {
       return axios.get('/api/events');
     },
+    // Loads forum
+    getForum: function() {
+      return axios.get('/api/forum');
+    },
     // Gets all users
     getUsers: function () {
       return axios.get('/api/users');
     },
     getUser: function (userLinkedId) {
-      return axios.get(`/api/user/${userLinkedId}`)
+      console.log(userLinkedId)
+      return axios.get(`/api/userLinkedIn/${userLinkedId}`)
       
     },
-    // Create new user
     createUser: function (user) {
-      console.log(user)
       return axios.post('/api/user', {
         linkedInId: user.id,
         firstName: user.firstName,
@@ -43,5 +46,21 @@ export default {
         profilePicURL: user.profilePicURL,
         verified: true
       })
+    },
+    getMessages: function(messageId) {
+      console.log(messageId);
+      return axios.get(`/api/messages/${messageId}`)
+    },
+    createMessage: function(messageId) {
+      return axios.post(`/api/messages/${messageId}`)
+    },
+    addMessage: function(message) {
+      console.log(message);
+      return axios.put(`/api/messages/${message.chatId}`, {
+          senderId: message.senderId,
+          senderName: message.senderName,
+          sent: message.sent,
+          chatMessage: message.chatMessage
+        })
     }
   };

@@ -3,18 +3,19 @@
     const Schema = mongoose.Schema;
 
     const chatSchema = new Schema({
-        userOne: [{
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        }],
-        userTwo: [{
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        }],
-        messages: [[]]
+        chatId: { type: String, required: true, unique: true },
+        // userOne: [{
+        //     type: Schema.Types.ObjectId,
+        //     ref: 'User'
+        // }],
+        // userTwo: [{
+        //     type: Schema.Types.ObjectId,
+        //     ref: 'User'
+        // }],
+        messages: []
     });
 
     const Chat = mongoose.model("Chat", chatSchema);
 
     module.exports = Chat;
-})();
+})();                                                        

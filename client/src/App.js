@@ -18,27 +18,45 @@ import Team from './pages/team'
 // import Demo from './containers/demo';
 // import USERProvider from './components/context/USERProvider';
 
-
+// API routes
+import API from './utils/API';
 
 class App extends Component {
+  
+  state = {
+    user:this.props.user,
+    updatedUser:{}
+  }
+
+  componentWillMount() {
+    this.getUserData()
+  }
+  getUserData() {
+    console.log('hello troy' + this.state.user.linkedInId);
+    API.getUser(this.state.user.linkedInId)
+      .then(res => {
+        console.log(res.data);
+        console.log('function ran')
+        this.setState({updatedUser:res.data})
+      })
+      .catch(err => console.log(err));
+  }
+
   render() {
-  const { user: user} = this.props
+  // const { user: user} = this.props
   return (
     <div>
     <Router>
       <div>
-
         <Nav />
-        <Route exact path="/" render={(props) => <Main {...props} user={user}/>} />
-        <Route exact path="/forum"  render={(props) => <Forum {...props} user={user}/>} />
-        <Route exact path="/messages"  render={(props) => <Messages {...props} user={user}/>} />
-        <Route path="/favorites"  render={(props) => <Favorites {...props} user={user}/>} />
+        <Route exact path="/" render={(props) => <Main {...props} user={this.state.updatedUser} />} />
+        <Route exact path="/forum"  render={(props) => <Forum {...props} user={this.state.updatedUser}/>} />
+        <Route exact path="/messages"  render={(props) => <Messages {...props} user={this.state.updatedUser}/>} />
+        <Route path="/favorites"  render={(props) => <Favorites {...props} user={this.state.updatedUser}/>} />
         <Route path="/team" component={Team} />
-
       </div>
     </Router>
     <Footer />
-    {/* <USERProvider user={this.props.user} /> */}
   </div>
     )
   };

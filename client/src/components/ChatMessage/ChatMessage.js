@@ -9,30 +9,24 @@ export const ChatMessage = props => (
     <li>
         <Row className='chatRow'>
             <div className='senderUser'>
-                {/* <Col size='md-2' className='paddingFix'> */}
-                <h3 className='senderChatName'>SenderName - TimeSent </h3>         
-                {/* </Col> */}
-                {/* <Col size='md-10'> */}
+                <h3 className='senderChatName'>{props.name}</h3>         
                 <div className='chatBubble'>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
+                    <p>{props.chatMessage}</p>
                 </div>
-                {/* </Col> */}
-            </div>
-        </Row>
-    </li>
-        <li>
-        <Row className='chatRow'>
-            <div className='MyChat'>
-                {/* <Col size='md-2' className='paddingFix'> */}
-                <h3 className='meChatName'>ME - TimeSent </h3>         
-                {/* </Col> */}
-                {/* <Col size='md-10'> */}
-                <div className='myChatBubble'>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesettiknown printer took a galley of type and scrambled it to make a type specimen book. It has </p>
-                </div>
-                {/* </Col> */}
             </div>
         </Row>
     </li>
     </div>
 );
+
+
+{/* <li>
+<Row className='chatRow'>
+    <div className='MyChat'>
+        <h3 className='meChatName'>ME - TimeSent </h3>         
+        <div className='myChatBubble'>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesettiknown printer took a galley of type and scrambled it to make a type specimen book. It has </p>
+        </div>
+    </div>
+</Row>
+</li> */}
