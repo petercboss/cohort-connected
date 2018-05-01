@@ -15,6 +15,7 @@ import Messages from './pages/messages'
 import Favorites from './pages/favorites'
 import Team from './pages/team'
 import Faq from './pages/faq'
+import Contact from './pages/contact'
 
 //import test login
 // import Demo from './containers/demo';
@@ -54,6 +55,7 @@ class App extends Component {
         <Route path="/favorites"  render={(props) => <Favorites {...props} user={this.state.updatedUser}/>} />
         <Route path="/team" component={Team} />
         <Route path="/faq" component={Faq} />
+        <Route path="/contact" component={Contact} />
       </div>
     </Router>
     <Footer />
