@@ -34,8 +34,6 @@ export default class Demo extends Component {
   }
 
   onLoginSuccess(user) {
-    console.log(user)
-
     this.setState({
       logged: true,
       currentProvider: user._provider,
@@ -45,7 +43,6 @@ export default class Demo extends Component {
 
   onLoginFailure(err) {
     console.error(err)
-
     this.setState({
       logged: false,
       currentProvider: '',
@@ -73,17 +70,12 @@ export default class Demo extends Component {
     }
   }
   createUser(user) {
-    API.createUser(user).then(res => {
-      console.log(res.data);
-      console.log('function ran22')
-    })
+    API.createUser(user).then(res => {})
       .catch (err => console.log(err));
   }
   userCheck(userLinkedId) {
     API.getUser(userLinkedId)
       .then(res => {
-        console.log(res.data);
-        console.log('function ran')
         // this.setState({updatedUser:res})
       })
       .catch(err => console.log(err));
@@ -93,17 +85,6 @@ export default class Demo extends Component {
     let user =this.state.user.profile;
     let user2 ={...user};
     this.userCheck(user2.id)
-    console.log(user2);
-    console.log(user2.id);
-    console.log(user2.firstName);
-    console.log(user2.lastName);
-    console.log(user2.headline);
-    console.log(user2.location);
-    console.log(user2.profilePicURL);
-    console.log(this.state.logged);
-  
-
-
     if (this.state.logged) {
       //create user object
       const user = {
@@ -116,8 +97,6 @@ export default class Demo extends Component {
         verified: true
       }
       this.createUser(user2)
-      // this.userCheck(user2.id)
-      let updatedUser = this.state.updatedUser
     children = <App user={user}  logout={this.logout} />
 
     } else {
@@ -152,10 +131,8 @@ export default class Demo extends Component {
           </div>
         </div> 
       </div>
-        // 
       ]
     }
-
     return children
   }
 }

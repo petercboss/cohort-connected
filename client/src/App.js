@@ -34,11 +34,8 @@ class App extends Component {
     this.getUserData()
   }
   getUserData() {
-    console.log('hello troy' + this.state.user.linkedInId);
     API.getUser(this.state.user.linkedInId)
       .then(res => {
-        console.log(res.data);
-        console.log('function ran')
         this.setState({updatedUser:res.data})
       })
       .catch(err => console.log(err));
