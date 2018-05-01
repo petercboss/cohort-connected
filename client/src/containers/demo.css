@@ -64,4 +64,10 @@
 }
 .login-button {
     color: black;
+    display: inline;
+    margin: 0px auto;
+}
+.login-button:hover {
+    cursor: pointer;
+    color: #63C2C2;
 }
