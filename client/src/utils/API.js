@@ -6,8 +6,18 @@ export default {
       return axios.get('/api/news');
     },
     // Gets all jobs
-    getJobs: function() {
-      return axios.get('/api/jobs');
+    // getJobs: function() {
+    //   return axios.get('/api/jobs');
+    // },
+    // Create jobs
+    createJobs: function (newJob) {
+      console.log(newJob)
+      return axios.post('/api/jobs',{
+        company: newJob.company,
+        link: newJob.link,
+        title: newJob.title,
+        // comment: newJob.comment
+      });
     },
     // Gets all events
     getEvents: function() {

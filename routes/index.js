@@ -10,6 +10,7 @@
 
     router.use('/api', apiRoutes);
     router.use('/scrape', scrapeRoutes);
+    
 
     router.use(function (req, res) {
         res.sendFile(path.join(__dirname, '../client/public/index.html'));

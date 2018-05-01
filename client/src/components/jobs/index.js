@@ -1,1 +1,1 @@
-export { default } from './jobs.js'
+export { default } from './jobs';

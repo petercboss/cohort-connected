@@ -21,7 +21,7 @@
                 .catch(err => res.status(422).json(err));
         },
         createUser: (req, res) => {
-            console.log('unique linkedIn id' + req.body.linkedInId);
+            // console.log('unique linkedIn id' + req.body.linkedInId);
             db.User.update(
                 //find by
                 {'linkedInId': req.body.linkedInId},
@@ -84,6 +84,13 @@
                   .then(dbCollection => res.json(dbCollection))
                   .catch(err => res.status(422).json(err));});
         },
+
+        findJobs: (req, res) => {
+            db.Job
+              .find({})
+              .then(dbJobs => res.json(dbJobs))
+              .catch(err => res.status(422).json(err));
+
         thumb: (req, res) => {
             collectionControl = new Promise((resolve, reject) => {
                 let collection;
@@ -99,6 +106,16 @@
                   .findOneAndUpdate({ _id: req.params.id }, { $inc: { thumbsUp: 1 }})
                   .then(dbCollection => res.json(dbCollection))
                   .catch(err => res.status(422).json(err));});
+
+        },
+        createJobs: (req, res) => {
+            console.log(res.data);
+            db.Job.Insert({
+                'company': req.body.company,
+                'title': req.body.title,
+                'link':req.body.link,
+                // 'comment':req.body.comment
+            })
         },
         findFavorites: (req, res) => {
             db.User.findOne({ _id: req.params.id })
