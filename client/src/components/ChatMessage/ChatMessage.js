@@ -17,7 +17,20 @@ class ChatMessage extends Component {
     render() {
         return (
             <div>
-            <li ref={this.props.index}>
+            {(this.props.user._id === this.props.id) 
+            ? 
+            (<li ref={this.props.index}>
+                <Row className='chatRow'>
+                    <div className='meChatSent'>
+                        <h3 className='meChatName'>{this.props.name}</h3>         
+                        <div className='myChatBubble'>
+                            <p>{this.props.chatMessage}</p>
+                        </div>
+                    </div>
+                </Row>
+            </li>)
+            :
+            (<li ref={this.props.index}>
                 <Row className='chatRow'>
                     <div className='senderUser'>
                         <h3 className='senderChatName'>{this.props.name}</h3>         
@@ -26,7 +39,7 @@ class ChatMessage extends Component {
                         </div>
                     </div>
                 </Row>
-            </li>
+            </li>)}  
             </div>
         );
     }
