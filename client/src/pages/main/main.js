@@ -20,12 +20,6 @@ import Jobs from '../../components/jobs';
 import JobsItem from '../../components/jobs/jobsItem';
 import {JobsList} from '../../components/jobs/jobsList';
 
-// pages
-// import { TLSSocket } from 'tls';
-//import context 
-// import USERContext from '../../components/context/USERContext';
-// import USERProvider from '../../components/context/USERProvider';
-
 class Main extends Component {
     state = {
         currentPage: 'News',
@@ -110,6 +104,8 @@ class Main extends Component {
           <JobsList>
               {this.state.jobs.sort((a, b) => new Date(b.date) - new Date(a.date)).map(jobPosting =>  (
               <JobsItem 
+                key={jobPosting._id}
+                id={jobPosting._id}
                 title={jobPosting.title}
                 summary={jobPosting.summary}
                 link={jobPosting.link}/>

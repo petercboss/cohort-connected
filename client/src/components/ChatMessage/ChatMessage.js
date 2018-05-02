@@ -20,7 +20,7 @@ export const ChatMessage = props => (
 );
 
 
-{/* <li>
+/* <li>
 <Row className='chatRow'>
     <div className='MyChat'>
         <h3 className='meChatName'>ME - TimeSent </h3>         
@@ -29,4 +29,4 @@ export const ChatMessage = props => (
         </div>
     </div>
 </Row>
-</li> */}
+</li> */
