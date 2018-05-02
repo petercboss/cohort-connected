@@ -211,7 +211,7 @@ class Messages extends Component {
               </Col>
               <Col size="md-9" className='paddingFix'>
                 <CurrentChatHeader currentUser = {this.state.selectedUser}/>
-                <ChatMessageArea>
+                <ChatMessageArea messages={this.state.messages}>
                 {this.state.messages.map((message,i) => (<ChatMessage  id={message.senderId} key={i} index={i} name={message.senderName} chatMessage={message.chatMessage} date={message.sent}/>))}
                 </ChatMessageArea>
                 <div className='ChatMessageFooter'>

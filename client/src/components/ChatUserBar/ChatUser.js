@@ -5,12 +5,7 @@ import './ChatUserBar.css'
 import { Col, Row} from '../../components/Grid';
 
 class ChatUser extends Component {
-    // constructor(props) {
-    //         super(props);
-    //     // this.state = {
-    //     //     unreadMessages: this.props.unreadMessages,
-    //     // };
-    // }
+
     unreadMessageUserCheck = () => {
         const filteredArray = this.props.unreadMessages.filter(unreadId => unreadId === this.props.id)
         if (filteredArray.length === 0) {
@@ -19,9 +14,6 @@ class ChatUser extends Component {
           console.log('unread exists');
         }
       }
-    //   componentWillMount() {
-    //     this.unreadMessageUserCheck()
-    //   }
     render(props) {
         return (
         <li>
