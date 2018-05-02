@@ -4,9 +4,6 @@ import API from '../../utils/API';
 
 // external stylesheet & bootstrap components
 import './jobs.css';
-import { JobsList } from './jobsList';
-import JobsItem from './jobsItem';
-// import { Col, Row, Container } from '../../components/Grid';
 
 const styles = {
   fontFamily: "sans-serif",

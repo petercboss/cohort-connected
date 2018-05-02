@@ -1,6 +1,6 @@
-import React from 'react';
+//import React from 'react';
 
-import './ChatMessageArea.css';
+//import './ChatMessageArea.css';
 
 
 // export const ChatMessageFooter = props => (

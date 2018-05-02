@@ -10,7 +10,7 @@ import { Col, Row, Container } from '../../components/Grid';
 
 // app components
 import {ChatUserBar, ChatUser}from '../../components/ChatUserBar'
-import {ChatMessageArea, CurrentChatHeader, ChatMessage, ChatMessageFooter}from '../../components/ChatMessage';
+import {ChatMessageArea, CurrentChatHeader, ChatMessage}from '../../components/ChatMessage';
 
 
 // pages
