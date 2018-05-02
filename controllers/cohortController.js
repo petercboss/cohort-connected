@@ -50,7 +50,7 @@
                         collection = 'News';
                         break;
                     case 'jobs':
-                        collection = 'Job';
+                        collection = 'Jobs';
                         break;
                     case 'forum':
                         collection = 'Forum';
@@ -70,7 +70,7 @@
                 let collection;
                 switch (req.params.collection) {
                     case 'jobs':
-                        collection = 'Job';
+                        collection = 'Jobs';
                         break;
                     case 'forum':
                         collection = 'Forum';
@@ -85,7 +85,8 @@
                       'title': req.body.title,
                       'summary': req.body.summary,
                       'author': { '_id': req.body._id,
-                                  'author': req.body.author }
+                                  'author': req.body.author },
+                      'link': req.body.link
                   })
                   .then(dbCollection => res.json(dbCollection))
                   .catch(err => res.status(422).json(err));});
@@ -115,14 +116,6 @@
                   .then(dbCollection => res.json(dbCollection))
                   .catch(err => res.status(422).json(err));});
         },
-
-        findJobs: (req, res) => {
-            db.Job
-              .find({})
-              .then(dbJobs => res.json(dbJobs))
-              .catch(err => res.status(422).json(err));
-        },
-
         thumb: (req, res) => {
             collectionControl = new Promise((resolve, reject) => {
                 let collection;
@@ -139,15 +132,6 @@
                   .then(dbCollection => res.json(dbCollection))
                   .catch(err => res.status(422).json(err));});
 
-        },
-        createJobs: (req, res) => {
-            console.log(res.data);
-            db.Job.Insert({
-                'company': req.body.company,
-                'title': req.body.title,
-                'link':req.body.link,
-                // 'comment':req.body.comment
-            })
         },
         findFavorites: (req, res) => {
             db.User.findOne({ _id: req.params.id })

@@ -30,16 +30,17 @@ class App extends Component {
     updatedUser:{}
   }
 
-  componentWillMount() {
-    this.getUserData()
-  }
   getUserData() {
     API.getUser(this.state.user.linkedInId)
       .then(res => {
         this.setState({updatedUser:res.data})
       })
       .catch(err => console.log(err));
-  }
+  };
+
+  componentDidMount() {
+    this.getUserData()
+  };
 
   render() {
   // const { user: user} = this.props

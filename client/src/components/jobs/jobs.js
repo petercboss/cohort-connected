@@ -24,11 +24,11 @@ class Jobs extends Component {
   //   this.loadJobs();
   // }
 
-  // loadJobs = ()=>{
-  //   API.findJobs()
-  //     .then(res => this.setState({jobs: res.data}))
-  //     .catch(err => console.log(err));
-  // }
+  getJobs = ()=>{
+    API.getJobs()
+       .then(res => this.setState({jobs: res.data}))
+       .catch(err => console.log(err));
+  };
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -44,24 +44,17 @@ class Jobs extends Component {
   //on form submission 
   handleJobFormSubmit = event =>{
     event.preventDefault();
-    this.setState({
-      jobLink: '',
-      jobTitle: '',
-      jobCompany: '',
-      jobComments:''
-    });
     const newJob= {
       company: this.state.jobCompany,
       link: this.state.jobLink,
       title: this.state.jobTitle,
-      // comment: this.state.jobCompany
     }
     API.createJobs(newJob).then(res => {
-      console.log(res.data);
-    })
+      console.log(res.data);})
     .catch(err => console.log(err));
+    this.onCloseModal();
+    this.getJobs();
   }
-
 
   onOpenModal = () => {
     this.setState({ open: true });
