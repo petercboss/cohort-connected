@@ -3,10 +3,9 @@
     const Schema = mongoose.Schema;
 
     const jobSchema = new Schema({
-        company: { type: String},
-        title: { type: String},
-        link: { type: String, required: true },
-        comment: { type: String}
+        summary: { type: String, required: true },
+        title: { type: String, required: true },
+        link: { type: String, required: true }
     });
 
     const Job = mongoose.model("Job", jobSchema);

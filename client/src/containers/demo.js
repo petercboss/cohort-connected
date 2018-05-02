@@ -80,8 +80,9 @@ export default class Demo extends Component {
       })
       .catch(err => console.log(err));
   }
+
   render() {
-    let children
+    let children;
     let user =this.state.user.profile;
     let user2 ={...user};
     this.userCheck(user2.id)

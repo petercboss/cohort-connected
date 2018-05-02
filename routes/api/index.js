@@ -9,8 +9,6 @@
     router.get('/users/:id', cohortController.findUser);
     router.post('/user', cohortController.createUser);
     router.get('/users', cohortController.findUsers);
-    
-    router.post('/jobs',cohortController.createJobs);
 
     router.route('/messages/:id')
       .get(cohortController.findChat)

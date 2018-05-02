@@ -5,18 +5,16 @@ export default {
     getNews: function() {
       return axios.get('/api/news');
     },
-    // Gets all jobs
-    // getJobs: function() {
-    //   return axios.get('/api/jobs');
-    // },
+    getJobs: function() {
+      return axios.get('/api/jobs');
+    },
     // Create jobs
     createJobs: function (newJob) {
       console.log(newJob)
-      return axios.post('/api/jobs',{
-        company: newJob.company,
+      return axios.post('/api/jobs', {
+        summary: newJob.company,
         link: newJob.link,
-        title: newJob.title,
-        // comment: newJob.comment
+        title: newJob.title
       });
     },
     // Gets all events
@@ -33,6 +31,9 @@ export default {
         summary: forum.summary,
         _id: forum._id,
         author: forum.author });
+    },
+    getOneQuestion: function(question) {
+      return axios.get(`/api/forum/${question}`);
     },
     // Gets all users
     getUsers: function () {

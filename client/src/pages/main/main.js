@@ -17,12 +17,8 @@ import {NewsList} from '../../components/news';
 import EventItem from '../../components/events/eventItem';
 import {EventsList} from '../../components/events';
 import Jobs from '../../components/jobs';
-
-// pages
-// import { TLSSocket } from 'tls';
-//import context 
-// import USERContext from '../../components/context/USERContext';
-// import USERProvider from '../../components/context/USERProvider';
+import JobsItem from '../../components/jobs/jobsItem';
+import {JobsList} from '../../components/jobs/jobsList';
 
 class Main extends Component {
     state = {
@@ -44,22 +40,21 @@ class Main extends Component {
       loadNews = () => {
         API.getNews()
           .then(res =>
-            this.setState({ news: res.data})
+            this.setState({ news: res.data })
           )
           .catch(err => console.log(err));
       };
       loadJobs = () => {
         API.getJobs()
-          .then(res => {
-            this.setState({ jobs: res.data})
-            console.log(res);
-          })
+          .then(res =>
+            this.setState({ jobs: res.data })
+          )
           .catch(err => console.log(err));
       };
       loadEvents = () => {
         API.getEvents()
           .then(res => 
-            this.setState({ events: res.data})
+            this.setState({ events: res.data })
           )
           .catch(err => console.log(err));
       };
@@ -67,7 +62,7 @@ class Main extends Component {
       // making API calls after component mounts
       componentDidMount() {
         this.loadNews();
-        // this.loadJobs();
+        this.loadJobs();
         this.loadEvents();
       }
     
@@ -103,7 +98,21 @@ class Main extends Component {
             </NewsList>
             );
         } else if (this.state.currentPage === 'Jobs') {
-          return <Jobs jobs={this.state.jobs}/>;
+          return (
+          <div>
+          <Jobs/>
+          <JobsList>
+              {this.state.jobs.sort((a, b) => new Date(b.date) - new Date(a.date)).map(jobPosting =>  (
+              <JobsItem 
+                key={jobPosting._id}
+                id={jobPosting._id}
+                title={jobPosting.title}
+                summary={jobPosting.summary}
+                link={jobPosting.link}/>
+            ))}
+          </JobsList> 
+          </div> 
+          );
         } else {
           return (
           <EventsList>

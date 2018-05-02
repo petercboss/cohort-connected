@@ -12,7 +12,6 @@ class ChatMessage extends Component {
     }  
     scrollToBottom = (ref) => {
         this.refs[ref].scrollIntoView({ behavior: "smooth",block: "end", inline: "nearest" });
-
     }
     
     render() {
@@ -33,13 +32,3 @@ class ChatMessage extends Component {
     }
 }
 export default ChatMessage;
-{/* <li>
-<Row className='chatRow'>
-    <div className='MyChat'>
-        <h3 className='meChatName'>ME - TimeSent </h3>         
-        <div className='myChatBubble'>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesettiknown printer took a galley of type and scrambled it to make a type specimen book. It has </p>
-        </div>
-    </div>
-</Row>
-</li> */}

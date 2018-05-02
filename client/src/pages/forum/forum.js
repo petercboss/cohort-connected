@@ -56,6 +56,7 @@ class Forum extends Component {
       .then(res => console.log(res))
       .catch(err => console.log(err));
     this.onCloseModal();
+    this.loadForum();
   };
 
   componentDidMount() {
@@ -71,7 +72,11 @@ class Forum extends Component {
   };
 
   handlePageChange = page => {
-    this.setState({ currentPage: page });
+    API.getOneQuestion(page)
+    .then(res => {
+      this.setState({ question: [res.data], currentPage: page });
+    })
+    .catch(err => console.log(err));
   };
 
   renderMainPage = () => {
@@ -86,27 +91,28 @@ class Forum extends Component {
                        author={forumQuestion.author.author} 
                        summary={forumQuestion.summary}
                        thumbsUp={forumQuestion.thumbsUp}
-                       thumbsDown={forumQuestion.thumbsDown} />
+                       thumbsDown={forumQuestion.thumbsDown}
+                       handlePageChange={this.handlePageChange} />
           ))}
         </ForumList>
       );
     } else {
         return (
           <ForumList>
-            {this.state.question.map(forumQuestion => {
+            {this.state.question.sort((a,b) => new Date(b.date) - new Date(a.date)).map(forumQuestion => (
               <ForumItem key={forumQuestion._id}
                          id={forumQuestion._id} 
                          title={forumQuestion.title} 
                          date={forumQuestion.date} 
-                         author={forumQuestion.author} 
+                         author={forumQuestion.author.author} 
                          summary={forumQuestion.summary}
                          thumbsUp={forumQuestion.thumbsUp}
                          thumbsDown={forumQuestion.thumbsDown}
                          comments={forumQuestion.comments} />
-            })}
+            ))}
           </ForumList>
       );
-    };
+    }
   };
 
   renderSideBar = () => {
@@ -116,7 +122,9 @@ class Forum extends Component {
           <ForumSideBar key={forumQuestion._id}
                         id={forumQuestion._id} 
                         title={forumQuestion.title} 
-                        date={forumQuestion.date} />
+                        date={forumQuestion.date}
+                        onClick={forumQuestion._id}
+                        handlePageChange={this.handlePageChange} />
         ))}
       </ForumList>
     );

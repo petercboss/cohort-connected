@@ -4,7 +4,6 @@ import API from '../../utils/API';
 
 // external stylesheet & bootstrap components
 import './jobs.css';
-// import { Col, Row, Container } from '../../components/Grid';
 
 const styles = {
   fontFamily: "sans-serif",
@@ -20,15 +19,15 @@ class Jobs extends Component {
     jobCompany: ''
   };
 
-  // componentDidMount(){
-  //   this.loadJobs();
-  // }
+  componentDidMount(){
+    this.getJobs();
+  }
 
-  // loadJobs = ()=>{
-  //   API.findJobs()
-  //     .then(res => this.setState({jobs: res.data}))
-  //     .catch(err => console.log(err));
-  // }
+  getJobs = ()=>{
+    API.getJobs()
+       .then(res => this.setState({jobs: res.data}))
+       .catch(err => console.log(err));
+  };
 
   handleInputChange = event => {
     // Getting the value and name of the input which triggered the change
@@ -44,24 +43,17 @@ class Jobs extends Component {
   //on form submission 
   handleJobFormSubmit = event =>{
     event.preventDefault();
-    this.setState({
-      jobLink: '',
-      jobTitle: '',
-      jobCompany: '',
-      jobComments:''
-    });
     const newJob= {
       company: this.state.jobCompany,
       link: this.state.jobLink,
       title: this.state.jobTitle,
-      // comment: this.state.jobCompany
     }
     API.createJobs(newJob).then(res => {
-      console.log(res.data);
-    })
+      console.log(res.data);})
     .catch(err => console.log(err));
+    this.onCloseModal();
+    this.getJobs();
   }
-
 
   onOpenModal = () => {
     this.setState({ open: true });
@@ -114,18 +106,6 @@ class Jobs extends Component {
                      id="inlineFormInputGroup"
                      placeholder="Company Name" />
             </div>
-            {/* Comments */}
-            {/* <label className="sr-only">Comments about job</label>
-            <div className="input-group mb-2 mr-sm-2 mb-sm-0">
-              <div className="input-group-addon"></div>
-              <input type="text"
-                value={this.state.jobComments}
-                name='jobComments'
-                onChange={this.handleInputChange}
-                className="form-control"
-                id="inlineFormInputGroup"
-                placeholder="Comments" />
-            </div> */}
             <button type="submit"
                     onClick={this.handleJobFormSubmit}
                     className="btn btn-primary">Submit</button>

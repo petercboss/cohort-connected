@@ -9,7 +9,6 @@ import Demo from './containers/demo'
 ReactDOM.render(
     <div>
         <Demo />
-        {/* <App /> */}
     </div>,
     document.getElementById('root')
 ) 
