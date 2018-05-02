@@ -49,10 +49,14 @@ class Favorites extends Component {
                 <div className='favorites-container'>
                   <div className='sidenav'>
                     <ul className='sidenav-list'>
-                      <li className='sidenav-list-item' onClick={()=>this.handleCategoryChange('News')}><i className='far fa-newspaper'></i></li>
-                      <li className='sidenav-list-item' onClick={()=>this.handleCategoryChange('Events')}><i className='far fa-calendar-check'></i></li>
-                      <li className='sidenav-list-item' onClick={()=>this.handleCategoryChange('Jobs')}><i className='far fa-handshake'></i></li>
-                      <li className='sidenav-list-item' onClick={()=>this.handleCategoryChange('Forum')}><i className='far fa-question-circle'></i></li>
+                      <li className={this.state.favoritesCategory === 'News' ? 'sidenav-list-item current-fave' : 'sidenav-list-item'} 
+                          onClick={()=>this.handleCategoryChange('News')}><i className='far fa-newspaper'></i></li>
+                      <li className={this.state.favoritesCategory === 'Events' ? 'sidenav-list-item current-fave' : 'sidenav-list-item'} 
+                          onClick={()=>this.handleCategoryChange('Events')}><i className='far fa-calendar-check'></i></li>
+                      <li className={this.state.favoritesCategory === 'Jobs' ? 'sidenav-list-item current-fave' : 'sidenav-list-item'} 
+                          onClick={()=>this.handleCategoryChange('Jobs')}><i className='far fa-handshake'></i></li>
+                      <li className={this.state.favoritesCategory === 'Forum' ? 'sidenav-list-item current-fave' : 'sidenav-list-item'} 
+                          onClick={()=>this.handleCategoryChange('Forum')}><i className='far fa-question-circle'></i></li>
                     </ul>
                   </div>
                   <div className='favorites-data'>
