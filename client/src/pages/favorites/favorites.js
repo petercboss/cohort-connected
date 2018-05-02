@@ -18,7 +18,19 @@ class Favorites extends Component {
           <Container>
             <Col size='md-12'>
               <Row>
-                <h1 className='placeholder'>This is the Favorites Page</h1>
+                <div className='favorites-container'>
+                  <div className='sidenav'>
+                    <ul className='sidenav-list'>
+                      <li className='sidenav-list-item'><i className='far fa-newspaper'></i></li>
+                      <li className='sidenav-list-item'><i className='far fa-calendar-check'></i></li>
+                      <li className='sidenav-list-item'><i className='far fa-handshake'></i></li>
+                      <li className='sidenav-list-item'><i className='far fa-question-circle'></i></li>
+                    </ul>
+                  </div>
+                  <div className='favorites-data'>
+                    <h1>HEYEYEYEYEYEYE</h1>
+                  </div>
+                </div>
               </Row>
             </Col>
           </Container>
