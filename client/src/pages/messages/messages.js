@@ -13,6 +13,7 @@ import {ChatUserBar}from '../../components/ChatUserBar'
 import {ChatMessageArea, CurrentChatHeader, ChatMessageFooter}from '../../components/ChatMessage';
 import ChatMessage from '../../components/ChatMessage/ChatMessage';
 import ChatUser from '../../components/ChatUserBar/ChatUser';
+import { isNull } from 'util';
 
 
 
@@ -53,15 +54,6 @@ class Messages extends Component {
       this.setState({unreadMessages:res.data.unreadMessages});
     })
   }
-
-  // unreadMessageUserCheck = (user) => {
-  //   const filteredArray = this.state.unreadMessages.filter(unreadId => unreadId === user)
-  //   if (filteredArray.length === 0) {
-  //     console.log('no unread messages')
-  //   } else {
-  //     console.log('unread exists');
-  //   }
-  // }
 
   currentUser = (currentUser) => {
     const updatedUnreadMessages = this.state.unreadMessages.filter(unreadUser => unreadUser !== currentUser._id);
@@ -212,11 +204,11 @@ class Messages extends Component {
               <Col size="md-9" className='paddingFix'>
                 <CurrentChatHeader currentUser = {this.state.selectedUser}/>
                 <ChatMessageArea messages={this.state.messages}>
-                {this.state.messages.map((message,i) => (<ChatMessage  id={message.senderId} key={i} index={i} name={message.senderName} chatMessage={message.chatMessage} date={message.sent}/>))}
+                {this.state.messages.map((message,i) => (<ChatMessage user={this.state.user} id={message.senderId} key={i} index={i} name={message.senderName} chatMessage={message.chatMessage} date={message.sent}/>))}
                 </ChatMessageArea>
                 <div className='ChatMessageFooter'>
                 <textarea className='messageToSend' value={this.state.chatMessage} onChange={this.handleChange}></textarea>
-                <button className='chatSendBtn' onClick={this.updateChat}>SEND</button>
+                <button className='chatSendBtn' onClick={this.updateChat}>Reply</button>
                 </div>
               </Col>
             </Row>

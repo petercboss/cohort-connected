@@ -6,14 +6,6 @@ import { Col, Row} from '../../components/Grid';
 
 class ChatUser extends Component {
 
-    unreadMessageUserCheck = () => {
-        const filteredArray = this.props.unreadMessages.filter(unreadId => unreadId === this.props.id)
-        if (filteredArray.length === 0) {
-          console.log('no unread messages')
-        } else {
-          console.log('unread exists');
-        }
-      }
     render(props) {
         return (
         <li>
