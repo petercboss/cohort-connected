@@ -1,5 +1,5 @@
 import React from 'react';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './footer.css';
 
 const Footer = props => (
@@ -15,11 +15,11 @@ const Footer = props => (
                     <h3 className='block-title'><span>About Us</span></h3>
                     <div className='block-content'>
                       <ul>
-                        <li><a href='/team'>Our Team</a></li>
-                        <li><a href='/faq'>FAQs</a></li>
-                        <li><a href='/contact'>Contact</a></li>
-                        <li><a href='#.'>Terms &amp; Conditions</a></li>
-                        <li><a href='https://github.com/rbrown511/cohort-connected'><i className='fa fa-code-fork' aria-hidden='true'></i> Fork Us on GitHub</a></li>
+                        <li onClick={window.scrollTo(0,0)}><Link to='/team'>Our Team</Link></li>
+                        <li onClick={window.scrollTo(0,0)}><Link to='/faq'>FAQs</Link></li>
+                        <li onClick={window.scrollTo(0,0)}><Link to='/contact'>Contact</Link></li>
+                        <li><a href=''>Terms &amp; Conditions</a></li>
+                        <li><a href='https://github.com/rbrown511/cohort-connected' target='_blank'><i className='fa fa-code-fork' aria-hidden='true'></i> Fork Us on GitHub</a></li>
                       </ul>
                     </div>
                   </div>
@@ -30,12 +30,12 @@ const Footer = props => (
                     <h3 className='block-title'><span>Featured Resources</span></h3>
                     <div className='block-content'>
                       <ul>
-                        <li><a href='https://techcrunch.com/'>TechCrunch</a></li>
-                        <li><a href='https://www.builtinchicago.org/'>Built In Chicago</a></li>
-                        <li><a href='#.'>LinkUp</a></li>
-                        <li><a href='https://stackoverflow.com/'>Stack Overflow</a></li>
-                        <li><a href='https://bootcampspot-v2.com/'>BootcampSpot</a></li>
-                        <li><a href='http://marktechson.com/'>MarkTechson.com</a></li>
+                        <li><a href='https://techcrunch.com/' target='_blank'>TechCrunch</a></li>
+                        <li><a href='https://www.builtinchicago.org/' target='_blank'>Built In Chicago</a></li>
+                        <li><a href='https://www.linkedin.com/' target='_blank'>LinkedIn</a></li>
+                        <li><a href='https://stackoverflow.com/' target='_blank'>Stack Overflow</a></li>
+                        <li><a href='https://bootcampspot-v2.com/' target='_blank'>BootcampSpot</a></li>
+                        <li><a href='http://marktechson.com/' target='_blank'>MarkTechson.com</a></li>
                       </ul>
                     </div>
                   </div>
@@ -46,12 +46,12 @@ const Footer = props => (
                     <h3 className='block-title'><span>Bookmark-Worthy</span></h3>
                     <div className='block-content'>
                       <ul>
-                        <li><a href='https://www.codewars.com/'>Codewars</a></li>
-                        <li><a href='https://market.mashape.com/login'>Mashape</a></li>
-                        <li><a href='https://daneden.github.io/animate.css/'>Animate.css</a></li>
-                        <li><a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype'>Array.prototype Methods (MDN)</a></li>
-                        <li><a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype'>String.prototype Methods (MDN)</a></li>
-                        <li><a href='https://maximdenisov.gitbooks.io/you-don-t-know-js/content/'>"You Don't Know JS" GitBook</a></li>
+                        <li><a href='https://www.codewars.com/' target='_blank'>Codewars</a></li>
+                        <li><a href='https://market.mashape.com/' target='_blank'>Mashape</a></li>
+                        <li><a href='https://daneden.github.io/animate.css/' target='_blank'>Animate.css</a></li>
+                        <li><a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype' target='_blank'>Array.prototype Methods (MDN)</a></li>
+                        <li><a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype' target='_blank'>String.prototype Methods (MDN)</a></li>
+                        <li><a href='https://maximdenisov.gitbooks.io/you-don-t-know-js/content/' target='_blank'>"You Don't Know JS" GitBook</a></li>
                       </ul>
                     </div>
                   </div>

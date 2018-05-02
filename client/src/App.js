@@ -14,7 +14,7 @@ import Forum from './pages/forum'
 import Messages from './pages/messages'
 import Favorites from './pages/favorites'
 import Team from './pages/team'
-import Faq from './pages/faq'
+import FAQ from './pages/faq'
 import Contact from './pages/contact'
 
 //import test login
@@ -51,15 +51,15 @@ class App extends Component {
       <div>
         <Nav />
         <Route exact path="/" render={(props) => <Main {...props} user={this.state.updatedUser} />} />
-        <Route exact path="/forum"  render={(props) => <Forum {...props} user={this.state.updatedUser}/>} />
         <Route exact path="/messages"  render={(props) => <Messages {...props} user={this.state.updatedUser}/>} />
+        <Route path="/forum"  render={(props) => <Forum {...props} user={this.state.updatedUser}/>} />
         <Route path="/favorites"  render={(props) => <Favorites {...props} user={this.state.updatedUser}/>} />
         <Route path="/team" component={Team} />
-        <Route path="/faq" component={Faq} />
+        <Route path="/faq" component={FAQ} />
         <Route path="/contact" component={Contact} />
+        <Footer />
       </div>
     </Router>
-    <Footer />
   </div>
     )
   };
