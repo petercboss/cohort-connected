@@ -17,6 +17,9 @@ const mainNav = props => (
                 <ul className='navbar-nav ml-auto'>
                     
                     <li className='nav-item'>
+                        <Link className='nav-link page-navs' to='/'>Home</Link>
+                    </li>
+                    <li className='nav-item'>
                         <Link className='nav-link page-navs' to='/forum'>Forum</Link>
                     </li>
                     <li className='nav-item'>
@@ -24,7 +27,7 @@ const mainNav = props => (
                     </li>
 
                     <li className='nav-item dropdown'>
-                        <Link className='nav-link dropdown-toggle' to='#' id='navbarDropdown' role='button' data-toggle='dropdown'>
+                        <Link className='nav-link dropdown-toggle' to='' id='navbarDropdown' role='button' data-toggle='dropdown'>
                             User Name
                         </Link>
                         <div className='dropdown-menu'>
