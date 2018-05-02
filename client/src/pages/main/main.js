@@ -17,6 +17,8 @@ import {NewsList} from '../../components/news';
 import EventItem from '../../components/events/eventItem';
 import {EventsList} from '../../components/events';
 import Jobs from '../../components/jobs';
+import JobsItem from '../../components/jobs/jobsItem';
+import {JobsList} from '../../components/jobs/jobsList';
 
 // pages
 // import { TLSSocket } from 'tls';
@@ -102,7 +104,19 @@ class Main extends Component {
             </NewsList>
             );
         } else if (this.state.currentPage === 'Jobs') {
-          return <Jobs jobs={this.state.jobs}/>;
+          return (
+          <div>
+          <Jobs/>
+          <JobsList>
+              {this.state.jobs.sort((a, b) => new Date(b.date) - new Date(a.date)).map(jobPosting =>  (
+              <JobsItem 
+                title={jobPosting.title}
+                summary={jobPosting.summary}
+                link={jobPosting.link}/>
+            ))}
+          </JobsList> 
+          </div> 
+          );
         } else {
           return (
           <EventsList>

@@ -4,6 +4,8 @@ import API from '../../utils/API';
 
 // external stylesheet & bootstrap components
 import './jobs.css';
+import { JobsList } from './jobsList';
+import JobsItem from './jobsItem';
 // import { Col, Row, Container } from '../../components/Grid';
 
 const styles = {
@@ -20,9 +22,9 @@ class Jobs extends Component {
     jobCompany: ''
   };
 
-  // componentDidMount(){
-  //   this.loadJobs();
-  // }
+  componentDidMount(){
+    this.getJobs();
+  }
 
   getJobs = ()=>{
     API.getJobs()
@@ -107,18 +109,6 @@ class Jobs extends Component {
                      id="inlineFormInputGroup"
                      placeholder="Company Name" />
             </div>
-            {/* Comments */}
-            {/* <label className="sr-only">Comments about job</label>
-            <div className="input-group mb-2 mr-sm-2 mb-sm-0">
-              <div className="input-group-addon"></div>
-              <input type="text"
-                value={this.state.jobComments}
-                name='jobComments'
-                onChange={this.handleInputChange}
-                className="form-control"
-                id="inlineFormInputGroup"
-                placeholder="Comments" />
-            </div> */}
             <button type="submit"
                     onClick={this.handleJobFormSubmit}
                     className="btn btn-primary">Submit</button>
