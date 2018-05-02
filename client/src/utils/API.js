@@ -32,6 +32,9 @@ export default {
         _id: forum._id,
         author: forum.author });
     },
+    getOneQuestion: function(question) {
+      return axios.get(`/api/forum/${question}`);
+    },
     // Gets all users
     getUsers: function () {
       return axios.get('/api/users');
