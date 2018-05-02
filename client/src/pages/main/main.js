@@ -44,22 +44,21 @@ class Main extends Component {
       loadNews = () => {
         API.getNews()
           .then(res =>
-            this.setState({ news: res.data})
+            this.setState({ news: res.data })
           )
           .catch(err => console.log(err));
       };
       loadJobs = () => {
         API.getJobs()
-          .then(res => {
-            this.setState({ jobs: res.data})
-            console.log(res);
-          })
+          .then(res =>
+            this.setState({ jobs: res.data })
+          )
           .catch(err => console.log(err));
       };
       loadEvents = () => {
         API.getEvents()
           .then(res => 
-            this.setState({ events: res.data})
+            this.setState({ events: res.data })
           )
           .catch(err => console.log(err));
       };
@@ -67,7 +66,7 @@ class Main extends Component {
       // making API calls after component mounts
       componentDidMount() {
         this.loadNews();
-        // this.loadJobs();
+        this.loadJobs();
         this.loadEvents();
       }
     
