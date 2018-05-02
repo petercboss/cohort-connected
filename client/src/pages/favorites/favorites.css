@@ -1,0 +1,74 @@
+.favorites-container {
+    margin: 50px 15px;
+    margin-bottom: 70px;
+    position: relative;
+    background: #f5f4f5;
+    border: 1px solid #360051;
+    box-shadow: 0px 0px 13px -3px #636363;
+    width: 100%;
+    height: 500px;
+}
+.favorites-data {
+    position: absolute;
+    padding: 20px;
+    padding-left: 170px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+}
+.default-favorites {
+    text-align: center;
+    padding: 40px 20px;
+}
+.favorites-title {
+    width: 70%;
+    margin: 0px auto;
+    border-bottom: 5px solid #8263C2;
+}
+.favorites-tip {
+    color: #636363;
+}
+
+/* Sidebar Styling */
+.sidenav {
+    height: 100%;
+    width: 150px;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: #360051;
+    border-right: 1px solid #131518;
+    overflow-x: hidden;
+}
+.sidenav-list {
+    list-style: none;
+    cursor: pointer;
+    padding: 0px;
+    margin: 0px;
+}
+.sidenav-list-item {
+    padding-top: 25px;
+    height: 124px;
+    width: 100%;
+    font-size: 55px;
+    text-align: center;
+    vertical-align: top;
+    text-decoration: none;
+    color: #f5f4f5;
+    box-sizing: border-box;
+}
+.sidenav-list-item:first-child,
+.sidenav-list-item:last-child {
+    height: 125px;
+}
+.sidenav-list-item:hover {
+    background: #f5f4f5;
+    color: #360051;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
