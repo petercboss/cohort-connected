@@ -18,12 +18,12 @@ class ForumSideBar extends Component {
         return (
         <li className='list-group-item forum' id={this.props.id}>
             <div className='.forum-container'>
-                <a><h4 className='forum-title'>{this.props.title}</h4></a>
+                <a onClick={() => this.props.handlePageChange(`${this.props.id}`)}><h4 className='forum-title'>{this.props.title}</h4></a>
                 <span className='forum-date'><Moment tz='America/Chicago' fromNow>{this.props.date}</Moment></span>
                 <div className='clearfix'/>
                 <div className='row'>
                     <div className='col-md-12 forum-activity'>
-                        <button className='action-item comment'><i className='fa fa-comments'></i> View Discussion</button>
+                        <a onClick={() => this.props.handlePageChange(`${this.props.id}`)} className='action-item comment'><i className='fa fa-comments'></i> View Discussion</a>
                     </div>
                 </div>
             </div>
