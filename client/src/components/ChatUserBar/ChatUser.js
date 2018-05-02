@@ -1,23 +1,61 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 // external stylesheet and bootstrap style components
 import './ChatUserBar.css'
 import { Col, Row} from '../../components/Grid';
 
-export const ChatUser = props => (
+class ChatUser extends Component {
+    // constructor(props) {
+    //         super(props);
+    //     // this.state = {
+    //     //     unreadMessages: this.props.unreadMessages,
+    //     // };
+    // }
+    unreadMessageUserCheck = () => {
+        const filteredArray = this.props.unreadMessages.filter(unreadId => unreadId === this.props.id)
+        if (filteredArray.length === 0) {
+          console.log('no unread messages')
+        } else {
+          console.log('unread exists');
+        }
+      }
+    //   componentWillMount() {
+    //     this.unreadMessageUserCheck()
+    //   }
+    render(props) {
+        return (
         <li>
-            <Row className='chatRow'>
-                <div className='ChatUser' onClick={()=> props.currentUser(props.user)}>
+            {(this.props.unreadMessages.filter(unreadId => unreadId === this.props.id).length === 0) ? (
+            <Row className='chatRow Unread'>
+            <div className='ChatUser' onClick={()=> this.props.currentUser(this.props.user)}>
+                <Col size="md-4" className="paddingFix">
+                <img src={this.props.user.profilePicURL}  alt="title" className="chatImage" />
+                </Col>
+                <Col size="md-8">
+                <div className='userInfo'>
+                    <div className="chatName">{this.props.user.firstName} {this.props.user.lastName} </div>
+                    <div className="chatDate">last messaged - {this.props.user.date}</div>
+                </div>
+                </Col>
+            </div>
+        </Row>
+            ) : (
+                <Row className='chatRow'>
+                <div className='ChatUser unread' onClick={()=> this.props.currentUser(this.props.user)}>
                     <Col size="md-4" className="paddingFix">
-                    <img src={props.user.profilePicURL}  alt="title" className="chatImage" />
+                    <img src={this.props.user.profilePicURL}  alt="title" className="chatImage" />
                     </Col>
                     <Col size="md-8">
                     <div className='userInfo'>
-                        <div className="chatName">{props.user.firstName} {props.user.lastName} </div>
-                        <div className="chatDate">last messaged - {props.user._id}</div>
+                        <div className="chatName">{this.props.user.firstName} {this.props.user.lastName} </div>
+                        <div className="chatDate">last messaged - {this.props.user.date}</div>
+                        <div className="chatDate">Unread Messages - {this.props.unreadMessages.filter(unreadId => unreadId === this.props.id).length}</div>
                     </div>
                     </Col>
                 </div>
             </Row>
-        </li>
-);
+            )}
+        </li>)
+    }
+}
+export default ChatUser;

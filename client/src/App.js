@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-
 //routing
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -14,8 +13,10 @@ import Forum from './pages/forum'
 import Messages from './pages/messages'
 import Favorites from './pages/favorites'
 import Team from './pages/team'
+
 import FAQ from './pages/faq'
 import Contact from './pages/contact'
+
 
 //import test login
 // import Demo from './containers/demo';
@@ -32,8 +33,11 @@ class App extends Component {
   }
 
   getUserData() {
+    console.log('hello troy' + this.state.user.linkedInId);
     API.getUser(this.state.user.linkedInId)
       .then(res => {
+        console.log(res.data);
+        console.log('function ran')
         this.setState({updatedUser:res.data})
       })
       .catch(err => console.log(err));

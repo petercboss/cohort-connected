@@ -4,7 +4,8 @@
     const cohortController = require('../../controllers/cohortController')
 
     router.get('/userLinkedIn/:id', cohortController.findUserbyLinkedIn);
-
+    router.put(`/user/removeUnread/:id`,cohortController.findUserAndRemoveUnread);
+    router.put(`/user/unread/:id`,cohortController.findUserAndUpdateUnread);
     router.get('/users/:id', cohortController.findUser);
     router.post('/user', cohortController.createUser);
     router.get('/users', cohortController.findUsers);

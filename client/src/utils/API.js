@@ -61,12 +61,23 @@ export default {
       return axios.post(`/api/messages/${messageId}`)
     },
     addMessage: function(message) {
-      console.log(message);
       return axios.put(`/api/messages/${message.chatId}`, {
           senderId: message.senderId,
           senderName: message.senderName,
           sent: message.sent,
           chatMessage: message.chatMessage
         })
+    },
+    sendUnread: function(unreadMessage) {
+      console.log(unreadMessage)
+      return axios.put(`/api/user/unread/${unreadMessage.userToUpdate}`, {
+        unreadFrom: unreadMessage.unreadFrom
+      });
+    },
+    removeUnreadMessage: function (removeUnreadMessage) {
+      console.log('from API ' + removeUnreadMessage.userToRemove)
+      return axios.put(`api/user/removeUnread/${removeUnreadMessage.userToUpdate}`,{
+        userToRemove: removeUnreadMessage.userToRemove
+      })
     }
   };

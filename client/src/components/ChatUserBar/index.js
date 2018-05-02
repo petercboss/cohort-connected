@@ -1,2 +1,2 @@
 export * from './ChatUserBar';
-export * from './ChatUser';
+// export * from './ChatUser';

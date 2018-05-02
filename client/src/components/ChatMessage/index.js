@@ -1,4 +1,4 @@
 export * from './ChatMessageArea';
 export * from   './CurrentChatHeader';
-export * from './ChatMessage';
+// export { default } from './ChatMessage';
 export * from './ChatMessageFooter';

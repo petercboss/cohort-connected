@@ -14,6 +14,17 @@
                 .then(dbUsers => res.json(dbUsers))
                 .catch(err => res.status(422).json(err));
         },
+        findUserAndUpdateUnread: (req,res) => {
+            db.User.findOneAndUpdate({ _id: req.params.id }, { $push: {unreadMessages: req.body.unreadFrom}})
+                .then(dbUser => res.json(dbUser))
+                .catch(err => res.status(422).json(err));
+        },
+        findUserAndRemoveUnread: (req,res) => {
+            console.log(req.body.userToRemove + ' removeeee thssssss useersssss')
+            db.User.findOneAndUpdate({ _id: req.params.id },  { $pull: { unreadMessages: { $in: [req.body.userToRemove] }}}, { new: true })
+            .then(dbUser => res.json(dbUser))
+            .catch(err => res.status(422).json(err));
+        },
         findUserbyLinkedIn: (req, res) => {
             db.User
                 .findOne({ linkedInId: req.params.id })
