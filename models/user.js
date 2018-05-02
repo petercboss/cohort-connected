@@ -6,6 +6,7 @@
         linkedInId: {type: String,required: true},
         firstName: { type: String, required: true },
         lastName: { type: String, required: true },
+        unreadMessages:[],
         headline: String,
         location: String,
         profilePicURL: String,

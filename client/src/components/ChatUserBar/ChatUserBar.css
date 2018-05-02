@@ -45,3 +45,8 @@
 .chatDate {
     color: white;
 }
+
+/* unread Style: */
+.unread {
+    background: #9ad8ca;
+}

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-
 //routing
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -14,8 +13,6 @@ import Forum from './pages/forum'
 import Messages from './pages/messages'
 import Favorites from './pages/favorites'
 import Team from './pages/team'
-import Faq from './pages/faq'
-import Contact from './pages/contact'
 
 //import test login
 // import Demo from './containers/demo';
@@ -35,8 +32,11 @@ class App extends Component {
     this.getUserData()
   }
   getUserData() {
+    console.log('hello troy' + this.state.user.linkedInId);
     API.getUser(this.state.user.linkedInId)
       .then(res => {
+        console.log(res.data);
+        console.log('function ran')
         this.setState({updatedUser:res.data})
       })
       .catch(err => console.log(err));
@@ -54,8 +54,6 @@ class App extends Component {
         <Route exact path="/messages"  render={(props) => <Messages {...props} user={this.state.updatedUser}/>} />
         <Route path="/favorites"  render={(props) => <Favorites {...props} user={this.state.updatedUser}/>} />
         <Route path="/team" component={Team} />
-        <Route path="/faq" component={Faq} />
-        <Route path="/contact" component={Contact} />
       </div>
     </Router>
     <Footer />
