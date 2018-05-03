@@ -31,6 +31,7 @@ class Main extends Component {
         // current values are for testing purposes only
         eventFavorites:['5adfcaf92bad7f001437fc6d', '5adfcb002bad7f001437fc71'],
         newsFavorites: ['5ae0c314b0829c00144faa42', '5ae0c314b0829c00144faa46'],
+        jobsFavorites: [],
 
         // this value drives category filtering of events feed
         filterEventsBy: '',
@@ -108,7 +109,12 @@ class Main extends Component {
                 id={jobPosting._id}
                 title={jobPosting.title}
                 summary={jobPosting.summary}
-                link={jobPosting.link}/>
+                link={jobPosting.link}
+                thumbsUp={jobPosting.thumbsUp}
+                thumbsDown={jobPosting.thumbsDown}
+                comments={jobPosting.comments}
+                jobsFavorites={this.state.jobsFavorites}
+                />
             ))}
           </JobsList> 
           </div> 
