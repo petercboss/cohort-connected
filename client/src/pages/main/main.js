@@ -159,7 +159,7 @@ class Main extends Component {
           <Container>
             <Row>
               <LSideBar user={this.props.user} />
-              <Col size='md-6' className='mainContent'>
+              <Col size='md-6' className='mainContent animated fadeInUp'>
                   <NavPills currentPage={this.state.currentPage}
                             handlePageChange={this.handlePageChange} />
                   {this.renderPage()}

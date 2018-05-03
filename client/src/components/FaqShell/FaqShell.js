@@ -5,11 +5,11 @@ import { Col, Row } from '../../components/Grid';
 const FaqShell = (props) => (
     <Row>
         <Col size="md-12 lg-12">
-        <div className='FAQHeader text-center'>
+        <div className='FAQHeader text-center animated zoomIn'>
             We hope you find this information useful. If there's a question you can't find the answer to
             then please let us know.        -CC Team
         </div>
-            <div id="accordion">
+            <div id="accordion" className='animated fadeInUp'>
                 <div className="card customCard">
                     <div className="btn collapsed faqButton" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseTwo">
                         <h4>What is Cohort Connected?</h4>

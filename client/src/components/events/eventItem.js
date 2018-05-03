@@ -29,9 +29,9 @@ class EventItem extends Component {
 
     render() {
         return (
-        <li className={this.props.bk % 2 === 0 ? 'list-group-item bk-light' : 'list-group-item bk-dark'} id={this.props.id}>
+        <li className={this.props.bk % 2 === 0 ? 'list-group-item bk-light animated fadeIn' : 'list-group-item bk-dark animated fadeIn'} id={this.props.id}>
             <div className='.event-container'>
-                <a href={this.props.link} target='_blank' className='event-link'><h4 className='event-title'>{this.props.title}</h4></a>
+                <a href={this.props.link} target='_blank' rel='noopener noreferrer' className='event-link'><h4 className='event-title'>{this.props.title}</h4></a>
                 <h5><i className='fa fa-calendar' aria-hidden='true'></i> <Moment format='dddd, MMMM Do YYYY, h:mm a'>{this.props.date}</Moment></h5>
                 <p className='hosted-by'>Hosted By {this.props.organizer}</p>
                 <p>{this.props.categories.map((cat, i) => {

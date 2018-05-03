@@ -17,6 +17,7 @@ export default class Demo extends Component {
       user: {},
       currentProvider: '',
       updatedUser:{},
+      animationCount: 0,
     }
     this.nodes = {}
 
@@ -69,16 +70,31 @@ export default class Demo extends Component {
       this.nodes[currentProvider].props.triggerLogout()
     }
   }
+
   createUser(user) {
     API.createUser(user).then(res => {})
       .catch (err => console.log(err));
   }
+
   userCheck(userLinkedId) {
     API.getUser(userLinkedId)
       .then(res => {
         // this.setState({updatedUser:res})
       })
       .catch(err => console.log(err));
+  }
+
+  animateBulletPoints = () => {
+    setTimeout(() => this.setState({ animationCount: 1 }), 1000);
+    setTimeout(() => this.setState({ animationCount: 2 }), 2000);
+    setTimeout(() => this.setState({ animationCount: 3 }), 3000);
+    setTimeout(() => this.setState({ animationCount: 4 }), 4000);
+    setTimeout(() => this.setState({ animationCount: 5 }), 5000);
+    setTimeout(() => this.setState({ animationCount: 6 }), 6000);
+  }
+
+  componentDidMount() {
+    this.animateBulletPoints();
   }
 
   render() {
@@ -103,21 +119,21 @@ export default class Demo extends Component {
     } else {
       children = [
         <div className='landing-login'>
-        <div className='login-box'>
+        <div className='login-box animated fadeIn'>
           <h1 className='login-greeting'>
             <span className='light'>Cohort</span><span className='heavy'>Connected</span>
           </h1> 
           <div className='login-info'>
             <p className='login-info-title'>Stay connected to your bootcamp family post-graduation</p>
             <ul className='list-perks'>
-              <li className='list-perks-item'><i className='login-icon fa fa-calendar' aria-hidden='true'></i>Filter local tech events by date and interest area</li>
-              <li className='list-perks-item'><i className='login-icon fa fa-code' aria-hidden='true'></i>Ask and answer questions in the help forum</li>
-              <li className='list-perks-item'><i className='login-icon fa fa-comments-o' aria-hidden='true'></i>Keep in touch using our built-in messaging app</li>
-              <li className='list-perks-item'><i className='login-icon fa fa-newspaper-o' aria-hidden='true'></i>Browse and rank the latest news in tech</li>
-              <li className='list-perks-item'><i className='login-icon fa fa-share-square-o' aria-hidden='true'></i>Post and share job opportunities</li>
-              <li className='list-perks-item'><i className='login-icon fa fa-star-o' aria-hidden='true'></i>Save your favorite resources for easy access</li>
+              <li className={this.state.animationCount === 1 ? 'list-perks-item animated pulse' : 'list-perks-item'}><i className='login-icon far fa-question-circle'></i>Ask and answer questions in the help forum</li>
+              <li className={this.state.animationCount === 2 ? 'list-perks-item animated pulse' : 'list-perks-item'}><i className='login-icon far fa-comment-alt'></i>Keep in touch using our built-in messaging app</li>
+              <li className={this.state.animationCount === 3 ? 'list-perks-item animated pulse' : 'list-perks-item'}><i className='login-icon fas fa-newspaper'></i>Browse and rank the latest news in tech</li>
+              <li className={this.state.animationCount === 4 ? 'list-perks-item animated pulse' : 'list-perks-item'}><i className='login-icon far fa-calendar-check'></i>Filter local tech events by date and interest area</li>
+              <li className={this.state.animationCount === 5 ? 'list-perks-item animated pulse' : 'list-perks-item'}><i className='login-icon far fa-handshake'></i>Post and share job opportunities</li>
+              <li className={this.state.animationCount === 6 ? 'list-perks-item animated pulse' : 'list-perks-item'}><i className='login-icon fas fa-hand-holding-heart'></i>Save your favorite resources for easy access</li>
             </ul>
-            <div className='login-button'>
+            <div className='login-button animated pulse'>
               <SocialButton
                 provider='linkedin'
                 appId='78xlkz34c94sm1'

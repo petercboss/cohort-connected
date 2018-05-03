@@ -33,9 +33,9 @@ class ContactForm extends Component {
     render() {
         return (
             <Row>
-                <Col size='md-6 lg-6' className='LContactPage'>
+                <Col size='md-6 lg-6' className='LContactPage animated fadeInLeft'>
                 </Col>
-                <Col size='md-6 lg-6'>
+                <Col size='md-6 lg-6' className='animated fadeInRight'>
                     <div className='contactHead text-center'>
                         <div className='contactTitle text-center'>
                             <h3>We'd Love To Connect!</h3>

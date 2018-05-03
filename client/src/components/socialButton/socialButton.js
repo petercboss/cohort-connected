@@ -18,7 +18,8 @@ class Button extends Component {
       borderRadius: '3px',
       display: 'inline-block',
       margin: '5px',
-      padding: '10px 20px'
+      padding: '10px 20px',
+      boxShadow: '0px 0px 1px 1px white'
     }
 
     return (
