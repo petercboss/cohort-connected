@@ -60,7 +60,15 @@
 }
 .login-icon {
     margin-right: 20px;
+    padding: 5px;
+    width: 20px;
+    text-align: center;
+    box-sizing: border-box;
     color: #d1b2e0;
+}
+.fa-calendar-check {
+    margin-left: 2px;
+    width: 18px;
 }
 .login-button {
     color: black;
@@ -69,5 +77,5 @@
 }
 .login-button:hover {
     cursor: pointer;
-    color: #63C2C2;
+    color: #5174ba;
 }

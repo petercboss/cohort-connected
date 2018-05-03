@@ -29,7 +29,7 @@ class RSideBar extends Component {
 
   render() {
     return (
-      <Col size='md-3 lg-3' className='RSideBar'>
+      <Col size='md-3 lg-3' className='RSideBar animated fadeInRight'>
         <Row>
           <Calendar onChange={this.onChange}
                     value={this.state.date} />

@@ -46,7 +46,7 @@ class Favorites extends Component {
           <Container>
             <Col size='md-12'>
               <Row>
-                <div className='favorites-container'>
+                <div className='favorites-container animated zoomIn'>
                   <div className='sidenav'>
                     <ul className='sidenav-list'>
                       <li className={this.state.favoritesCategory === 'News' ? 'sidenav-list-item current-fave' : 'sidenav-list-item'} 
