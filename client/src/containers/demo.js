@@ -20,9 +20,6 @@ export default class Demo extends Component {
 
       // triggers animation of bullet points
       animationCount: 0,
-
-      // page loader while user object is compiled
-      pageLoader: true
     }
     this.nodes = {}
 
@@ -109,17 +106,6 @@ export default class Demo extends Component {
     this.userCheck(user2.id)
 
     if (this.state.logged) {
-
-      if (this.state.pageLoader) {
-        setTimeout(() => this.setState({ pageLoader: false }), 2500);
-        return (
-          <div className='page-loading'>
-            <img className='power-clap animated flip' src={require('./power-clap.png')} alt='power-clap' />
-            <h1 className='loading-text animated fadeInUpBig'>Bring it Back with a Power Clap</h1>
-          </div>
-        )
-      }
-      
       //create user object
       const user = {
         linkedInId: user2.id,
@@ -130,6 +116,7 @@ export default class Demo extends Component {
         profilePicURL: user2.profilePicURL,
         verified: true
       }
+
       this.createUser(user2)
       children = <App user={user}  logout={this.logout} />
 
@@ -167,6 +154,8 @@ export default class Demo extends Component {
       </div>
       ]
     }
-    return children
+
+    return children;
+    
   }
 }

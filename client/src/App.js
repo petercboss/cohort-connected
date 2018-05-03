@@ -29,7 +29,10 @@ class App extends Component {
   
   state = {
     user:this.props.user,
-    updatedUser:{}
+    updatedUser:{},
+
+    // page loader while user object is compiled
+    pageLoader: true
   }
 
   getUserData() {
@@ -49,23 +52,36 @@ class App extends Component {
 
   render() {
   // const { user: user} = this.props
-  return (
-    <div>
-    <Router>
-      <div>
-        <Nav />
-        <Route exact path="/" render={(props) => <Main {...props} user={this.state.updatedUser} />} />
-        <Route exact path="/messages"  render={(props) => <Messages {...props} user={this.state.updatedUser}/>} />
-        <Route path="/forum"  render={(props) => <Forum {...props} user={this.state.updatedUser}/>} />
-        <Route path="/favorites"  render={(props) => <Favorites {...props} user={this.state.updatedUser}/>} />
-        <Route path="/team" component={Team} />
-        <Route path="/faq" component={FAQ} />
-        <Route path="/contact" component={Contact} />
-        <Footer />
+
+  if (this.state.pageLoader) {
+    setTimeout(() => this.setState({ pageLoader: false }), 2500);
+    return (
+      <div className='page-loading'>
+        <img className='power-clap animated flip' src={require('./power-clap.png')} alt='power-clap' />
+        <h1 className='loading-text animated fadeInUpBig'>Bring it Back with a Power Clap</h1>
       </div>
-    </Router>
-  </div>
     )
+
+  } else {
+    return (
+      <div>
+        <Router>
+          <div>
+            <Nav />
+            <Route exact path="/" render={(props) => <Main {...props} user={this.state.updatedUser} />} />
+            <Route exact path="/messages"  render={(props) => <Messages {...props} user={this.state.updatedUser}/>} />
+            <Route path="/forum"  render={(props) => <Forum {...props} user={this.state.updatedUser}/>} />
+            <Route path="/favorites"  render={(props) => <Favorites {...props} user={this.state.updatedUser}/>} />
+            <Route path="/team" component={Team} />
+            <Route path="/faq" component={FAQ} />
+            <Route path="/contact" component={Contact} />
+            <Footer />
+          </div>
+        </Router>
+      </div>
+      )
+    }
+    
   };
 };
 
