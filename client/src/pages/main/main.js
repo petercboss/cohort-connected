@@ -33,7 +33,7 @@ class Main extends Component {
         newsFavorites: ['5ae0c314b0829c00144faa42', '5ae0c314b0829c00144faa46'],
 
         // this value drives category filtering of events feed
-        filterEventsBy: ''
+        filterEventsBy: '',
       };
 
       // API calls to database
@@ -159,16 +159,16 @@ class Main extends Component {
           <Container>
             <Row>
               <LSideBar user={this.props.user} />
-              <Col size='md-6' className='mainContent animated fadeInUp'>
+                <Col size='md-6' className='mainContent animated fadeInUp'>
                   <NavPills currentPage={this.state.currentPage}
                             handlePageChange={this.handlePageChange} />
                   {this.renderPage()}
-              </Col>
+                </Col>
               <RSideBar events={this.state.events} />
-          </Row>
+            </Row>
           </Container>
         )
-    };
+    }
 };
 
 export default Main;

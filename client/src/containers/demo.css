@@ -1,3 +1,4 @@
+/* Login Screen */
 .landing-login {
     background-image: url("landing.jpg");
     background-position: center center;
@@ -78,4 +79,23 @@
 .login-button:hover {
     cursor: pointer;
     color: #5174ba;
+}
+
+/* Page Loader */
+.page-loading {
+    height: 650px;
+    width: 100%;
+    padding: 100px;
+}
+.loading-text {
+    text-align: center;
+    font-weight: 800;
+    margin: 15px auto;
+    margin-top: 40px;
+}
+.power-clap {
+    display: block;
+    height: 300px;
+    margin: 15px auto;
+    text-align: center;
 }
