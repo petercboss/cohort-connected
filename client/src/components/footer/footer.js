@@ -18,7 +18,7 @@ const Footer = props => (
                         <li onClick={window.scrollTo(0,0)}><Link to='/team'>Our Team</Link></li>
                         <li onClick={window.scrollTo(0,0)}><Link to='/faq'>FAQs</Link></li>
                         <li onClick={window.scrollTo(0,0)}><Link to='/contact'>Contact</Link></li>
-                        <li><a href=''>Terms &amp; Conditions</a></li>
+                        <li><a href='https://app.termly.io/document/terms-of-use-for-website/80285f7c-63c1-4a8d-bb93-4a0c95ff8ef0' target='_blank' rel='noopener noreferrer'>Terms &amp; Conditions</a></li>
                         <li><a href='https://github.com/rbrown511/cohort-connected' target='_blank' rel='noopener noreferrer'><i className='fa fa-code-fork' aria-hidden='true'></i> Fork Us on GitHub</a></li>
                       </ul>
                     </div>
