@@ -6,7 +6,7 @@ import {Col} from '../../components/Grid';
 const LSideBar = props => (
     <Col size='md-3 lg-3' className='LSideBar animated fadeInLeft'>
       {<div className='profile'>
-        <div className='cornerRibbon'> Alum</div>
+        <div className='cornerRibbon'> Alumnus</div>
         <img className='profileImg' src={props.user.profilePicURL} alt="Your beautiful self" />
         <hr className='sidebarLine'/>
         <h3 className='profileName'>{props.user.firstName} {props.user.lastName}</h3>
