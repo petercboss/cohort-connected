@@ -13,8 +13,9 @@ class Forum extends Component {
   state = {
     user: this.props.user,
     currentPage: 'Home',
-    forum:[],
-    question:[],
+    forum: [],
+    question: [],
+    questionFavorites: [],
     yourQuestions: [],
     title: '',
     summary: '',
