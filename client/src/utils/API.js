@@ -35,6 +35,11 @@ export default {
     getOneQuestion: function(question) {
       return axios.get(`/api/forum/${question}`);
     },
+    favoriteItem: function(item) {
+      return axios.put(`/api/user/${item.id}`, {
+        itemId: item.itemId
+      })
+    },
     // Gets all users
     getUsers: function () {
       return axios.get('/api/users');

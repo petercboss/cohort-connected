@@ -6,7 +6,12 @@ import { Col, Row, Container } from '../../components/Grid';
 
 class Favorites extends Component {
     state = {
+      user: this.props.user,
       favoritesCategory: '',
+    };
+
+    componentWillMount() {
+      this.setState({ user: this.props.user });
     };
 
     handleCategoryChange = category => {

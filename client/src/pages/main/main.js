@@ -26,13 +26,9 @@ class Main extends Component {
         news:[],
         jobs:[],
         events:[],
-
-        // favorites array will be pulled from the user object on login
-        // current values are for testing purposes only
-        eventFavorites:['5adfcaf92bad7f001437fc6d', '5adfcb002bad7f001437fc71'],
-        newsFavorites: ['5ae0c314b0829c00144faa42', '5ae0c314b0829c00144faa46'],
+        eventFavorites:[],
+        newsFavorites: [],
         jobsFavorites: [],
-
         // this value drives category filtering of events feed
         filterEventsBy: '',
       };
