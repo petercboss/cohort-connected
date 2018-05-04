@@ -1,25 +1,56 @@
-.Rachel{
-    width: 250px;
-    height: 250px;
+.teamPage {
+    background: white;
+    box-shadow: 0px 0px 12px 1px #202020;
+}
+.teamWork {
+    font-size: 60px;
+    width: 90%;
+    margin: 15px auto;
+    padding: 25px 0px;
+    border-bottom: 1px solid grey;
+}
+.teamRow {
+    width: 100%;
+    margin: 5px auto;
+    padding: 5px 40px;
+}
+.teamRow:last-child {
+    padding-bottom: 100px;
+}
+.memberSnapshot {
+    width: 70%;
+    margin: 20px;
+    padding-left: 10px;
+}
+.memberName {
+    font-size: 20px;
+    font-style: italic;
+}
+.memberTitle {
+    color: darkgrey;
+    text-transform: uppercase;
+}
+.memberImage {
+    width: 20%;
+    margin: 20px;
+    height: auto;
     border-radius: 50%;
-    margin:20px auto;
 }
-.Troy{
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    margin:20px auto;
+.float-right {
+    float: right;
 }
-
-.teamWork{
-    font-size: 70px;
+.float-left {
+    float: left;
 }
-
-.teamRow{
-    margin-top:30px;
-    border-top:1px solid grey;
+.link-divider {
+    border: none;
+    height: 3px;
+    width: 50px;
+    background: #8263C2;
+    margin: 0px;
+    margin-bottom: 15px;
+    margin-top: 30px;
 }
-
-.teamIndv{
-    margin-top:20px;
+.memberSites {
+    font-size: 16px;
 }

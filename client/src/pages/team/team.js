@@ -1,126 +1,100 @@
 import React, { Component } from 'react';
-
-// external stylesheet & bootstrap components
+import { Col, Row, Container } from '../../components/Grid';
 import './team.css';
 
-
 class Team extends Component {
-    state = {}
+
+    state = {
+        team: [
+            {
+                name: 'Peter Boss',
+                title: 'Codesmith',
+                image: 'https://avatars1.githubusercontent.com/u/30506899?s=400&v=4',
+                bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et velit non neque aliquam dignissim sit amet ac mauris. Mauris ultrices, erat at vestibulum semper, est sem eleifend nulla, eu feugiat enim lacus sed dolor. Proin dolor sapien, egestas vitae mauris quis, pretium convallis orci. Pellentesque ac risus a metus vehicula tristique. Integer nec massa.',
+                portfolio: 'https://peterboss.com/',
+                github: 'https://github.com/petercboss',
+                linked: 'https://www.linkedin.com/in/peter-boss/'
+            },
+            {
+                name: 'Rachel B. Brown',
+                title: 'Codesmith',
+                image: 'https://avatars0.githubusercontent.com/u/33067290?s=400&v=4',
+                bio: 'Rachel’s career began in law, with a fun little offshoot into the magical world of cooking for television. Now she’s a badass developer, excited to take on the ever-changing landscape of technology. The diversity of her background and experiences is reflected in her fresh and unique approach to web development. When she’s not in front of a computer, her hobbies include travel, golf and boxing.',
+                portfolio: 'https://rachelb.tech/',
+                github: 'https://github.com/rbrown511',
+                linked: 'https://www.linkedin.com/in/rachel-basia-brown-83b5b248/'
+            },
+            {
+                name: 'Troy A. Crawford',
+                title: 'Codesmith',
+                image: 'https://avatars0.githubusercontent.com/u/30868593?s=400&v=4',
+                bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et velit non neque aliquam dignissim sit amet ac mauris. Mauris ultrices, erat at vestibulum semper, est sem eleifend nulla, eu feugiat enim lacus sed dolor. Proin dolor sapien, egestas vitae mauris quis, pretium convallis orci. Pellentesque ac risus a metus vehicula tristique. Integer nec massa.',
+                portfolio: 'https://troycrawford.tech/',
+                github: 'https://github.com/tacrawford91',
+                linked: 'https://www.linkedin.com/in/tacrawford91/'
+            },
+            {
+                name: 'Shawn Feiz',
+                title: 'Codesmith',
+                image: 'https://media.licdn.com/dms/image/C4E03AQEIvbiWogQDAg/profile-displayphoto-shrink_800_800/0?e=1530122400&v=beta&t=amzL1Ioq9RTfARFOXY0IpOW6OHYFOmzmUlxq5-cEDfE',
+                bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et velit non neque aliquam dignissim sit amet ac mauris. Mauris ultrices, erat at vestibulum semper, est sem eleifend nulla, eu feugiat enim lacus sed dolor. Proin dolor sapien, egestas vitae mauris quis, pretium convallis orci. Pellentesque ac risus a metus vehicula tristique. Integer nec massa.',
+                portfolio: 'https://shawnfeiz.github.io/Portfolio/',
+                github: 'https://github.com/ShawnFeiz',
+                linked: 'https://www.linkedin.com/in/shawnfeiz/'
+            },
+            {
+                name: 'Scott Saltzman',
+                title: 'Codesmith',
+                image: 'https://avatars0.githubusercontent.com/u/13115712?s=460&v=4',
+                bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et velit non neque aliquam dignissim sit amet ac mauris. Mauris ultrices, erat at vestibulum semper, est sem eleifend nulla, eu feugiat enim lacus sed dolor. Proin dolor sapien, egestas vitae mauris quis, pretium convallis orci. Pellentesque ac risus a metus vehicula tristique. Integer nec massa.',
+                portfolio: 'https://salty923.github.io/Bootstrap-Portfolio/',
+                github: 'https://github.com/Salty923',
+                linked: 'https://www.linkedin.com/in/scott-saltzman-33949b56/'
+            }
+        ]
+    }
+
+    shuffleArray = array => {
+        for (let i = array.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        this.setState({ team: array });
+    }
+
+    componentDidMount() {
+        this.shuffleArray(this.state.team);
+        console.log(this.state.team);
+    }
+
     render() { 
         return ( 
-        <div className='container'>
-           <div className="teamRow row">
-               <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                   <h1 className='teamWork'>BUILT ON TEAMWORK.</h1>
-               </div>
-                <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <h3>We're extremely grateful for our instructors,
-                         TA's and fellow students in this course. This project is our thanks
-                          to all of you who have made this such a successful experience.
-                           Please connect so we can continue our path together.</h3>
-                </div>
-            </div>
-                {/* Troy Crawford */}
-                <div className="teamRow row">
-                    <div className="teamIndv col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <h3>Troy Crawford</h3>
-                        <h4>PROJECT TITLE</h4>
-                        <h4><a href='https://troycrawford.tech' target='new'>troycrawford.tech</a></h4>
-                        <h5>Troy is a Software Developer currently completing the Northwestern University Full Stack Developer Program,
-                            where he is focusing on the fundamentals & essentials of JavaScript. With his Bachelor’s Degree in
-                            Chemical Engineering from Purdue University and 3+ years in the physical engineering industry,
-                        Troy’s technical dexterity, critical thinking, and project managing skills are well accomplished.</h5>
-                    </div>
-                    <div className="teamIndv col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <img className='Troy' src='https://avatars0.githubusercontent.com/u/30868593?s=400&v=4' alt='Troy Crawford' />
-                    </div>
-                    <div className="teamIndv col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                        <img className='Troy' src='https://icons8.com/icon/446/linkedin' alt='LinkedIn Logo' />
-                    </div>
-                </div>
-            {/* Rachel Brown */}
-            <div className="teamRow row"> 
-                <div className="teamIndv col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                    <img className='Rachel' src='https://icons8.com/icon/446/linkedin' alt='LinkedIn Logo' />
-                </div>
-                <div className="teamIndv col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                    <img className='Rachel' src='https://avatars0.githubusercontent.com/u/33067290?s=400&v=4' alt='Rachel Brown'/>
-                </div>
-                <div className="teamIndv col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                    <h3>Rachel Brown</h3>
-                    <h4>PROJECT TITLE</h4>
-                        <h4><a href='https://rachelb.tech/' target='new'>rachelb.tech</a></h4>
-                    <h5>Rachel started in law, with a fun little offshoot into the magical world of cooking for television.
-                    Now I'm a badass coder, excited to take on the ever-changing landscape of technology.
-                    The diversity of my background and experiences is reflected in my fresh and unique approach to web development.
-                    When I'm not working or studying, my hobbies include travel, playing golf and boxing. As a former violinist and ballerina,
-                     I also make supporting the arts a priority.</h5>
-                
-                </div>
-            </div>
-                {/* Peter Boss */}
-                <div className="teamRow row"> 
-                    <div className="teamIndv col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <h3>Peter Boss</h3>
-                        <h3>PROJECT TITLE</h3>
-                        <h4><a href='https://peterboss.com/' target='new'>peterboss.com</a></h4>
-                        <h5>Rachel started in law, with a fun little offshoot into the magical world of cooking for television.
-                        Now I'm a badass coder, excited to take on the ever-changing landscape of technology.
-                        The diversity of my background and experiences is reflected in my fresh and unique approach to web development.
-                        When I'm not working or studying, my hobbies include travel, playing golf and boxing. As a former violinist and ballerina,
-                     I also make supporting the arts a priority.</h5>
-                    </div>
-                    <div className="teamIndv col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <img className='Rachel' src='https://avatars1.githubusercontent.com/u/30506899?s=400&v=4' alt='Rachel Brown' />
-                    </div>
-                    <div className="teamIndv col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                        <img className='Rachel' src='https://icons8.com/icon/446/linkedin' alt='LinkedIn Logo' />
-                    </div>
-                </div>
-                {/* Shawn Feiz */}
-                <div className="teamRow row">
-                    <div className="teamIndv col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                        <img className='Rachel' src='https://icons8.com/icon/446/linkedin' alt='LinkedIn Logo' />
-                    </div>
-                    <div className="teamIndv col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <img className='Rachel' src='https://media.licdn.com/dms/image/C4E03AQEIvbiWogQDAg/profile-displayphoto-shrink_800_800/0?e=1530122400&v=beta&t=amzL1Ioq9RTfARFOXY0IpOW6OHYFOmzmUlxq5-cEDfE' alt='Rachel Brown' />
-                    </div>
-                    <div className="teamIndv col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <h3>Shawn Feiz</h3>
-                        <h3>PROJECT TITLE</h3>
-                        <h4><a href='https://shawnfeiz.github.io/Portfolio/' target='new'>shawnfeiz.github.io</a></h4>
-                        <h5>Rachel started in law, with a fun little offshoot into the magical world of cooking for television.
-                        Now I'm a badass coder, excited to take on the ever-changing landscape of technology.
-                        The diversity of my background and experiences is reflected in my fresh and unique approach to web development.
-                        When I'm not working or studying, my hobbies include travel, playing golf and boxing. As a former violinist and ballerina,
-                     I also make supporting the arts a priority.</h5>
+        <Container>
+            <Row>
+                <Col size='md-12' className='teamPage animated fadeInUp'>
+                    <h1 className='teamWork'>BUILT ON<br/>TEAMWORK.</h1>
+                    { 
+                        this.state.team.map((member, i) => {
+                            return (
+                            <div className='teamRow'>
+                                <img className={i%2 === 0 ? 'memberImage float-left' : 'memberImage float-right'} src={member.image} alt={member.name} />
+                                <div className={i%2 === 0 ? 'memberSnapshot float-right' : 'memberSnapshot float-left'}>
+                                    <h3 className='memberName'>{member.name}</h3>
+                                    <h4 className='memberTitle'>{member.title}</h4>
+                                    <p className='memberBio'>{member.bio}</p>
+                                    <hr className='link-divider' />
+                                    <h4 className='memberSites'><i class="fab fa-github"></i>&nbsp;<i class="fab fa-linkedin-in"></i>&nbsp;<a href={member.portfolio} target='_blank' rel='noopener noreferrer'>Portfolio</a></h4>
+                                </div>
+                                <div className='clearfix' />
+                            </div> )
+                        })
+                    }
+                </Col>            
+            </Row>
+        </Container>
+        )
+    };
 
-                    </div>
-                </div>
-                {/* Scott Saltzman */}
-                <div className="teamRow row">
-                    <div className="teamIndv col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <h3>Scott Saltzman</h3>
-                        <h3>PROJECT TITLE</h3>
-                        <h4><a href='https://salty923.github.io/Bootstrap-Portfolio/' target='new'>salty923.github.io</a></h4>
-                        <h5>Rachel started in law, with a fun little offshoot into the magical world of cooking for television.
-                        Now I'm a badass coder, excited to take on the ever-changing landscape of technology.
-                        The diversity of my background and experiences is reflected in my fresh and unique approach to web development.
-                        When I'm not working or studying, my hobbies include travel, playing golf and boxing. As a former violinist and ballerina,
-                     I also make supporting the arts a priority.</h5>
-                    </div>
-                    <div className="teamIndv col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <img className='Rachel' src='https://avatars0.githubusercontent.com/u/13115712?s=460&v=4' alt='Rachel Brown' />
-                    </div>
-                    <div className="teamIndv col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                        <img className='Rachel' src='https://icons8.com/icon/446/linkedin' alt='LinkedIn Logo' />
-                    </div>
-                </div>
-                
-        </div>
-         )
-    }
 }
  
 export default Team;
-
