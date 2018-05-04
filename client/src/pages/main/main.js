@@ -76,7 +76,7 @@ class Main extends Component {
       showFilteredEvents = category => {
         this.setState({ filterEventsBy: category });
       };
-    
+
       // populating feeds with news, events, job postings data
       renderPage = () => {
         if (this.state.currentPage === 'News') {
@@ -164,13 +164,13 @@ class Main extends Component {
         return(
           <Container>
             <Row>
-              <LSideBar user={this.props.user} />
-                <Col size='md-6' className='mainContent animated fadeInUp'>
+              <LSideBar user={this.props.user}/>
+                <Col size='md-6' className='mainContent animated fadeIn'>
                   <NavPills currentPage={this.state.currentPage}
                             handlePageChange={this.handlePageChange} />
                   {this.renderPage()}
                 </Col>
-              <RSideBar events={this.state.events} />
+              <RSideBar events={this.state.events}/>
             </Row>
           </Container>
         )
