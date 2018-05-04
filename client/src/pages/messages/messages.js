@@ -10,10 +10,10 @@ import { Col, Row, Container } from '../../components/Grid';
 
 // app components
 import {ChatUserBar}from '../../components/ChatUserBar'
-import {ChatMessageArea, CurrentChatHeader, ChatMessageFooter}from '../../components/ChatMessage';
+import {ChatMessageArea, CurrentChatHeader} from '../../components/ChatMessage';
 import ChatMessage from '../../components/ChatMessage/ChatMessage';
 import ChatUser from '../../components/ChatUserBar/ChatUser';
-import { isNull } from 'util';
+// import { isNull } from 'util';
 
 
 
@@ -30,11 +30,26 @@ class Messages extends Component {
     currentChatId:'',
     unreadMessages: this.props.user.unreadMessages
   };
+  // items.sort(function (a, b) {
+  //   return a.value - b.value;
+  // });
+
   loadUsers = () => {
     API.getUsers()
       .then(res =>
-        {this.setState({ 
-          users: res.data
+        {
+          res.data.forEach((user) => {
+            if (this.state.unreadMessages.includes(user._id)) {
+              console.log('unread message sir')
+              user.unread = 1;
+            } else {
+              user.unread = 0;
+            }
+          })
+          this.setState({ 
+          users: res.data.sort(function(a,b){
+            return b.unread - a.unread 
+          })
           // selectedUser:res.data[0]
         })})
       // console.log(res)}
@@ -140,7 +155,7 @@ class Messages extends Component {
       chatId: this.state.currentChatId,
       senderId: this.state.user._id,
       senderName: this.state.user.firstName,
-      sent: Date.now(),
+      sent: Date.now().toString(),
       chatMessage: this.state.chatMessage
     }
     this.setState({chatMessage:[]})

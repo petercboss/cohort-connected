@@ -7,6 +7,7 @@
         firstName: { type: String, required: true },
         lastName: { type: String, required: true },
         unreadMessages:[],
+        unread:{type: Number, default: 0},
         headline: String,
         location: String,
         profilePicURL: String,

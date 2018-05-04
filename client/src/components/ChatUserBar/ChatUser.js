@@ -12,10 +12,10 @@ class ChatUser extends Component {
             {(this.props.unreadMessages.filter(unreadId => unreadId === this.props.id).length === 0) ? (
             <Row className='chatRow Unread'>
             <div className='ChatUser' onClick={()=> this.props.currentUser(this.props.user)}>
-                <Col size="md-4" className="paddingFix">
+                <Col size="sm-4 md-4 lg-4 xl-4" className="paddingFix">
                 <img src={this.props.user.profilePicURL}  alt="title" className="chatImage" />
                 </Col>
-                <Col size="md-8">
+                <Col size="sm-8 md-8 lg-8 xl-8">
                 <div className='userInfo'>
                     <div className="chatName">{this.props.user.firstName} {this.props.user.lastName} </div>
                     <div className="chatDate">last messaged - {this.props.user.date}</div>
@@ -25,15 +25,15 @@ class ChatUser extends Component {
         </Row>
             ) : (
                 <Row className='chatRow'>
-                <div className='ChatUser unread' onClick={()=> this.props.currentUser(this.props.user)}>
-                    <Col size="md-4" className="paddingFix">
+                <div className='ChatUser' onClick={()=> this.props.currentUser(this.props.user)}>
+                    <Col size="sm-4 md-4 lg-4 xl-4" className="paddingFix">
                     <img src={this.props.user.profilePicURL}  alt="title" className="chatImage" />
                     </Col>
-                    <Col size="md-8">
+                    <Col size="sm-8 md-8 lg-8 xl-8">
                     <div className='userInfo'>
                         <div className="chatName">{this.props.user.firstName} {this.props.user.lastName} </div>
                         <div className="chatDate">last messaged - {this.props.user.date}</div>
-                        <div className="chatDate">Unread Messages - {this.props.unreadMessages.filter(unreadId => unreadId === this.props.id).length}</div>
+                        <div className="unreadMessage">Unread - {this.props.unreadMessages.filter(unreadId => unreadId === this.props.id).length}</div>
                     </div>
                     </Col>
                 </div>

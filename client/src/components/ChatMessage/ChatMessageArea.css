@@ -2,7 +2,7 @@
     margin-bottom: 50px;
     border: 1px solid black;
     height: 300px;
-    background: rgb(242,245,248);
+    background: rgba(242,245,248,0.6);
     border-top: 0;
     margin-bottom: 0;
 }
@@ -19,6 +19,23 @@
     padding: 20px 30px;
 }
 
+.selectUserDiv {
+    background: rgba(54,0,81,0.5);
+    font-size: 30px;
+    text-align: center;
+    width: 60%;
+    height: 400px;
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    color: white;
+    padding: 5px;
+}
+
+.selectUserDiv p {
+    position: relative;
+    top: 40%;
+}
 
 /* current chat area */
 .CurrentChatHeader {
@@ -33,6 +50,7 @@
 }
 .noSelectedUser {
     line-height: 100px;
+    color: rgba(242,245,248);
 }
 .CurrentChatHeader img {
     margin-right: 10px;
@@ -90,6 +108,15 @@
     position: relative;
     margin-right: 20px;
     float: right;
+}
+
+.messageDate {
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    display: block;
+    color: #00000082;
+    margin-top: 10px;
 }
 
 /* chat footer */
