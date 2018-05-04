@@ -66,45 +66,53 @@ class Jobs extends Component {
   render() {
     const { open } = this.state;
     return (
+      // Header
       <div style={styles}>
-        <h2>Employment Opportunities</h2>
-        <button onClick={this.onOpenModal}>Post Jobs</button>
+        <div className='row'>
+          <div className='col-12'>
+            <h4 id='jobHeader'>Post and Search Opportunities</h4>
+          </div>
+          <div className='col-12'>
+            <button id='job-button' onClick={this.onOpenModal}><i class='fas fa-briefcase'></i> Post Jobs</button>
+          </div>
+        </div>
+    
         <Modal open={open} onClose={this.onCloseModal} little>
-          <h2>Post your job leads here!</h2>
-          <form className="form-inline">
-           {/* Job Link */}
+          <h4>Post your job leads here!</h4>
+          <form className='form-inline'>
+          {/* Job Link */}
             <label className="sr-only">Copy link to job here (required)</label>
             <input type="text"
-                   value={this.state.jobLink}
-                   name='jobLink'
-                   onChange={this.handleInputChange}
-                   className="form-control mb-2 mr-sm-2 mb-sm-0"
-                   id="inlineFormInput" 
-                   placeholder='Copy link to job here' 
-                   required/>
+                  value={this.state.jobLink}
+                  name='jobLink'
+                  onChange={this.handleInputChange}
+                  className="form-control mb-2 mr-sm-2 mb-sm-0"
+                  id="inlineFormInput" 
+                  placeholder='Copy link to job here' 
+                  required/>
             {/* Job Title */}
             <label className="sr-only">Job Title</label>
             <div className="input-group mb-2 mr-sm-2 mb-sm-0">
               <div className="input-group-addon"></div>
               <input type="text"
-                     value={this.state.jobTitle}
-                     name='jobTitle'
-                     onChange={this.handleInputChange}
-                     className="form-control" 
-                     id="inlineFormInputGroup" 
-                     placeholder="Job Title"/>
+                    value={this.state.jobTitle}
+                    name='jobTitle'
+                    onChange={this.handleInputChange}
+                    className="form-control" 
+                    id="inlineFormInputGroup" 
+                    placeholder="Job Title"/>
             </div>
-             {/* Company */}
+            {/* Company */}
             <label className="sr-only">Company</label>
             <div className="input-group mb-2 mr-sm-2 mb-sm-0">
               <div className="input-group-addon"></div>
               <input type="text"
-                     value={this.state.jobCompany}
-                     name='jobCompany'
-                     onChange={this.handleInputChange}
-                     className="form-control"
-                     id="inlineFormInputGroup"
-                     placeholder="Company Name" />
+                    value={this.state.jobCompany}
+                    name='jobCompany'
+                    onChange={this.handleInputChange}
+                    className="form-control"
+                    id="inlineFormInputGroup"
+                    placeholder="Company Name" />
             </div>
             <button type="submit"
                     onClick={this.handleJobFormSubmit}
