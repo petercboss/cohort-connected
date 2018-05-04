@@ -17,7 +17,6 @@ class ContactForm extends Component {
         this.setState({
           [name]: value
         });
-        console.log(this.state);
     };
 
     handleFormSubmit = event => {
@@ -27,7 +26,6 @@ class ContactForm extends Component {
         email: '',
         message: ''
       });
-      console.log(this.state);
     };
 
     render() {
