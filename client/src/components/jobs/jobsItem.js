@@ -42,11 +42,19 @@ class JobsItem extends Component {
             <div>
                 <div className='.job-container'>
                     <div className='row'>
-                        <div className='text-center col-12'>
-                            <a href={this.props.link} target='_blank' className='job-link'><h4 className='job-title'> <i class="fas fa-link"></i> {this.props.title}</h4></a>
+                        <div className='text-center col-6'>
+                            <a href={this.props.link} target='_blank' className='job-link'><h4 className='job-title'> <i class='fas fa-link'></i> {this.props.title}</h4></a>
+                        </div>
+                        <div className='text-center col-6'>
+                            <span className='jobPreview'>
+                            See Preview
+                                <div className='iframe-preview'>
+                                    <iframe scrolling='yes' title='i' name='preview' src={this.props.link}></iframe>
+                                </div>
+                            </span>
                         </div>
                         <div className='text-center col-12'>
-                            <h4 className='job-summary-text'>Summary<span className='job-summary'> {this.props.summary}</span></h4>
+                            <h4 className='job-summary-text'>Company<span className='job-summary'> {this.props.summary}</span></h4>
                         </div>
                     </div>
                     <div className='row'>
