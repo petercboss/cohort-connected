@@ -64,16 +64,15 @@ class Team extends Component {
 
     componentDidMount() {
         this.shuffleArray(this.state.team);
-        console.log(this.state.team);
     }
 
     render() { 
         return ( 
         <Container>
             <Row>
-                <Col size='md-12' className='teamPage animated fadeInUp'>
+                <Col size='md-12' className='teamPage animated fadeInDown'>
                     <h1 className='teamWork'>
-                        <span className='teamBlurb'><b>YOU</b> bring CohortConnected to life.<br/>
+                        <span className='teamBlurb'>YOU bring CohortConnected to life.<br/>
                         These fun-seekers just wrote the source code.</span>
                         BUILT ON<br/><b>TEAMWORK</b>.
                     </h1>
@@ -87,7 +86,6 @@ class Team extends Component {
                                     <h4 className='memberTitle'>{member.title}</h4>
                                     <p className='memberBio'>{member.bio}</p>
                                     <hr className='link-divider' />
-
                                     <h4 className='memberSites'>
                                         <a href={member.linked} target='_blank' rel='noopener noreferrer'><i className='site-icons fab fa-linkedin-in'></i></a>
                                         <a href={member.github} target='_blank' rel='noopener noreferrer'><i className='site-icons fab fa-github'></i></a>

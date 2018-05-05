@@ -10,3 +10,6 @@ body, html {
     text-align: center;
     min-height: 400px;
 }
+.page-loading {
+    overflow: hidden;
+}

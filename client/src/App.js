@@ -57,7 +57,7 @@ class App extends Component {
     setTimeout(() => this.setState({ pageLoader: false }), 2500);
     return (
       <div className='page-loading'>
-        <img className='power-clap animated flip' src={require('./power-clap.png')} alt='power-clap' />
+        <img className='power-clap animated flip' src={require('./power-clap.png')} alt='BOP-BOP' />
         <h1 className='loading-text animated fadeInUpBig'>Bring it Back with a Power Clap</h1>
       </div>
     )

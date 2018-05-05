@@ -123,6 +123,7 @@ export default class Demo extends Component {
     } else {
       children = [
         <div className='landing-login'>
+        <div className='background-img' />
         <div className='login-box animated fadeIn'>
           <h1 className='login-greeting'>
             <span className='light'>Cohort</span><span className='heavy'>Connected</span>

@@ -23,8 +23,9 @@
 }
 .favorites-title {
     width: 70%;
-    margin: 0px auto;
+    margin: 0px auto 25px;
     border-bottom: 5px solid #63C2C2;
+    font-family: 'Lato', sans-serif;
 }
 .favorites-tip {
     color: #636363;

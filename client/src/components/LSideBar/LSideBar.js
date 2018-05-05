@@ -7,7 +7,7 @@ const LSideBar = props => (
     <Col size='md-3 lg-3' className='LSideBar animated fadeIn'>
       {<div className='profile'>
         <div className='cornerRibbon'> Alumnus</div>
-        <img className='profileImg' src={props.user.profilePicURL} alt="Your beautiful self" />
+        <img className='profileImg' src={props.user.profilePicURL} alt={props.user.firstName + ' ' + props.user.lastName} />
         <hr className='sidebarLine'/>
         <h3 className='profileName'>{props.user.firstName} {props.user.lastName}</h3>
         <h3 className='profileHeadline'>{props.user.headline}</h3>
