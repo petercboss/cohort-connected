@@ -80,19 +80,20 @@ class Forum extends Component {
     .catch(err => console.log(err));
   };
 
-  renderMainPage = () => {
+  renderForumPage = () => {
     if (this.state.currentPage === 'Home') {
       return (
         <ForumList>
-          {this.state.forum.sort((a,b) => new Date(b.date) - new Date(a.date)).map(forumQuestion => (
+          {this.state.forum.sort((a,b) => new Date(b.postingDate) - new Date(a.postingDate)).map(forumQuestion => (
             <ForumItem key={forumQuestion._id}
                        id={forumQuestion._id} 
-                       title={forumQuestion.title} 
-                       date={forumQuestion.date} 
+                       title={forumQuestion.title}
+                       date={forumQuestion.postingDate} 
                        author={forumQuestion.author.author} 
                        summary={forumQuestion.summary}
-                       thumbsUp={forumQuestion.thumbsUp}
-                       thumbsDown={forumQuestion.thumbsDown}
+                       comment={forumQuestion.comment.body}
+                       upVote={forumQuestion.comment.upVote}
+                       downVote={forumQuestion.comment.downVote}
                        handlePageChange={this.handlePageChange} />
           ))}
         </ForumList>
@@ -100,15 +101,16 @@ class Forum extends Component {
     } else {
         return (
           <ForumList>
-            {this.state.question.sort((a,b) => new Date(b.date) - new Date(a.date)).map(forumQuestion => (
+            {this.state.question.sort((a,b) => new Date(b.postingDate) - new Date(a.postingDate)).map(forumQuestion => (
               <ForumItem key={forumQuestion._id}
                          id={forumQuestion._id} 
                          title={forumQuestion.title} 
-                         date={forumQuestion.date} 
+                         date={forumQuestion.postingDate}
                          author={forumQuestion.author.author} 
                          summary={forumQuestion.summary}
-                         thumbsUp={forumQuestion.thumbsUp}
-                         thumbsDown={forumQuestion.thumbsDown}
+                         comment={forumQuestion.comment.body}
+                         upVote={forumQuestion.comment.upVote}
+                         downVote={forumQuestion.comment.downVote}
                          comments={forumQuestion.comments} />
             ))}
           </ForumList>
@@ -119,11 +121,12 @@ class Forum extends Component {
   renderSideBar = () => {
     return (
       <ForumList>
-        {this.state.yourQuestions.sort((a,b) => new Date(b.date) - new Date(a.date)).map(forumQuestion => (
+        {this.state.yourQuestions.sort((a,b) => new Date(b.postingDate) - new Date(a.postingDate)).map(forumQuestion => (
           <ForumSideBar key={forumQuestion._id}
                         id={forumQuestion._id} 
                         title={forumQuestion.title} 
-                        date={forumQuestion.date}
+                        date={forumQuestion.postingDate}
+                        answers={forumQuestion.comment.length}
                         onClick={forumQuestion._id}
                         handlePageChange={this.handlePageChange} />
         ))}
@@ -136,34 +139,36 @@ class Forum extends Component {
     return(
       <Container>
         <Row>
-          <Col size='md-3 lg-3' className='forum-sidebar forum-myQs'>
+          <Col size='md-3 lg-3' className='forum-sidebar'>
             <Row>
-              <Col size='md-12 lg-12' className='create'>
-                <button onClick={this.onOpenModal}>Create Topic</button>
+              <Col size='md-12 lg-12' className='add-question'>
+                <button className='question-button' onClick={this.onOpenModal}>Ask a New Question</button>
                 <Modal open={open} onClose={this.onCloseModal} className='modal' little>
-                  <h2>Ask A Question:</h2>
+                  <h2 className='modal-header'>Enter Question Details</h2>
                   <form>
                     <div className='form-group'>
-                      <label>Subject</label>
-                      <input type='text' className='form-control' name='title' onChange={this.handleChange} placeholder='Subject'/>
+                      <label className='modal-label'>Title:</label>
+                      <input type='text' className='form-control' name='title' onChange={this.handleChange} placeholder='Brief synopsis of question'/>
                     </div>
                     <div className='form-group'>
-                      <label>Question</label>
-                      <textarea type='text' className='form-control' name='summary' onChange={this.handleChange} placeholder='Enter your question' rows='5'></textarea>
+                      <label className='modal-label'>Description:</label>
+                      <textarea type='text' className='form-control' name='summary' onChange={this.handleChange} placeholder='Enter a detailed description of your issue here' rows='5'></textarea>
                     </div>
-                    <button onClick={this.handleSubmit} type='submit' className='btn btn-primary'>Submit</button>
+                    <button onClick={this.handleSubmit} type='submit' className='btn btn-primary submit-question'>Submit</button>
+                    <div className='clearfix' />
                   </form>
                 </Modal>
               </Col>
             </Row>
             <Row>
-              <Col size='md-12 lg-12'>
+              <Col size='md-12 lg-12' className='myQuestions-container'>
+                <h3>Check Status on Previous Questions:</h3>
                 {this.renderSideBar()}
               </Col>
             </Row>
           </Col>
           <Col size='md-9'>
-            {this.renderMainPage()}
+            {this.renderForumPage()}
           </Col>
         </Row>
       </Container>

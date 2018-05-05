@@ -133,9 +133,9 @@ export default class Demo extends Component {
             <ul className='list-perks'>
               <li className={this.state.animationCount === 1 ? 'list-perks-item animated pulse' : 'list-perks-item'}><i className='login-icon fas fa-question-circle'></i>Ask and answer questions in the help forum</li>
               <li className={this.state.animationCount === 2 ? 'list-perks-item animated pulse' : 'list-perks-item'}><i className='login-icon fas fa-comment-alt'></i>Keep in touch using our built-in messaging app</li>
-              <li className={this.state.animationCount === 3 ? 'list-perks-item animated pulse' : 'list-perks-item'}><i className='login-icon fas fa-newspaper'></i>Browse and rank the latest news in tech</li>
+              <li className={this.state.animationCount === 3 ? 'list-perks-item animated pulse' : 'list-perks-item'}><i className='login-icon fas fa-newspaper'></i>Browse the latest headlines and share reactions</li>
               <li className={this.state.animationCount === 4 ? 'list-perks-item animated pulse' : 'list-perks-item'}><i className='login-icon fas fa-calendar-alt'></i>Filter local tech events by date and interest area</li>
-              <li className={this.state.animationCount === 5 ? 'list-perks-item animated pulse' : 'list-perks-item'}><i className='login-icon fas fa-handshake'></i>Post and share job opportunities</li>
+              <li className={this.state.animationCount === 5 ? 'list-perks-item animated pulse' : 'list-perks-item'}><i className='login-icon fas fa-handshake'></i>Post and apply for job opportunities</li>
               <li className={this.state.animationCount === 6 ? 'list-perks-item animated pulse' : 'list-perks-item'}><i className='login-icon fas fa-hand-holding-heart'></i>Save your favorite resources for easy access</li>
             </ul>
             <div className='login-button animated pulse'>

@@ -6,11 +6,11 @@ import { Col, Row } from '../../components/Grid';
 
 const FaqShell = (props) => (
     <Row>
-        <Col size='md-12 lg-12' className='teamPage animated fadeInDown'>
-        <div className='FAQHeader text-center'>
+        <Col size='md-12 lg-12' className='teamPage animated fadeIn'>
+        <div className='FAQHeader text-center animated zoomIn'>
             <h2>Looking for the documentation? We've got you covered.</h2>
         </div>
-            <div id='accordion'>
+            <div id='accordion' className='animated fadeInUp'>
                 {/* One */}
                 <div className='card customCard'>
                     <div className='btn collapsed faqButton' data-toggle='collapse' data-target='#collapseOne' aria-expanded='false' aria-controls='collapseOne'>
@@ -49,50 +49,50 @@ const FaqShell = (props) => (
                     </div>
                 </div>
                 {/* Five */}
-                <div className='card customCard'>
+                {/* <div className='card customCard'>
                     <div className='btn collapsed faqButton' data-toggle='collapse' data-target='#collapseFive' aria-expanded='false' aria-controls='collapseFive'>
                         <h4>Question?</h4>
                     </div>
                     <div id='collapseFive' className='collapse' aria-labelledby='headingFive' data-parent='#accordion'>
                         <div className='card-body'>Answer</div>
                     </div>
-                </div>
+                </div> */}
                 {/* Six */}
-                <div className='card customCard'>
+                {/* <div className='card customCard'>
                     <div className='btn collapsed faqButton' data-toggle='collapse' data-target='#collapseSix' aria-expanded='false' aria-controls='collapseSix'>
                         <h4>Question?</h4>
                     </div>
                     <div id='collapseSix' className='collapse' aria-labelledby='headingSix' data-parent='#accordion'>
                         <div className='card-body'>Answer</div>
                     </div>
-                </div>
+                </div> */}
                 {/* Seven */}
-                <div className='card customCard'>
+                {/* <div className='card customCard'>
                     <div className='btn collapsed faqButton' data-toggle='collapse' data-target='#collapseSeven' aria-expanded='false' aria-controls='collapseSeven'>
                         <h4>Question?</h4>
                     </div>
                     <div id='collapseSeven' className='collapse' aria-labelledby='headingSeven' data-parent='#accordion'>
                         <div className='card-body'>Answer</div>
                     </div>
-                </div>
+                </div> */}
                 {/* Eight */}
-                <div className='card customCard'>
+                {/* <div className='card customCard'>
                     <div className='btn collapsed faqButton' data-toggle='collapse' data-target='#collapseEight' aria-expanded='false' aria-controls='collapseEight'>
                         <h4>Question?</h4>
                     </div>
                     <div id='collapseEight' className='collapse' aria-labelledby='headingEight' data-parent='#accordion'>
                         <div className='card-body'>Answer</div>
                     </div>
-                </div>
+                </div> */}
                 {/* Nine */}
-                <div className='card customCard'>
+                {/* <div className='card customCard'>
                     <div className='btn collapsed faqButton' data-toggle='collapse' data-target='#collapseNine' aria-expanded='false' aria-controls='collapseNine'>
                         <h4>Question?</h4>
                     </div>
                     <div id='collapseNine' className='collapse' aria-labelledby='headingNine' data-parent='#accordion'>
                         <div className='card-body'>Answer</div>
                     </div>
-                </div>
+                </div> */}
                 {/* Ten */}
                 <div className='card customCard lastCard'>
                     <div className='btn collapsed faqButton' data-toggle='collapse' data-target='#collapseTen' aria-expanded='false' aria-controls='collapseTen'>
