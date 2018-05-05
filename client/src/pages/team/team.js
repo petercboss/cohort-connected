@@ -70,8 +70,8 @@ class Team extends Component {
         return ( 
         <Container>
             <Row>
-                <Col size='md-12' className='teamPage animated fadeInDown'>
-                    <h1 className='teamWork'>
+                <Col size='md-12' className='teamPage animated fadeIn'>
+                    <h1 className='teamWork animated zoomIn'>
                         <span className='teamBlurb'>YOU bring CohortConnected to life.<br/>
                         These fun-seekers just wrote the source code.</span>
                         BUILT ON<br/><b>TEAMWORK</b>.
@@ -79,7 +79,7 @@ class Team extends Component {
                     { 
                         this.state.team.map((member, i) => {
                             return (
-                            <div className='teamRow'>
+                            <div className='teamRow animated fadeInUp'>
                                 <img className={i%2 === 0 ? 'memberImage float-left' : 'memberImage float-right'} src={member.image} alt={member.name} />
                                 <div className={i%2 === 0 ? 'memberSnapshot float-right' : 'memberSnapshot float-left'}>
                                     <h3 className='memberName'>{member.name}</h3>

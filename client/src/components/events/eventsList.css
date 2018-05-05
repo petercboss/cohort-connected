@@ -102,6 +102,7 @@ a .event-title {
 .category-btn:hover,
 .category-btn:active {
   transform: scale(1.1);
+  cursor: pointer;
 }
 .clearfix {
   clear: both;

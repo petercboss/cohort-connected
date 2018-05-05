@@ -3,9 +3,9 @@
     const Schema = mongoose.Schema;
 
     const forumSchema = new Schema({
-        title: { type: String, required: true },
+        title: { type: String, required: true, maxlength: [20, 'Title length cannot exceed 20 characters'] },
         summary: { type: String, required: true },
-        postingDate: { type: Date, default: Date.now },
+        postingDate: { type: Date, default: Date.now(), required: true },
         author: { _id: { type: String, required: true },
                   author: { type: String, required: true }},
         comment: [{
