@@ -108,7 +108,7 @@ class Main extends Component {
           <div>
           <Jobs/>
           <JobsList>
-              {this.state.jobs.sort((a, b) => new Date(b.date) - new Date(a.date)).map(jobPosting =>  (
+              {this.state.jobs.sort((a, b) => new Date(b.date) - new Date(a.date)).map((jobPosting, i) =>  (
               <JobsItem 
                 key={jobPosting._id}
                 id={jobPosting._id}
@@ -120,6 +120,7 @@ class Main extends Component {
                 comments={jobPosting.comments}
                 favorites={this.props.user.jobs}
                 toggleFavorite={this.toggleFavorite}
+                bk={i}
                 />
             ))}
           </JobsList> 

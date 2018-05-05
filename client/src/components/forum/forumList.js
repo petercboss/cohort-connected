@@ -5,10 +5,12 @@ import './forumList.css'
 
 export const ForumList = ({ children }) => {
   return (
-    <div className='list-overflow-container'>
-      <ul className='list-group'>
-        {children}
-      </ul>
+    <div className='forum-list-containers'>
+      <div className='list-overflow-container-forum'>
+        <ul className='forum-list-overview'>
+          {children}
+        </ul>
+      </div>
     </div>
   );
 };

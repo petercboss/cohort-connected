@@ -30,6 +30,7 @@ class App extends Component {
   state = {
     user:this.props.user,
     updatedUser:{},
+    unreadMessages:[],
 
     // page loader while user object is compiled
     pageLoader: true
@@ -38,11 +39,18 @@ class App extends Component {
   getUserData() {
     API.getUser(this.state.user.linkedInId)
       .then(res => {
-        console.log(res.data);
-        this.setState({updatedUser:res.data})
+        this.setState({
+          updatedUser:res.data,
+          unreadMessages:res.data.unreadMessages
+        })
+
       })
       .catch(err => console.log(err));
   };
+
+  updateUnreadMessagesHeader(unreadMessages1) {
+    this.setState({unreadMessages:unreadMessages1});
+  }
 
   componentDidMount() {
     this.getUserData();
@@ -50,7 +58,6 @@ class App extends Component {
 
 
   render() {
-  // const { user: user} = this.props
 
   if (this.state.pageLoader) {
     setTimeout(() => this.setState({ pageLoader: false }), 2500);
@@ -66,9 +73,10 @@ class App extends Component {
       <div>
         <Router>
           <div>
-            <Nav unreadMessages={this.state.updatedUser.unreadMessages} name={this.props.user.firstName}/>
+          {/* this.props.updateUnreadMessagesHeader(this.state.unreadMessages) */}
+            <Nav name={this.props.user.firstName} unreadMessages={this.state.unreadMessages}/>
             <Route exact path="/" render={(props) => <Main {...props} user={this.state.updatedUser} />} />
-            <Route exact path="/messages"  render={(props) => <Messages {...props} user={this.state.updatedUser}/>} />
+            <Route exact path="/messages"  render={(props) => <Messages {...props} user={this.state.updatedUser} updateUnreadMessagesHeader={this.updateUnreadMessagesHeader.bind(this)}/>} />
             <Route path="/forum"  render={(props) => <Forum {...props} user={this.state.updatedUser}/>} />
             <Route path="/favorites"  render={(props) => <Favorites {...props} user={this.state.updatedUser}/>} />
             <Route path="/team" component={Team} />

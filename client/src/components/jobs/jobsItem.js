@@ -39,22 +39,29 @@ class JobsItem extends Component {
 
     render() {
         return ( 
-            <div>
-                <div className='.job-container'>
+            <li className={this.props.bk % 2 === 0 ? 'list-group-item bk-light animated fadeIn' : 'list-group-item bk-dark animated fadeIn'} id={this.props.id}>
+                <div className='job-container'>
                     <div className='row'>
-                        <div className='text-center col-6'>
-                            <a href={this.props.link} target='_blank' className='job-link'><h4 className='job-title'> <i class='fas fa-link'></i> {this.props.title}</h4></a>
+                        <div className='col-7'>
+                            <a href={this.props.link} target='_blank' className='job-link'><h4 className='job-title'>Link: <i class='fas fa-link'></i> {this.props.title}</h4></a>
                         </div>
-                        <div className='text-center col-6'>
-                            <span className='jobPreview'>
+                        <div className='col-5'>
+                            <div className={this.props.isFavorite === true ? 'favorite' : 'non-favorite'}></div>
+                            <button onClick={() => console.log('you like this news story')}
+                                className={this.props.isFavorite === true ? 'tabbed' : 'open'}>
+                                <i className='fa fa-star-o' aria-hidden='true'></i>
+                            </button>
+                        </div>
+                        <div className='col-7'>
+                            <h4 className='job-summary-text'>Company:<span className='job-summary'> {this.props.summary}</span></h4>
+                        </div>
+                        <div className='col-5'>
+                            <span className='text-center jobPreview'>
                             See Preview
                                 <div className='iframe-preview'>
                                     <iframe scrolling='yes' title='i' name='preview' src={this.props.link}></iframe>
                                 </div>
                             </span>
-                        </div>
-                        <div className='text-center col-12'>
-                            <h4 className='job-summary-text'>Company<span className='job-summary'> {this.props.summary}</span></h4>
                         </div>
                     </div>
                     <div className='row'>
@@ -62,10 +69,12 @@ class JobsItem extends Component {
                             <button className='action-item comment'><i className='fa fa-comments'></i> Add/View Comments</button>
                             <button onClick={this.DownVote} className={this.state.action === 'disliked' ? 'action-item thumbs thumbs-down disliked' : 'action-item thumbs thumbs-down'}
                                 disabled={this.state.disabled === true ? 'true' : ''}>
-                                <i className='fa fa-thumbs-down'></i> {this.state.thumbsDown}</button>
+                                <i className='fa fa-thumbs-down'></i> {this.state.thumbsDown}
+                            </button>
                             <button onClick={this.UpVote} className={this.state.action === 'liked' ? 'action-item thumbs thumbs-up liked' : 'action-item thumbs thumbs-up'}
                                 disabled={this.state.disabled === true ? 'true' : ''}>
-                                <i className='fa fa-thumbs-up'></i> {this.state.thumbsUp}</button>
+                                <i className='fa fa-thumbs-up'></i> {this.state.thumbsUp}
+                            </button>
                         </div>
                         <div className='clearfix' />
                         <div className={this.props.favorites.includes(this.props.id) ? 'favorite' : 'non-favorite'}></div>
@@ -75,7 +84,7 @@ class JobsItem extends Component {
                         </button>
                     </div>
                 </div>
-            </div>
+            </li>
         )
     };
 };

@@ -22,10 +22,10 @@
     padding: 7px 15px;
     box-shadow: white 0px 0px 1px 1px;
 }
+
 #job-button:hover {
     cursor: pointer;
     color: #5174ba;
-    
 }
 
 #jobHeader{
@@ -68,6 +68,7 @@ a:hover {
   position: relative;
   border-bottom: 1px solid #b9b8b9;
 }
+
 .favorite {
   position: absolute;
   top: 0;
@@ -102,19 +103,21 @@ a:hover {
 /* job Details */
 a .job-title {
   font-family: 'Lato', sans-serif;
-  padding-top: 5px;
+  padding-left: 15px;
   font-weight: 700;
   color: black;
 }
 .job-title:hover {
   color: #389C9C;
+  text-decoration: underline;
 }
 .fa-calendar {
   font-size: 18px;
 }
 .job-summary-text {
   font-style: italic;
-  padding: 15px;
+  padding-left: 15px;
+  padding-top: 10px;
 }
 .bk-light {
   background: #f8f8f8;
@@ -130,7 +133,7 @@ a .job-title {
 .job-summary{
   font-family: 'Lato', sans-serif;
   padding-top: 5px;
-  padding: 15px;
+  padding-left: 15px;
   font-weight: 700;
   color: black;
 }
@@ -153,7 +156,7 @@ a .job-title {
 
 
 iframe{
-    height: 700px;
+    height: 900px;
     width: 1350px;
 }
 
@@ -161,16 +164,16 @@ iframe{
 .jobPreview {
   cursor:default;
   display:inline-block;
-  position:relative;
+  width: 100%;
   border:2px solid #ddd;
-  padding:5px;
   border-radius:3px;
-  font-size:12px;
+  font-size:18px;
+  margin-top:12px;
 }
 
   .jobPreview:hover .iframe-preview {
     opacity:1;
-    transform: translateX(-149%) translateY(260%) scale(4);
+    transform: translateX(-179%) translateY(330%) scale(4);
     z-index: 5;
   }
   
@@ -190,15 +193,17 @@ iframe{
   box-shadow:0 1px 5px rgba(0,0,0,.5);
   width:150px;
   padding-right: 30px;
-  height:60px;
+  height:90px;
   border:4px solid #fff;
   overflow-x:hidden;
   overflow-y:hidden;
   transform-origin:center bottom;
   transform: translateX(-50%) translateY(10px) scale(.9);
 }
+
   iframe {
     transform:scale(.1);
     transform-origin:0 0;
   }
+
 

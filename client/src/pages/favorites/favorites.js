@@ -124,7 +124,7 @@ class Favorites extends Component {
         );
       } else {
         return (
-          <div>
+          <div className='animated zoomIn'>
             <h1 className='default-favorites favorites-title'>Welcome to your Favorites</h1>
             <h2 className='default-favorites'>Select a category icon on the left to see your saved content.</h2>
             <h3 className='default-favorites favorites-tip'>Pro-Mode: You can remove favorited items at any time by clicking the X in the upper right-hand corner.</h3>
@@ -138,8 +138,8 @@ class Favorites extends Component {
           <Container>
             <Col size='md-12'>
               <Row>
-                <div className='favorites-container animated zoomIn'>
-                  <div className='sidenav'>
+                <div className='favorites-container animated fadeIn'>
+                  <div className='sidenav animated fadeInLeftBig'>
                     <ul className='sidenav-list'>
                       <li className={this.state.favoritesCategory === 'News' ? 'sidenav-list-item current-fave' : 'sidenav-list-item'} 
                           onClick={()=>this.handleCategoryChange('News')}><i className='far fa-newspaper'></i></li>
