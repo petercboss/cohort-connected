@@ -4,7 +4,7 @@
 "Logo Title Text 2"
 
 
-# [Cohort*Connected] (h)
+# Cohort*Connected
 Connecting bootcamp cohorts post graduation to assist in their transition to the technology sector and ensure career success.
 
 <h1 style="color:orange;">Word up</span>
