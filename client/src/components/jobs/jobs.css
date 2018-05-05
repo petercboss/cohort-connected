@@ -152,3 +152,53 @@ a .job-title {
 }
 
 
+iframe{
+    height: 700px;
+    width: 1350px;
+}
+
+
+.jobPreview {
+  cursor:default;
+  display:inline-block;
+  position:relative;
+  border:2px solid #ddd;
+  padding:5px;
+  border-radius:3px;
+  font-size:12px;
+}
+
+  .jobPreview:hover .iframe-preview {
+    opacity:1;
+    transform: translateX(-149%) translateY(260%) scale(4);
+    z-index: 5;
+  }
+  
+  .jobPreview:hover {
+    box-shadow: 0 1px 5px rgba(0,0,0,.1);
+    border-color: #333;
+  }
+
+
+
+.iframe-preview {
+  transition:.2s ease-in-out opacity, .2s ease-in-out transform;
+  opacity:0;
+  position:absolute;
+  bottom: 110%;
+  left:70%;
+  box-shadow:0 1px 5px rgba(0,0,0,.5);
+  width:150px;
+  padding-right: 30px;
+  height:60px;
+  border:4px solid #fff;
+  overflow-x:hidden;
+  overflow-y:hidden;
+  transform-origin:center bottom;
+  transform: translateX(-50%) translateY(10px) scale(.9);
+}
+  iframe {
+    transform:scale(.1);
+    transform-origin:0 0;
+  }
+
