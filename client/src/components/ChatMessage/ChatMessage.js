@@ -26,7 +26,7 @@ class ChatMessage extends Component {
                     <div className='meChatSent'>
                         <h3 className='meChatName'>{this.props.name}</h3>         
                         <div className='myChatBubble'>
-                            <p>{this.props.chatMessage} <span className='messageDate'><Moment fromNow>{new Date(+this.props.date)}</Moment></span></p>
+                            <p className='meChat'>{this.props.chatMessage} <span className='meMessageDate'><Moment fromNow>{new Date(+this.props.date)}</Moment></span></p>
                         </div>
                     </div>
                 </Row>
@@ -37,7 +37,7 @@ class ChatMessage extends Component {
                     <div className='senderUser'>
                         <h3 className='senderChatName'>{this.props.name}</h3>         
                         <div className='chatBubble'>
-                            <p>{this.props.chatMessage} <span className='messageDate'><Moment fromNow>{new Date(+this.props.date)}</Moment></span></p>
+                            <p className='senderChat'>{this.props.chatMessage} <span className='senderMessageDate'><Moment fromNow>{new Date(+this.props.date)}</Moment></span></p>
                         </div>
                     </div>
                 </Row>
