@@ -15,7 +15,6 @@ class Forum extends Component {
     currentPage: 'Home',
     forum: [],
     question: [],
-    questionFavorites: [],
     yourQuestions: [],
     title: '',
     summary: '',
@@ -80,6 +79,18 @@ class Forum extends Component {
     .catch(err => console.log(err));
   };
 
+  toggleFavorite = (id, item) => {
+    if (!this.props.user.forum.includes(id)) {
+      API.favoriteItem(item, this.props.user._id, id)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    } else {
+      API.removeFavorite(item, this.props.user._id, id)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    }
+  };
+
   renderMainPage = () => {
     if (this.state.currentPage === 'Home') {
       return (
@@ -93,6 +104,8 @@ class Forum extends Component {
                        summary={forumQuestion.summary}
                        thumbsUp={forumQuestion.thumbsUp}
                        thumbsDown={forumQuestion.thumbsDown}
+                       favorites={this.props.user.forum}
+                       toggleFavorite={this.toggleFavorite}
                        handlePageChange={this.handlePageChange} />
           ))}
         </ForumList>
@@ -109,6 +122,7 @@ class Forum extends Component {
                          summary={forumQuestion.summary}
                          thumbsUp={forumQuestion.thumbsUp}
                          thumbsDown={forumQuestion.thumbsDown}
+                         favorites={this.props.user.forum}
                          comments={forumQuestion.comments} />
             ))}
           </ForumList>

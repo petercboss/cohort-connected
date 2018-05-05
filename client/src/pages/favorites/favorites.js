@@ -19,33 +19,25 @@ class Favorites extends Component {
 
     loadNewsFavorites = () => {
       API.getFavorites('news', this.state.user._id)
-        .then(res =>
-          this.setState({ news: res.data })
-        )
+        .then(res => this.setState({ news: res.data.news }))
         .catch(err => console.log(err));
     };
 
     loadJobsFavorites = () => {
       API.getFavorites('jobs', this.state.user._id)
-        .then(res =>
-          this.setState({ jobs: res.data })
-        )
+        .then(res => this.setState({ jobs: res.data.jobs }))
         .catch(err => console.log(err));
     };
 
     loadEventsFavorites = () => {
       API.getFavorites('events', this.state.user._id)
-        .then(res => 
-          this.setState({ events: res.data })
-        )
+        .then(res => this.setState({ events: res.data.events }))
         .catch(err => console.log(err));
     };
 
     loadForumFavorites = () => {
       API.getFavorites('forum', this.state.user._id)
-        .then(res => 
-          this.setState({ forum: res.data })
-        )
+        .then(res => this.setState({ forum: res.data.forum }))
         .catch(err => console.log(err));
     };
 
@@ -64,6 +56,10 @@ class Favorites extends Component {
       this.setState({ favoritesCategory: category });
     };
 
+    toggleFavorite = (id) => {
+      console.log('almost there');
+    };
+
     renderFavorites = () => {
       if (this.state.favoritesCategory === 'News') {
         return (
@@ -75,7 +71,9 @@ class Favorites extends Component {
                             date={itemStory.date} 
                             author={itemStory.author} 
                             summary={itemStory.summary} 
-                            link={itemStory.link} />
+                            link={itemStory.link}
+                            toggleFavorite={this.toggleFavorite}
+                            favorites={this.state.news} />
             ))}
           </FavoriteList>
         );
@@ -89,7 +87,8 @@ class Favorites extends Component {
                             date={itemStory.date} 
                             author={itemStory.author} 
                             summary={itemStory.summary} 
-                            link={itemStory.link} />
+                            link={itemStory.link}
+                            favorites={this.state.events} />
             ))}
           </FavoriteList>
         );
@@ -103,7 +102,8 @@ class Favorites extends Component {
                             date={itemStory.date} 
                             author={itemStory.author} 
                             summary={itemStory.summary} 
-                            link={itemStory.link} />
+                            link={itemStory.link}
+                            favorites={this.state.jobs} />
             ))}
           </FavoriteList>
         );
@@ -115,9 +115,10 @@ class Favorites extends Component {
                             id={itemStory._id} 
                             title={itemStory.title} 
                             date={itemStory.date} 
-                            author={itemStory.author} 
+                            author={itemStory.author.author} 
                             summary={itemStory.summary} 
-                            link={itemStory.link} />
+                            link={itemStory.link}
+                            favorites={this.state.forum} />
             ))}
           </FavoriteList>
         );

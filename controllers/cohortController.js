@@ -144,18 +144,19 @@
 
         },
         findFavorites: (req, res) => {
+            console.log(req.params.favorite);
             db.User.findOne({ _id: req.params.id })
               .populate(`${req.params.favorite}`)
-              .then(dbFavorites => res.json(dbFavorite))
+              .then(dbFavorite => res.json(dbFavorite))
               .catch(err => res.status(422).json(err));
         },
         createFavorite: (req, res) => {
-            db.User.findOneAndUpdate({ _id: req.params.id }, { $push: { [req.params.favorite]: result._id }}, { new: true })
+            db.User.findOneAndUpdate({ _id: req.params.id }, { $push: { [req.params.favorite]: req.params._id }}, { new: true })
               .then(dbFavorite => res.json(dbFavorite))
               .catch(err => res.status(422).json(err));
         },
         removeFavorite: (req, res) => {
-            db.User.findOneAndUpdate({ _id: req.params.id }, { $pull: { [req.params.favorite]: result._id }})
+            db.User.findOneAndUpdate({ _id: req.params.id }, { $pull: { [req.params.favorite]: req.params._id }})
               .then(dbFavorite => res.json(dbFavorite))
               .catch(err => res.status(422).json(err));
         },

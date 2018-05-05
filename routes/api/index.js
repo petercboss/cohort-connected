@@ -22,10 +22,11 @@
       .get(cohortController.findOne)
       .put(cohortController.thumb);
 
-    router.route('/user/:id/:favorite')
-      .get(cohortController.findFavorites)
+    router.route('/user/:id/:favorite/:_id')
       .put(cohortController.createFavorite)
       .delete(cohortController.removeFavorite);
+  
+    router.get('/user/:id/:favorite/', cohortController.findFavorites);
 
     module.exports = router;
 })();

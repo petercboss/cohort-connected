@@ -35,8 +35,11 @@ export default {
     getOneQuestion: function(question) {
       return axios.get(`/api/forum/${question}`);
     },
-    favoriteItem: function(item, id) {
-      return axios.put(`/api/user/${id}/${item}`);
+    favoriteItem: function(item, id, _id) {
+      return axios.put(`/api/user/${id}/${item}/${_id}`);
+    },
+    removeFavorite: function(item, id, _id) {
+      return axios.delete(`/api/user/${id}/${item}/${_id}`)
     },
     getFavorites: function(item, id) {
       return axios.get(`/api/user/${id}/${item}`);

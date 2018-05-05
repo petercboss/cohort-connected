@@ -15,8 +15,7 @@ class EventItem extends Component {
             thumbsUp: this.props.thumbsUp,
             thumbsDown: this.props.thumbsDown,
             disabled: false,
-            action: '',
-            eventFavorites: this.props.eventFavorites
+            action: ''
         };
     };
 
@@ -38,9 +37,9 @@ class EventItem extends Component {
                     return <button key={i} onClick={() => this.props.showFilteredEvents(cat)} className='category-btn'><i className='fa fa-tag' aria-hidden='true'></i> {cat}</button>
                 })}</p>
                 <div className='clearfix'/>
-                <div className={this.state.eventFavorites.includes(this.props.id) === true ? 'favorite' : 'non-favorite'}></div>
-                <button onClick={() => console.log(this.addFavorite(this.props.id))}
-                    className={this.state.eventFavorites.includes(this.props.id) === true ? 'tabbed' : 'open'}>
+                <div className={this.props.favorites.includes(this.props.id) ? 'favorite' : 'non-favorite'}></div>
+                <button onClick={()=>this.props.toggleFavorite(this.props.id, 'events')}
+                    className={this.props.favorites.includes(this.props.id) ? 'tabbed' : 'open'}>
                     <i className='fa fa-star-o' aria-hidden='true'></i>
                 </button>
             </div>
