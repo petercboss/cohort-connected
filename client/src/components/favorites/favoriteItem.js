@@ -18,7 +18,7 @@ class FavoriteItem extends Component {
         return (
         <li className='list-group-item favorite' id={this.props.id}>
             <div className='.favorite-container'>
-                <a onClick={() => this.props.handlePageChange(`${this.props.id}`)}><h4 className='favorite-title'>{this.props.title}</h4></a>
+                <a href={this.props.link} target='_blank' rel='noopener noreferrer'><h4 className='favorite-title'>{this.props.title}</h4></a>
                 <h5 className='byline'><span className='favorite-author'>By: {this.props.author}</span><span className='favorite-date'><Moment tz='America/Chicago' fromNow>{this.props.date}</Moment></span></h5>
                 <div className='clearfix'/>
                 <div className='row favorite-bulk'> 

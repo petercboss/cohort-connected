@@ -24,10 +24,8 @@
 
     router.route('/user/:id/:favorite')
       .get(cohortController.findFavorites)
-      .post(cohortController.createFavorite)
+      .put(cohortController.createFavorite)
       .delete(cohortController.removeFavorite);
-
-    
 
     module.exports = router;
 })();

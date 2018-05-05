@@ -1,17 +1,63 @@
 import React, { Component } from 'react';
+import API from '../../utils/API';
 
 // external stylesheet and bootstrap style components
 import './favorites.css';
 import { Col, Row, Container } from '../../components/Grid';
+import FavoriteItem from '../../components/favorites/favoriteItem';
+import { FavoriteList } from '../../components/favorites';
 
 class Favorites extends Component {
     state = {
       user: this.props.user,
-      favoritesCategory: '',
+      news: [],
+      jobs: [],
+      events: [],
+      forum: [],
+      favoritesCategory: ''
+    };
+
+    loadNewsFavorites = () => {
+      API.getFavorites('news', this.state.user._id)
+        .then(res =>
+          this.setState({ news: res.data })
+        )
+        .catch(err => console.log(err));
+    };
+
+    loadJobsFavorites = () => {
+      API.getFavorites('jobs', this.state.user._id)
+        .then(res =>
+          this.setState({ jobs: res.data })
+        )
+        .catch(err => console.log(err));
+    };
+
+    loadEventsFavorites = () => {
+      API.getFavorites('events', this.state.user._id)
+        .then(res => 
+          this.setState({ events: res.data })
+        )
+        .catch(err => console.log(err));
+    };
+
+    loadForumFavorites = () => {
+      API.getFavorites('forum', this.state.user._id)
+        .then(res => 
+          this.setState({ forum: res.data })
+        )
+        .catch(err => console.log(err));
     };
 
     componentWillMount() {
       this.setState({ user: this.props.user });
+    };
+
+    componentDidMount() {
+      this.loadNewsFavorites();
+      this.loadJobsFavorites();
+      this.loadEventsFavorites();
+      this.loadForumFavorites();
     };
 
     handleCategoryChange = category => {
@@ -21,19 +67,59 @@ class Favorites extends Component {
     renderFavorites = () => {
       if (this.state.favoritesCategory === 'News') {
         return (
-          <h1 className='placeholder'>News</h1>
+          <FavoriteList>
+            {this.state.news.sort((a,b) => new Date(b.date) - new Date(a.date)).map(itemStory => (
+              <FavoriteItem key={itemStory._id} 
+                            id={itemStory._id} 
+                            title={itemStory.title} 
+                            date={itemStory.date} 
+                            author={itemStory.author} 
+                            summary={itemStory.summary} 
+                            link={itemStory.link} />
+            ))}
+          </FavoriteList>
         );
       } else if (this.state.favoritesCategory === 'Events') {
         return (
-          <h1 className='placeholder'>Events</h1>
+          <FavoriteList>
+            {this.state.events.sort((a,b) => new Date(b.date) - new Date(a.date)).map(itemStory => (
+              <FavoriteItem key={itemStory._id} 
+                            id={itemStory._id} 
+                            title={itemStory.title} 
+                            date={itemStory.date} 
+                            author={itemStory.author} 
+                            summary={itemStory.summary} 
+                            link={itemStory.link} />
+            ))}
+          </FavoriteList>
         );
       } else if (this.state.favoritesCategory === 'Jobs') {
         return (
-          <h1 className='placeholder'>Jobs</h1>
+          <FavoriteList>
+            {this.state.jobs.sort((a,b) => new Date(b.date) - new Date(a.date)).map(itemStory => (
+              <FavoriteItem key={itemStory._id} 
+                            id={itemStory._id} 
+                            title={itemStory.title} 
+                            date={itemStory.date} 
+                            author={itemStory.author} 
+                            summary={itemStory.summary} 
+                            link={itemStory.link} />
+            ))}
+          </FavoriteList>
         );
       } else if (this.state.favoritesCategory === 'Forum') {
         return (
-          <h1 className='placeholder'>Forum</h1>
+          <FavoriteList>
+            {this.state.forum.sort((a,b) => new Date(b.date) - new Date(a.date)).map(itemStory => (
+              <FavoriteItem key={itemStory._id} 
+                            id={itemStory._id} 
+                            title={itemStory.title} 
+                            date={itemStory.date} 
+                            author={itemStory.author} 
+                            summary={itemStory.summary} 
+                            link={itemStory.link} />
+            ))}
+          </FavoriteList>
         );
       } else {
         return (
@@ -43,7 +129,7 @@ class Favorites extends Component {
             <h3 className='default-favorites favorites-tip'>Pro-Mode: You can remove favorited items at any time by clicking the X in the upper right-hand corner.</h3>
           </div>
         );
-      } 
+      }
     };
 
     render() {

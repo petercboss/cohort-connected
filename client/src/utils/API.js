@@ -35,10 +35,11 @@ export default {
     getOneQuestion: function(question) {
       return axios.get(`/api/forum/${question}`);
     },
-    favoriteItem: function(item) {
-      return axios.put(`/api/user/${item.id}`, {
-        itemId: item.itemId
-      })
+    favoriteItem: function(item, id) {
+      return axios.put(`/api/user/${id}/${item}`);
+    },
+    getFavorites: function(item, id) {
+      return axios.get(`/api/user/${id}/${item}`);
     },
     // Gets all users
     getUsers: function () {
@@ -71,7 +72,7 @@ export default {
           senderName: message.senderName,
           sent: message.sent,
           chatMessage: message.chatMessage
-        })
+      })
     },
     sendUnread: function(unreadMessage) {
       console.log(unreadMessage)
