@@ -18,7 +18,7 @@
         }],
         faveEvents: [{
             type: Schema.Types.ObjectId,
-            ref: 'Event'
+            ref: 'Events'
         }],
         faveQuestions: [{
             type: Schema.Types.ObjectId,
@@ -26,7 +26,7 @@
         }],
         faveJobs: [{
             type: Schema.Types.ObjectId,
-            ref: 'Job'
+            ref: 'Jobs'
         }]
     });
 

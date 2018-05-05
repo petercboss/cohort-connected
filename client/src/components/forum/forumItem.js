@@ -16,7 +16,7 @@ class ForumItem extends Component {
           disabled: false,
           action: ''
         };
-    }
+    };
     
     // registers a thumbs up and then disables both buttons
     UpVote = () => {
