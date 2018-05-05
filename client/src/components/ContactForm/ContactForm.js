@@ -6,7 +6,7 @@ class ContactForm extends Component {
     constructor(props){
         super(props)
         this.state = {
-            name: '',
+            subject: '',
             email: '',
             message: ''
         };
@@ -42,7 +42,7 @@ class ContactForm extends Component {
                         
                         <div>
                             <form action='' className='contactForm'>
-                                <input onChange={this.handleInputChange} type='text' name='name' value={this.state.name} placeholder='Your Name' className='form-control'/>
+                                <input onChange={this.handleInputChange} type='text' name='subject' value={this.state.subject} placeholder='Subject' className='form-control'/>
                                 <input onChange={this.handleInputChange} type='email' name='email' value={this.state.email} placeholder='Email' className='form-control' required/>
                                 <textarea onChange={this.handleInputChange} type='text' name='message' value={this.state.message} placeholder='Message' className='form-control' required/>
                                 <input onClick={this.handleFormSubmit} type='submit' class='form-control submitContactForm' value='SEND'/>
