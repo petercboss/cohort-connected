@@ -23,12 +23,9 @@ import {JobsList} from '../../components/jobs/jobsList';
 class Main extends Component {
     state = {
         currentPage: 'News',
-        news:[],
-        jobs:[],
-        events:[],
-        eventFavorites:[],
-        newsFavorites: [],
-        jobsFavorites: [],
+        news: [],
+        jobs: [],
+        events: [],
         // this value drives category filtering of events feed
         filterEventsBy: '',
       };
@@ -36,24 +33,23 @@ class Main extends Component {
       // API calls to database
       loadNews = () => {
         API.getNews()
-          .then(res =>
-            this.setState({ news: res.data })
-          )
-          .catch(err => console.log(err));
+        .then(res => {
+          this.setState({ news: res.data })})
+        .catch(err => console.log(err));
       };
+
       loadJobs = () => {
         API.getJobs()
-          .then(res =>
-            this.setState({ jobs: res.data })
-          )
-          .catch(err => console.log(err));
+        .then(res => {
+          this.setState({ jobs: res.data })})
+        .catch(err => console.log(err));
       };
+
       loadEvents = () => {
         API.getEvents()
-          .then(res => 
-            this.setState({ events: res.data })
-          )
-          .catch(err => console.log(err));
+        .then(res => {
+          this.setState({ events: res.data })})
+        .catch(err => console.log(err));
       };
 
       // making API calls after component mounts
@@ -73,6 +69,18 @@ class Main extends Component {
         this.setState({ filterEventsBy: category });
       };
 
+      toggleFavorite = (id, item) => {
+        if (!this.props.user.news.includes(id) || !this.props.user.events.includes(id) || !this.props.user.jobs.includes(id)) {
+          API.favoriteItem(item, this.props.user._id, id)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+        } else {
+          API.removeFavorite(item, this.props.user._id, id)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+        }
+      };
+
       // populating feeds with news, events, job postings data
       renderPage = () => {
         if (this.state.currentPage === 'News') {
@@ -90,7 +98,8 @@ class Main extends Component {
                         thumbsUp={newsStory.thumbsUp}
                         thumbsDown={newsStory.thumbsDown}
                         comments={newsStory.comments}
-                        newsFavorites={this.state.newsFavorites} />
+                        favorites={this.props.user.news}
+                        toggleFavorite={this.toggleFavorite} />
             ))}
             </NewsList>
             );
@@ -109,7 +118,8 @@ class Main extends Component {
                 thumbsUp={jobPosting.thumbsUp}
                 thumbsDown={jobPosting.thumbsDown}
                 comments={jobPosting.comments}
-                jobsFavorites={this.state.jobsFavorites}
+                favorites={this.props.user.jobs}
+                toggleFavorite={this.toggleFavorite}
                 bk={i}
                 />
             ))}
@@ -133,7 +143,8 @@ class Main extends Component {
                         thumbsUp={event.thumbsUp}
                         thumbsDown={event.thumbsDown}
                         comments={event.comments}
-                        eventFavorites={this.state.eventFavorites}
+                        favorites={this.props.user.events}
+                        toggleFavorite={this.toggleFavorite}
                         showFilteredEvents={this.showFilteredEvents} />
            )) : this.state.events.filter(event => new Date(event.date) >= new Date())
            .filter(event => event.categories.includes(this.state.filterEventsBy) === true)
@@ -149,7 +160,8 @@ class Main extends Component {
                         thumbsUp={event.thumbsUp}
                         thumbsDown={event.thumbsDown}
                         comments={event.comments}
-                        eventFavorites={this.state.eventFavorites}
+                        favorites={this.props.user.events}
+                        toggleFavorite={this.toggleFavorite}
                         showFilteredEvents={this.showFilteredEvents} />
            ))}
           </EventsList>);

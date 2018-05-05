@@ -12,21 +12,21 @@
         location: String,
         profilePicURL: String,
         verified: Boolean,
-        faveNews: [{
+        news: [{
             type: Schema.Types.ObjectId,
             ref: 'News'
         }],
-        faveEvents: [{
+        events: [{
             type: Schema.Types.ObjectId,
-            ref: 'Events'
+            ref: 'Event'
         }],
-        faveQuestions: [{
+        forum: [{
             type: Schema.Types.ObjectId,
             ref: 'Forum'
         }],
-        faveJobs: [{
+        jobs: [{
             type: Schema.Types.ObjectId,
-            ref: 'Jobs'
+            ref: 'Job'
         }]
     });
 

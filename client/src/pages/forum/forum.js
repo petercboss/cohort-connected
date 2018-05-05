@@ -15,7 +15,6 @@ class Forum extends Component {
     currentPage: 'Home',
     forum: [],
     question: [],
-    questionFavorites: [],
     yourQuestions: [],
     title: '',
     summary: '',
@@ -80,6 +79,18 @@ class Forum extends Component {
     .catch(err => console.log(err));
   };
 
+  toggleFavorite = (id, item) => {
+    if (!this.props.user.forum.includes(id)) {
+      API.favoriteItem(item, this.props.user._id, id)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    } else {
+      API.removeFavorite(item, this.props.user._id, id)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    }
+  };
+
   renderForumPage = () => {
     if (this.state.currentPage === 'Home') {
       return (
@@ -91,10 +102,10 @@ class Forum extends Component {
                        date={forumQuestion.postingDate} 
                        author={forumQuestion.author.author} 
                        summary={forumQuestion.summary}
-                       comment={forumQuestion.comment.body}
-                       upVote={forumQuestion.comment.upVote}
-                       downVote={forumQuestion.comment.downVote}
-                       handlePageChange={this.handlePageChange} />
+                       comments={forumQuestion.comments}
+                       handlePageChange={this.handlePageChange}
+                       favorites={this.props.user.forum}
+                       toggleFavorite={this.toggleFavorite}/>
           ))}
         </ForumList>
       );
@@ -106,12 +117,12 @@ class Forum extends Component {
                          id={forumQuestion._id} 
                          title={forumQuestion.title} 
                          date={forumQuestion.postingDate}
-                         author={forumQuestion.author.author} 
+                         author={forumQuestion.author.author}
                          summary={forumQuestion.summary}
-                         comment={forumQuestion.comment.body}
-                         upVote={forumQuestion.comment.upVote}
-                         downVote={forumQuestion.comment.downVote}
-                         comments={forumQuestion.comments} />
+                         comments={forumQuestion.comments}
+                         handlePageChange={this.handlePageChange}
+                         favorites={this.props.user.forum}
+                         toggleFavorite={this.toggleFavorite}/>
             ))}
           </ForumList>
       );

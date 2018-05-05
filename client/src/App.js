@@ -43,6 +43,7 @@ class App extends Component {
           updatedUser:res.data,
           unreadMessages:res.data.unreadMessages
         })
+
       })
       .catch(err => console.log(err));
   };

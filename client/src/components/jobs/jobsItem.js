@@ -76,6 +76,12 @@ class JobsItem extends Component {
                                 <i className='fa fa-thumbs-up'></i> {this.state.thumbsUp}
                             </button>
                         </div>
+                        <div className='clearfix' />
+                        <div className={this.props.favorites.includes(this.props.id) ? 'favorite' : 'non-favorite'}></div>
+                        <button onClick={()=>this.props.toggleFavorite(this.props.id, 'jobs')}
+                            className={this.props.favorites.includes(this.props.id) ? 'tabbed' : 'open'}>
+                            <i className='fa fa-star-o' aria-hidden='true'></i>
+                        </button>
                     </div>
                 </div>
             </li>
