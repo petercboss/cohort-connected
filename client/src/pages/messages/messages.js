@@ -13,12 +13,6 @@ import {ChatUserBar}from '../../components/ChatUserBar'
 import {ChatMessageArea, CurrentChatHeader} from '../../components/ChatMessage';
 import ChatMessage from '../../components/ChatMessage/ChatMessage';
 import ChatUser from '../../components/ChatUserBar/ChatUser';
-// import { isNull } from 'util';
-
-
-
-// pages
-// import { TLSSocket } from 'tls';
 
 class Messages extends Component {
   state = {
@@ -30,9 +24,6 @@ class Messages extends Component {
     currentChatId:'',
     unreadMessages: this.props.user.unreadMessages
   };
-  // items.sort(function (a, b) {
-  //   return a.value - b.value;
-  // });
 
   loadUsers = () => {
     API.getUsers()
@@ -40,7 +31,6 @@ class Messages extends Component {
         {
           res.data.forEach((user) => {
             if (this.state.unreadMessages.includes(user._id)) {
-              console.log('unread message sir')
               user.unread = 1;
             } else {
               user.unread = 0;
@@ -50,9 +40,8 @@ class Messages extends Component {
           users: res.data.sort(function(a,b){
             return b.unread - a.unread 
           })
-          // selectedUser:res.data[0]
-        })})
-      // console.log(res)}
+        })
+      })
       .catch(err => console.log(err));
   };
   componentWillMount() {
@@ -69,9 +58,12 @@ class Messages extends Component {
     .then((res) => {
       console.log('got update unreads' + res.data.unreadMessages)
       this.setState({unreadMessages:res.data.unreadMessages});
+      this.props.updateUnreadMessagesHeader(res.data.unreadMessages);
     })
   }
-
+  // updateHeader= (updatedUnread) => {
+  //   this.props.updateUnreadMessagesHeader(updatedUnread);
+  // }
   currentUser = (currentUser) => {
     const updatedUnreadMessages = this.state.unreadMessages.filter(unreadUser => unreadUser !== currentUser._id);
     console.log(updatedUnreadMessages);
@@ -100,9 +92,7 @@ class Messages extends Component {
   }
 
   loadChat1 = (currentUser) => {
-    console.log('load chat one fired');
     const chatid1 = this.state.user._id + currentUser._id
-    console.log('clicked on ' + currentUser.firstName)
     if(chatid1.includes('undefined') === true ){
       return
     }
@@ -193,23 +183,11 @@ class Messages extends Component {
     .catch(err => console.log(err));
   }
   
-  startMessageRefreshInterval() {
-    if(this.state.currentChatId === ''){
-        
-    } else {
-      console.log('message refresh');
-      this.refreshMessage(this.state.currentChatId);
-    }
-  }
-  // setInterval(this.refreshMessage(this.state.currentChatId),500)
-
-
   handleChange = (event) => {
     this.setState({chatMessage: event.target.value});
   }
-
+  
     render() {
-      // setInterval(this.startMessageRefreshInterval(),1000);  
         return(
           <Container>
             <Row>
