@@ -19,15 +19,35 @@
 .chatRow {
     margin: 0;
 }
-.ChatUser {
+.chatUser {
     min-height: 90px;
-    width: 100%;
+    width: 90%;
     display: inherit;
-    margin-left: 16px;
+    margin: 0 auto;
     margin-bottom: 5px;
     padding-top: 8px;
 }
-.ChatUser:hover {
+.selectedChatUser {
+    min-height: 90px;
+    width: 90%;
+    display: inherit;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    padding-top: 8px;
+    background: lightblue;
+}
+
+.selectedChatUser {
+    min-height: 90px;
+    width: 90%;
+    display: inherit;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    padding-top: 8px;
+    background: lightblue;
+}
+
+.chatUser:hover {
     background: lightblue;
 }
 .chatImage {
@@ -40,7 +60,9 @@
     margin-top: 8px;
 }
 .chatName {
-    color: white
+    color: white;
+    font-size: 28px;
+    line-height: 23px;
 }
 .chatDate {
     color: white;

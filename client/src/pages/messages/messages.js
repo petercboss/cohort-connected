@@ -57,11 +57,13 @@ class Messages extends Component {
   };
   componentWillMount() {
     this.setState({user: this.props.user});
+    this.getUnreadMessages();
 
   }
   componentDidMount() {
     this.loadUsers();
   }
+  
   getUnreadMessages = () => {
     API.getUser(this.state.user.linkedInId)
     .then((res) => {
@@ -213,7 +215,7 @@ class Messages extends Component {
             <Row>
               <Col size="md-3 lg-3" className='paddingFix'>
               <ChatUserBar >
-                {this.state.users.map( (user) => (<ChatUser user={user} key={user._id} id={user._id} currentUser={this.currentUser} unreadMessages={this.state.unreadMessages}/>))}
+                {this.state.users.map( (user) => (<ChatUser user={user} key={user._id} id={user._id} selected={this.state.selectedUser} currentUser={this.currentUser} unreadMessages={this.state.unreadMessages}/>))}
               </ChatUserBar>
               </Col>
               <Col size="md-9" className='paddingFix'>
