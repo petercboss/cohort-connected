@@ -46,7 +46,7 @@ class Team extends Component {
                 name: 'Scott Saltzman',
                 title: 'Codesmith',
                 image: 'https://avatars0.githubusercontent.com/u/13115712?s=460&v=4',
-                bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et velit non neque aliquam dignissim sit amet ac mauris. Mauris ultrices, erat at vestibulum semper, est sem eleifend nulla, eu feugiat enim lacus sed dolor. Proin dolor sapien, egestas vitae mauris quis, pretium convallis orci. Pellentesque ac risus a metus vehicula tristique. Integer nec massa.',
+                bio: 'Scott is a Technical Project Manager at Judlau Contracting. Prior to employment with Judlau, he owned and operated a small tech company specializing in design modeling for the automation of heavy machinery. Outside of work, he volunteers with Team Rubicon responding to natural disasters around the US.',
                 portfolio: 'salty923.github.io/Bootstrap-Portfolio/',
                 github: 'https://github.com/Salty923',
                 linked: 'https://www.linkedin.com/in/scott-saltzman-33949b56/'
