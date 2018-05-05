@@ -36,7 +36,6 @@ class App extends Component {
   }
 
   getUserData() {
-    console.log('hello troy' + this.state.user.linkedInId);
     API.getUser(this.state.user.linkedInId)
       .then(res => {
         console.log(res.data);
@@ -47,8 +46,9 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.getUserData()
+    this.getUserData();
   };
+
 
   render() {
   // const { user: user} = this.props
@@ -67,7 +67,7 @@ class App extends Component {
       <div>
         <Router>
           <div>
-            <Nav />
+            <Nav unreadMessages={this.state.updatedUser.unreadMessages} name={this.props.user.firstName}/>
             <Route exact path="/" render={(props) => <Main {...props} user={this.state.updatedUser} />} />
             <Route exact path="/messages"  render={(props) => <Messages {...props} user={this.state.updatedUser}/>} />
             <Route path="/forum"  render={(props) => <Forum {...props} user={this.state.updatedUser}/>} />

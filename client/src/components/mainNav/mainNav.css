@@ -49,3 +49,9 @@ a.page-navs {
     }
 
 }
+
+.numUnread {
+    color: #64c2c2;
+    font-size: 18px;
+    font-weight: 800;
+}

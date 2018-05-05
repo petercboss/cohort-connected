@@ -23,12 +23,12 @@ const mainNav = props => (
                         <Link className='nav-link page-navs' to='/forum'>Forum</Link>
                     </li>
                     <li className='nav-item'>
-                        <Link className='nav-link page-navs' to='/messages'>Messages</Link>
+                        <Link className='nav-link page-navs' to='/messages'>Messages <span className='numUnread'>{props.unreadMessages.length}</span></Link>
                     </li>
 
                     <li className='nav-item dropdown'>
                         <Link className='nav-link dropdown-toggle' to='' id='navbarDropdown' role='button' data-toggle='dropdown'>
-                            User Name
+                            {props.name}
                         </Link>
                         <div className='dropdown-menu'>
                             <Link className='dropdown-item custonNavDropdown' to='/favorites'>Favorites</Link>
