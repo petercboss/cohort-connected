@@ -116,7 +116,8 @@ a .job-title {
 }
 .job-summary-text {
   font-style: italic;
-  padding: 15px;
+  padding-left: 15px;
+  padding-top: 10px;
 }
 .bk-light {
   background: #f8f8f8;
@@ -132,7 +133,7 @@ a .job-title {
 .job-summary{
   font-family: 'Lato', sans-serif;
   padding-top: 5px;
-  padding: 15px;
+  padding-left: 15px;
   font-weight: 700;
   color: black;
 }
@@ -165,9 +166,9 @@ iframe{
   display:inline-block;
   width: 100%;
   border:2px solid #ddd;
-  padding:5px;
   border-radius:3px;
   font-size:18px;
+  margin-top:12px;
 }
 
   .jobPreview:hover .iframe-preview {
