@@ -31,7 +31,8 @@ class ContactForm extends Component {
     render() {
         return (
             <Row>
-                <Col size='md-6 lg-6' className='LContactPage animated fadeInLeft'>
+                <Col size='md-6 lg-6'>
+                    <img src={require('./contactPic2.png')} className='LContactPage animated fadeInLeft' alt='Contact Us'/>
                 </Col>
                 <Col size='md-6 lg-6' className='animated fadeInRight'>
                     <div className='contactHead text-center'>

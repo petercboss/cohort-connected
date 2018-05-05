@@ -39,8 +39,8 @@ class Favorites extends Component {
         return (
           <div>
             <h1 className='default-favorites favorites-title'>Welcome to your Favorites</h1>
-            <h2 className='default-favorites'>To display your saved content, please start by selecting a category icon to the left.</h2>
-            <h3 className='default-favorites favorites-tip'>Pro-Mode: You can remove favorited items at any time by clicking on the X in the upper right-hand corner.</h3>
+            <h2 className='default-favorites'>Select a category icon on the left to see your saved content.</h2>
+            <h3 className='default-favorites favorites-tip'>Pro-Mode: You can remove favorited items at any time by clicking the X in the upper right-hand corner.</h3>
           </div>
         );
       } 

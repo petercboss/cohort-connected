@@ -1,34 +1,30 @@
 .contactHead {
-    min-height: 381px;
-    margin: 79px 0px;
-    /* background: linear-gradient(rgba(0,0,150,0.5), rgba(0,0,50,0.5)); */
+    height: 382px;
+    margin: 80px 0px;
     background: #360051;
-    font-family: sans-serif;
+    border: 1px solid ghostwhite;
+    box-shadow: 0px 0px 21px -2px slategray;
+    box-sizing: border-box;
 }
-
 .LContactPage {
-    background-image: url('./contactPic2.png');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    margin-top: 80px;
-    padding-bottom: 528px;
+    margin: 80px 0px 160px;
+    height: 382px;
+    border: 1px solid ghostwhite;
+    box-shadow: 0px 0px 21px -2px slategray;
+    box-sizing: border-box;
 }
-
 .contactTitle {
     color: #fff;
     text-transform: uppercase;
     transition: all 4s ease-in-out;
 }
-
 .contactTitle h3 {
     padding-top: 30px;
 }
-
 .contactForm {
     margin-top: 30px;
     transition: all 4s ease-in-out;
 }
-
 .form-control {
     width: 400px;
     border: none;
@@ -38,7 +34,6 @@
     margin: 0 auto;
     margin-bottom: 16px;
 }
-
 form .submitContactForm {
     /* background: #ff5722; */
     border-color: transparent;
@@ -49,7 +44,7 @@ form .submitContactForm {
     height: 50px;
     margin-top: 20px;
 }
-
 form .submitContactForm:hover {
     cursor: pointer;
+    color: #5174ba;
 }

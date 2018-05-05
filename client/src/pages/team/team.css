@@ -61,10 +61,11 @@
     width: 450px;
     background: #8263C2;
     margin: 0px;
-    margin: 10px 0px;
+    margin: 10px 0px 7px;
 }
 .memberSites {
     padding: 0px 2px;
+    font-family: 'Lato', sans-serif;
 }
 .site-icons {
     font-size: 14px;

@@ -39,7 +39,7 @@ class NewsItem extends Component {
 
     render() {
         return (
-        <li className='list-group-item news animated fadeIn' id={this.props.id}>
+        <li className='list-group-item news' id={this.props.id}>
             <div className='.news-container'>
                 <a href={this.props.link} target='_blank' rel='noopener noreferrer'><h4 className='news-title'>{this.props.title}</h4></a>
                 <h5 className='byline'><span className='news-author'>By: {this.props.author}</span><span className='news-date'><Moment tz='America/Chicago' fromNow>{this.props.date}</Moment></span></h5>
