@@ -1,6 +1,6 @@
 ![Cohort Connected][cclogo]
 
-[cclogo]: https://github.com/rbrown511/cohort-connected/blob/master/client/public/assets/images/logo-cc.png?raw=true
+[cclogo]: https://github.com/rbrown511/cohort-connected/blob/master/client/public/assets/images/logo-cc_readme.png?raw=true
 "Logo Title Text 2"
 
 
