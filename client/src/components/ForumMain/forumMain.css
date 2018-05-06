@@ -1,3 +1,66 @@
+.forumMain-container {
+    overflow-x: hidden;
+    background: #fff;
+    border: 1px solid #360051;
+    box-shadow: 0px 0px 13px -2px #636363;
+    margin: 50px auto;
+    padding: 15px 10px;
+    box-sizing: content-box;
+}
+.forumMain-question {
+    margin: 0px auto 30px;
+}
+.forumFave {
+    float: right;
+    margin-right: 5px;
+    font-size: 30px;
+}
+.forumMain-title {
+    font-family: 'Lato', sans-serif;
+    padding: 15px;
+    font-weight: 700;
+    font-size: 22px;
+    color: black;
+    float: left;
+}
+.forumMain-byline {
+    color: #636363;
+    font-size: 18px;
+    padding: 5px 0px;
+}
+.add-forumComment {
+    padding: 0px 15px 5px;
+    margin: 35px auto;
+    width: 100%;
+    text-align: center;
+}
+.return-forumIndex,
+.forumComment-button {
+    padding: 10px 25px;
+    color: #360051;
+    border-radius: 5px;
+    border: 1px solid #360051;
+    box-shadow: 0px 0px 10px -2px #858484;
+    font-family: 'Lato', sans-serif;
+}
+.return-forumIndex:hover,
+.forumComment-button:hover {
+    color: #fff;
+    background: #360051;
+    border: 1px solid #fff;
+    box-shadow: 0px 0px 15px -1px black;
+    cursor: pointer;
+}
+.or-divider {
+    margin: 0px 15px;
+}
+.forumMain-body {
+    margin: 15px;
+    padding: 15px;
+    background: #d1d1ed;
+}
+
+
 /* Comments */
 .thumbs {
     float: right;

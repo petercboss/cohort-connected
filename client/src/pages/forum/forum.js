@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Modal from "react-responsive-modal";
+import Modal from 'react-responsive-modal';
 import API from '../../utils/API';
 
 // external stylesheet and bootstrap style components
@@ -87,6 +87,10 @@ class Forum extends Component {
     .catch(err => console.log(err));
   };
 
+  returnHome = () => {
+    this.setState({ currentPage: 'Home' });
+  };
+
   toggleFavorite = (id, item) => {
     if (!this.props.user.forum.includes(id)) {
       API.favoriteItem(item, this.props.user._id, id)
@@ -110,33 +114,31 @@ class Forum extends Component {
                             date={forumQuestion.postingDate} 
                             author={forumQuestion.author.author} 
                             summary={forumQuestion.summary}
-                            comments={forumQuestion.comment}
                             answers={forumQuestion.comment.length}
-                            handlePageChange={this.handlePageChange}
-                            favorites={this.props.user.forum}
-                            toggleFavorite={this.toggleFavorite} />
+                            handlePageChange={this.handlePageChange} />
           ))}
         </ForumIndexList>
       );
     } else {
         return (
           <ForumMain  key={this.state.question[0]._id}
-                      id={this.state.question[0]._id} 
+                      id={this.state.question[0]._id}
                       title={this.state.question[0].title} 
                       date={this.state.question[0].postingDate}
                       author={this.state.question[0].author.author}
                       summary={this.state.question[0].summary}
                       comments={this.state.question[0].comment}
-                      answers={this.state.question[0].comment.length}
-                      handlePageChange={this.handlePageChange}
+                      currentUser={`${this.state.user.firstName} ${this.state.user.lastName}`}
                       favorites={this.props.user.forum}
-                      toggleFavorite={this.toggleFavorite} />
+                      toggleFavorite={this.toggleFavorite}
+                      returnHome={this.returnHome} />
       );
     }
   };
 
   renderSideBar = () => {
-    return (
+    if (this.state.yourQuestions.length > 0) {
+      return (
       <SidebarList>
         {this.state.yourQuestions.sort((a,b) => new Date(b.postingDate) - new Date(a.postingDate)).map(forumQuestion => (
           <SidebarItem  key={forumQuestion._id}
@@ -148,7 +150,12 @@ class Forum extends Component {
                         handlePageChange={this.handlePageChange} />
         ))}
       </SidebarList>
-    );
+      );
+    } else {
+      return (
+        <h5 className='forum-catch'>Questions you've asked will be displayed here so that you can easily access the solutions provided.</h5>
+      );
+    }
   };
 
   render() {
@@ -156,10 +163,11 @@ class Forum extends Component {
     return(
       <Container>
         <Row>
-          <Col size='md-3 lg-3' className='forum-sidebar animated fadeIn'>
-            <Row>
-              <Col size='md-12 lg-12' className='add-question'>
-                <button className='question-button' onClick={this.onOpenModal}><i className='fas fa-plus-circle addQ-icon'></i>Ask New Question</button>
+          <Col size='md-3' className='animated fadeIn'>
+            <div className='forum-sidebar'>
+            <Row className='add-question'>
+              <Col size='md-12'>
+                <button className='question-button' onClick={this.onOpenModal}><i className='fas fa-plus-circle addQ-icon'></i>Ask a Question</button>
                 <Modal open={open} onClose={this.onCloseModal} className='modal' little>
                   <h2 className='modal-header'>Enter Question Details</h2>
                   <form>
@@ -178,14 +186,13 @@ class Forum extends Component {
               </Col>
             </Row>
             <Row>
-              <Col size='md-12 lg-12' className='myQuestions-container'>
-                <p className='or-divider'>- OR -</p>
-                <h3>See Answers to Previous Questions:</h3>
+              <Col size='md-12' className='myQuestions-container'>
                 {this.renderSideBar()}
               </Col>
             </Row>
+            </div>
           </Col>
-          <Col size='md-9'>
+          <Col size='md-9' className='animated fadeIn'>
             {this.renderForumPage()}
           </Col>
         </Row>
