@@ -191,12 +191,12 @@ class Messages extends Component {
         return(
           <Container>
             <Row>
-              <Col size="md-3 lg-3" className='paddingFix'>
+              <Col size='md-3' className='paddingFix animated fadeIn'>
               <ChatUserBar >
                 {this.state.users.map( (user) => (<ChatUser user={user} key={user._id} id={user._id} selected={this.state.selectedUser} currentUser={this.currentUser} unreadMessages={this.state.unreadMessages}/>))}
               </ChatUserBar>
               </Col>
-              <Col size="md-9" className='paddingFix'>
+              <Col size='md-9' className='paddingFix animated fadeIn'>
                 <CurrentChatHeader currentUser = {this.state.selectedUser}/>
                 <ChatMessageArea messages={this.state.messages}>
                 {this.state.messages.map((message,i) => (<ChatMessage user={this.state.user} id={message.senderId} key={i} index={i} name={message.senderName} chatMessage={message.chatMessage} date={message.sent}/>))}

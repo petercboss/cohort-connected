@@ -9,7 +9,7 @@ export const CurrentChatHeader = props => (
         <div>
         <img src={props.currentUser.profilePicURL} alt="title" className='chatImage' />
         <h1 className='currentName'>{props.currentUser.firstName} {props.currentUser.lastName}</h1>
-        </div>) : (<div className='selectUserDiv'><p>Please Select A User From The Left To Write A Message</p></div>)
+        </div>) : (<div className='selectUserDiv'><p>Select a User from the Left to Start Messaging</p></div>)
         }
         </div>
 );
