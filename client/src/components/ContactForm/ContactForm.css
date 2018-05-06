@@ -43,7 +43,7 @@ form .submitContactForm {
     letter-spacing: 3px;
     height: 50px;
     margin-top: 20px;
-    margin-right: 25px;
+    margin-right: 70px;
     background: rgb(223, 222, 222);
     width: 150px;
     float: right;
@@ -51,5 +51,16 @@ form .submitContactForm {
 form .submitContactForm:hover {
     cursor: pointer;
     color: #5174ba;
+}
+
+form .submitContactForm:hover:disabled {
+    cursor: not-allowed;
+}
+
+.contactFormError{
+    color: red;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
 }
 
