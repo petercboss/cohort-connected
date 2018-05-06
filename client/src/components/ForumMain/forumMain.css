@@ -1,0 +1,16 @@
+/* Comments */
+.thumbs {
+    float: right;
+    margin-right: 5px;
+    margin-left: 7px;
+}
+button.thumbs-up:enabled:hover,
+button.liked:disabled {
+    transform: scale(1.1);
+    color: #389C6A;
+}
+button.thumbs-down:enabled:hover,
+button.disliked:disabled{
+    transform: scale(1.1);
+    color: #9C3938;
+}

@@ -1,0 +1,46 @@
+.sidebar-container {
+    min-height: 200px;
+    overflow-x: hidden;
+}
+.sidebar-myQuestionsList {
+    list-style: none;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+.sidebar-myQuestionsItems {
+    background: #fff;
+    border: 1px solid #360051;
+    margin: 15px auto;
+    padding: 15px 10px;
+    box-sizing: content-box;
+}
+.sidebar-myQuestionsItems:hover {
+    cursor: pointer;
+    box-shadow: 0px 0.5px 10px -1px #636363;
+}
+.sidebar-questionTitle {
+    font-family: 'Lato', sans-serif;
+    padding-bottom: 5px;
+    font-size: 18px;
+    color: black;
+}
+.sidebar-questionTitle:hover {
+    color: #11054F
+}
+.sidebar-questionDetails {
+    margin-top: 10px;
+    padding-top: 10px;
+    color: #636363;
+    border-top: 1px solid #e0e0e0;
+    font-size: 16px;
+}
+.sidebar-answerCount {
+    float: left;
+    padding-left: 5px;
+}
+.sidebar-date {
+    float: right;
+    font-style: italic;
+    padding-right: 5px;
+}
