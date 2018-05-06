@@ -9,8 +9,11 @@
         author: { _id: { type: String, required: true },
                   author: { type: String, required: true }},
         comment: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Comment'
+            author: { type: String, required: true },
+            body: { type: String, required: true },
+            postingDate: { type: Date, default: Date.now(), required: true },
+            upVote: { type: Number, default: 0, required: true },
+            downVote: { type: Number, default: 0, required: true }
         }]
     });
 

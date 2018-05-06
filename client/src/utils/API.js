@@ -35,6 +35,12 @@ export default {
     getOneQuestion: function(question) {
       return axios.get(`/api/forum/${question}`);
     },
+    addNewComment: function(item, _id, comment) {
+      return axios.put(`/api/${item}/${_id}`, { 
+        author: comment.author,
+        body: comment.body
+      });
+    },
     favoriteItem: function(item, id, _id) {
       return axios.put(`/api/user/${id}/${item}/${_id}`);
     },
