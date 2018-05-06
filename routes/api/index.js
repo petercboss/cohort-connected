@@ -18,8 +18,10 @@
     router.route('/:collection')
       .get(cohortController.findCollection)
       .post(cohortController.createCollection);
+      
     router.route('/:collection/:id')
       .get(cohortController.findOne)
+      .put(cohortController.addNewComment)
       .put(cohortController.thumb);
 
     router.route('/user/:id/:favorite/:_id')

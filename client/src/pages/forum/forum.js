@@ -163,21 +163,21 @@ class Forum extends Component {
     return(
       <Container>
         <Row>
-          <Col size='md-3' className='animated fadeIn'>
+          <Col size='md-4' className='animated fadeIn'>
             <div className='forum-sidebar'>
             <Row className='add-question'>
               <Col size='md-12'>
                 <button className='question-button' onClick={this.onOpenModal}><i className='fas fa-plus-circle addQ-icon'></i>Ask a Question</button>
                 <Modal open={open} onClose={this.onCloseModal} className='modal' little>
-                  <h2 className='modal-header'>Enter Question Details</h2>
+                  <h2 className='modal-header'>Question Details</h2>
                   <form>
                     <div className='form-group'>
                       <label className='modal-label'>Title:</label>
-                      <input type='text' className='form-control' name='title' onChange={this.handleChange} placeholder='Brief synopsis of question'/>
+                      <input type='text' className='form-control' name='title' onChange={this.handleChange} placeholder='Brief synopsis'/>
                     </div>
                     <div className='form-group'>
                       <label className='modal-label'>Description:</label>
-                      <textarea type='text' className='form-control' name='summary' onChange={this.handleChange} placeholder='Enter a detailed description of your issue here' rows='5'></textarea>
+                      <textarea type='text' className='form-control' name='summary' onChange={this.handleChange} placeholder='Enter a detailed description here' rows='5'></textarea>
                     </div>
                     <button onClick={this.handleSubmit} type='submit' className='btn btn-light submit-question'>Submit</button>
                     <div className='clearfix' />
@@ -192,7 +192,7 @@ class Forum extends Component {
             </Row>
             </div>
           </Col>
-          <Col size='md-9' className='animated fadeIn'>
+          <Col size='md-8' className='animated fadeIn'>
             {this.renderForumPage()}
           </Col>
         </Row>

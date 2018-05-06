@@ -126,6 +126,31 @@
                   .then(dbCollection => res.json(dbCollection))
                   .catch(err => res.status(422).json(err));});
         },
+        addNewComment: (req, res) => {
+            collectionControl = new Promise((resolve, reject) => {
+                let collection;
+                switch (req.params.collection) {
+                    case 'events':
+                        collection = 'Events';
+                        break;
+                    case 'news':
+                        collection = 'News';
+                        break;
+                    case 'jobs':
+                        collection = 'Job';
+                        break;
+                    case 'forum':
+                        collection = 'Forum';
+                        break;
+                };
+                resolve(collection);
+            })
+            .then(collection => {   
+                db[collection]
+                  .findOneAndUpdate({ _id: req.params.id }, { $push: {comment: req.body} })
+                  .then(dbCollection => res.json(dbCollection))
+                  .catch(err => res.status(422).json(err));});
+        },
         thumb: (req, res) => {
             collectionControl = new Promise((resolve, reject) => {
                 let collection;

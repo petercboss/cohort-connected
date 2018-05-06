@@ -9,13 +9,10 @@ class ForumMain extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          id: this.props.id,
-          openComment: false,
-          answer: '',
-          thumbsUp: this.props.thumbsUp,
-          thumbsDown: this.props.thumbsDown,
-          disabled: false,
-          action: ''
+            id: this.props.id,
+            openComment: false,
+            answer: '',
+            faveDisplay: []
         };
     };
 
@@ -27,52 +24,50 @@ class ForumMain extends Component {
         this.setState({ openComment: false });
     };
 
-    handleChange = (event) => {
+    handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
 
-    handleSolutionSubmit = (event) => {
+    handleSolutionSubmit = event => {
         event.preventDefault();
         let forumSolution = {
             author: this.props.currentUser,
-            comment: this.state.answer
+            body: this.state.answer
         };
-        console.log(forumSolution)
-        // API.updateForum(forumSolution)
-        //   .then(res => console.log(res))
-        //   .catch(err => console.log(err));
+        console.log(forumSolution);
+        API.addNewComment('forum', this.props.id, forumSolution)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
         this.onCloseModal();
         //this.loadComments();
     };
-    
-    // registers a thumbs up and then disables both buttons
-    UpVote = () => {
-        this.setState({ 
-            thumbsUp: this.state.thumbsUp + 1,
-            disabled: true,
-            action: 'liked'
-        });
-    }
 
-    // registers a thumbs down and then disables both buttons
-    DownVote = () => {
-        this.setState({ 
-            thumbsDown: this.state.thumbsDown + 1,
-            disabled: true,
-            action: 'disliked'
-        });
-    }
+    setInitialFavorites = () => this.setState({ faveDisplay: this.props.favorites });
+
+    componentDidMount() {
+        this.setInitialFavorites();
+    };
+
+    updateFavoritesDisplay = target => {
+        if (this.state.faveDisplay.includes(target)) {
+            this.setState({ faveDisplay: this.state.faveDisplay.filter((x, i) => x !== target) });
+        } else {
+            this.setState({ faveDisplay: [...this.state.faveDisplay, target] });
+        }
+    };
 
     render() {
-        console.log(this.props.comments)
         return (
         <div className='forumMain-container animated fadeIn'>
             <div className='forumMain-question' id={this.props.id}>
                 <h4 className='forumMain-title'>{this.props.title}<br/>
                     <span className='forumMain-byline'>Submitted By: {this.props.author}, <Moment fromNow>{this.props.date}</Moment></span>
                 </h4>
-                <div className='forumFave' onClick={()=>this.props.toggleFavorite(this.props.id, 'forum')}>
-                    <i className={this.props.favorites.includes(this.props.id) ? 'fas fa-bookmark' : 'far fa-bookmark'}></i>
+                <div className='forumFave' onClick={() => {
+                        this.props.toggleFavorite(this.props.id, 'forum');
+                        this.updateFavoritesDisplay(this.props.id);
+                    }}>
+                    <i className={this.state.faveDisplay.includes(this.props.id) ? 'fas fa-bookmark' : 'far fa-bookmark'}></i>
                 </div>
                 <div className='clearfix'/>
                 <h5 className='forumMain-body'>{this.props.summary}</h5>
@@ -80,7 +75,7 @@ class ForumMain extends Component {
             <div className='add-forumComment'>
                 <button className='forumComment-button' onClick={this.onOpenModal}>Submit a Solution</button>
                 <Modal open={this.state.openComment} onClose={this.onCloseModal} className='modal' little>
-                    <h2 className='modal-header'>Submit Solution</h2>
+                    <h2 className='modal-header'>Solution Details</h2>
                     <form>
                         <div className='form-group'>
                         <textarea type='text' className='form-control' name='answer' onChange={this.handleChange} placeholder='Enter your solution here...' rows='5'></textarea>
@@ -99,7 +94,9 @@ class ForumMain extends Component {
                     id={comment._id}
                     author={comment.author}
                     postingDate={comment.postingDate}
-                    comment={comment.comment} />
+                    comment={comment.body}
+                    upVotes={comment.upVote}
+                    downVotes={comment.downVote} />
                 ))}
             </div>
         </div>
