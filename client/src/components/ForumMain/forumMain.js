@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Moment from 'react-moment';
 
-import './forumList.css';
+import './forumMain.css';
 
-class ForumItem extends Component {
+class ForumMain extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -35,8 +35,8 @@ class ForumItem extends Component {
 
     render() {
         return (
-        <li className='list-group-item forum' id={this.props.id}>
-            <div className='forum-container'>
+        <li className='forum-container animated fadeIn' id={this.props.id}>
+            <div className=''>
                 <a onClick={() => this.props.handlePageChange(`${this.props.id}`)}><h4 className='forum-title'>{this.props.title}</h4></a>
                 <h5 className='byline'><span className='forum-author'>By: {this.props.author}</span><span className='forum-date'><Moment fromNow>{this.props.date}</Moment></span></h5>
                 <div className='clearfix'/>
@@ -46,7 +46,7 @@ class ForumItem extends Component {
                     </div>
                 </div>
                 <div className='row'>
-                    <div className='col-md-12 forum-activity'>
+                    <div className='link-main-question'>
                         <a onClick={() => this.props.handlePageChange(`${this.props.id}`)} className='action-item comment'><i className='fa fa-comments'></i>View Discussion</a>
                         <button onClick={this.DownVote} className={this.state.action === 'disliked' ? 'action-item thumbs thumbs-down disliked' : 'action-item thumbs thumbs-down'}
                             disabled={this.state.disabled === true ? 'true' : ''}>
@@ -56,11 +56,6 @@ class ForumItem extends Component {
                             <i className='fas fa-chevron-circle-up'></i> {this.state.thumbsUp}</button>
                     </div>
                     <div className='clearfix'/>
-                    <div className={this.props.favorites.includes(this.props.id) ? 'favorite' : 'non-favorite'}></div>
-                    <button onClick={()=>this.props.toggleFavorite(this.props.id, 'forum')}
-                        className={this.props.favorites.includes(this.props.id) ? 'tabbed' : 'open'}>
-                        <i className='fa fa-star-o' aria-hidden='true'></i>
-                    </button>
                 </div>
             </div>
         </li>
@@ -68,4 +63,4 @@ class ForumItem extends Component {
     }
 };
 
-export default ForumItem;
+export default ForumMain;

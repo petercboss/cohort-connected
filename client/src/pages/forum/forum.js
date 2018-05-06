@@ -5,9 +5,17 @@ import API from '../../utils/API';
 // external stylesheet and bootstrap style components
 import './forum.css';
 import { Col, Row, Container } from '../../components/Grid';
-import ForumItem from '../../components/forum/forumItem';
-import ForumSideBar from '../../components/forum/forumSideBar';
-import { ForumList } from '../../components/forum';
+
+// sidebar components
+import {SidebarList} from '../../components/ForumSidebar';
+import SidebarItem from '../../components/ForumSidebar/sidebarItem';
+
+// forum index components
+import {ForumIndexList} from '../../components/ForumIndex';
+import ForumIndexItem from '../../components/ForumIndex/forumIndexItem';
+
+// main question 'page'
+import ForumMain from '../../components/ForumMain/forumMain';
 
 class Forum extends Component {
   state = {
@@ -94,46 +102,44 @@ class Forum extends Component {
   renderForumPage = () => {
     if (this.state.currentPage === 'Home') {
       return (
-        <ForumList>
+        <ForumIndexList>
           {this.state.forum.sort((a,b) => new Date(b.postingDate) - new Date(a.postingDate)).map(forumQuestion => (
-            <ForumItem key={forumQuestion._id}
-                       id={forumQuestion._id} 
-                       title={forumQuestion.title}
-                       date={forumQuestion.postingDate} 
-                       author={forumQuestion.author.author} 
-                       summary={forumQuestion.summary}
-                       comments={forumQuestion.comments}
-                       handlePageChange={this.handlePageChange}
-                       favorites={this.props.user.forum}
-                       toggleFavorite={this.toggleFavorite}/>
+            <ForumIndexItem key={forumQuestion._id}
+                            id={forumQuestion._id} 
+                            title={forumQuestion.title}
+                            date={forumQuestion.postingDate} 
+                            author={forumQuestion.author.author} 
+                            summary={forumQuestion.summary}
+                            comments={forumQuestion.comment}
+                            answers={forumQuestion.comment.length}
+                            handlePageChange={this.handlePageChange}
+                            favorites={this.props.user.forum}
+                            toggleFavorite={this.toggleFavorite} />
           ))}
-        </ForumList>
+        </ForumIndexList>
       );
     } else {
         return (
-          <ForumList>
-            {this.state.question.sort((a,b) => new Date(b.postingDate) - new Date(a.postingDate)).map(forumQuestion => (
-              <ForumItem key={forumQuestion._id}
-                         id={forumQuestion._id} 
-                         title={forumQuestion.title} 
-                         date={forumQuestion.postingDate}
-                         author={forumQuestion.author.author}
-                         summary={forumQuestion.summary}
-                         comments={forumQuestion.comments}
-                         handlePageChange={this.handlePageChange}
-                         favorites={this.props.user.forum}
-                         toggleFavorite={this.toggleFavorite}/>
-            ))}
-          </ForumList>
+          <ForumMain  key={this.state.question[0]._id}
+                      id={this.state.question[0]._id} 
+                      title={this.state.question[0].title} 
+                      date={this.state.question[0].postingDate}
+                      author={this.state.question[0].author.author}
+                      summary={this.state.question[0].summary}
+                      comments={this.state.question[0].comment}
+                      answers={this.state.question[0].comment.length}
+                      handlePageChange={this.handlePageChange}
+                      favorites={this.props.user.forum}
+                      toggleFavorite={this.toggleFavorite} />
       );
     }
   };
 
   renderSideBar = () => {
     return (
-      <ForumList>
+      <SidebarList>
         {this.state.yourQuestions.sort((a,b) => new Date(b.postingDate) - new Date(a.postingDate)).map(forumQuestion => (
-          <ForumSideBar key={forumQuestion._id}
+          <SidebarItem  key={forumQuestion._id}
                         id={forumQuestion._id} 
                         title={forumQuestion.title} 
                         date={forumQuestion.postingDate}
@@ -141,7 +147,7 @@ class Forum extends Component {
                         onClick={forumQuestion._id}
                         handlePageChange={this.handlePageChange} />
         ))}
-      </ForumList>
+      </SidebarList>
     );
   };
 
@@ -150,10 +156,10 @@ class Forum extends Component {
     return(
       <Container>
         <Row>
-          <Col size='md-3 lg-3' className='forum-sidebar'>
+          <Col size='md-3 lg-3' className='forum-sidebar animated fadeIn'>
             <Row>
               <Col size='md-12 lg-12' className='add-question'>
-                <button className='question-button' onClick={this.onOpenModal}>Ask a New Question</button>
+                <button className='question-button' onClick={this.onOpenModal}><i className='fas fa-plus-circle addQ-icon'></i>Ask New Question</button>
                 <Modal open={open} onClose={this.onCloseModal} className='modal' little>
                   <h2 className='modal-header'>Enter Question Details</h2>
                   <form>
@@ -165,7 +171,7 @@ class Forum extends Component {
                       <label className='modal-label'>Description:</label>
                       <textarea type='text' className='form-control' name='summary' onChange={this.handleChange} placeholder='Enter a detailed description of your issue here' rows='5'></textarea>
                     </div>
-                    <button onClick={this.handleSubmit} type='submit' className='btn btn-primary submit-question'>Submit</button>
+                    <button onClick={this.handleSubmit} type='submit' className='btn btn-light submit-question'>Submit</button>
                     <div className='clearfix' />
                   </form>
                 </Modal>
@@ -173,7 +179,8 @@ class Forum extends Component {
             </Row>
             <Row>
               <Col size='md-12 lg-12' className='myQuestions-container'>
-                <h3>Check Status on Previous Questions:</h3>
+                <p className='or-divider'>- OR -</p>
+                <h3>See Answers to Previous Questions:</h3>
                 {this.renderSideBar()}
               </Col>
             </Row>
