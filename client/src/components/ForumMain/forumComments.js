@@ -20,7 +20,7 @@ class ForumComments extends Component {
     UpVote = () => {
         if (!this.state.disabled) {
             API.upVote(this.props.questionId, this.props.commentId)
-                .then(res => console.log(res))
+                .then(res => console.log(''))
                 .catch(err => console.log(err));
             this.setState({ 
                 upVotes: this.state.upVotes + 1,
@@ -33,7 +33,7 @@ class ForumComments extends Component {
     DownVote = () => {
         if (!this.state.disabled) {
             API.downVote(this.props.questionId, this.props.commentId)
-                .then(res => console.log(res))
+                .then(res => console.log(''))
                 .catch(err => console.log(err));
             this.setState({ 
                 downVotes: this.state.downVotes + 1,

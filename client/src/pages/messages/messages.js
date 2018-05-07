@@ -56,7 +56,6 @@ class Messages extends Component {
   getUnreadMessages = () => {
     API.getUser(this.state.user.linkedInId)
     .then((res) => {
-      console.log('got update unreads' + res.data.unreadMessages)
       this.setState({unreadMessages:res.data.unreadMessages});
       this.props.updateUnreadMessagesHeader(res.data.unreadMessages);
     })

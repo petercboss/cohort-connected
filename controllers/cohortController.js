@@ -31,11 +31,8 @@
                 .catch(err => res.status(422).json(err));
         },
         createUser: (req, res) => {
-            // console.log('unique linkedIn id' + req.body.linkedInId);
             db.User.update(
-                //find by
-                {'linkedInId': req.body.linkedInId},
-                //update or create
+                { 'linkedInId': req.body.linkedInId },
                 { $set: {
                     'linkedInId':req.body.linkedInId,
                     'firstName': req.body.firstName,
@@ -45,7 +42,6 @@
                     'profilePicURL': req.body.profilePicURL,
                 }},
                 {'upsert':true})
-
                 .then(dbUser => res.json(dbUser))
                 .catch(err => res.status(422).json(err));
         },
@@ -88,8 +84,7 @@
                 };
                 resolve(collection);
             })
-            .then(collection => {  
-                // console.log(collection);     
+            .then(collection => {     
                 db[collection]
                   .create({
                       'title': req.body.title,
