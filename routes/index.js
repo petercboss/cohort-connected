@@ -3,7 +3,6 @@
     const router = require('express').Router();
     const apiRoutes = require('./api');
     const scrapeRoutes = require('./scrape');
-    const userRoutes = require('./user');
     const passport = require('passport');
     const mongoose = require('mongoose');
     const db = require('../models');
