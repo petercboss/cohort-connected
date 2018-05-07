@@ -77,9 +77,3 @@ class NewsItem extends Component {
 };
 
 export default NewsItem;
-
-// <div className={this.props.favorites.includes(this.props.id) ? 'favorite' : 'non-favorite'}></div>
-// <button onClick={()=>this.props.toggleFavorite(this.props.id, 'news')}
-//     className={this.props.favorites.includes(this.props.id) ? 'tabbed' : 'open'}>
-//     <i className='fa fa-star-o' aria-hidden='true'></i>
-// </button>

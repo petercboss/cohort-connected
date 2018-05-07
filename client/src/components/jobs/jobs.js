@@ -73,7 +73,7 @@ class Jobs extends Component {
             <h4 id='jobHeader'>Post and Search Opportunities</h4>
           </div>
           <div className='col-12'>
-            <button id='job-button' onClick={this.onOpenModal}><i class='fas fa-briefcase'></i> Post Jobs</button>
+            <button id='job-button' onClick={this.onOpenModal}><i className='fas fa-briefcase'></i> Post Jobs</button>
           </div>
         </div>
     

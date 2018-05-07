@@ -147,17 +147,17 @@
             })
             .then(collection => {   
                 db[collection]
-                  .findOneAndUpdate({ _id: req.params.id }, { $push: {comment: req.body} })
+                  .findOneAndUpdate({ _id: req.params.id }, { $push: { comment: req.body } })
                   .then(dbCollection => res.json(dbCollection))
                   .catch(err => res.status(422).json(err));});
         },
         upVote: (req, res) => {
-            db.Forum.findOneAndUpdate({ _id: req.params.questionId, 'comment._id': req.params.commentId }, { $inc: { 'upVote': 1 } })
+            db.Forum.findOneAndUpdate({ _id: req.params.questionId, 'comment._id': req.params.commentId }, { $inc: { 'comment.$.upVote': 1 } })
                   .then(dbCollection => res.json(dbCollection))
                   .catch(err => res.status(422).json(err));
         },
         downVote: (req, res) => {
-            db.Forum.findOneAndUpdate({ _id: req.params.questionId, 'comment._id': req.params.commentId  }, { $inc: { 'downVote': 1 } })
+            db.Forum.findOneAndUpdate({ _id: req.params.questionId, 'comment._id': req.params.commentId }, { $inc: { 'comment.$.downVote': 1 } })
                   .then(dbCollection => res.json(dbCollection))
                   .catch(err => res.status(422).json(err));
         },
@@ -176,7 +176,7 @@
             })
             .then(collection => {     
                 db[collection]
-                  .findOneAndUpdate({ _id: req.params.id }, { $inc: { thumbsUp: 1 }})
+                  .findOneAndUpdate({ _id: req.params.id }, { $inc: { thumbsUp: 1 } })
                   .then(dbCollection => res.json(dbCollection))
                   .catch(err => res.status(422).json(err));});
         },

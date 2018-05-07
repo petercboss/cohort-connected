@@ -21,13 +21,13 @@
       
     router.route('/:collection/:id')
       .get(cohortController.findOne)
-      .put(cohortController.addNewComment)
-      .put(cohortController.thumbsUp)
-      .put(cohortController.thumbsDown);
+      .put(cohortController.addNewComment);
+     
+    router.put('/:collection/:id/up', cohortController.thumbsUp);
+    router.put('/:collection/:id/down', cohortController.thumbsDown);
 
-    router.route('/forum/:questionId/:commentId')
-      .put(cohortController.upVote)
-      .put(cohortController.downVote);
+    router.put('/forum/:questionId/:commentId/upvote', cohortController.upVote);
+    router.put('/forum/:questionId/:commentId/downvote', cohortController.downVote);
 
     router.route('/user/:id/:favorite/:_id')
       .put(cohortController.createFavorite)

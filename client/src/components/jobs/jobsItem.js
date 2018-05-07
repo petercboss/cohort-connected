@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 
-// moment date formatting
-// import Moment from 'react-moment';
-// import 'moment-timezone';
-
 // external stylesheet
 import './jobs.css'
 
@@ -43,7 +39,7 @@ class JobsItem extends Component {
                 <div className='job-container'>
                     <div className='row'>
                         <div className='col-7'>
-                            <a href={this.props.link} target='_blank' className='job-link'><h4 className='job-title'>Link: <i class='fas fa-link'></i> {this.props.title}</h4></a>
+                            <a href={this.props.link} target='_blank' className='job-link'><h4 className='job-title'>Link: <i className='fas fa-link'></i> {this.props.title}</h4></a>
                         </div>
                         <div className='col-5'>
                             <div className={this.props.isFavorite === true ? 'favorite' : 'non-favorite'}></div>
