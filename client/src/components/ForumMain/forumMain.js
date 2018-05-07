@@ -60,16 +60,14 @@ class ForumMain extends Component {
         return (
         <div className='forumMain-container animated fadeIn'>
             <div className='forumMain-question' id={this.props.id}>
-                <h4 className='forumMain-title'>{this.props.title}<br/>
-                    <span className='forumMain-byline'>Submitted By: {this.props.author}, <Moment fromNow>{this.props.date}</Moment></span>
-                </h4>
+                <h4 className='forumMain-title'>{this.props.title}</h4>
+                <h5 className='forumMain-byline'>Submitted By: {this.props.author}, <Moment fromNow>{this.props.date}</Moment></h5>
                 <div className='forumFave' onClick={() => {
                         this.props.toggleFavorite(this.props.id, 'forum');
                         this.updateFavoritesDisplay(this.props.id);
                     }}>
                     <i className={this.state.faveDisplay.includes(this.props.id) ? 'fas fa-bookmark' : 'far fa-bookmark'}></i>
                 </div>
-                <div className='clearfix'/>
                 <h5 className='forumMain-body'>{this.props.summary}</h5>
             </div>
             <div className='add-forumComment'>
@@ -91,7 +89,8 @@ class ForumMain extends Component {
             {this.props.comments.map((comment, i) => (
                 <ForumComments
                     key={comment._id}
-                    id={comment._id}
+                    commentId={comment._id}
+                    questionId={this.props.id}
                     author={comment.author}
                     postingDate={comment.postingDate}
                     comment={comment.body}

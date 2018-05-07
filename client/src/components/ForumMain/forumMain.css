@@ -7,27 +7,28 @@
     margin: 50px auto;
     padding: 15px 10px;
     box-sizing: content-box;
+    position: relative;
 }
 .forumMain-question {
     margin: 0px auto 30px;
 }
 .forumFave {
-    float: right;
-    margin-right: 5px;
-    font-size: 30px;
+    position: absolute;
+    top: -15px;
+    right: 25px;
+    font-size: 60px;
 }
 .forumMain-title {
     font-family: 'Lato', sans-serif;
-    padding: 15px;
+    padding: 15px 15px 0px;
     font-weight: 700;
     font-size: 22px;
     color: black;
-    float: left;
 }
 .forumMain-byline {
     color: #636363;
+    padding: 0px 15px 15px;
     font-size: 18px;
-    padding: 5px 0px;
 }
 .add-forumComment {
     padding: 0px 15px 5px;
@@ -63,20 +64,18 @@
 
 
 /* Comments Section */
-.forumMain-comments {
-    margin: 15px auto;
-}
 .votingArea {
     text-align: center;
     font-size: 30px;
     position: relative;
-    height: 65px;
-    margin: 0px auto 25px;
+    height: 75px;
+    margin: 0px 15px 25px 25px;
 }
 .fa-sort-up,
 .fa-sort-down {
     position: absolute;
     left: 42%;
+    z-index: 400;
     cursor: pointer;
 }
 .fa-sort-up {
@@ -89,8 +88,8 @@
 .positiveVotes,
 .negativeVotes {
     position: absolute;
-    left: 42%;
-    top: 15%;
+    top: 18%;
+    z-index: 100;
 }
 .neutralVotes {
     color: black;
@@ -101,7 +100,22 @@
 .negativeVotes {
     color: #9C3938;
 }
-
+.forumComment-details {
+    padding: 0px 0px 25px 15px;
+}
+.forumComment-author {
+    font-size: 18px;
+    margin: 0px;
+}
+.forumComment-date {
+    font-size: 18px;
+    margin: 0px auto 10px;
+    font-style: italic;
+}
+.forumComment-solution {
+    background: papayawhip; 
+    padding: 15px;
+}
 /* button.thumbs-up:enabled:hover,
 button.liked:disabled {
     transform: scale(1.1);

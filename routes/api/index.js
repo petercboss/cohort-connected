@@ -22,7 +22,12 @@
     router.route('/:collection/:id')
       .get(cohortController.findOne)
       .put(cohortController.addNewComment)
-      .put(cohortController.thumb);
+      .put(cohortController.thumbsUp)
+      .put(cohortController.thumbsDown);
+
+    router.route('/forum/:questionId/:commentId')
+      .put(cohortController.upVote)
+      .put(cohortController.downVote);
 
     router.route('/user/:id/:favorite/:_id')
       .put(cohortController.createFavorite)

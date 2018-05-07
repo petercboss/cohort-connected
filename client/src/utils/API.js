@@ -41,6 +41,18 @@ export default {
         body: comment.body
       });
     },
+    upVote: function(questionId, commentId) {
+      return axios.put(`/api/forum/${questionId}/${commentId}`);
+    },
+    downVote: function(questionId, commentId) {
+      return axios.put(`/api/forum/${questionId}/${commentId}`);
+    },
+    thumbsUp: function(item, id) {
+      return axios.put(`/api/${item}/${id}`);
+    },
+    thumbsDown: function(item, id) {
+      return axios.put(`/api/${item}/${id}`);
+    },
     favoriteItem: function(item, id, _id) {
       return axios.put(`/api/user/${id}/${item}/${_id}`);
     },

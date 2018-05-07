@@ -151,12 +151,25 @@
                   .then(dbCollection => res.json(dbCollection))
                   .catch(err => res.status(422).json(err));});
         },
-        thumb: (req, res) => {
+        upVote: (req, res) => {
+            db.Forum.findOneAndUpdate({ _id: req.params.questionId, 'comment._id': req.params.commentId }, { $inc: { 'upVote': 1 } })
+                  .then(dbCollection => res.json(dbCollection))
+                  .catch(err => res.status(422).json(err));
+        },
+        downVote: (req, res) => {
+            db.Forum.findOneAndUpdate({ _id: req.params.questionId, 'comment._id': req.params.commentId  }, { $inc: { 'downVote': 1 } })
+                  .then(dbCollection => res.json(dbCollection))
+                  .catch(err => res.status(422).json(err));
+        },
+        thumbsUp: (req, res) => {
             collectionControl = new Promise((resolve, reject) => {
                 let collection;
                 switch (req.params.collection) {
                     case 'news':
                         collection = 'News';
+                        break;
+                    case 'jobs':
+                        collection = 'Job';
                         break;
                 };
                 resolve(collection);
@@ -166,7 +179,25 @@
                   .findOneAndUpdate({ _id: req.params.id }, { $inc: { thumbsUp: 1 }})
                   .then(dbCollection => res.json(dbCollection))
                   .catch(err => res.status(422).json(err));});
-
+        },
+        thumbsDown: (req, res) => {
+            collectionControl = new Promise((resolve, reject) => {
+                let collection;
+                switch (req.params.collection) {
+                    case 'news':
+                        collection = 'News';
+                        break;
+                    case 'jobs':
+                        collection = 'Job';
+                        break;
+                };
+                resolve(collection);
+            })
+            .then(collection => {     
+                db[collection]
+                  .findOneAndUpdate({ _id: req.params.id }, { $inc: { thumbsDown: 1 }})
+                  .then(dbCollection => res.json(dbCollection))
+                  .catch(err => res.status(422).json(err));});
         },
         findFavorites: (req, res) => {
             console.log(req.params.favorite);
