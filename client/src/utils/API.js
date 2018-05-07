@@ -10,7 +10,6 @@ export default {
     },
     // Create jobs
     createJobs: function (newJob) {
-      console.log(newJob)
       return axios.post('/api/jobs', {
         summary: newJob.company,
         link: newJob.link,
@@ -42,16 +41,16 @@ export default {
       });
     },
     upVote: function(questionId, commentId) {
-      return axios.put(`/api/forum/${questionId}/${commentId}`);
+      return axios.put(`/api/forum/${questionId}/${commentId}/upvote`);
     },
     downVote: function(questionId, commentId) {
-      return axios.put(`/api/forum/${questionId}/${commentId}`);
+      return axios.put(`/api/forum/${questionId}/${commentId}/downvote`);
     },
     thumbsUp: function(item, id) {
-      return axios.put(`/api/${item}/${id}`);
+      return axios.put(`/api/${item}/${id}/up`);
     },
     thumbsDown: function(item, id) {
-      return axios.put(`/api/${item}/${id}`);
+      return axios.put(`/api/${item}/${id}/down`);
     },
     favoriteItem: function(item, id, _id) {
       return axios.put(`/api/user/${id}/${item}/${_id}`);
