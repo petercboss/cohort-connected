@@ -9,8 +9,7 @@
         , PORT = process.env.PORT || 3001
         , path = require('path')
         , schedule = require('node-schedule')
-        , axios = require('axios')
-        , nodemailer = require('nodemailer');
+        , axios = require('axios');
  
 
     // Set mongoose to leverage built in JavaScript ES6 Promises

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import Modal from "react-responsive-modal";
 import { FormErrors } from './FormErrors';
 import './ContactForm.css';
 import { Row, Col } from '../../components/Grid';
-import axios from 'axios';
 
 class ContactForm extends Component {
     constructor(props){
@@ -12,7 +10,6 @@ class ContactForm extends Component {
             subject: '',
             email: '',
             message: '',
-            open: false,
             formErrors: {email:'', subject:'', message:''},
             subjectValid:false,
             emailValid: false,
@@ -65,40 +62,13 @@ class ContactForm extends Component {
         return (error.length === 0 ? '' : 'has-error');
     }
 
-    handleFormSubmit = e => {
-        e.preventDefault();
-        this.onOpenModal();
-        axios({
-            method: 'POST',
-            url: '/contact/message/send',
-            data: {
-                subject: this.state.subject,
-                email: this.state.email,
-                message: this.state.message
-            }
-        }).then((response)=> {
-            if(response.data.msg === 'success'){
-                this.resetForm()
-            } else if(response.data.msg === 'fail'){
-                alert('message failed to send');
-            }
-        }) 
-    };
-
-    resetForm() {
+    handleFormSubmit = event => {
+        event.preventDefault();
         this.setState({
-            subject: '',
-            email: '',
-            message: ''
-        })
-    }
-
-    onOpenModal = () => {
-        this.setState({ open: true });
-      };
-     
-    onCloseModal = () => {
-    this.setState({ open: false });
+        subject: '',
+        email: '',
+        message: ''
+      });
     };
 
     render() {
@@ -113,7 +83,7 @@ class ContactForm extends Component {
                             <h3>We'd Love To Connect!</h3>
                         </div>   
                         <div>
-                            <form className='contactForm'>
+                            <form action='' className='contactForm'>
                                 <div className={`form-group ${this.errorClass(this.state.formErrors.subject)}`}>
                                     <input onChange={this.handleInputChange} type='text' name='subject' value={this.state.subject} placeholder='Subject' className='form-control'/>
                                 </div>
@@ -124,7 +94,7 @@ class ContactForm extends Component {
                                     <textarea onChange={this.handleInputChange} type='text' name='message' value={this.state.message} placeholder='Message' className='form-control' required/>
                                 </div>
                                 <div>
-                                    <input onClick={this.handleFormSubmit} type='submit' className='form-control submitContactForm' disabled={!this.state.formValid} value='SEND'/>
+                                    <input onClick={this.handleFormSubmit} type='submit' class='form-control submitContactForm' disabled={!this.state.formValid} value='SEND'/>
                                 </div>
                                 <div className="panel panel-default">
                                     <FormErrors formErrors={this.state.formErrors} />
@@ -133,14 +103,6 @@ class ContactForm extends Component {
                         </div>
                     </div>
                 </Col>
-                <Row>
-                    <Col size='md-12 lg-12' className='create'>
-                        <Modal open={this.state.open} onClose={this.onCloseModal} className='modal animated fadeInRight' little>
-                            <h2>Thanks For The Message!</h2>
-                            <h3>A representative from Cohort Connected will be in touch shortly!</h3>
-                        </Modal>
-                    </Col>
-                </Row>
             </Row>
         )       
     }
