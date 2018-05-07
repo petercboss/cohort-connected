@@ -89,7 +89,7 @@
                 resolve(collection);
             })
             .then(collection => {  
-                console.log(collection);     
+                // console.log(collection);     
                 db[collection]
                   .create({
                       'title': req.body.title,

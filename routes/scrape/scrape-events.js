@@ -29,11 +29,13 @@
                         result.time = moment(result.date).format('H:mm'); //sortable time
 
                         // adding new event to database
-                        db.Events.create(result).then(dbEvents => res.json(dbEvents)).catch(err => res.json(err));
+                        db.Events.create(result)
+                        // .then(dbEvents => res.json(dbEvents)).catch(err => res.json(err));
                     }
                 });
             }
         });
+        res.send('EVENTS SCRAPED!');
     });
 
     module.exports = router

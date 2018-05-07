@@ -8,6 +8,9 @@
         , keys = require('./config/keys')
         , PORT = process.env.PORT || 3001
         , path = require('path')
+        , schedule = require('node-schedule')
+        , axios = require('axios');
+ 
 
     // Set mongoose to leverage built in JavaScript ES6 Promises
     mongoose.Promise = Promise;
@@ -42,4 +45,17 @@
     app.listen(PORT, function() {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
     });
+
+
+    const scrape = schedule.scheduleJob('0 5 * * * ', () => {
+        axios.get('https://cohortconnected.herokuapp.com/scrape/news/techcrunch')
+        .then(axios.get('https://cohortconnected.herokuapp.com/scrape/events/builtin/0'))
+        .then(axios.get('https://cohortconnected.herokuapp.com/scrape/events/builtin/1'))
+        .then(axios.get('https://cohortconnected.herokuapp.com/scrape/events/builtin/2'))
+        .then(axios.get('https://cohortconnected.herokuapp.com/scrape/events/builtin/3'))
+        .then(axios.get('https://cohortconnected.herokuapp.com/scrape/events/builtin/4'))
+        .then(axios.get('https://cohortconnected.herokuapp.com/scrape/events/builtin/5'))
+        .then(axios.get('https://cohortconnected.herokuapp.com/scrape/events/builtin/6'))
+      });
+
 })();
