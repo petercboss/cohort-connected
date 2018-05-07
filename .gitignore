@@ -59,3 +59,6 @@ typings/
 
 # Mac-specific files
 .DS_Store
+
+# Contact form cred
+./config/contactForm.js
