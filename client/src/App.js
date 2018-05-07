@@ -31,6 +31,7 @@ class App extends Component {
     user:this.props.user,
     updatedUser:{},
     unreadMessages:[],
+    logout: this.props.logout,
 
     // page loader while user object is compiled
     pageLoader: true
@@ -73,7 +74,6 @@ class App extends Component {
       <div>
         <Router>
           <div>
-          {/* this.props.updateUnreadMessagesHeader(this.state.unreadMessages) */}
             <Nav name={this.props.user.firstName} unreadMessages={this.state.unreadMessages}/>
             <Route exact path="/" render={(props) => <Main {...props} user={this.state.updatedUser} />} />
             <Route exact path="/messages"  render={(props) => <Messages {...props} user={this.state.updatedUser} updateUnreadMessagesHeader={this.updateUnreadMessagesHeader.bind(this)}/>} />

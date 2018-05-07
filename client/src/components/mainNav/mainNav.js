@@ -33,10 +33,10 @@ const mainNav = props => (
                         <div className='dropdown-menu'>
                             <Link className='dropdown-item custonNavDropdown' to='/favorites'>Favorites</Link>
                                 <div className='dropdown-divider'></div>
-                            <Link className='dropdown-item customNavDropdown' to='/signout'>Sign Out</Link>
+                            <a className='dropdown-item customNavDropdown' href='https://cohortconnected.herokuapp.com/'>Sign Out</a>
                         </div>
                     </li>
-
+                    {/* onClick={this.props.logout} */}
                 </ul>
             </div>
 
