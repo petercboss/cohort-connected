@@ -86,7 +86,7 @@ class Main extends Component {
         if (this.state.currentPage === 'News') {
         return (
           <NewsList>
-            {this.state.news.sort((a,b) => new Date(b.date) - new Date(a.date)).map(newsStory => (
+            {this.state.news.sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0,20).map(newsStory => (
               <NewsItem key={newsStory._id} 
                         id={newsStory._id} 
                         title={newsStory.title} 
