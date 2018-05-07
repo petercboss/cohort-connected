@@ -19,10 +19,12 @@
                     result.summary = $(element).children('.post-block__content').text().trim();
                     result.link = $(element).children('.post-block__header').children('h2').children('a').attr('href');
                     result.photo = $(element).children('.post-block__footer').children('.post-block__media').children('a').children('img').attr('src').split('?')[0];
-                    db.News.create(result).then(dbNews => res.json(dbNews)).catch(err => res.json(err));
+                    db.News.create(result)
+                    // .then(dbNews => res.send('HelloHandsome')).catch(err => res.json(err));
                 });
             }
-        }).catch(err => res.json(err));
+        }).catch(err => res.json(err))
+        res.send('News Scraped!');
     });
 
     module.exports = router
