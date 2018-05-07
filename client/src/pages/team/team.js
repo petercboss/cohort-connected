@@ -28,7 +28,7 @@ class Team extends Component {
                 name: 'Troy A. Crawford',
                 title: 'Codesmith',
                 image: 'https://avatars0.githubusercontent.com/u/30868593?s=400&v=4',
-                bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et velit non neque aliquam dignissim sit amet ac mauris. Mauris ultrices, erat at vestibulum semper, est sem eleifend nulla, eu feugiat enim lacus sed dolor. Proin dolor sapien, egestas vitae mauris quis, pretium convallis orci. Pellentesque ac risus a metus vehicula tristique. Integer nec massa.',
+                bio: 'Troy is a Software Developer who recently graduated from the Northwestern University Full Stack Developer Program, where he focused on the fundamentals & essentials of JavaScript. With his Bachelor’s Degree in Chemical Engineering from Purdue University and 3+ years in the physical engineering industry, Troy’s technical dexterity, critical thinking, and project management skills are thoroughly demonstrated.',
                 portfolio: 'troycrawford.tech',
                 github: 'https://github.com/tacrawford91',
                 linked: 'https://www.linkedin.com/in/tacrawford91/'
