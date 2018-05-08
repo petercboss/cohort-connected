@@ -40,7 +40,6 @@ html {
     width: 90%;
     display: inherit;
     margin: 0 auto;
-    margin-bottom: 5px;
     line-height: 80px;
 }
 .selectedChatUser {
@@ -48,7 +47,6 @@ html {
     width: 90%;
     display: inherit;
     margin: 0 auto;
-    margin-bottom: 5px;
     background: lightblue;
     line-height: 80px;
 }
