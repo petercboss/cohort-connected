@@ -14,8 +14,7 @@ class NewsItem extends Component {
           id: this.props.id,
           thumbsUp: this.props.thumbsUp,
           thumbsDown: this.props.thumbsDown,
-          disabled: false,
-          action: ''
+          faveDisplay: []
         };
     }
     
@@ -37,6 +36,20 @@ class NewsItem extends Component {
         });
     }
 
+    setInitialFavorites = () => this.setState({ faveDisplay: this.props.favorites });
+
+    componentDidMount() {
+        this.setInitialFavorites();
+    };
+
+    updateFavoritesDisplay = target => {
+        if (this.state.faveDisplay.includes(target)) {
+            this.setState({ faveDisplay: this.state.faveDisplay.filter((x, i) => x !== target) });
+        } else {
+            this.setState({ faveDisplay: [...this.state.faveDisplay, target] });
+        }
+    };
+
     render() {
         return (
         <li className='list-group-item news' id={this.props.id}>
@@ -54,21 +67,19 @@ class NewsItem extends Component {
                 </div>
                 <div className='row'>
                     <div className='col-md-12 news-activity'>
-                        <button className='action-item comment'><i className='fa fa-comments'></i> Add/View Comments</button>
-                        <button onClick={this.DownVote} className={this.state.action === 'disliked' ? 'action-item thumbs thumbs-down disliked' : 'action-item thumbs thumbs-down'}
-                            disabled={this.state.disabled === true ? 'true' : ''}>
-                            <i className='fa fa-thumbs-down'></i> {this.state.thumbsDown}</button>
-                        <button onClick={this.UpVote} className={this.state.action === 'liked' ? 'action-item thumbs thumbs-up liked' : 'action-item thumbs thumbs-up'}
-                            disabled={this.state.disabled === true ? 'true' : ''}>
-                            <i className='fa fa-thumbs-up'></i> {this.state.thumbsUp}</button>
+                        <button className={this.state.faveDisplay.includes(this.props.id) ? 'action-item news-faves saved-news' : 'action-item news-faves'}
+                            onClick={() => {this.props.toggleFavorite(this.props.id, 'news'); this.updateFavoritesDisplay(this.props.id) }} >
+                            <i className={this.state.faveDisplay.includes(this.props.id) ? 'fas fa-check' : 'fas fa-plus'}></i>
+                            {this.state.faveDisplay.includes(this.props.id) ? ' Saved to Favorites' : ' Add to Favorites'}
+                        </button>
+                        <button onClick={this.DownVote} className='action-item thumbs' disabled={this.state.disabled === true ? 'true' : ''}>
+                            <i className={this.state.action === 'disliked' ? 'fas fa-thumbs-down' : 'far fa-thumbs-down'}></i> {this.state.thumbsDown}
+                        </button>
+                        <button onClick={this.UpVote} className='action-item thumbs' disabled={this.state.disabled === true ? 'true' : ''}>
+                            <i className={this.state.action === 'liked' ? 'fas fa-thumbs-up' : 'far fa-thumbs-up'}></i> {this.state.thumbsUp}
+                        </button>
                     </div>
                     <div className='clearfix'/>
-                    <div className={this.props.favorites.includes(this.props.id) ? 'favorite' : 'non-favorite'}></div>
-                    <button onClick={()=>this.props.toggleFavorite(this.props.id, 'news')}
-                        className={this.props.favorites.includes(this.props.id) ? 'tabbed' : 'open'}>
-                        <i className='fa fa-star-o' aria-hidden='true'></i>
-                    </button>
-
                 </div>
             </div>
         </li>
