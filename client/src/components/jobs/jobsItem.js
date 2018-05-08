@@ -52,13 +52,6 @@ class JobsItem extends Component {
                         <div className='col-7'>
                             <a href={this.props.link} target='_blank' className='job-link'><h4 className='job-title'>Link: <i className='fas fa-link'></i> {this.props.title}</h4></a>
                         </div>
-                        <div className='col-5'>
-                            <div className={this.props.isFavorite === true ? 'favorite' : 'non-favorite'}></div>
-                            <button onClick={() => console.log('you like this news story')}
-                                className={this.props.isFavorite === true ? 'tabbed' : 'open'}>
-                                <i className='fa fa-star-o' aria-hidden='true'></i>
-                            </button>
-                        </div>
                         <div className='col-7'>
                             <h4 className='job-summary-text'>Company:<span className='job-summary'> {this.props.summary}</span></h4>
                         </div>

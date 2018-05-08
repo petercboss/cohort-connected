@@ -77,47 +77,23 @@ class Jobs extends Component {
             <button id='job-button' onClick={this.onOpenModal}><i className='fas fa-briefcase'></i> Post Jobs</button>
           </div>
         </div>
-    
-        <Modal open={open} onClose={this.onCloseModal} little>
-          <h4>Post your job leads here!</h4>
-          <form className='form-inline'>
-          {/* Job Link */}
-            <label className="sr-only">Copy link to job here (required)</label>
-            <input type="text"
-                  value={this.state.jobLink}
-                  name='jobLink'
-                  onChange={this.handleInputChange}
-                  className="form-control mb-2 mr-sm-2 mb-sm-0"
-                  id="inlineFormInput" 
-                  placeholder='Copy link to job here' 
-                  required/>
-            {/* Job Title */}
-            <label className="sr-only">Job Title</label>
-            <div className="input-group mb-2 mr-sm-2 mb-sm-0">
-              <div className="input-group-addon"></div>
-              <input type="text"
-                    value={this.state.jobTitle}
-                    name='jobTitle'
-                    onChange={this.handleInputChange}
-                    className="form-control" 
-                    id="inlineFormInputGroup" 
-                    placeholder="Job Title"/>
+        <Modal open={open} onClose={this.onCloseModal} className='modal' little>
+          <h2 className='modal-header'>Post Your Job Leads Here!</h2>
+          <form>
+            <div className='form-group'>
+              <label className='modal-label'>Copy Link To Job Here:</label>
+              <input type='text' className='form-control' name='jobLink' onChange={this.handleInputChange} placeholder='https://cohortconnected.herokuapp.com/'/>
             </div>
-            {/* Company */}
-            <label className="sr-only">Company</label>
-            <div className="input-group mb-2 mr-sm-2 mb-sm-0">
-              <div className="input-group-addon"></div>
-              <input type="text"
-                    value={this.state.jobCompany}
-                    name='jobCompany'
-                    onChange={this.handleInputChange}
-                    className="form-control"
-                    id="inlineFormInputGroup"
-                    placeholder="Company Name" />
+            <div className='form-group'>
+              <label className='modal-label'>Job Title:</label>
+              <input type='text' className='form-control' name='jobTitle' onChange={this.handleInputChange} placeholder='Full Stack Developer'/>
             </div>
-            <button type="submit"
-                    onClick={this.handleJobFormSubmit}
-                    className="btn btn-primary">Submit</button>
+            <div className='form-group'>
+              <label className='modal-label'>Company:</label>
+              <input type='text' className='form-control' name='jobCompany' onChange={this.handleInputChange} placeholder='Northwestern University'></input>
+            </div>
+            <button onClick={this.handleJobFormSubmit} type='submit' className='btn btn-light submit-question'>Submit</button>
+            <div className='clearfix' />
           </form>
         </Modal>
       </div>
