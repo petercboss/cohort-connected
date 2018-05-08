@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import API from '../../utils/API';
 
 // external stylesheet
 import './jobs.css'
@@ -17,21 +18,31 @@ class JobsItem extends Component {
 
     // registers a thumbs up and then disables both buttons
     UpVote = () => {
-        this.setState({
-            thumbsUp: this.state.thumbsUp + 1,
-            disabled: true,
-            action: 'liked'
-        });
-    }
+        if (!this.state.disabled) {
+            API.thumbsUp('jobs', this.props.id)
+                .then(res => console.log(''))
+                .catch(err => console.log(err));
+                this.setState({ 
+                    thumbsUp: this.state.thumbsUp + 1,
+                    disabled: true,
+                    action: 'liked'
+                });
+        };
+    };
 
     // registers a thumbs down and then disables both buttons
     DownVote = () => {
-        this.setState({
-            thumbsDown: this.state.thumbsDown + 1,
-            disabled: true,
-            action: 'disliked'
-        });
-    }
+        if (!this.state.disabled) {
+            API.thumbsDown('jobs', this.props.id)
+                .then(res => console.log(''))
+                .catch(err => console.log(err));
+                this.setState({ 
+                    thumbsDown: this.state.thumbsDown + 1,
+                    disabled: true,
+                    action: 'disliked'
+                });
+            };
+    };
 
     render() {
         return ( 
@@ -63,13 +74,11 @@ class JobsItem extends Component {
                     <div className='row'>
                         <div className='col-md-12'>
                             <button className='action-item comment'><i className='fa fa-comments'></i> Add/View Comments</button>
-                            <button onClick={this.DownVote} className={this.state.action === 'disliked' ? 'action-item thumbs thumbs-down disliked' : 'action-item thumbs thumbs-down'}
-                                disabled={this.state.disabled === true ? 'true' : ''}>
-                                <i className='fa fa-thumbs-down'></i> {this.state.thumbsDown}
+                            <button onClick={this.DownVote} className='action-item thumbs' disabled={this.state.disabled === true ? 'true' : ''}>
+                                <i className={this.state.action === 'disliked' ? 'fas fa-thumbs-down' : 'far fa-thumbs-down'}></i> {this.state.thumbsDown}
                             </button>
-                            <button onClick={this.UpVote} className={this.state.action === 'liked' ? 'action-item thumbs thumbs-up liked' : 'action-item thumbs thumbs-up'}
-                                disabled={this.state.disabled === true ? 'true' : ''}>
-                                <i className='fa fa-thumbs-up'></i> {this.state.thumbsUp}
+                            <button onClick={this.UpVote} className='action-item thumbs' disabled={this.state.disabled === true ? 'true' : ''}>
+                                <i className={this.state.action === 'liked' ? 'fas fa-thumbs-up' : 'far fa-thumbs-up'}></i> {this.state.thumbsUp}
                             </button>
                         </div>
                         <div className='clearfix' />
