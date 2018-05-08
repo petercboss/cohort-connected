@@ -55,10 +55,10 @@
     line-height: 100px;
     color: rgba(242,245,248);
 }
-.CurrentChatHeader img {
+.currentChatImage {
     margin-right: 10px;
-    margin-bottom: 5px;
     width: 85px;
+    border-radius: 20px;
 }
 .currentName {
     display: inline;
