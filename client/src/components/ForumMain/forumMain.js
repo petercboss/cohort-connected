@@ -56,6 +56,14 @@ class ForumMain extends Component {
         }
     };
 
+    keysrt = key => {
+        return (a,b) => {
+         if (a[key] < b[key]) return 1;
+         if (a[key] > b[key]) return -1;
+         return 0;
+        }
+    };
+
     render() {
         return (
         <div className='forumMain-container animated fadeIn'>
@@ -86,7 +94,7 @@ class ForumMain extends Component {
                 <button className='return-forumIndex' onClick={this.props.returnHome}>Return to Forum Home</button>
             </div>
             <div>
-            {this.props.comments.map((comment, i) => (
+            {this.props.comments.sort(this.keysrt('upVote')).map((comment, i) => (
                 <ForumComments
                     key={comment._id}
                     commentId={comment._id}
