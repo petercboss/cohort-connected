@@ -108,7 +108,7 @@ class Main extends Component {
           <div>
           <Jobs reloadJobs={this.loadJobs} />
           <JobsList>
-              {this.state.jobs.sort((a, b) => new Date(b.date) - new Date(a.date)).map((jobPosting, i) =>  (
+              {this.state.jobs.sort((a, b) => new Date(b.postingDate) - new Date(a.postingDate)).map((jobPosting, i) =>  (
               <JobsItem 
                 key={jobPosting._id}
                 id={jobPosting._id}

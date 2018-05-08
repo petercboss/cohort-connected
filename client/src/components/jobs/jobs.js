@@ -25,7 +25,7 @@ class Jobs extends Component {
 
   getJobs = ()=>{
     API.getJobs()
-       .then(res => this.setState({jobs: res.data}))
+       .then(res => this.setState({ jobs: res.data }))
        .catch(err => console.log(err));
   };
 
