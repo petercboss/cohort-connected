@@ -21,7 +21,7 @@ class ForumMain extends Component {
 
     renderComments = () => {
         return (
-            this.state.comments.sort(this.keysrt('upVote')).map((comment, i) => (
+            this.state.comments.sort(this.keysrt('postingDate')).sort(this.keysrt('upVote')).map((comment, i) => (
                 <ForumComments
                     key={comment._id}
                     commentId={comment._id}
@@ -56,33 +56,8 @@ class ForumMain extends Component {
             body: this.state.answer
         };
         API.addNewComment('forum', this.props.id, forumSolution)
-            .then(res => console.log(res.data))
-                // let newComment = []
-                // newComment.key=res.data.author._id;
-                // newComment.commentId=res.data.author._id;
-                // newComment.questionId=this.props.id;
-                // newComment.author={comment.author}
-                // newComment.postingDate={comment.postingDate}
-                // newComment.comment={comment.body}
-                // newComment.upVotes={comment.upVote}
-                // newComment.downVotes={comment.downVote}
-// :
-// "Rachel Basia Brown"
-// body
-// :
-// "sgrhafdhadzfhda"
-// downVote
-// :
-// 0
-// postingDate
-// :
-// "2018-05-08T17:11:25.723Z"
-// upVote
-// :
-// 0
-
-            .catch(err => console.log(err));
-       this.onCloseModal();
+        .then(res => this.onCloseModal())
+        .catch(err => console.log(err));
     };
 
     setInitialFavorites = () => this.setState({ faveDisplay: this.props.favorites });
@@ -101,10 +76,10 @@ class ForumMain extends Component {
 
     keysrt = key => {
         return (a,b) => {
-         if (a[key] < b[key]) return 1;
-         if (a[key] > b[key]) return -1;
-         return 0;
-        }
+            if (a[key] < b[key]) return 1;
+            if (a[key] > b[key]) return -1;
+            return 0;
+        };
     };
 
     render() {
