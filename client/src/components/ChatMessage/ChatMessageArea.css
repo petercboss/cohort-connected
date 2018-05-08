@@ -50,6 +50,7 @@
     border: 1px solid black;
     border-bottom: none;
     text-align: center;
+    border-left: 0;
 }
 .noSelectedUser {
     line-height: 100px;
@@ -148,6 +149,7 @@
     border: 1px solid black;
     border-top: none;
     height: 160px;
+    border-left: 0;
 }
 .messageToSend {
     width: 100%;
