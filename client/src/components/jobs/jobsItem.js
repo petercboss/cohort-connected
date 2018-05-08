@@ -66,7 +66,11 @@ class JobsItem extends Component {
                     </div>
                     <div className='row'>
                         <div className='col-md-12'>
-                            <button className='action-item comment'><i className='fa fa-comments'></i> Add/View Comments</button>
+                            <div className={this.props.favorites.includes(this.props.id) ? 'favorite' : 'non-favorite'}></div>
+                            <button onClick={()=>this.props.toggleFavorite(this.props.id, 'jobs')}
+                                className={this.props.favorites.includes(this.props.id) ? 'tabbed' : 'open'}>
+                                <i className='fa fa-star-o' aria-hidden='true'></i>
+                            </button>
                             <button onClick={this.DownVote} className='action-item thumbs' disabled={this.state.disabled === true ? 'true' : ''}>
                                 <i className={this.state.action === 'disliked' ? 'fas fa-thumbs-down' : 'far fa-thumbs-down'}></i> {this.state.thumbsDown}
                             </button>

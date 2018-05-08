@@ -41,19 +41,21 @@ class Jobs extends Component {
   };
 
   //on form submission 
-  handleJobFormSubmit = event =>{
+  handleJobFormSubmit = event => {
     event.preventDefault();
-    const newJob= {
+    let newJob= {
       company: this.state.jobCompany,
       link: this.state.jobLink,
       title: this.state.jobTitle,
-    }
+    };
+    const splitLink = newJob.link.split('//');
+    newJob.link = `https://${splitLink[1]}`;
     API.createJobs(newJob).then(res => {
       console.log(res.data);})
     .catch(err => console.log(err));
     this.onCloseModal();
     this.getJobs();
-  }
+  };
 
   onOpenModal = () => {
     this.setState({ open: true });
