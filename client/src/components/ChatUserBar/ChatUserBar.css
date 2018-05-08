@@ -1,19 +1,13 @@
-html {
-    overflow: scroll;
-    overflow-x: hidden;
-}
 ::-webkit-scrollbar {
-    width: 3px;  
+    width: 3px;
+    display: none;
     background: transparent;  
 }
-
 ::-webkit-scrollbar-thumb {
     background: #64c2c2;
 }
-
 .ChatUserBar {
     background: rgb(68,71,83);
-/*     border: 1px solid black; */
     height: 600px;
     margin-top: 50px;
     width: 100%;
@@ -22,11 +16,11 @@ html {
     list-style-type: none;
     height: 100%;
     margin-top: 0;
+    padding: 0px;
     overflow-y: scroll;
     overflow-x: hidden;
+    box-sizing: content-box;
 }
-
-
 
 /* Chat User */
 .paddingFix {
@@ -35,33 +29,34 @@ html {
 .chatRow {
     margin: 0;
 }
-.chatUser {
-    height: 80px;
-    width: 90%;
-    display: inherit;
-    margin: 0 auto;
-    line-height: 80px;
-}
+.chatUser,
 .selectedChatUser {
     height: 80px;
-    width: 90%;
+    width: 100%;
     display: inherit;
-    margin: 0 auto;
-    background: lightblue;
+    margin: 0px auto;
+    padding: 1px 10px 0px 30px;
     line-height: 80px;
+    box-sizing: content-box;
 }
-
+.selectedChatUser {
+    background: #7979d2;
+    cursor: default;
+}
+.selectedChatUser img {
+    box-shadow: 0px 0px 8px 0px #3c3e49;
+}
 .chatUser:hover {
-    background: lightblue;
+    background: slateblue;
+    cursor: pointer;
 }
 .chatImage {
     border-radius: 20px;
-    width: 60px;
+    height: 60px;
     margin-left: 15px;
 }
 .userInfo {
-    padding-left: 3px;
-
+    margin-left: -15px;
 }
 .chatName {
     color: white;
@@ -83,5 +78,34 @@ html {
     display: inline-block;
     width: 100%;
     text-align: center;
+}
 
+/* Media Queries */ 
+@media screen and (max-width: 1200px) {
+    .chatUser,
+    .selectedChatUser {
+        padding: 1px 5px 0px 15px;
+    }
+    .chatImage {
+        border-radius: 20px;
+        height: 60px;
+        margin-left: 15px;
+    }
+    .userInfo {
+        margin-left: -10px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .chatUser,
+    .selectedChatUser {
+        padding: 1px 0px 0px 8px;
+    }
+    .chatImage {
+        border-radius: 20px;
+        height: 60px;
+        margin-left: 15px;
+    }
+    .userInfo {
+        margin-left: 0px;
+    }
 }
