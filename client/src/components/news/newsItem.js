@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import API from '../../utils/API';
 
 // moment date formatting
 import Moment from 'react-moment';
@@ -20,21 +21,31 @@ class NewsItem extends Component {
     
     // registers a thumbs up and then disables both buttons
     UpVote = () => {
-        this.setState({ 
-            thumbsUp: this.state.thumbsUp + 1,
-            disabled: true,
-            action: 'liked'
-        });
-    }
+        if (!this.state.disabled) {
+            API.thumbsUp('news', this.props.id)
+                .then(res => console.log(''))
+                .catch(err => console.log(err));
+                this.setState({ 
+                    thumbsUp: this.state.thumbsUp + 1,
+                    disabled: true,
+                    action: 'liked'
+                });
+        };
+    };
 
     // registers a thumbs down and then disables both buttons
     DownVote = () => {
-        this.setState({ 
-            thumbsDown: this.state.thumbsDown + 1,
-            disabled: true,
-            action: 'disliked'
-        });
-    }
+        if (!this.state.disabled) {
+            API.thumbsDown('news', this.props.id)
+                .then(res => console.log(''))
+                .catch(err => console.log(err));
+                this.setState({ 
+                    thumbsDown: this.state.thumbsDown + 1,
+                    disabled: true,
+                    action: 'disliked'
+                });
+            };
+    };
 
     setInitialFavorites = () => this.setState({ faveDisplay: this.props.favorites });
 

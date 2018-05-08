@@ -164,7 +164,7 @@
                         collection = 'News';
                         break;
                     case 'jobs':
-                        collection = 'Job';
+                        collection = 'Jobs';
                         break;
                 };
                 resolve(collection);
@@ -183,7 +183,7 @@
                         collection = 'News';
                         break;
                     case 'jobs':
-                        collection = 'Job';
+                        collection = 'Jobs';
                         break;
                 };
                 resolve(collection);
