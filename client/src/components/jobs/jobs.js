@@ -61,6 +61,7 @@ class Jobs extends Component {
 
   onCloseModal = () => {
     this.setState({ open: false });
+    this.props.reloadJobs();
   };
 
   render() {

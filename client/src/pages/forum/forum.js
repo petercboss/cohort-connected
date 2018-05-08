@@ -77,6 +77,7 @@ class Forum extends Component {
  
   onCloseModal = () => {
     this.setState({ open: false });
+    this.loadForum();
   };
 
   handlePageChange = page => {
@@ -131,6 +132,7 @@ class Forum extends Component {
                       currentUser={`${this.state.user.firstName} ${this.state.user.lastName}`}
                       favorites={this.props.user.forum}
                       toggleFavorite={this.toggleFavorite}
+                      handlePageChange={this.handlePageChange} 
                       returnHome={this.returnHome} />
       );
     }
@@ -147,6 +149,7 @@ class Forum extends Component {
                         date={forumQuestion.postingDate}
                         answers={forumQuestion.comment.length}
                         onClick={forumQuestion._id}
+                        reloadForum={this.loadForum}
                         handlePageChange={this.handlePageChange} />
         ))}
       </SidebarList>

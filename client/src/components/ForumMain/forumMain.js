@@ -12,8 +12,27 @@ class ForumMain extends Component {
             id: this.props.id,
             openComment: false,
             answer: '',
-            faveDisplay: []
+            faveDisplay: [],
+            comments: this.props.comments
         };
+    };
+
+    setInitialComments = () => this.setState({ comments: this.props.comments });
+
+    renderComments = () => {
+        return (
+            this.state.comments.sort(this.keysrt('upVote')).map((comment, i) => (
+                <ForumComments
+                    key={comment._id}
+                    commentId={comment._id}
+                    questionId={this.props.id}
+                    author={comment.author}
+                    postingDate={comment.postingDate}
+                    comment={comment.body}
+                    upVotes={comment.upVote}
+                    downVotes={comment.downVote} />
+            ))
+        );
     };
 
     onOpenModal = () => {
@@ -22,6 +41,8 @@ class ForumMain extends Component {
      
     onCloseModal = () => {
         this.setState({ openComment: false });
+        this.props.returnHome();
+        this.props.handlePageChange(this.props.id);
     };
 
     handleChange = event => {
@@ -34,12 +55,34 @@ class ForumMain extends Component {
             author: this.props.currentUser,
             body: this.state.answer
         };
-        console.log(forumSolution);
         API.addNewComment('forum', this.props.id, forumSolution)
-            .then(res => console.log(res))
+            .then(res => console.log(res.data))
+                // let newComment = []
+                // newComment.key=res.data.author._id;
+                // newComment.commentId=res.data.author._id;
+                // newComment.questionId=this.props.id;
+                // newComment.author={comment.author}
+                // newComment.postingDate={comment.postingDate}
+                // newComment.comment={comment.body}
+                // newComment.upVotes={comment.upVote}
+                // newComment.downVotes={comment.downVote}
+// :
+// "Rachel Basia Brown"
+// body
+// :
+// "sgrhafdhadzfhda"
+// downVote
+// :
+// 0
+// postingDate
+// :
+// "2018-05-08T17:11:25.723Z"
+// upVote
+// :
+// 0
+
             .catch(err => console.log(err));
-        this.onCloseModal();
-        //this.loadComments();
+       this.onCloseModal();
     };
 
     setInitialFavorites = () => this.setState({ faveDisplay: this.props.favorites });
@@ -94,17 +137,7 @@ class ForumMain extends Component {
                 <button className='return-forumIndex' onClick={this.props.returnHome}>Return to Forum Home</button>
             </div>
             <div>
-            {this.props.comments.sort(this.keysrt('upVote')).map((comment, i) => (
-                <ForumComments
-                    key={comment._id}
-                    commentId={comment._id}
-                    questionId={this.props.id}
-                    author={comment.author}
-                    postingDate={comment.postingDate}
-                    comment={comment.body}
-                    upVotes={comment.upVote}
-                    downVotes={comment.downVote} />
-                ))}
+            {this.renderComments()}
             </div>
         </div>
         )

@@ -106,7 +106,7 @@ class Main extends Component {
         } else if (this.state.currentPage === 'Jobs') {
           return (
           <div>
-          <Jobs/>
+          <Jobs reloadJobs={this.loadJobs} />
           <JobsList>
               {this.state.jobs.sort((a, b) => new Date(b.date) - new Date(a.date)).map((jobPosting, i) =>  (
               <JobsItem 
