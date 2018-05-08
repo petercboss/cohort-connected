@@ -30,8 +30,9 @@ class ChatUser extends Component {
                     </Col>
                     <Col size="sm-8 md-8 lg-8 xl-8">
                     <div className='userInfo'>
-                        <div className="chatName">{this.props.user.firstName} {this.props.user.lastName} </div>
-                        <div className="unreadMessage">Unread - {this.props.unreadMessages.filter(unreadId => unreadId === this.props.id).length}</div>
+                        <div className="chatName">{this.props.user.firstName} {this.props.user.lastName} <br />
+                            <span className="unreadMessage">Unread - {this.props.unreadMessages.filter(unreadId => unreadId === this.props.id).length}</span>
+                        </div>
                     </div>
                     </Col>
                 </div>
@@ -41,3 +42,5 @@ class ChatUser extends Component {
     }
 }
 export default ChatUser;
+
+  // <div className="unreadMessage">Unread - {this.props.unreadMessages.filter(unreadId => unreadId === this.props.id).length}</div>
