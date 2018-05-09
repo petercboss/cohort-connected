@@ -13,17 +13,24 @@ import {ChatUserBar}from '../../components/ChatUserBar'
 import {ChatMessageArea, CurrentChatHeader} from '../../components/ChatMessage';
 import ChatMessage from '../../components/ChatMessage/ChatMessage';
 import ChatUser from '../../components/ChatUserBar/ChatUser';
+import { FormErrors } from '../../components/ContactForm/FormErrors';
 
 class Messages extends Component {
-  state = {
-    user: this.props.user,
-    users: [],
-    messages:[0],
-    chatMessage:[],
-    selectedUser:[],
-    currentChatId:'',
-    unreadMessages: this.props.user.unreadMessages
-  };
+  constructor(props){
+    super(props)
+    this.state = {
+      user: this.props.user,
+      users: [],
+      messages:[0],
+      chatMessage:[],
+      selectedUser:[],
+      currentChatId:'',
+      unreadMessages: this.props.user.unreadMessages,
+      messageValid: false,
+      formValid: false,
+      formErrors: {chatMessage:'Message cannot be blank'},
+    };
+  }
 
   loadUsers = () => {
     API.getUsers()
@@ -60,24 +67,18 @@ class Messages extends Component {
       this.props.updateUnreadMessagesHeader(res.data.unreadMessages);
     })
   }
-  // updateHeader= (updatedUnread) => {
-  //   this.props.updateUnreadMessagesHeader(updatedUnread);
-  // }
   currentUser = (currentUser) => {
     const updatedUnreadMessages = this.state.unreadMessages.filter(unreadUser => unreadUser !== currentUser._id);
     console.log(updatedUnreadMessages);
 
     this.setState({ 
       selectedUser: currentUser
-      // unreadMessages: updatedUnreadMessages
     }, this.loadChat1(currentUser));
 
-    // update unread message on user
     const removeUnreadMessage = {
       userToUpdate: this.state.user._id,
       userToRemove: currentUser._id
     }
-    console.log(removeUnreadMessage.userToRemove)
     
     API.removeUnreadMessage(removeUnreadMessage)
     .then((res) => {this.setState({unreadMessages: res.data.unreadMessages});
@@ -99,7 +100,6 @@ class Messages extends Component {
     .then(res =>{
       if (res.data === null) {
         this.loadChat2(currentUser)
-        console.log('chatid1 does not exist')
       } else {
        this.setState({
          messages: res.data.messages,
@@ -122,7 +122,7 @@ class Messages extends Component {
       } else {
         this.setState({
           messages: res.data.messages,
-        currentChatId:chatid2
+          currentChatId:chatid2
         })
       };
     console.log(res.data)}
@@ -141,38 +141,42 @@ class Messages extends Component {
     )
     .catch(err => console.log(err));
   }
-  updateChat = (message) => {
-    const chatMessage = {
-      chatId: this.state.currentChatId,
-      senderId: this.state.user._id,
-      senderName: this.state.user.firstName,
-      sent: Date.now().toString(),
-      chatMessage: this.state.chatMessage
-    }
-    this.setState({chatMessage:[]})
-    API.addMessage(chatMessage)
-    .then(res => {
-    console.log(res.data)
-    this.refreshMessage(this.state.currentChatId)
-    })
-    .catch(err => console.log(err))
-    //push userid into other id
-    //get current user from db, push my id into their array
-    const unreadMessage = {
-          userToUpdate: this.state.selectedUser._id,
-          unreadFrom: this.state.user._id
-    }
-    console.log(unreadMessage);
-    API.sendUnread(unreadMessage)
-    .then(res => {
+  updateChat = () => {
+      if (typeof this.state.chatMessage === 'object' || this.state.chatMessage.split('').filter(content => content !== ' ').length === 0 ) {
+      } else {
+      const chatMessage = {
+        chatId: this.state.currentChatId,
+        senderId: this.state.user._id,
+        senderName: this.state.user.firstName,
+        sent: Date.now().toString(),
+        chatMessage: this.state.chatMessage
+      }
+      this.setState({
+        chatMessage:[],
+        messageValid: false,
+        formValid: false
+      })
+      API.addMessage(chatMessage)
+      .then(res => {
       console.log(res.data)
-    })
-    .catch(err => console.log(err));
-
+      this.refreshMessage(this.state.currentChatId)
+      })
+      .catch(err => console.log(err))
+      //push userid into other id
+      //get current user from db, push my id into their array
+      const unreadMessage = {
+            userToUpdate: this.state.selectedUser._id,
+            unreadFrom: this.state.user._id
+      }
+      API.sendUnread(unreadMessage)
+      .then(res => {
+        console.log(res.data)
+      })
+      .catch(err => console.log(err));
   }
+}
 
   refreshMessage = (chatId) => {
-    console.log('messageRefresh');
     API.getMessages(chatId)
     .then(res =>
       {
@@ -182,10 +186,12 @@ class Messages extends Component {
     .catch(err => console.log(err));
   }
   
-  handleChange = (event) => {
-    this.setState({chatMessage: event.target.value});
-  }
-  
+handleInputChange = event => {
+  const { name, value } = event.target;
+  this.setState({[name]: value,
+  })
+};
+ 
     render() {
         return(
           <Container>
@@ -201,7 +207,7 @@ class Messages extends Component {
                 {this.state.messages.map((message,i) => (<ChatMessage user={this.state.user} id={message.senderId} key={i} index={i} name={message.senderName} chatMessage={message.chatMessage} date={message.sent}/>))}
                 </ChatMessageArea>
                 <div className='ChatMessageFooter'>
-                <textarea className='messageToSend' value={this.state.chatMessage} onChange={this.handleChange}></textarea>
+                <textarea className='messageToSend' value={this.state.chatMessage} name='chatMessage' onChange={this.handleInputChange} required></textarea>
                 <button className='chatSendBtn' onClick={this.updateChat}>Reply</button>
                 </div>
               </Col>
@@ -215,10 +221,4 @@ export default Messages;
 
 
 
-
-
-
-// {<ChatMessage key={key} id={message.senderId} name={message.senderName} chatMessage={message.chatMessage} date={message.sent}/>}))}
-
-// {(this.state.message === [0]) ? (<h1>Hello</h1>) : (this.state.messages.map((message) => {<ChatMessage  id={message.senderId} name={message.senderName} chatMessage={message.chatMessage} date={message.sent}/>}))}
-// {(this.state.message === [0]) ? (<h1>Hello</h1>) : (Object.keys(this.state.messages).map((key) => {<ChatMessage  key={key} name={this.state.messages[key].senderName} chatMessage={this.state.messages[key].chatMessage}/>}))}
+// disabled={!this.state.formValid}
