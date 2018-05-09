@@ -71,23 +71,28 @@ class Jobs extends Component {
     return (
       // Header
       <div style={styles}>
-        <div className='row'>
-          <div className='col-12'>
-            <h4 id='jobHeader'>Post and Search Opportunities</h4>
+        <div className='row job-headerRow'>
+          <div className='col-6'>
+            <button className='job-button' onClick={this.onOpenModal}><i className='jobHead-icons fas fa-briefcase'></i>Post Jobs</button>
           </div>
-          <div className='col-12'>
-            <button id='job-button' onClick={this.onOpenModal}><i className='fas fa-briefcase'></i> Post Jobs</button>
+          <div className='col-6'>
+            <a className='resource-button' href='https://www.fiverr.com/categories/programming-tech' target='_blank' rel='noopener noreferrer'>
+              <div>Find Freelance Work<i className='jobHead-icons fas fa-external-link-alt'></i></div>
+            </a>
+            <a className='resource-button' href='https://www.glassdoor.com/index.htm' target='_blank' rel='noopener noreferrer'>
+              <div>Research Employers<i className='jobHead-icons fas fa-external-link-alt'></i></div>
+            </a>
           </div>
         </div>
         <Modal open={open} onClose={this.onCloseModal} className='modal' little>
-          <h2 className='modal-header'>Post Your Job Leads Here!</h2>
+          <h2 className='modal-header'>Share Job Opportunity</h2>
           <form>
             <div className='form-group'>
-              <label className='modal-label'>Copy Link To Job Here:</label>
+              <label className='modal-label'>Link to Job Listing:</label>
               <input type='text' className='form-control' name='jobLink' onChange={this.handleInputChange} placeholder='https://cohortconnected.herokuapp.com/'/>
             </div>
             <div className='form-group'>
-              <label className='modal-label'>Job Title:</label>
+              <label className='modal-label'>Title:</label>
               <input type='text' className='form-control' name='jobTitle' onChange={this.handleInputChange} placeholder='Full Stack Developer'/>
             </div>
             <div className='form-group'>

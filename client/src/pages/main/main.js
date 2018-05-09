@@ -113,8 +113,9 @@ class Main extends Component {
                 key={jobPosting._id}
                 id={jobPosting._id}
                 title={jobPosting.title}
-                summary={jobPosting.summary}
+                company={jobPosting.summary}
                 link={jobPosting.link}
+                postingDate={jobPosting.postingDate}
                 thumbsUp={jobPosting.thumbsUp}
                 thumbsDown={jobPosting.thumbsDown}
                 comments={jobPosting.comments}
