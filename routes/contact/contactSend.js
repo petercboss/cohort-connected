@@ -10,8 +10,6 @@
           rejectUnauthorized: false
         },
         auth: {
-          // user: 'cohortconnected@gmail.com',
-          // pass: 'nw_bootcamp'
           user: process.env.USER,
           pass: process.env.PASS
         }
