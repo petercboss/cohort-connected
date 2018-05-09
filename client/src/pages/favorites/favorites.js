@@ -64,17 +64,17 @@ class Favorites extends Component {
       if (this.state.favoritesCategory === 'News') {
         return (
           <FavoriteList>
-            {this.state.news.sort((a,b) => new Date(b.date) - new Date(a.date)).map(itemStory => (
-              <FavoriteItem key={itemStory._id} 
-                            id={itemStory._id} 
-                            title={itemStory.title} 
-                            date={itemStory.date} 
-                            author={itemStory.author} 
-                            summary={itemStory.summary} 
-                            link={itemStory.link}
-                            toggleFavorite={this.toggleFavorite}
-                            favorites={this.state.news} />
-            ))}
+              {this.state.news.sort((a,b) => new Date(b.date) - new Date(a.date)).map(itemStory => (
+                <FavoriteItem key={itemStory._id} 
+                              id={itemStory._id} 
+                              title={itemStory.title} 
+                              date={itemStory.date} 
+                              author={itemStory.author} 
+                              summary={itemStory.summary} 
+                              link={itemStory.link}
+                              toggleFavorite={this.toggleFavorite}
+                              favorites={this.state.news} />
+              ))}
           </FavoriteList>
         );
       } else if (this.state.favoritesCategory === 'Events') {
@@ -138,6 +138,7 @@ class Favorites extends Component {
           <Container>
             <Col size='md-12'>
               <Row>
+                <Col size='md-2'>
                 <div className='favorites-container animated zoomIn'>
                   <div className='sidenav'>
                     <ul className='sidenav-list'>
@@ -151,10 +152,13 @@ class Favorites extends Component {
                           onClick={()=>this.handleCategoryChange('Forum')}><i className='far fa-question-circle'></i></li>
                     </ul>
                   </div>
+                  </div>
+                  </Col>
+                  <Col size='md-10'>
                   <div className='favorites-data'>
                     {this.renderFavorites()}
                   </div>
-                </div>
+                  </Col>
               </Row>
             </Col>
           </Container>
