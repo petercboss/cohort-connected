@@ -36,15 +36,21 @@ a:hover {
 .favorite-container {
   position: relative;
 }
+
+.favListItem{
+  border-bottom: #aaa8a8 solid 2px;
+}
+
 .favorite {
   position: absolute;
   top: 0;
   right: 0;
-    width: 0;
-    height: 0;
-    border-top: 55px solid #8263C2;
-    border-left: 65px solid transparent;
+  width: 0;
+  height: 0;
+  border-top: 55px solid #8263C2;
+  border-left: 65px solid transparent;
 }
+
 .non-favorite {
   position: absolute;
   top: 0;
