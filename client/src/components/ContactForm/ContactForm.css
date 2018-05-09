@@ -57,10 +57,14 @@ form .submitContactForm:hover:disabled {
     cursor: not-allowed;
 }
 
-.contactFormError{
+.contactFormError {
     color: red;
     font-size: 20px;
     margin: 0;
     padding: 0;
+}
+
+.contact-body {
+    padding: 15px;
 }
 
