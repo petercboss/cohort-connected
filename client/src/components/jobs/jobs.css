@@ -1,10 +1,3 @@
-.center {
-    margin: 30px auto;
-    text-align: center;
-}
-.riri {
-    width: 80%;
-}
 
 #jobDescInput{
     width: 500px;
@@ -67,38 +60,6 @@ a:hover {
 /* Favorites Button */
 .job-container {
   position: relative;
-  border-bottom: 1px solid #b9b8b9;
-}
-
-.favorite {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-	width: 0;
-	height: 0;
-	border-top: 55px solid #8263C2;
-	border-left: 65px solid transparent;
-}
-.non-favorite {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-	width: 0;
-  height: 0;
-	border-top: 55px solid transparent;
-	border-left: 65px solid transparent;
-}
-.tabbed {
-  position: hidden;
-}
-.open {
-  position: absolute;
-  bottom: 10px;
-  left: 7px;
-  background: transparent;
-  border: none;
-  text-align: right;
-  font-size: 24px;
 }
 
 /* job Details */
@@ -112,11 +73,9 @@ a .job-title {
   color: #389C9C;
   text-decoration: underline;
 }
-.fa-calendar {
-  font-size: 18px;
-}
 .job-summary-text {
   font-style: italic;
+  font-size: 18px;
   padding-left: 15px;
   padding-top: 10px;
 }
@@ -138,21 +97,35 @@ a .job-title {
   font-weight: 700;
   color: black;
 }
+.job-icons {
+  margin: 0px 5px;
+  font-size: 16px;
+}
+.job-icons:hover {
+  color: #7979d2;
+  font-weight: 900;
+}
 
-/* Category Buttons */
-.category-btn {
-  float: right;
-  padding: 5px;
-  margin-left: 5px;
-  background: #f5f4f5;
-  font-size: 12px;
+/* modal styling */
+.preview-modal {
+  height: 0px;
+  width: 0px;
+  background: none;
+  z-index: -100;
+  position: relative;
 }
-.category-btn:hover,
-.category-btn:active {
-  transform: scale(1.1);
-}
-.clearfix {
-  clear: both;
+
+.jobPreview-img {
+  zoom: 200%;
+  border: 5px solid blue;
+  width: 5000px;
+  height: 5000px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -275px;
+  margin-left: -250px;
+
 }
 
 
