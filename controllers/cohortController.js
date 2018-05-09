@@ -208,7 +208,7 @@
         },
         removeFavorite: (req, res) => {
             db.User.findOneAndUpdate({ _id: req.params.id }, { $pull: { [req.params.favorite]: req.params._id }})
-              .then(dbFavorite => res.json(dbFavorite))
+              .then(dbFavorite => { console.log(dbFavorite); res.json(dbFavorite)})
               .catch(err => res.status(422).json(err));
         },
         findChat: (req,res) => {
