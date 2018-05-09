@@ -1,7 +1,7 @@
 (()=>{
     const router = require('express').Router();
     var nodemailer = require('nodemailer');
-    const creds = require('../../config/contactForm');
+    // const creds = require('../../config/contactForm');
 
     var transport = {
         host: 'smtp.gmail.com',
@@ -11,8 +11,8 @@
           rejectUnauthorized: false
         },
         auth: {
-          user: creds.USER,
-          pass: creds.PASS
+          user: 'cohortconnected@gmail.com',
+          pass: 'nw_bootcamp'
           // user: process.env.USER,
           // pass: process.env.PASS
         }
