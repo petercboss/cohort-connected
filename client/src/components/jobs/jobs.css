@@ -110,6 +110,7 @@ a.job-link:hover {
 .mult-job-btns {
   margin: 0px auto;
 }
+a.jobAction-icons,
 .jobAction-icons {
   margin: 0px 5px;
   font-size: 16px;

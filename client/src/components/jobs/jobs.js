@@ -76,10 +76,10 @@ class Jobs extends Component {
             <button className='job-button' onClick={this.onOpenModal}><i className='jobHead-icons fas fa-briefcase'></i>Post Jobs</button>
           </div>
           <div className='col-6'>
-            <a className='resource-button' href='https://www.fiverr.com/categories/programming-tech' target='_blank' rel='noopener noreferrer'>
+            <a className='resource-button' href='https://www.guru.com/d/jobs/' target='_blank' rel='noopener noreferrer'>
               <div>Find Freelance Work<i className='jobHead-icons fas fa-external-link-alt'></i></div>
             </a>
-            <a className='resource-button' href='https://www.glassdoor.com/index.htm' target='_blank' rel='noopener noreferrer'>
+            <a className='resource-button' href='https://www.glassdoor.com/Reviews/index.htm' target='_blank' rel='noopener noreferrer'>
               <div>Research Employers<i className='jobHead-icons fas fa-external-link-alt'></i></div>
             </a>
           </div>
