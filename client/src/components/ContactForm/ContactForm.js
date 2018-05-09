@@ -80,7 +80,7 @@ class ContactForm extends Component {
             if(response.data.msg === 'success'){
                 this.resetForm()
             } else if(response.data.msg === 'fail'){
-                alert('message failed to send');
+                alert('Oops! There was an error in sending your message. Please try again later');
             }
         }) 
     };
@@ -98,7 +98,7 @@ class ContactForm extends Component {
       };
      
     onCloseModal = () => {
-    this.setState({ open: false });
+        this.setState({ open: false });
     };
 
     render() {
@@ -136,12 +136,11 @@ class ContactForm extends Component {
                 <Row>
                     <Col size='md-12 lg-12' className='create'>
                         <Modal open={this.state.open} onClose={this.onCloseModal} className='modal' little>
-                            <h2 className='modal-header'>Message Sent!</h2>
+                            <h2 className='modal-header'>Message Sent</h2>
                             <form>
                               <div className='form-group'>
                                 <label className='modal-label' id='contact-body'>Thanks For Your Message! A member of our team will be in touch shortly.</label>
                               </div>
-                              <button onClick={this.onCloseModal} className='btn btn-light submit-question'>Close</button>
                               <div className='clearfix' />
                             </form>
                          </Modal>
