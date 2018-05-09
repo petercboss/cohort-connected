@@ -141,7 +141,7 @@ class ContactForm extends Component {
                               <div className='form-group'>
                                 <label className='modal-label' id='contact-body'>Thanks For Your Message! A member of our team will be in touch shortly.</label>
                               </div>
-                              <button onClick={this.onCloseModal} type='submit' className='btn btn-light submit-question'>Close</button>
+                              <button onClick={this.onCloseModal} className='btn btn-light submit-question'>Close</button>
                               <div className='clearfix' />
                             </form>
                          </Modal>
