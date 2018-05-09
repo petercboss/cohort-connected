@@ -76,9 +76,11 @@ class JobsItem extends Component {
                                 <a className='job-apply' href={this.props.link} target='_blank' rel='noopener noreferrer'>Apply Now</a>
                             </div>
                             <div className='row mult-job-btns'>
+                                <a href={`https://www.glassdoor.com/Job/jobs.htm?suggestCount=0&suggestChosen=false&clickSource=searchBtn&typedKeyword=${this.props.company}&sc.keyword=${this.props.company}&locT=C&locId=1128808&jobType=`} target='_blank' rel='noopener noreferrer'>
                                 <button className='jobAction-icons'>
                                     <i className="fas fa-diagnoses"></i>
                                 </button>
+                                </a>
                                 <button className='jobAction-icons' onClick={()=> {this.props.toggleFavorite(this.props.id, 'events'); this.updateFavoritesDisplay(this.props.id)}}>
                                     <i className={this.state.faveDisplay.includes(this.props.id) ? 'fas fa-star' : 'far fa-star'}></i>
                                 </button>
