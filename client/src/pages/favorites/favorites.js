@@ -155,7 +155,7 @@ class Favorites extends Component {
                   </div>
                   </Col>
                   <Col size='md-10'>
-                  <div className='favorites-data'>
+                  <div className='animated zoomIn favorites-data'>
                     {this.renderFavorites()}
                   </div>
                   </Col>
