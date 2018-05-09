@@ -105,7 +105,7 @@ class ContactForm extends Component {
         return (
             <Row>
                 <Col size='md-6 lg-6'>
-                    <img src={require('./contactPic2.png')} className='LContactPage animated fadeInLeft' alt='Contact Us'/>
+                    <img src={ require('./contactPic2.png')} className='LContactPage animated fadeInLeft' alt='Contact Us'/>
                 </Col>
                 <Col size='md-6 lg-6' className='animated fadeInRight'>
                     <div className='contactHead text-center'>
@@ -135,10 +135,16 @@ class ContactForm extends Component {
                 </Col>
                 <Row>
                     <Col size='md-12 lg-12' className='create'>
-                        <Modal open={this.state.open} onClose={this.onCloseModal} className='modal animated fadeInRight' little>
-                            <h2>Thanks For The Message!</h2>
-                            <h3>A representative from Cohort Connected will be in touch shortly!</h3>
-                        </Modal>
+                        <Modal open={this.state.open} onClose={this.onCloseModal} className='modal' little>
+                            <h2 className='modal-header'>Message Sent!</h2>
+                            <form>
+                              <div className='form-group'>
+                                <label className='modal-label' id='contact-body'>Thanks For Your Message! A member of our team will be in touch shortly.</label>
+                              </div>
+                              <button onClick={this.onCloseModal} type='submit' className='btn btn-light submit-question'>Close</button>
+                              <div className='clearfix' />
+                            </form>
+                         </Modal>
                     </Col>
                 </Row>
             </Row>
