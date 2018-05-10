@@ -13,7 +13,6 @@ import {ChatUserBar}from '../../components/ChatUserBar'
 import {ChatMessageArea, CurrentChatHeader} from '../../components/ChatMessage';
 import ChatMessage from '../../components/ChatMessage/ChatMessage';
 import ChatUser from '../../components/ChatUserBar/ChatUser';
-import { FormErrors } from '../../components/ContactForm/FormErrors';
 
 class Messages extends Component {
   constructor(props){
@@ -25,32 +24,27 @@ class Messages extends Component {
       chatMessage:[],
       selectedUser:[],
       currentChatId:'',
-      unreadMessages: this.props.user.unreadMessages,
-      messageValid: false,
-      formValid: false,
-      formErrors: {chatMessage:'Message cannot be blank'},
+      unreadMessages: this.props.user.unreadMessages
     };
   }
 
   loadUsers = () => {
     API.getUsers()
-      .then(res =>
-        {
-          res.data.forEach((user) => {
-            if (this.state.unreadMessages.includes(user._id)) {
-              user.unread = 1;
-            } else {
-              user.unread = 0;
-            }
-          })
-          this.setState({ 
-          users: res.data.sort(function(a,b){
-            return b.unread - a.unread 
-          })
-        })
+    .then(res => {
+      res.data.forEach((user) => {
+        if (this.state.unreadMessages.includes(user._id)) {
+          user.unread = 1;
+        } else {
+          user.unread = 0;
+        }
       })
-      .catch(err => console.log(err));
+      this.setState({ 
+      users: res.data.sort(function(a,b){ return b.unread - a.unread})
+      })
+    })
+    .catch(err => console.log(err));
   };
+
   componentWillMount() {
     this.setState({user: this.props.user});
     this.getUnreadMessages();
@@ -68,12 +62,10 @@ class Messages extends Component {
     })
   }
   currentUser = (currentUser) => {
-    const updatedUnreadMessages = this.state.unreadMessages.filter(unreadUser => unreadUser !== currentUser._id);
-    console.log(updatedUnreadMessages);
-
+    // const updatedUnreadMessages = this.state.unreadMessages.filter(unreadUser => unreadUser !== currentUser._id);
     this.setState({ 
       selectedUser: currentUser
-    }, this.loadChat1(currentUser));
+      }, this.loadChat1(currentUser));
 
     const removeUnreadMessage = {
       userToUpdate: this.state.user._id,
@@ -82,13 +74,10 @@ class Messages extends Component {
     
     API.removeUnreadMessage(removeUnreadMessage)
     .then((res) => {this.setState({unreadMessages: res.data.unreadMessages});
-    this.loadUsers(); 
-    }
-    )
+      this.loadUsers(); 
+      })
     .catch(err => console.log(err));
-
     this.getUnreadMessages()
-
   }
 
   loadChat1 = (currentUser) => {
@@ -97,17 +86,16 @@ class Messages extends Component {
       return
     }
     API.getMessages(chatid1)
-    .then(res =>{
+    .then(res => {
       if (res.data === null) {
         this.loadChat2(currentUser)
-      } else {
-       this.setState({
-         messages: res.data.messages,
-         currentChatId: chatid1
-      }); 
-      }
-    console.log(res.data)}
-    )
+        } else {
+        this.setState({
+          messages: res.data.messages,
+          currentChatId: chatid1
+          }); 
+        }
+      })
     .catch(err => console.log(err));
   }
   loadChat2 = (currentUser) => {
@@ -115,42 +103,40 @@ class Messages extends Component {
     let chatid1 = this.state.user._id + currentUser._id;
 
     API.getMessages(chatid2)
-    .then(res =>
-      {
+    .then(res => {
       if (res.data === null) {
         this.createChat(chatid1);
-      } else {
-        this.setState({
-          messages: res.data.messages,
-          currentChatId:chatid2
-        })
-      };
-    console.log(res.data)}
-    )
+        } else {
+          this.setState({
+            messages: res.data.messages,
+            currentChatId:chatid2
+          })
+       };
+      })
     .catch(err => console.log(err));
   }
+
   createChat = (chatid) => {
     API.createMessage(chatid)
-    .then(res =>
-      {
+    .then(res => {
         this.setState({
           messages: res.data.messages,
         currentChatId:chatid
         })
-    console.log(res.data)}
-    )
+      })
     .catch(err => console.log(err));
   }
+
   updateChat = () => {
       if (typeof this.state.chatMessage === 'object' || this.state.chatMessage.split('').filter(content => content !== ' ').length === 0 ) {
       } else {
-      const chatMessage = {
-        chatId: this.state.currentChatId,
-        senderId: this.state.user._id,
-        senderName: this.state.user.firstName,
-        sent: Date.now().toString(),
-        chatMessage: this.state.chatMessage
-      }
+        const chatMessage = {
+          chatId: this.state.currentChatId,
+          senderId: this.state.user._id,
+          senderName: this.state.user.firstName,
+          sent: Date.now().toString(),
+          chatMessage: this.state.chatMessage
+        }
       this.setState({
         chatMessage:[],
         messageValid: false,
@@ -158,8 +144,8 @@ class Messages extends Component {
       })
       API.addMessage(chatMessage)
       .then(res => {
-      console.log(res.data)
-      this.refreshMessage(this.state.currentChatId)
+        console.log(res.data)
+        this.refreshMessage(this.state.currentChatId)
       })
       .catch(err => console.log(err))
       //push userid into other id
@@ -167,22 +153,20 @@ class Messages extends Component {
       const unreadMessage = {
             userToUpdate: this.state.selectedUser._id,
             unreadFrom: this.state.user._id
-      }
+          }
       API.sendUnread(unreadMessage)
       .then(res => {
         console.log(res.data)
       })
       .catch(err => console.log(err));
+    }
   }
-}
 
   refreshMessage = (chatId) => {
     API.getMessages(chatId)
-    .then(res =>
-      {
-        this.setState({messages: res.data.messages})
-    console.log(res.data)}
-    )
+    .then(res => {
+      this.setState({messages: res.data.messages})
+    })
     .catch(err => console.log(err));
   }
   
