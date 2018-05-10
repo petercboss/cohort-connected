@@ -37,7 +37,7 @@ class Team extends Component {
                 name: 'Shawn Feiz',
                 title: 'Codesmith',
                 image: 'https://media.licdn.com/dms/image/C4E03AQEIvbiWogQDAg/profile-displayphoto-shrink_800_800/0?e=1530122400&v=beta&t=amzL1Ioq9RTfARFOXY0IpOW6OHYFOmzmUlxq5-cEDfE',
-                bio: 'Shawn is the creator and host of The \'Joy of Painting,\' an instructional television program that airs on PBS in the United States. Shawn has recently transitioned from being a public-television personality to being an Internet celebrity, and he is especially with millenials on YouTube.',
+                bio: 'Shawn is a recent graduate from Northwestern University’s Full Stack Developer Program. He has a passion for solving problems and crafting unique solutions with the user in mind. When Shawn isn’t coding, you can find him cooking, enjoying a beautiful day at Wriggly Field, or helping students achieve their goals and dreams. Shawn currently holds a role in the Accounting Information & Management Department at Northwestern’s Kellogg School of Management. .',
                 portfolio: 'shawnfeiz.github.io/Portfolio',
                 github: 'https://github.com/ShawnFeiz',
                 linked: 'https://www.linkedin.com/in/shawnfeiz/'
