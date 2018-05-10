@@ -131,3 +131,8 @@ a.jobAction-icons,
   color: #7979d2;
   font-weight: 900;
 }
+
+button:active, button:focus {
+  text-decoration: none;
+  outline: none;
+}

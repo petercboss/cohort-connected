@@ -80,7 +80,7 @@ class JobsItem extends Component {
                                     <i className="fas fa-diagnoses"></i>
                                 </button>
                                 </a>
-                                <button className='jobAction-icons' onClick={()=> {this.props.toggleFavorite(this.props.id, 'events'); this.updateFavoritesDisplay(this.props.id)}}>
+                                <button className='jobAction-icons job-star' onClick={()=> {this.props.toggleFavorite(this.props.id, 'jobs'); this.updateFavoritesDisplay(this.props.id)}}>
                                     <i className={this.state.faveDisplay.includes(this.props.id) ? 'fas fa-star' : 'far fa-star'}></i>
                                 </button>
                                 <button onClick={this.UpVote} className='jobAction-icons' disabled={this.state.disabled === true ? 'true' : ''}>
