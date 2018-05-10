@@ -120,7 +120,7 @@
 }
 
 .meChat {
-    text-align: justify
+    text-align: left;
 }
 .meMessageDate {
     position: absolute;
@@ -139,7 +139,7 @@
     margin-top: 10px;
 }
 .senderChat {
-    text-align: justify
+    text-align: left;
 }
 
 /* chat footer */
