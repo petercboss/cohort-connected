@@ -10,7 +10,7 @@ class Team extends Component {
                 name: 'Peter Boss',
                 title: 'Codesmith',
                 image: 'https://avatars1.githubusercontent.com/u/30506899?s=400&v=4',
-                bio: 'Peter is an American reality television personality and socialite. He first gained media attention as a friend and stylist of Paris Hilton, but received wider notice after a 2003 sex tape was leaked. In recent years, Peter has cultivated a substantial online and social media presence, including tens of millions of followers on Twitter and Instagram.',
+                bio: 'Peter is a Full Stack Developer with a strong interest in high-powered, clean code. With a rich history in art, design, problem solving, and personality, he will always keep you somewhere between focused and insane.',
                 portfolio: 'peterboss.com',
                 github: 'https://github.com/petercboss',
                 linked: 'https://www.linkedin.com/in/peter-boss/'
