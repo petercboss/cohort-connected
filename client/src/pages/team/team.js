@@ -10,7 +10,7 @@ class Team extends Component {
                 name: 'Peter Boss',
                 title: 'Codesmith',
                 image: 'https://avatars1.githubusercontent.com/u/30506899?s=400&v=4',
-                bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et velit non neque aliquam dignissim sit amet ac mauris. Mauris ultrices, erat at vestibulum semper, est sem eleifend nulla, eu feugiat enim lacus sed dolor. Proin dolor sapien, egestas vitae mauris quis, pretium convallis orci. Pellentesque ac risus a metus vehicula tristique. Integer nec massa.',
+                bio: 'Peter is an American reality television personality and socialite. He first gained media attention as a friend and stylist of Paris Hilton, but received wider notice after a 2003 sex tape was leaked. In recent years, Peter has cultivated a substantial online and social media presence, including tens of millions of followers on Twitter and Instagram.',
                 portfolio: 'peterboss.com',
                 github: 'https://github.com/petercboss',
                 linked: 'https://www.linkedin.com/in/peter-boss/'
@@ -37,7 +37,7 @@ class Team extends Component {
                 name: 'Shawn Feiz',
                 title: 'Codesmith',
                 image: 'https://media.licdn.com/dms/image/C4E03AQEIvbiWogQDAg/profile-displayphoto-shrink_800_800/0?e=1530122400&v=beta&t=amzL1Ioq9RTfARFOXY0IpOW6OHYFOmzmUlxq5-cEDfE',
-                bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et velit non neque aliquam dignissim sit amet ac mauris. Mauris ultrices, erat at vestibulum semper, est sem eleifend nulla, eu feugiat enim lacus sed dolor. Proin dolor sapien, egestas vitae mauris quis, pretium convallis orci. Pellentesque ac risus a metus vehicula tristique. Integer nec massa.',
+                bio: 'Shawn is the creator and host of The \'Joy of Painting,\' an instructional television program that airs on PBS in the United States. Shawn has recently transitioned from being a public-television personality to being an Internet celebrity, and he is especially with millenials on YouTube.',
                 portfolio: 'shawnfeiz.github.io/Portfolio',
                 github: 'https://github.com/ShawnFeiz',
                 linked: 'https://www.linkedin.com/in/shawnfeiz/'
