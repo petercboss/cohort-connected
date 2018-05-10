@@ -61,7 +61,6 @@ class JobsItem extends Component {
     };
 
     render() {
-        const { open } = this.state;
         return ( 
             <li className={this.props.bk % 2 === 0 ? 'list-group-item bk-light animated fadeIn' : 'list-group-item bk-dark animated fadeIn'} id={this.props.id}>
                 <div className='job-container'>

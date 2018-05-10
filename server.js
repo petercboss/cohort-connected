@@ -26,10 +26,11 @@
     app.use(passport.session());
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
-    // Serve up static assets
-    app.use(express.static(path.join(__dirname, 'client','build')));
-    // Add routes, both API and view
 
+    // Serve up static assets
+    app.use(express.static(path.join(__dirname, 'client', 'build')));
+    
+    // Add routes, both API and view
     app.use(function(req, res, next) {
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -43,7 +44,7 @@
 
     // Start the API server
     app.listen(PORT, function() {
-    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+        console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
     });
 
 

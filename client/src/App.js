@@ -13,6 +13,7 @@ import Forum from './pages/forum'
 import Messages from './pages/messages'
 import Favorites from './pages/favorites'
 import Team from './pages/team'
+import ComingSoon from './pages/coming-soon'
 
 import FAQ from './pages/faq'
 import Contact from './pages/contact'
@@ -82,6 +83,7 @@ class App extends Component {
             <Route path="/team" component={Team} />
             <Route path="/faq" component={FAQ} />
             <Route path="/contact" component={Contact} />
+            <Route exact path="/coming-soon" component={ComingSoon} />
             <Footer />
           </div>
         </Router>
