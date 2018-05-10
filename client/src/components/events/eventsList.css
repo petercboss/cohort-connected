@@ -4,6 +4,13 @@
   border-radius: 0px;
   overflow-y: scroll;
 }
+.list-overflow-container::-webkit-scrollbar {
+  width: 3px;
+  background: transparent;  
+}
+.list-overflow-container::-webkit-scrollbar-thumb {
+  background: #64c2c2;
+}
 .list-overflow-container ul {
   margin: 0;
 }

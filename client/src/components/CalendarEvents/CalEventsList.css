@@ -8,6 +8,13 @@
     max-height: 445px;
     overflow-y: scroll;
 }
+.eventsBox::-webkit-scrollbar {
+    width: 3px;
+    background: transparent;  
+}
+.eventsBox::-webkit-scrollbar-thumb {
+    background: #64c2c2;
+}
 .eventsTodayList {
     list-style: none;
     margin: 0px;
