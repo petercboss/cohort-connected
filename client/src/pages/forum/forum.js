@@ -16,6 +16,7 @@ import ForumIndexItem from '../../components/ForumIndex/forumIndexItem';
 
 // main question 'page'
 import ForumMain from '../../components/ForumMain/forumMain';
+import { FormErrors } from '../../components/ContactForm/FormErrors';
 
 class Forum extends Component {
   state = {
@@ -26,7 +27,11 @@ class Forum extends Component {
     yourQuestions: [],
     title: '',
     summary: '',
-    open: false
+    open: false,
+    formErrors: {title:'', summary:''},
+    titleValid:false,
+    summaryValid: false,
+    formValid: false
   };
 
   componentWillMount() {
@@ -48,9 +53,6 @@ class Forum extends Component {
       .catch(err => console.log(err));
   };
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -64,6 +66,13 @@ class Forum extends Component {
       .then(res => console.log(res))
       .catch(err => console.log(err));
     this.onCloseModal();
+    this.setState({
+      title:'',
+      summary:'',
+      formValid: false,
+      summaryValid: false,
+      titleValid: false
+    });
     this.loadForum();
   };
 
@@ -103,6 +112,53 @@ class Forum extends Component {
         .catch(err => console.log(err));
     }
   };
+
+  //Validation Below
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({[name]: value},
+        () => {this.validateField(name, value) });
+  };
+
+  validateField(fieldName, value) {
+    let fieldValidationErrors = this.state.formErrors;
+    let titleValid = this.state.titleValid;
+    let summaryValid = this.state.summaryValid;
+
+    switch (fieldName) {
+        case 'title':
+            if (value.length <= 5) {
+              titleValid = value.length >= 5;
+              fieldValidationErrors.title = titleValid ? '' : ' must contain atleast 5 Characters';
+            } else {
+            titleValid = value.length <= 60;
+            fieldValidationErrors.title = titleValid ? '' : ' is too long, cannot exceed 60 characters';
+            }
+            break;
+        case 'summary':
+            summaryValid = value.length >= 20;
+            fieldValidationErrors.summary = summaryValid ? '' : ' must contain atleast 20 Characters';
+            break;
+        default:
+            break;
+    }
+    this.setState({
+        formErrors: fieldValidationErrors,
+        titleValid: titleValid,
+        summaryValid: summaryValid
+    }, this.validateForm);
+}
+
+validateForm() {
+    this.setState({ formValid: this.state.titleValid && this.state.summaryValid });
+}
+
+errorClass(error) {
+    return (error.length === 0 ? '' : 'has-error');
+}
+
+
+
 
   renderForumPage = () => {
     if (this.state.currentPage === 'Home') {
@@ -176,13 +232,14 @@ class Forum extends Component {
                   <form>
                     <div className='form-group'>
                       <label className='modal-label'>Title:</label>
-                      <input type='text' className='form-control' name='title' onChange={this.handleChange} placeholder='Brief synopsis'/>
+                      <input type='text' className='form-control' name='title' onChange={this.handleInputChange} placeholder='Brief synopsis'/>
                     </div>
                     <div className='form-group'>
                       <label className='modal-label'>Description:</label>
-                      <textarea type='text' className='form-control' name='summary' onChange={this.handleChange} placeholder='Enter a detailed description here' rows='5'></textarea>
+                      <textarea type='text' className='form-control' name='summary' onChange={this.handleInputChange} placeholder='Enter a detailed description here' rows='5'></textarea>
                     </div>
-                    <button onClick={this.handleSubmit} type='submit' className='btn btn-light submit-question'>Submit</button>
+                    <button onClick={this.handleSubmit} type='submit' className='btn btn-light submit-question' disabled={!this.state.formValid}>Submit</button>
+                    <FormErrors formErrors={this.state.formErrors} />
                     <div className='clearfix' />
                   </form>
                 </Modal>
