@@ -1,0 +1,95 @@
+.MSU-landing-login {
+    width: 100%; 
+    height: 100%; 
+    position: fixed; 
+    left: 0px; 
+    top: 0px;
+    z-index: 5000;
+}
+.MSU-background-img {
+    background-image: url('landing.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+    height: 100%;
+    z-index: 5005;
+}
+.MSU-login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 550px;
+    margin-top: -275px;
+    margin-left: -250px;
+    background: #075138;
+    border: 1px solid #fff;
+    box-shadow: 0px 0px 24px 2px black;
+    z-index: 5010;
+}
+.MSU-login-greeting {
+    color: #fff;
+    text-align: center;
+    margin: 35px auto;
+}
+.MSU-light {
+    font-weight: 100;
+}
+.MSU-heavy {
+    font-weight: 900;
+}
+.MSU-login-info {
+    color: #fff;
+    margin: 15px auto;
+    text-align: center;
+}
+.MSU-login-info-title {
+    text-align: center;
+    font-size: 22px;
+    border-top: 1px solid #11c68a;
+    padding-top: 15px;
+    width: 70%;
+    margin: 0px auto;
+    margin-top: -20px;
+}
+.MSU-list-perks {
+    list-style: none;
+    font-size: 18px;
+    margin: 25px auto 40px;
+}
+.MSU-list-perks-item {
+    font-weight: 100;
+    margin-bottom: 5px;
+    margin-left: 45px;
+    text-align: left;
+}
+.MSU-login-icon {
+    margin-right: 20px;
+    padding: 5px;
+    width: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    color: #11c68a;
+}
+.MSU-fa-calendar-alt {
+    margin-left: 2px;
+    width: 18px;
+}
+button.MSU-login-button {
+    color: black;
+    display: inline;
+    margin: 0px auto;
+    background: #eee;
+    border: 1px solid black;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 1px 1px white;
+}
+button.MSU-login-button:hover {
+    cursor: pointer;
+    color: #b06e7b;
+}

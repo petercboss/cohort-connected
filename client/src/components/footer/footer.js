@@ -34,8 +34,8 @@ const Footer = props => (
                         <li><a href='https://www.builtinchicago.org/' target='_blank' rel='noopener noreferrer'>Built In Chicago</a></li>
                         <li><a href='https://www.linkedin.com/' target='_blank' rel='noopener noreferrer'>LinkedIn</a></li>
                         <li><a href='https://stackoverflow.com/' target='_blank' rel='noopener noreferrer'>Stack Overflow</a></li>
-                        <li><a href='https://bootcampspot-v2.com/' target='_blank' rel='noopener noreferrer'>BootcampSpot</a></li>
                         <li><a href='http://marktechson.com/' target='_blank' rel='noopener noreferrer'>MarkTechson.com</a></li>
+                        <li onClick={window.scrollTo(0,0)}><Link to='/coming-soon'>COMING SOON</Link></li>
                       </ul>
                     </div>
                   </div>
