@@ -60,16 +60,10 @@ class Favorites extends Component {
       this.setState({ favoritesCategory: category });
     };
 
-    toggleFavorite = (id, item) => {
-      if (!this.props.user.news.includes(id) && !this.props.user.events.includes(id) && !this.props.user.jobs.includes(id)) {
-        API.favoriteItem(item, this.props.user._id, id)
-          .then(res => this.loadAllFavorites())
-          .catch(err => console.log(err));
-      } else {
-        API.removeFavorite(item, this.props.user._id, id)
-          .then(res => this.loadAllFavorites())
-          .catch(err => console.log(err));
-      }
+    deleteFavorite = (id, item) => {
+      API.removeFavorite(item, this.props.user._id, id)
+        .then(res => this.loadAllFavorites())
+        .catch(err => console.log(err));
     };
 
     renderFavorites = () => {
@@ -85,8 +79,8 @@ class Favorites extends Component {
                               byline={`By: ${itemStory.author}`} 
                               details={itemStory.summary} 
                               link={itemStory.link}
-                              category={'news'}
-                              toggleFavorite={this.toggleFavorite}
+                              category={'News'}
+                              deleteFavorite={this.deleteFavorite}
                               favorites={this.state.news} />
               ))}
           </FavoriteList>
@@ -103,8 +97,8 @@ class Favorites extends Component {
                             byline={`Hosted by: ${itemStory.organizer}`} 
                             details={itemStory.categories.join(', ')} 
                             link={itemStory.link}
-                            category={'events'}
-                            toggleFavorite={this.toggleFavorite}
+                            category={'Events'}
+                            deleteFavorite={this.deleteFavorite}
                             favorites={this.state.events} />
             ))}
           </FavoriteList>
@@ -121,8 +115,8 @@ class Favorites extends Component {
                             byline={`Company: ${itemStory.summary}`}
                             details={`This position has been upvoted by ${itemStory.thumbsUp} of your colleagues, with ${itemStory.thumbsDown} downvotes.`} 
                             link={itemStory.link}
-                            category={'jobs'}
-                            toggleFavorite={this.toggleFavorite}
+                            category={'Jobs'}
+                            deleteFavorite={this.deleteFavorite}
                             favorites={this.state.jobs} />
             ))}
           </FavoriteList>
@@ -139,8 +133,8 @@ class Favorites extends Component {
                             byline={`Asked by: ${itemStory.author.author}`}
                             details={itemStory.summary} 
                             link={false}
-                            category={'forum'}
-                            toggleFavorite={this.toggleFavorite}
+                            category={'Forum'}
+                            deleteFavorite={this.deleteFavorite}
                             favorites={this.state.forum} />
             ))}
           </FavoriteList>

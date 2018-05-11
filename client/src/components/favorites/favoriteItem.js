@@ -17,7 +17,7 @@ class FavoriteItem extends Component {
             <div className='favListItem'>
                 <li className='list-group-item' id={this.props.id}>
                     <div className='favorite-container'>
-                        <button className='faveAction-icons' onClick={()=> {this.props.toggleFavorite(this.props.id, this.props.category)}}>
+                        <button className='faveAction-icons' onClick={()=> {this.props.deleteFavorite(this.props.id, this.props.category)}}>
                             <i className='fas fa-times'></i>
                         </button>
                         {this.props.link ? 
