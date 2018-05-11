@@ -68,9 +68,10 @@ class Favorites extends Component {
                 <FavoriteItem key={itemStory._id} 
                               id={itemStory._id} 
                               title={itemStory.title} 
-                              date={itemStory.date} 
-                              author={itemStory.author} 
-                              summary={itemStory.summary} 
+                              dateLeader={'published '}
+                              date={itemStory.date}
+                              byline={`By: ${itemStory.author}`} 
+                              details={itemStory.summary} 
                               link={itemStory.link}
                               toggleFavorite={this.toggleFavorite}
                               favorites={this.state.news} />
@@ -84,9 +85,10 @@ class Favorites extends Component {
               <FavoriteItem key={itemStory._id} 
                             id={itemStory._id} 
                             title={itemStory.title} 
-                            date={itemStory.date} 
-                            author={itemStory.author} 
-                            summary={itemStory.summary} 
+                            dateLeader={'happening '}
+                            date={itemStory.date}
+                            byline={`Hosted by: ${itemStory.organizer}`} 
+                            details={itemStory.categories.join(', ')} 
                             link={itemStory.link}
                             favorites={this.state.events} />
             ))}
@@ -99,9 +101,10 @@ class Favorites extends Component {
               <FavoriteItem key={itemStory._id} 
                             id={itemStory._id} 
                             title={itemStory.title} 
-                            date={itemStory.date} 
-                            author={itemStory.author} 
-                            summary={itemStory.summary} 
+                            dateLeader={'shared '}
+                            date={itemStory.postingDate}
+                            byline={`Company: ${itemStory.summary}`}
+                            details={`This position has been upvoted by ${itemStory.thumbsUp} of your colleagues, with ${itemStory.thumbsDown} downvotes.`} 
                             link={itemStory.link}
                             favorites={this.state.jobs} />
             ))}
@@ -114,20 +117,20 @@ class Favorites extends Component {
               <FavoriteItem key={itemStory._id} 
                             id={itemStory._id} 
                             title={itemStory.title} 
-                            date={itemStory.date} 
-                            author={itemStory.author.author} 
-                            summary={itemStory.summary} 
-                            link={itemStory.link}
+                            dateLeader={'posted '}
+                            date={itemStory.postingDate}
+                            byline={`Asked by: ${itemStory.author.author}`}
+                            details={itemStory.summary} 
+                            link={false}
                             favorites={this.state.forum} />
             ))}
           </FavoriteList>
         );
       } else {
         return (
-          <div className='animated fadeIn'>
+          <div className='default-favorites-container animated fadeIn'>
             <h1 className='default-favorites favorites-title'>Welcome to your Favorites</h1>
             <h2 className='default-favorites'>Select a category icon on the left to see your saved content.</h2>
-            <h3 className='default-favorites favorites-tip'>Pro-Mode: You can remove favorited items at any time by clicking the X in the upper right-hand corner.</h3>
           </div>
         );
       }
