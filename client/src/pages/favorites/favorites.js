@@ -79,7 +79,7 @@ class Favorites extends Component {
                               byline={`By: ${itemStory.author}`} 
                               details={itemStory.summary} 
                               link={itemStory.link}
-                              category={'News'}
+                              category={'news'}
                               deleteFavorite={this.deleteFavorite}
                               favorites={this.state.news} />
               ))}
@@ -97,7 +97,7 @@ class Favorites extends Component {
                             byline={`Hosted by: ${itemStory.organizer}`} 
                             details={itemStory.categories.join(', ')} 
                             link={itemStory.link}
-                            category={'Events'}
+                            category={'events'}
                             deleteFavorite={this.deleteFavorite}
                             favorites={this.state.events} />
             ))}
@@ -115,7 +115,7 @@ class Favorites extends Component {
                             byline={`Company: ${itemStory.summary}`}
                             details={`This position has been upvoted by ${itemStory.thumbsUp} of your colleagues, with ${itemStory.thumbsDown} downvotes.`} 
                             link={itemStory.link}
-                            category={'Jobs'}
+                            category={'jobs'}
                             deleteFavorite={this.deleteFavorite}
                             favorites={this.state.jobs} />
             ))}
@@ -133,7 +133,7 @@ class Favorites extends Component {
                             byline={`Asked by: ${itemStory.author.author}`}
                             details={itemStory.summary} 
                             link={false}
-                            category={'Forum'}
+                            category={'forum'}
                             deleteFavorite={this.deleteFavorite}
                             favorites={this.state.forum} />
             ))}
