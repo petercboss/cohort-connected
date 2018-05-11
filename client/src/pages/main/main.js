@@ -72,11 +72,9 @@ class Main extends Component {
       toggleFavorite = (id, item) => {
         if (!this.props.user.news.includes(id) && !this.props.user.events.includes(id) && !this.props.user.jobs.includes(id)) {
           API.favoriteItem(item, this.props.user._id, id)
-            .then(res => console.log(res))
             .catch(err => console.log(err));
         } else {
           API.removeFavorite(item, this.props.user._id, id)
-            .then(res => console.log(res))
             .catch(err => console.log(err));
         }
       };

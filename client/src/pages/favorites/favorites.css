@@ -14,20 +14,23 @@
     padding-left: 0px;
     margin-top: 50px;
     margin-left:-16px;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
     height: 500px;
     width: 100%;
     border: 1px solid #202020; 
     box-shadow: 0px 0px 13px -1px #636363;
 }
+.favorites-data::-webkit-scrollbar {
+    display: none; 
+}
 .default-favorites {
     text-align: center;
-    padding: 40px 20px;
+    padding: 50px 20px;
 }
 .favorites-title {
     width: 70%;
-    margin: 0px auto 25px;
+    margin: 50px auto 25px;
     border-bottom: 5px solid #63C2C2;
     font-family: 'Lato', sans-serif;
 }
@@ -38,7 +41,7 @@
 /* Sidebar Styling */
 .sidenav {
     height: 100%;
-    width: 150px;
+    width: 151px;
     position: absolute;
     z-index: 1;
     top: 0;
