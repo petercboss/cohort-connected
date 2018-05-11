@@ -1,5 +1,5 @@
 /* General List Styling */
-.list-overflow-container {
+.FAVE-list-overflow-container {
     max-height: 498px;
     border-radius: 0px;
     margin-top: 0px;
@@ -7,22 +7,29 @@
     overflow-x: hidden;
     border: 1px solid #bcbcca;
 }
-.list-overflow-container ul {
-  margin: 0;
+.FAVE-list-overflow-container::-webkit-scrollbar {
+  width: 4px;
+  background: transparent;  
 }
-.list-overflow-container li {
+.FAVE-list-overflow-container::-webkit-scrollbar-thumb {
+  background: #64c2c2;
+}
+.FAVE-list-overflow-container ul {
+  margin: 0px;
+}
+.FAVE-list-overflow-container li {
   border-radius: 0px;
   border-left: none;
   border-right: none;
 }
-.list-overflow-container li:first-child {
+.FAVE-list-overflow-container li:first-child {
   border-top: none;
   padding-top: 20px;
 }
-.list-overflow-container li:last-child {
+.FAVE-list-overflow-container li:last-child {
   border-bottom: none;
 }
-li.list-group-item {
+li.FAVE-list-group-item {
   padding-top: 15px;
   margin-right: 0px;
   border-radius: 0%;

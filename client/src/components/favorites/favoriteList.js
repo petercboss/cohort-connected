@@ -5,8 +5,8 @@ import './favoriteList.css'
 
 export const FavoriteList = ({ children }) => {
   return (
-    <div className='list-overflow-container'>
-      <ul className='list-group'>
+    <div className='FAVE-list-overflow-container'>
+      <ul className='FAVE-list-group'>
         {children}
       </ul>
     </div>

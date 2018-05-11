@@ -8,25 +8,10 @@ class FavoriteItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          id: this.props.id,
-          faveDisplay: []
+          id: this.props.id
         };
     }
 
-    setInitialFavorites = () => this.setState({ faveDisplay: this.props.favorites });
-
-    componentDidMount() {
-        this.setInitialFavorites();
-    };
-
-    updateFavoritesDisplay = target => {
-        if (this.state.faveDisplay.includes(target)) {
-            this.setState({ faveDisplay: this.state.faveDisplay.filter((x, i) => x !== target) });
-        } else {
-            this.setState({ faveDisplay: [...this.state.faveDisplay, target] });
-        }
-    };
-    //; this.updateFavoritesDisplay(this.props.id)
     render() {
         return (
             <div className='favListItem'>
