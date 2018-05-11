@@ -45,19 +45,31 @@ class Favorites extends Component {
       this.setState({ user: this.props.user });
     };
 
-    componentDidMount() {
+    loadAllFavorites() {
       this.loadNewsFavorites();
       this.loadJobsFavorites();
       this.loadEventsFavorites();
       this.loadForumFavorites();
+    }
+
+    componentDidMount() {
+      this.loadAllFavorites();
     };
 
     handleCategoryChange = category => {
       this.setState({ favoritesCategory: category });
     };
 
-    toggleFavorite = (id) => {
-      console.log('almost there');
+    toggleFavorite = (id, item) => {
+      if (!this.props.user.news.includes(id) && !this.props.user.events.includes(id) && !this.props.user.jobs.includes(id)) {
+        API.favoriteItem(item, this.props.user._id, id)
+          .then(res => this.loadAllFavorites())
+          .catch(err => console.log(err));
+      } else {
+        API.removeFavorite(item, this.props.user._id, id)
+          .then(res => this.loadAllFavorites())
+          .catch(err => console.log(err));
+      }
     };
 
     renderFavorites = () => {
@@ -73,6 +85,7 @@ class Favorites extends Component {
                               byline={`By: ${itemStory.author}`} 
                               details={itemStory.summary} 
                               link={itemStory.link}
+                              category={'news'}
                               toggleFavorite={this.toggleFavorite}
                               favorites={this.state.news} />
               ))}
@@ -90,6 +103,8 @@ class Favorites extends Component {
                             byline={`Hosted by: ${itemStory.organizer}`} 
                             details={itemStory.categories.join(', ')} 
                             link={itemStory.link}
+                            category={'events'}
+                            toggleFavorite={this.toggleFavorite}
                             favorites={this.state.events} />
             ))}
           </FavoriteList>
@@ -106,6 +121,8 @@ class Favorites extends Component {
                             byline={`Company: ${itemStory.summary}`}
                             details={`This position has been upvoted by ${itemStory.thumbsUp} of your colleagues, with ${itemStory.thumbsDown} downvotes.`} 
                             link={itemStory.link}
+                            category={'jobs'}
+                            toggleFavorite={this.toggleFavorite}
                             favorites={this.state.jobs} />
             ))}
           </FavoriteList>
@@ -122,15 +139,18 @@ class Favorites extends Component {
                             byline={`Asked by: ${itemStory.author.author}`}
                             details={itemStory.summary} 
                             link={false}
+                            category={'forum'}
+                            toggleFavorite={this.toggleFavorite}
                             favorites={this.state.forum} />
             ))}
           </FavoriteList>
         );
       } else {
         return (
-          <div className='default-favorites-container animated fadeIn'>
+          <div className='animated fadeIn'>
             <h1 className='default-favorites favorites-title'>Welcome to your Favorites</h1>
             <h2 className='default-favorites'>Select a category icon on the left to see your saved content.</h2>
+            <h3 className='default-favorites favorites-tip'>Pro-Mode: You can remove favorited items at any time by clicking the X in the upper right-hand corner.</h3>
           </div>
         );
       }
