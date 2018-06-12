@@ -28,9 +28,11 @@ class Messages extends Component {
     };
   }
 
+  //Get all Users and populate column 
   loadUsers = () => {
     API.getUsers()
     .then(res => {
+      //Loop through each user and check to see if their id is in the unreadMessages array
       res.data.forEach((user) => {
         if (this.state.unreadMessages.includes(user._id)) {
           user.unread = 1;
@@ -38,7 +40,8 @@ class Messages extends Component {
           user.unread = 0;
         }
       })
-      this.setState({ 
+      this.setState({
+        //Sort the users by unread value to stack unread users on top 
       users: res.data.sort(function(a,b){ return b.unread - a.unread})
       })
     })
@@ -46,6 +49,7 @@ class Messages extends Component {
   };
 
   componentWillMount() {
+    //utilize component life cyle, ensure user info and unread message are obtained before loading users
     this.setState({user: this.props.user});
     this.getUnreadMessages();
 
@@ -55,41 +59,51 @@ class Messages extends Component {
   }
   
   getUnreadMessages = () => {
+    //Get Unread messages to update unread array
     API.getUser(this.state.user.linkedInId)
     .then((res) => {
       this.setState({unreadMessages:res.data.unreadMessages});
+      //Send Unread Messages up to be passed to Header
       this.props.updateUnreadMessagesHeader(res.data.unreadMessages);
     })
   }
+  //Update selectedUser to know who was clicked on
   currentUser = (currentUser) => {
-    // const updatedUnreadMessages = this.state.unreadMessages.filter(unreadUser => unreadUser !== currentUser._id);
     this.setState({ 
       selectedUser: currentUser
+      //Get the previous messages for current user
       }, this.loadChat1(currentUser));
-
+      //create unread message object
     const removeUnreadMessage = {
       userToUpdate: this.state.user._id,
       userToRemove: currentUser._id
     }
-    
+    //remove the select users id from my unread messages
     API.removeUnreadMessage(removeUnreadMessage)
     .then((res) => {this.setState({unreadMessages: res.data.unreadMessages});
+    //reload user to update unread/read styles
       this.loadUsers(); 
       })
     .catch(err => console.log(err));
+    //unread message check
     this.getUnreadMessages()
   }
-
+  //load messages of selected user
   loadChat1 = (currentUser) => {
+    //create chat id of myid concat selecteduser id
     const chatid1 = this.state.user._id + currentUser._id
+    //ensure user ids registered
     if(chatid1.includes('undefined') === true ){
       return
     }
+    //check if the message exist with id of myid concat selecteduser id
     API.getMessages(chatid1)
     .then(res => {
       if (res.data === null) {
+        //if this chat id does not exist, check the selecteduser id + myid
         this.loadChat2(currentUser)
         } else {
+        //if exists, upate messages 
         this.setState({
           messages: res.data.messages,
           currentChatId: chatid1
@@ -98,6 +112,7 @@ class Messages extends Component {
       })
     .catch(err => console.log(err));
   }
+  //load messages of selected user
   loadChat2 = (currentUser) => {
     let chatid2 = currentUser._id + this.state.user._id;
     let chatid1 = this.state.user._id + currentUser._id;
@@ -105,8 +120,10 @@ class Messages extends Component {
     API.getMessages(chatid2)
     .then(res => {
       if (res.data === null) {
+        //if this chat id does not exist create chat with myid + selected user. this is faster
         this.createChat(chatid1);
         } else {
+          //if exists, upate messages 
           this.setState({
             messages: res.data.messages,
             currentChatId:chatid2
@@ -115,7 +132,7 @@ class Messages extends Component {
       })
     .catch(err => console.log(err));
   }
-
+  //Create Chat id if does not exist
   createChat = (chatid) => {
     API.createMessage(chatid)
     .then(res => {
@@ -126,10 +143,12 @@ class Messages extends Component {
       })
     .catch(err => console.log(err));
   }
-
+  //Update message area when new chat is sent
   updateChat = () => {
+      //ensure an empty message is not sent
       if (typeof this.state.chatMessage === 'object' || this.state.chatMessage.split('').filter(content => content !== ' ').length === 0 ) {
       } else {
+        //create chat message object
         const chatMessage = {
           chatId: this.state.currentChatId,
           senderId: this.state.user._id,
@@ -137,23 +156,23 @@ class Messages extends Component {
           sent: Date.now().toString(),
           chatMessage: this.state.chatMessage
         }
+      //empty chat messages
       this.setState({
         chatMessage:[],
-        messageValid: false,
-        formValid: false
       })
+      //add message to chat document
       API.addMessage(chatMessage)
       .then(res => {
         console.log(res.data)
         this.refreshMessage(this.state.currentChatId)
       })
       .catch(err => console.log(err))
-      //push userid into other id
-      //get current user from db, push my id into their array
+      //create unread Message id
       const unreadMessage = {
             userToUpdate: this.state.selectedUser._id,
             unreadFrom: this.state.user._id
           }
+      //updated selected users unread messages
       API.sendUnread(unreadMessage)
       .then(res => {
         console.log(res.data)
@@ -161,7 +180,7 @@ class Messages extends Component {
       .catch(err => console.log(err));
     }
   }
-
+  //update message area
   refreshMessage = (chatId) => {
     API.getMessages(chatId)
     .then(res => {

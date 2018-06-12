@@ -9,6 +9,7 @@ class ChatUser extends Component {
     render(props) {
         return (
         <li>
+            {/* check if user is unread or not */}
             {(this.props.unreadMessages.filter(unreadId => unreadId === this.props.id).length === 0) ? (
             <Row className='chatRow Unread'>
             <div className={(this.props.selected._id === this.props.id) ? 'selectedChatUser': 'chatUser'} onClick={()=> this.props.currentUser(this.props.user)}>
@@ -22,7 +23,7 @@ class ChatUser extends Component {
                 </Col>
             </div>
         </Row>
-            ) : (
+            ) : ( //Unread Users
                 <Row className='chatRow'>
                 <div className={(this.props.selected._id === this.props.id) ? 'selectedChatUser': 'chatUser'} onClick={()=> this.props.currentUser(this.props.user)}>
                     <Col size="sm-4 md-4 lg-4 xl-4" className="paddingFix">
@@ -42,5 +43,3 @@ class ChatUser extends Component {
     }
 }
 export default ChatUser;
-
-  // <div className="unreadMessage">Unread - {this.props.unreadMessages.filter(unreadId => unreadId === this.props.id).length}</div>
